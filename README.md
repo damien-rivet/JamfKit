@@ -1,5 +1,6 @@
 # JAMFKit #
 
+[![Build Status](https://travis-ci.org/Ethenyl/JAMFKit.svg?branch=master)](https://travis-ci.org/Ethenyl/JAMFKit)
 [![GitHub issues](https://img.shields.io/github/issues/Ethenyl/JAMFKit.svg)](https://github.com/Ethenyl/JAMFKit/issues)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![GitHub license](https://img.shields.io/github/license/Ethenyl/JAMFKit.svg)](https://github.com/Ethenyl/JAMFKit/blob/master/LICENSE)

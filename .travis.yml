@@ -1,6 +1,7 @@
 language: objective-c
 osx_image: xcode8.3
 xcode_workspace: JAMFKit.xcworkspace
+xcode_scheme: JAMFKit-iOS
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
