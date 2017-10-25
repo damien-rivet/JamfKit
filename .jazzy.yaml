@@ -1,0 +1,8 @@
+author: Ethenyl
+author_url: https://github.com/Ethenyl
+github_url: https://github.com/Ethenyl/JAMFKit
+root_url: https://ethenyl.github.io/JAMFKit/
+module: JAMFKit
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-workspace, 'JAMFKit.xcworkspace', -scheme, 'JAMFKit iOS']
