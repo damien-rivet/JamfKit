@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/Ethenyl/JAMFKit.svg?branch=master)](https://travis-ci.org/Ethenyl/JAMFKit)
 [![GitHub issues](https://img.shields.io/github/issues/Ethenyl/JAMFKit.svg)](https://github.com/Ethenyl/JAMFKit/issues)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![GitHub license](https://img.shields.io/github/license/Ethenyl/JAMFKit.svg)](https://github.com/Ethenyl/JAMFKit/blob/master/LICENSE)
 
 JAMFKit is an SDK to communicate with the JSS API from any JAMF host.
@@ -19,7 +18,6 @@ JAMFKit is an SDK to communicate with the JSS API from any JAMF host.
   - [Classes](#classes)
 - [Usage](#usage)
   - [First steps](#first-steps)
-  - [Going further](#going-further)
 - [Contributing](#contributing)
 - [FAQ](#faq)
 - [Credits](#credits)
@@ -27,7 +25,7 @@ JAMFKit is an SDK to communicate with the JSS API from any JAMF host.
 
 ## Features ##
 
-- [x] Full JSON encoding / decoding support (courtesy of [Codable])
+- [x] Full JSON encoding / decoding support
 
 [Codable]: https://developer.apple.com/documentation/swift/codable
 
@@ -49,9 +47,7 @@ github "Ethenyl/JAMFKit" ~> 1.0
 
 Then run the following command:
 
-```bash
-$ carthage update
-```
+`$ carthage update`
 
 ### Cocoapods ###
 
@@ -69,29 +65,27 @@ end
 
 Then run the following command:
 
-```bash
-$ pod install
-```
+`$ pod install`
 
 ## Architecture ##
 
 ### Protocols ###
 
-TODO
+#### Identifiable ####
+
+Represents all objects that can identified from the JAMF host.
 
 ### Classes ###
 
-TODO
+#### JAMFObject ####
+
+Represents the common denominator between all the JAMF objects which must contains at least an `identifier` and a `name` properties.
 
 ## Usage ##
 
 ### First steps ###
 
-TODO
-
-### Going further ###
-
-TODO
+In progress...
 
 ## Contributing ##
 

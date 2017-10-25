@@ -10,7 +10,7 @@ import XCTest
 
 @testable import JAMFKit
 
-class IdentifiableTests: XCTestCase {
+class JAMFObjectTests: XCTestCase {
 
     // MARK: - Tests
 

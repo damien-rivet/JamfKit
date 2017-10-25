@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		52D6D9871BEFF229002C0205 /* JAMFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* JAMFKit.framework */; };
 		DD7502881C68FEDE006590AF /* JAMFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* JAMFKit.framework */; };
-		EDCF37F61FA0D90F008023FC /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF37F51FA0D90F008023FC /* IdentifiableTests.swift */; };
-		EDCF37F71FA0D90F008023FC /* IdentifiableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF37F51FA0D90F008023FC /* IdentifiableTests.swift */; };
-		EDFB53991FA0D70600B24AC2 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB53981FA0D70600B24AC2 /* Identifiable.swift */; };
-		EDFB539A1FA0D70600B24AC2 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB53981FA0D70600B24AC2 /* Identifiable.swift */; };
+		ED684AD11FA0E43900E22081 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED684AD01FA0E43900E22081 /* Identifiable.swift */; };
+		ED684AD21FA0E43B00E22081 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED684AD01FA0E43900E22081 /* Identifiable.swift */; };
+		EDCF37F61FA0D90F008023FC /* JAMFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF37F51FA0D90F008023FC /* JAMFObjectTests.swift */; };
+		EDCF37F71FA0D90F008023FC /* JAMFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCF37F51FA0D90F008023FC /* JAMFObjectTests.swift */; };
+		EDFB53991FA0D70600B24AC2 /* JAMFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB53981FA0D70600B24AC2 /* JAMFObject.swift */; };
+		EDFB539A1FA0D70600B24AC2 /* JAMFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFB53981FA0D70600B24AC2 /* JAMFObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,9 @@
 		AD2FAA261CD0B6D800659CF4 /* JAMFKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JAMFKit.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* JAMFKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JAMFKitTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* JAMFKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JAMFKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDCF37F51FA0D90F008023FC /* IdentifiableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableTests.swift; sourceTree = "<group>"; };
-		EDFB53981FA0D70600B24AC2 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		ED684AD01FA0E43900E22081 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		EDCF37F51FA0D90F008023FC /* JAMFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAMFObjectTests.swift; sourceTree = "<group>"; };
+		EDFB53981FA0D70600B24AC2 /* JAMFObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JAMFObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,7 @@
 		ED951F681FA0D9C40002894B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				ED684AD01FA0E43900E22081 /* Identifiable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -151,7 +155,7 @@
 		EDAAEB6D1FA0C2C5006182A5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EDFB53981FA0D70600B24AC2 /* Identifiable.swift */,
+				EDFB53981FA0D70600B24AC2 /* JAMFObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,7 +170,7 @@
 		EDCF37F41FA0D8F6008023FC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EDCF37F51FA0D90F008023FC /* IdentifiableTests.swift */,
+				EDCF37F51FA0D90F008023FC /* JAMFObjectTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -380,7 +384,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDFB53991FA0D70600B24AC2 /* Identifiable.swift in Sources */,
+				EDFB53991FA0D70600B24AC2 /* JAMFObject.swift in Sources */,
+				ED684AD11FA0E43900E22081 /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCF37F61FA0D90F008023FC /* IdentifiableTests.swift in Sources */,
+				EDCF37F61FA0D90F008023FC /* JAMFObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +401,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDFB539A1FA0D70600B24AC2 /* Identifiable.swift in Sources */,
+				EDFB539A1FA0D70600B24AC2 /* JAMFObject.swift in Sources */,
+				ED684AD21FA0E43B00E22081 /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDCF37F71FA0D90F008023FC /* IdentifiableTests.swift in Sources */,
+				EDCF37F71FA0D90F008023FC /* JAMFObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
