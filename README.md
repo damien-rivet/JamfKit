@@ -1,8 +1,9 @@
 # JAMFKit #
 
-[![Build Status](https://travis-ci.org/Ethenyl/JAMFKit.svg?branch=master)](https://travis-ci.org/Ethenyl/JAMFKit)
-[![GitHub issues](https://img.shields.io/github/issues/Ethenyl/JAMFKit.svg)](https://github.com/Ethenyl/JAMFKit/issues)
-[![GitHub license](https://img.shields.io/github/license/Ethenyl/JAMFKit.svg)](https://github.com/Ethenyl/JAMFKit/blob/master/LICENSE)
+[![Travis branch](https://img.shields.io/travis/Ethenyl/JAMFKit/master.svg?style=flat-square)](https://travis-ci.org/Ethenyl/JAMFKit)
+[![Codecov](https://img.shields.io/codecov/c/github/Ethenyl/JAMFKit.svg?style=flat-square)](https://codecov.io/gh/Ethenyl/JAMFKit)
+[![GitHub issues](https://img.shields.io/github/issues/Ethenyl/JAMFKit.svg?style=flat-square)](https://github.com/Ethenyl/JAMFKit/issues)
+[![GitHub license](https://img.shields.io/github/license/Ethenyl/JAMFKit.svg?style=flat-square)](https://github.com/Ethenyl/JAMFKit/blob/master/LICENSE)
 
 JAMFKit is an SDK to communicate with the JSS API from any JAMF host.
 
@@ -25,10 +26,10 @@ JAMFKit is an SDK to communicate with the JSS API from any JAMF host.
 
 ## Features ##
 
-- [] Full JSON encoding / decoding support for JSS objects
-- [] Default REST services for out-of-the-box usage
-- [] Public REST service protocols to implement custom networking layer
-- [] Centralized manager with interchangeable services based on public protocols
+- [ ] Full JSON encoding / decoding support for JSS objects
+- [ ] Default REST services for out-of-the-box usage
+- [ ] Public REST service protocols to implement custom networking layer
+- [ ] Centralized manager with interchangeable services based on public protocols
 
 ## Requirements ##
 
