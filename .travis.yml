@@ -5,16 +5,12 @@ osx_image: xcode8.3
 env:
   global:
     - WORKSPACE="JAMFKit.xcworkspace"
-    - SCHEME="JAMFKit"
   matrix:  
-    - PLATFORM="macOS" DESTINATION="arch=x86_64" 
-    - PLATFORM="iOS" DESTINATION='platform=iOS Simulator,name=iPhone 7'
+    - PLATFORM="macOS" SCHEME="JAMFKit macOS" DESTINATION="arch=x86_64" 
+    - PLATFORM="iOS" SCHEME="JAMFKit iOS" DESTINATION='platform=iOS Simulator,name=iPhone 7'
 
 before_install:
   - gem install xcpretty
-
-before_script:
-  - open -b com.apple.iphonesimulator
 
 script:
   - set -o pipefail && xcodebuild clean test -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" | xcpretty
