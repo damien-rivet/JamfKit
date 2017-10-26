@@ -2,8 +2,15 @@ language: objective-c
 osx_image: xcode8.3
 
 env:
-  - ACTION=test  PLATFORM=macOS     DESTINATION='platform=OS X'
-  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 7'
+  - PLATFORM=Mac  DESTINATION='platform=OS X'
+  - PLATFORM=iOS  DESTINATION='platform=iOS Simulator,name=iPhone 7'
+
+before_install:
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 
 script:
-  - set -o pipefail && xcodebuild -scheme JAMFKit -destination "$DESTINATION" $ACTION | xcpretty
+  - set -o pipefail
+  - xcodebuild -workspace JAMFKit.xcworkspace -scheme JAMFKit -destination "$DESTINATION" build-for-testing test | xcpretty
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'JAMFKit'

@@ -35,7 +35,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52D6D9851BEFF229002C0205"
-               BuildableName = "JAMFKit-iOS Tests.xctest"
+               BuildableName = "JAMFKit Tests.xctest"
                BlueprintName = "JAMFKit Tests"
                ReferencedContainer = "container:JAMFKit.xcodeproj">
             </BuildableReference>

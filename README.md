@@ -25,9 +25,10 @@ JAMFKit is an SDK to communicate with the JSS API from any JAMF host.
 
 ## Features ##
 
-- [x] Full JSON encoding / decoding support
-
-[Codable]: https://developer.apple.com/documentation/swift/codable
+- [] Full JSON encoding / decoding support for JSS objects
+- [] Default REST services for out-of-the-box usage
+- [] Public REST service protocols to implement custom networking layer
+- [] Centralized manager with interchangeable services based on public protocols
 
 ## Requirements ##
 
@@ -38,6 +39,8 @@ JAMFKit is an SDK to communicate with the JSS API from any JAMF host.
 ## Installation ##
 
 ### Carthage ###
+
+🚧 &nbsp;Under construction 🚧
 
 To integrate JAMFKit into your project, add the following line in your `Cartfile`:
 
@@ -50,6 +53,8 @@ Then run the following command:
 `$ carthage update`
 
 ### Cocoapods ###
+
+🚧 &nbsp;Under construction 🚧
 
 To integrate JAMFKit into your project, add the following line in your `Podfile`:
 
@@ -85,7 +90,7 @@ Represents the common denominator between all the JAMF objects which must contai
 
 ### First steps ###
 
-In progress...
+🚧 &nbsp;Under construction 🚧
 
 ## Contributing ##
 
@@ -100,6 +105,8 @@ None for the moment.
 ## Credits ##
 
 JAMFKit is owned and maintained by [Ethenyl](https://github.com/Ethenyl).
+
+You can join the list by contributing to the repository.
 
 ## License ##
 
