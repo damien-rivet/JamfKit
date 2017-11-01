@@ -10,11 +10,15 @@
 		52D6D9871BEFF229002C0205 /* JAMFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* JAMFKit.framework */; };
 		DD7502881C68FEDE006590AF /* JAMFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* JAMFKit.framework */; };
 		ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
-		ED1D930D1FA20FB0005589F5 /* JAMFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* JAMFObject.swift */; };
+		ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
 		ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
-		ED1D930F1FA20FB6005589F5 /* JAMFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* JAMFObject.swift */; };
-		ED1D93101FA20FB9005589F5 /* JAMFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* JAMFObjectTests.swift */; };
-		ED1D93111FA20FB9005589F5 /* JAMFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* JAMFObjectTests.swift */; };
+		ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
+		ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
+		ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
+		ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3597821FAA11B6006E3B66 /* JSONHelper.swift */; };
+		ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3597821FAA11B6006E3B66 /* JSONHelper.swift */; };
+		ED71F2B51FA9ED890056790C /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED71F2B41FA9ED890056790C /* Mocks.bundle */; };
+		ED71F2B61FA9ED890056790C /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED71F2B41FA9ED890056790C /* Mocks.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +45,11 @@
 		AD2FAA261CD0B6D800659CF4 /* JAMFKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JAMFKit.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* JAMFKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JAMFKitTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* JAMFKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JAMFKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED1D93081FA20F86005589F5 /* JAMFObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JAMFObjectTests.swift; sourceTree = "<group>"; };
+		ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectTests.swift; sourceTree = "<group>"; };
 		ED1D930A1FA20FAB005589F5 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
-		ED1D930C1FA20FB0005589F5 /* JAMFObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JAMFObject.swift; sourceTree = "<group>"; };
+		ED1D930C1FA20FB0005589F5 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		ED3597821FAA11B6006E3B66 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		ED71F2B41FA9ED890056790C /* Mocks.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mocks.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,8 @@
 		8933C7831EB5B7EB000D00A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ED3597811FAA1182006E3B66 /* Helpers */,
+				ED71F2B31FA9ED720056790C /* Resources */,
 				ED1D93071FA20F86005589F5 /* Models */,
 			);
 			path = Tests;
@@ -146,7 +154,7 @@
 		ED1D93051FA20F43005589F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ED1D930C1FA20FB0005589F5 /* JAMFObject.swift */,
+				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,9 +170,25 @@
 		ED1D93071FA20F86005589F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ED1D93081FA20F86005589F5 /* JAMFObjectTests.swift */,
+				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ED3597811FAA1182006E3B66 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ED3597821FAA11B6006E3B66 /* JSONHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ED71F2B31FA9ED720056790C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED71F2B41FA9ED890056790C /* Mocks.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED71F2B51FA9ED890056790C /* Mocks.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED71F2B61FA9ED890056790C /* Mocks.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */,
-				ED1D930D1FA20FB0005589F5 /* JAMFObject.swift in Sources */,
+				ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED1D93111FA20FB9005589F5 /* JAMFObjectTests.swift in Sources */,
+				ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
+				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED1D930F1FA20FB6005589F5 /* JAMFObject.swift in Sources */,
+				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
 				ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,7 +429,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED1D93101FA20FB9005589F5 /* JAMFObjectTests.swift in Sources */,
+				ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
+				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
