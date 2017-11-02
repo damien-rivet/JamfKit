@@ -12,6 +12,11 @@ import XCTest
 
 class BaseObjectTests: XCTestCase {
 
+    // MARK: - Constants
+
+    let defaultIdentifier: UInt = 12345
+    let defaultName = "Test"
+
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
@@ -20,8 +25,9 @@ class BaseObjectTests: XCTestCase {
         let baseObject = BaseObject(json: payload)
 
         XCTAssertNotNil(baseObject)
-        XCTAssertEqual(baseObject?.identifier, 12345)
-        XCTAssertEqual(baseObject?.name, "Test")
+        XCTAssertEqual(baseObject?.identifier, defaultIdentifier)
+        XCTAssertEqual(baseObject?.name, defaultName)
+        XCTAssertEqual(baseObject?.description, "[\(defaultIdentifier). \(defaultName)]")
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
