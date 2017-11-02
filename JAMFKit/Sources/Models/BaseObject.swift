@@ -6,7 +6,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
-public class JAMFObject: Identifiable {
+public class BaseObject: Identifiable {
 
     // MARK: - Properties
 
