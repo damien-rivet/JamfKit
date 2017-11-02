@@ -8,6 +8,8 @@
 
 public final class Site: BaseObject {
 
+    // MARK: - Properties
+
     public override var description: String {
         return "[\(String(describing: Site.self))][\(identifier). \(self.name)]"
     }
