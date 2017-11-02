@@ -6,19 +6,28 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
-public class BaseObject: Identifiable {
+public class BaseObject: Identifiable, CustomStringConvertible {
+
+    // MARK: - Constants
+
+    static let IdentifierKey = "id"
+    static let NameKey = "name"
 
     // MARK: - Properties
 
     let identifier: UInt
     let name: String
 
+    public var description: String {
+        return "[\(identifier). \(self.name)]"
+    }
+
     // MARK: - Initialization
 
     public required init?(json: [String: Any]) {
         guard
-            let identifier = json["identifier"] as? UInt,
-            let name = json["name"] as? String
+            let identifier = json[BaseObject.IdentifierKey] as? UInt,
+            let name = json[BaseObject.NameKey] as? String
             else {
                 return nil
         }
@@ -32,8 +41,8 @@ public class BaseObject: Identifiable {
     func toJSON() -> [String : Any] {
         var json = [String: Any]()
 
-        json["identifier"] = identifier
-        json["name"] = name
+        json[BaseObject.IdentifierKey] = identifier
+        json[BaseObject.NameKey] = name
 
         return json
     }
