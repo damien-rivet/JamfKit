@@ -1,0 +1,43 @@
+{
+    "id": 12345,
+    "name": "JDoe",
+    "ldap_server": {
+        "id": -1,
+        "name": "None"
+    },
+    "extension_attributes": {
+        "extension_attribute": {
+            "id": 0,
+            "name": "Teacher ID",
+            "type": "String",
+            "value": "K52"
+        }
+    },
+    "links": {
+        "computers": {
+            "computer": {
+                "id": 0,
+                "name": "string"
+            }
+        },
+        "peripherals": {
+            "peripheral": {
+                "id": 0,
+                "name": "string"
+            }
+        },
+        "mobile_devices": {
+            "mobile_device": {
+                "id": 0,
+                "name": "string"
+            }
+        },
+        "vpp_assignments": {
+            "vpp_assignment": {
+                "id": 0,
+                "name": "string"
+            }
+        },
+        "total_vpp_code_count": 0
+    }
+}
