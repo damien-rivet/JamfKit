@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
 
   s.source       = { :git => "https://Ethenyl@github.com/Ethenyl/JAMFKit.git", :tag => s.version.to_s }
-  s.source_files  = "Sources/*.swift"
+  s.source_files  = "JAMFKIt/Sources/**/*.swift"
 
   s.frameworks  = "Foundation"
 end
