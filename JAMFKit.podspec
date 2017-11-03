@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "JAMFKit"
-  s.version      = "0.1"
-  s.summary      = "Swifty JSS communication SDK"
+  s.version      = "0.1.0"
+  s.summary      = "A JSS communication framework written in Swift"
   s.description  = <<-DESC
-    A Swift API to interact with a JSS server's API. 
+    A Swift SDK to interact with a JAMF server's JSS API. 
   DESC
   
   s.homepage     = "https://Ethenyl@github.com/Ethenyl/JAMFKit"
