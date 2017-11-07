@@ -22,27 +22,27 @@ class BaseObjectTests: XCTestCase {
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "base_object_valid")!
 
-        let baseObject = BaseObject(json: payload)
+        let actualValue = BaseObject(json: payload)
 
-        XCTAssertNotNil(baseObject)
-        XCTAssertEqual(baseObject?.identifier, defaultIdentifier)
-        XCTAssertEqual(baseObject?.name, defaultName)
-        XCTAssertEqual(baseObject?.description, "[\(defaultIdentifier). \(defaultName)]")
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+        XCTAssertEqual(actualValue?.description, "[\(defaultIdentifier). \(defaultName)]")
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
         let payload = self.payload(for: "base_object_invalid")!
 
-        let baseObject = BaseObject(json: payload)
+        let actualValue = BaseObject(json: payload)
 
-        XCTAssertNil(baseObject)
+        XCTAssertNil(actualValue)
     }
 
-    func testShouldEncode() {
+    func testShouldEncodeToJSON() {
         let payload = self.payload(for: "base_object_valid")!
 
-        let baseObject = BaseObject(json: payload)
-        let encodedObject = baseObject?.toJSON()
+        let actualValue = BaseObject(json: payload)
+        let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)

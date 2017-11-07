@@ -22,27 +22,27 @@ class SiteTests: XCTestCase {
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "site_valid")!
 
-        let site = Site(json: payload)
+        let actualValue = Site(json: payload)
 
-        XCTAssertNotNil(site)
-        XCTAssertEqual(site?.identifier, defaultIdentifier)
-        XCTAssertEqual(site?.name, defaultName)
-        XCTAssertEqual(site?.description, "[Site][\(defaultIdentifier). \(defaultName)]")
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+        XCTAssertEqual(actualValue?.description, "[Site][\(defaultIdentifier). \(defaultName)]")
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
         let payload = self.payload(for: "site_invalid")!
 
-        let site = Site(json: payload)
+        let actualValue = Site(json: payload)
 
-        XCTAssertNil(site)
+        XCTAssertNil(actualValue)
     }
 
-    func testShouldEncode() {
+    func testShouldEncodeToJSON() {
         let payload = self.payload(for: "site_valid")!
 
-        let site = Site(json: payload)
-        let encodedObject = site?.toJSON()
+        let actualValue = Site(json: payload)
+        let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)

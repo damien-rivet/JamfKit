@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		52D6D9871BEFF229002C0205 /* JAMFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* JAMFKit.framework */; };
 		DD7502881C68FEDE006590AF /* JAMFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* JAMFKit.framework */; };
+		ED071F4E1FB33275003FAB0E /* HardwareGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F4D1FB33275003FAB0E /* HardwareGeneral.swift */; };
+		ED071F4F1FB33275003FAB0E /* HardwareGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F4D1FB33275003FAB0E /* HardwareGeneral.swift */; };
+		ED071F521FB33399003FAB0E /* HardwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F511FB33399003FAB0E /* HardwareTests.swift */; };
+		ED071F531FB33399003FAB0E /* HardwareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F511FB33399003FAB0E /* HardwareTests.swift */; };
+		ED071F551FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F541FB333A6003FAB0E /* HardwareGeneralTests.swift */; };
+		ED071F561FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F541FB333A6003FAB0E /* HardwareGeneralTests.swift */; };
+		ED071F581FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F571FB333AF003FAB0E /* HardwareLocationTests.swift */; };
+		ED071F591FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F571FB333AF003FAB0E /* HardwareLocationTests.swift */; };
+		ED071F5B1FB33D11003FAB0E /* HardwareRemoteManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F5A1FB33D11003FAB0E /* HardwareRemoteManagement.swift */; };
+		ED071F5C1FB33D11003FAB0E /* HardwareRemoteManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F5A1FB33D11003FAB0E /* HardwareRemoteManagement.swift */; };
+		ED071F5E1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F5D1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift */; };
+		ED071F5F1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F5D1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift */; };
+		ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F601FB34222003FAB0E /* PreciseDate.swift */; };
+		ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F601FB34222003FAB0E /* PreciseDate.swift */; };
 		ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
 		ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
 		ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
@@ -17,6 +31,12 @@
 		ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
 		ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3597821FAA11B6006E3B66 /* JSONHelper.swift */; };
 		ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3597821FAA11B6006E3B66 /* JSONHelper.swift */; };
+		ED56BB7C1FB1B15700416C1A /* Hardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56BB7B1FB1B15700416C1A /* Hardware.swift */; };
+		ED56BB7D1FB1B15700416C1A /* Hardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56BB7B1FB1B15700416C1A /* Hardware.swift */; };
+		ED56BB7F1FB1B24B00416C1A /* HardwareLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56BB7E1FB1B24B00416C1A /* HardwareLocation.swift */; };
+		ED56BB801FB1B24B00416C1A /* HardwareLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56BB7E1FB1B24B00416C1A /* HardwareLocation.swift */; };
+		ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */; };
+		ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */; };
 		ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A01FAB75CE006259FC /* User.swift */; };
 		ED71F2B51FA9ED890056790C /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED71F2B41FA9ED890056790C /* Mocks.bundle */; };
 		ED71F2B61FA9ED890056790C /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED71F2B41FA9ED890056790C /* Mocks.bundle */; };
@@ -27,6 +47,8 @@
 		ED7383A11FAB75CE006259FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A01FAB75CE006259FC /* User.swift */; };
 		ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
 		ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
+		EDCE84B01FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */; };
+		EDCE84B11FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,15 +75,26 @@
 		AD2FAA261CD0B6D800659CF4 /* JAMFKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JAMFKit.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* JAMFKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JAMFKitTests.plist; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* JAMFKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JAMFKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED071F4D1FB33275003FAB0E /* HardwareGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareGeneral.swift; sourceTree = "<group>"; };
+		ED071F511FB33399003FAB0E /* HardwareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareTests.swift; sourceTree = "<group>"; };
+		ED071F541FB333A6003FAB0E /* HardwareGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareGeneralTests.swift; sourceTree = "<group>"; };
+		ED071F571FB333AF003FAB0E /* HardwareLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareLocationTests.swift; sourceTree = "<group>"; };
+		ED071F5A1FB33D11003FAB0E /* HardwareRemoteManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareRemoteManagement.swift; sourceTree = "<group>"; };
+		ED071F5D1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareRemoteManagementTests.swift; sourceTree = "<group>"; };
+		ED071F601FB34222003FAB0E /* PreciseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciseDate.swift; sourceTree = "<group>"; };
 		ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectTests.swift; sourceTree = "<group>"; };
 		ED1D930A1FA20FAB005589F5 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		ED1D930C1FA20FB0005589F5 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		ED3597821FAA11B6006E3B66 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		ED56BB7B1FB1B15700416C1A /* Hardware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hardware.swift; sourceTree = "<group>"; };
+		ED56BB7E1FB1B24B00416C1A /* HardwareLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareLocation.swift; sourceTree = "<group>"; };
+		ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciseDateTests.swift; sourceTree = "<group>"; };
 		ED71F2B41FA9ED890056790C /* Mocks.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mocks.bundle; sourceTree = "<group>"; };
 		ED73839A1FAB5AD9006259FC /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		ED73839D1FAB5B09006259FC /* SiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTests.swift; sourceTree = "<group>"; };
 		ED7383A01FAB75CE006259FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED7383A21FAB7D5A006259FC /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwarePurchasing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,10 +196,23 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		ED071F501FB33386003FAB0E /* Hardware */ = {
+			isa = PBXGroup;
+			children = (
+				ED071F541FB333A6003FAB0E /* HardwareGeneralTests.swift */,
+				ED071F571FB333AF003FAB0E /* HardwareLocationTests.swift */,
+				ED071F5D1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift */,
+				ED071F511FB33399003FAB0E /* HardwareTests.swift */,
+			);
+			path = Hardware;
+			sourceTree = "<group>";
+		};
 		ED1D93051FA20F43005589F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
+				ED071F601FB34222003FAB0E /* PreciseDate.swift */,
+				ED56BB7A1FB1B14400416C1A /* Hardware */,
 				ED73839A1FAB5AD9006259FC /* Site.swift */,
 				ED7383A01FAB75CE006259FC /* User.swift */,
 			);
@@ -185,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
+				ED071F501FB33386003FAB0E /* Hardware */,
+				ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */,
 				ED73839D1FAB5B09006259FC /* SiteTests.swift */,
 				ED7383A21FAB7D5A006259FC /* UserTests.swift */,
 			);
@@ -197,6 +245,18 @@
 				ED3597821FAA11B6006E3B66 /* JSONHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ED56BB7A1FB1B14400416C1A /* Hardware */ = {
+			isa = PBXGroup;
+			children = (
+				ED56BB7B1FB1B15700416C1A /* Hardware.swift */,
+				ED071F4D1FB33275003FAB0E /* HardwareGeneral.swift */,
+				ED56BB7E1FB1B24B00416C1A /* HardwareLocation.swift */,
+				EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */,
+				ED071F5A1FB33D11003FAB0E /* HardwareRemoteManagement.swift */,
+			);
+			path = Hardware;
 			sourceTree = "<group>";
 		};
 		ED71F2B31FA9ED720056790C /* Resources */ = {
@@ -418,9 +478,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED071F5B1FB33D11003FAB0E /* HardwareRemoteManagement.swift in Sources */,
 				ED7383A11FAB75CE006259FC /* User.swift in Sources */,
 				ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */,
+				ED56BB7C1FB1B15700416C1A /* Hardware.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
+				ED56BB7F1FB1B24B00416C1A /* HardwareLocation.swift in Sources */,
+				ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */,
+				EDCE84B01FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */,
+				ED071F4E1FB33275003FAB0E /* HardwareGeneral.swift in Sources */,
 				ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,8 +495,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED071F5E1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */,
+				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
+				ED071F551FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
+				ED071F521FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839E1FAB5B09006259FC /* SiteTests.swift in Sources */,
+				ED071F581FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
 				ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 			);
@@ -440,9 +511,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED071F5C1FB33D11003FAB0E /* HardwareRemoteManagement.swift in Sources */,
 				ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */,
 				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
+				ED56BB7D1FB1B15700416C1A /* Hardware.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
+				ED56BB801FB1B24B00416C1A /* HardwareLocation.swift in Sources */,
+				ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */,
+				EDCE84B11FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */,
+				ED071F4F1FB33275003FAB0E /* HardwareGeneral.swift in Sources */,
 				ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,8 +528,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED071F5F1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */,
+				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
+				ED071F561FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
+				ED071F531FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839F1FAB5B09006259FC /* SiteTests.swift in Sources */,
+				ED071F591FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
 				ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 			);
