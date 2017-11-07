@@ -29,73 +29,73 @@ class UserTests: XCTestCase {
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "user_valid")!
 
-        let user = User(json: payload)
+        let actualValue = User(json: payload)
 
-        XCTAssertNotNil(user)
-        XCTAssertEqual(user?.identifier, defaultIdentifier)
-        XCTAssertEqual(user?.name, defaultName)
-        XCTAssertEqual(user?.description, "[User][\(defaultIdentifier). \(defaultFullName)]")
-        XCTAssertEqual(user?.fullName, defaultFullName)
-        XCTAssertEqual(user?.email, defaultEmail)
-        XCTAssertEqual(user?.emailAddress, defaultEmailAddress)
-        XCTAssertEqual(user?.phoneNumber, defaultPhoneNumber)
-        XCTAssertEqual(user?.position, defaultPosition)
-        XCTAssertEqual(user?.enableCustomPhotoURL, defaultEnableCustomPhotoURL)
-        XCTAssertEqual(user?.customPhotoURL, defaultCustomPhotoURL)
-        XCTAssertEqual(user?.sites.count, 1)
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier). \(defaultFullName)]")
+        XCTAssertEqual(actualValue?.fullName, defaultFullName)
+        XCTAssertEqual(actualValue?.email, defaultEmail)
+        XCTAssertEqual(actualValue?.emailAddress, defaultEmailAddress)
+        XCTAssertEqual(actualValue?.phoneNumber, defaultPhoneNumber)
+        XCTAssertEqual(actualValue?.position, defaultPosition)
+        XCTAssertEqual(actualValue?.enableCustomPhotoURL, defaultEnableCustomPhotoURL)
+        XCTAssertEqual(actualValue?.customPhotoURL, defaultCustomPhotoURL)
+        XCTAssertEqual(actualValue?.sites.count, 1)
     }
 
     func testShouldInitializeFromIncompleteJSON() {
         let payload = self.payload(for: "user_incomplete")!
 
-        let user = User(json: payload)
+        let actualValue = User(json: payload)
 
-        XCTAssertNotNil(user)
-        XCTAssertEqual(user?.identifier, defaultIdentifier)
-        XCTAssertEqual(user?.name, defaultName)
-        XCTAssertEqual(user?.description, "[User][\(defaultIdentifier). ]")
-        XCTAssertEqual(user?.fullName, "")
-        XCTAssertEqual(user?.email, "")
-        XCTAssertEqual(user?.emailAddress, "")
-        XCTAssertEqual(user?.phoneNumber, "")
-        XCTAssertEqual(user?.position, "")
-        XCTAssertEqual(user?.enableCustomPhotoURL, false)
-        XCTAssertEqual(user?.customPhotoURL, "")
-        XCTAssertEqual(user?.sites.count, 0)
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier). ]")
+        XCTAssertEqual(actualValue?.fullName, "")
+        XCTAssertEqual(actualValue?.email, "")
+        XCTAssertEqual(actualValue?.emailAddress, "")
+        XCTAssertEqual(actualValue?.phoneNumber, "")
+        XCTAssertEqual(actualValue?.position, "")
+        XCTAssertEqual(actualValue?.enableCustomPhotoURL, false)
+        XCTAssertEqual(actualValue?.customPhotoURL, "")
+        XCTAssertEqual(actualValue?.sites.count, 0)
     }
 
     func testShouldInitializeFromJSONWithMultiples() {
         let payload = self.payload(for: "user_multiple")!
 
-        let user = User(json: payload)
+        let actualValue = User(json: payload)
 
-        XCTAssertNotNil(user)
-        XCTAssertEqual(user?.identifier, defaultIdentifier)
-        XCTAssertEqual(user?.name, defaultName)
-        XCTAssertEqual(user?.description, "[User][\(defaultIdentifier). \(defaultFullName)]")
-        XCTAssertEqual(user?.fullName, defaultFullName)
-        XCTAssertEqual(user?.email, defaultEmail)
-        XCTAssertEqual(user?.emailAddress, defaultEmailAddress)
-        XCTAssertEqual(user?.phoneNumber, defaultPhoneNumber)
-        XCTAssertEqual(user?.position, defaultPosition)
-        XCTAssertEqual(user?.enableCustomPhotoURL, defaultEnableCustomPhotoURL)
-        XCTAssertEqual(user?.customPhotoURL, defaultCustomPhotoURL)
-        XCTAssertEqual(user?.sites.count, 2)
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier). \(defaultFullName)]")
+        XCTAssertEqual(actualValue?.fullName, defaultFullName)
+        XCTAssertEqual(actualValue?.email, defaultEmail)
+        XCTAssertEqual(actualValue?.emailAddress, defaultEmailAddress)
+        XCTAssertEqual(actualValue?.phoneNumber, defaultPhoneNumber)
+        XCTAssertEqual(actualValue?.position, defaultPosition)
+        XCTAssertEqual(actualValue?.enableCustomPhotoURL, defaultEnableCustomPhotoURL)
+        XCTAssertEqual(actualValue?.customPhotoURL, defaultCustomPhotoURL)
+        XCTAssertEqual(actualValue?.sites.count, 2)
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
         let payload = self.payload(for: "user_invalid")!
 
-        let user = User(json: payload)
+        let actualValue = User(json: payload)
 
-        XCTAssertNil(user)
+        XCTAssertNil(actualValue)
     }
 
-    func testShouldEncode() {
+    func testShouldEncodeToJSON() {
         let payload = self.payload(for: "user_valid")!
 
-        let user = User(json: payload)
-        let encodedObject = user?.toJSON()
+        let actualValue = User(json: payload)
+        let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)

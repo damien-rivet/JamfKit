@@ -10,7 +10,7 @@ protocol Identifiable {
 
     // MARK: - Initialization
 
-    init?(json: [String: Any])
+    init?(json: [String: Any], node: String)
 
     // MARK: - Functions
 

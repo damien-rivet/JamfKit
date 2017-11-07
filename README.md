@@ -1,10 +1,15 @@
 # JAMFKit #
 
+![Swift](https://img.shields.io/badge/Swift-3.1+-orange.svg?style=flat-square)
+![iOS](https://img.shields.io/badge/iOS-9+-lightgrey.svg?style=flat-square)
+![macOS](https://img.shields.io/badge/macOS-10.10+-lightgrey.svg?style=flat-square)
+
 [![Travis branch](https://img.shields.io/travis/Ethenyl/JAMFKit/master.svg?style=flat-square)](https://travis-ci.org/Ethenyl/JAMFKit)
 [![Codecov](https://img.shields.io/codecov/c/github/Ethenyl/JAMFKit.svg?style=flat-square)](https://codecov.io/gh/Ethenyl/JAMFKit)
-[![GitHub issues](https://img.shields.io/github/issues/Ethenyl/JAMFKit.svg?style=flat-square)](https://github.com/Ethenyl/JAMFKit/issues)
 [![Carthage compatible](https://img.shields.io/badge/carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
+[![CocoaPods](https://img.shields.io/cocoapods/v/JAMFKit.svg?style=flat-square)](https://cocoapods.org/pods/JAMFKit)
 [![CocoaPods](https://img.shields.io/cocoapods/p/JAMFKit.svg?style=flat-square)](https://cocoapods.org/pods/JAMFKit)
+
 [![GitHub license](https://img.shields.io/github/license/Ethenyl/JAMFKit.svg?style=flat-square)](https://github.com/Ethenyl/JAMFKit/blob/master/LICENSE)
 
 `JAMFKit` is an SDK to communicate with the JSS API from any JAMF host.
