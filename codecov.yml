@@ -1,6 +1,10 @@
 coverage:
-  precision: 2
-  round: down
-  range: "50...75"
+  status:
+    project:
+      enabled: yes
+      target: 75%
+    patch:
+      enabled: yes
+      target: 75%
   ignore:
   - "JAMFKit/Tests"
