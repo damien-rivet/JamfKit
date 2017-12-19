@@ -24,7 +24,7 @@ public class BaseObject: Identifiable, CustomStringConvertible {
 
     // MARK: - Initialization
 
-    public required init?(json: [String: Any]) {
+    public required init?(json: [String: Any], node: String = "") {
         guard
             let identifier = json[BaseObject.IdentifierKey] as? UInt,
             let name = json[BaseObject.NameKey] as? String

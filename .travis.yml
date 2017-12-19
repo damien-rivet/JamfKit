@@ -1,6 +1,6 @@
 os: osx
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9.2
 
 env:
   global:

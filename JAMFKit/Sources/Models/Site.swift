@@ -13,10 +13,4 @@ public final class Site: BaseObject {
     public override var description: String {
         return "[\(String(describing: Site.self))][\(identifier). \(self.name)]"
     }
-
-    // MARK: - Initialization
-
-    public required init?(json: [String : Any]) {
-        super.init(json: json)
-    }
 }

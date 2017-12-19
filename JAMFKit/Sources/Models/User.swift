@@ -36,7 +36,7 @@ public final class User: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any]) {
+    public required init?(json: [String : Any], node: String = "") {
         fullName = json[User.FullNameKey] as? String ?? ""
         email = json[User.EmailKey] as? String ?? ""
         emailAddress = json[User.EmailAddressKey] as? String ?? ""
