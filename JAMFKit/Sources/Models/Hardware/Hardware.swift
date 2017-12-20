@@ -2,7 +2,6 @@
 //  Hardware.swift
 //  JAMFKit
 //
-//  Created by Damien Rivet on 07.11.17.
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
