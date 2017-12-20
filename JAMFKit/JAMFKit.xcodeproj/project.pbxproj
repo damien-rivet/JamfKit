@@ -49,6 +49,10 @@
 		ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
 		EDCE84B01FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */; };
 		EDCE84B11FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */; };
+		EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE806D1FEA76EA00169C39 /* Building.swift */; };
+		EDFE806F1FEA76EA00169C39 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE806D1FEA76EA00169C39 /* Building.swift */; };
+		EDFE80711FEA773600169C39 /* BuildingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE80701FEA773600169C39 /* BuildingTests.swift */; };
+		EDFE80721FEA773600169C39 /* BuildingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE80701FEA773600169C39 /* BuildingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,8 @@
 		ED7383A01FAB75CE006259FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED7383A21FAB7D5A006259FC /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwarePurchasing.swift; sourceTree = "<group>"; };
+		EDFE806D1FEA76EA00169C39 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		EDFE80701FEA773600169C39 /* BuildingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,8 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
-				ED071F601FB34222003FAB0E /* PreciseDate.swift */,
+				EDFE806D1FEA76EA00169C39 /* Building.swift */,
 				ED56BB7A1FB1B14400416C1A /* Hardware */,
+				ED071F601FB34222003FAB0E /* PreciseDate.swift */,
 				ED73839A1FAB5AD9006259FC /* Site.swift */,
 				ED7383A01FAB75CE006259FC /* User.swift */,
 			);
@@ -235,6 +242,7 @@
 				ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */,
 				ED73839D1FAB5B09006259FC /* SiteTests.swift */,
 				ED7383A21FAB7D5A006259FC /* UserTests.swift */,
+				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +489,7 @@
 				ED071F5B1FB33D11003FAB0E /* HardwareRemoteManagement.swift in Sources */,
 				ED7383A11FAB75CE006259FC /* User.swift in Sources */,
 				ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */,
+				EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED56BB7C1FB1B15700416C1A /* Hardware.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB7F1FB1B24B00416C1A /* HardwareLocation.swift in Sources */,
@@ -504,6 +513,7 @@
 				ED071F581FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
 				ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
+				EDFE80711FEA773600169C39 /* BuildingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +524,7 @@
 				ED071F5C1FB33D11003FAB0E /* HardwareRemoteManagement.swift in Sources */,
 				ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */,
 				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
+				EDFE806F1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED56BB7D1FB1B15700416C1A /* Hardware.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB801FB1B24B00416C1A /* HardwareLocation.swift in Sources */,
@@ -537,6 +548,7 @@
 				ED071F591FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
 				ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
+				EDFE80721FEA773600169C39 /* BuildingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +619,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -657,7 +669,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
