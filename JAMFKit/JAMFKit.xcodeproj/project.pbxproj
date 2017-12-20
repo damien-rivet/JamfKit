@@ -51,6 +51,10 @@
 		ED7383A11FAB75CE006259FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A01FAB75CE006259FC /* User.swift */; };
 		ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
 		ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
+		ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
+		ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
+		ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
+		ED9EF3F21FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
 		EDCE84B01FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */; };
 		EDCE84B11FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */; };
 		EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE806D1FEA76EA00169C39 /* Building.swift */; };
@@ -104,6 +108,8 @@
 		ED73839D1FAB5B09006259FC /* SiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTests.swift; sourceTree = "<group>"; };
 		ED7383A01FAB75CE006259FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED7383A21FAB7D5A006259FC /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		ED9826F41FEAB14300DD5411 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
+		ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwarePurchasing.swift; sourceTree = "<group>"; };
 		EDFE806D1FEA76EA00169C39 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		EDFE80701FEA773600169C39 /* BuildingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTests.swift; sourceTree = "<group>"; };
@@ -186,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				ED3597811FAA1182006E3B66 /* Helpers */,
-				ED71F2B31FA9ED720056790C /* Resources */,
 				ED1D93071FA20F86005589F5 /* Models */,
+				ED71F2B31FA9ED720056790C /* Resources */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 				ED1B70E21FEA973A00005658 /* Department.swift */,
 				ED56BB7A1FB1B14400416C1A /* Hardware */,
 				ED071F601FB34222003FAB0E /* PreciseDate.swift */,
+				ED9826F41FEAB14300DD5411 /* Printer.swift */,
 				ED73839A1FAB5AD9006259FC /* Site.swift */,
 				ED7383A01FAB75CE006259FC /* User.swift */,
 			);
@@ -249,6 +256,7 @@
 				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
 				ED071F501FB33386003FAB0E /* Hardware */,
 				ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */,
+				ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */,
 				ED73839D1FAB5B09006259FC /* SiteTests.swift */,
 				ED7383A21FAB7D5A006259FC /* UserTests.swift */,
 			);
@@ -499,6 +507,7 @@
 				ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */,
 				EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED56BB7C1FB1B15700416C1A /* Hardware.swift in Sources */,
+				ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB7F1FB1B24B00416C1A /* HardwareLocation.swift in Sources */,
 				ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */,
@@ -517,6 +526,7 @@
 				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED071F551FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */,
 				ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */,
+				ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
 				ED071F521FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839E1FAB5B09006259FC /* SiteTests.swift in Sources */,
@@ -536,6 +546,7 @@
 				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
 				EDFE806F1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED56BB7D1FB1B15700416C1A /* Hardware.swift in Sources */,
+				ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB801FB1B24B00416C1A /* HardwareLocation.swift in Sources */,
 				ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */,
@@ -554,6 +565,7 @@
 				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED071F561FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */,
 				ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */,
+				ED9EF3F21FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
 				ED071F531FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839F1FAB5B09006259FC /* SiteTests.swift in Sources */,
