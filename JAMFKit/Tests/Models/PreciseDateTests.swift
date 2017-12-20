@@ -2,7 +2,6 @@
 //  PreciseDateTests.swift
 //  JAMFKit
 //
-//  Created by Damien Rivet on 08.11.17.
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
@@ -72,6 +71,7 @@ class PreciseDateTests: XCTestCase {
         XCTAssertEqual(encodedObject?.count, 3)
         XCTAssertEqual(encodedObject?[defaultNode] as? String, defaultDateValue)
         XCTAssertEqual(encodedObject?[defaultNode + PreciseDate.EpochKey] as? Double, defaultEpoch)
-        //XCTAssertEqual(encodedObject?[defaultNode + PreciseDate.UTCKey] as? String, defaultDateUTCValue) TOFIX: Output format is not exactly the same
+        // TOFIX: Output format is not exactly the same
+        // XCTAssertEqual(encodedObject?[defaultNode + PreciseDate.UTCKey] as? String, defaultDateUTCValue)
     }
 }
