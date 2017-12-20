@@ -1,0 +1,15 @@
+{
+    "id": 0,
+    "category": "Printers",
+    "uri": "lpd://10.1.20.204/",
+    "CUPS_name": "HP_9th_Floor",
+    "location": "string",
+    "model": "HP LaserJet 500 color MFP M575",
+    "info": "string",
+    "notes": "string",
+    "make_default": true,
+    "use_generic": true,
+    "ppd": "9th_Floor_HP.ppd",
+    "ppd_path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd",
+    "ppd_contents": "string"
+}
