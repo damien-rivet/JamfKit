@@ -2,7 +2,6 @@
 //  HardwareRemoteManagementTests.swift
 //  JAMFKit
 //
-//  Created by Damien Rivet on 08.11.17.
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 

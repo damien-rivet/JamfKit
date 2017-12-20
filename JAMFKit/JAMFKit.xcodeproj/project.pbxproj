@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,10 @@
 		ED071F5F1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F5D1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift */; };
 		ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F601FB34222003FAB0E /* PreciseDate.swift */; };
 		ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F601FB34222003FAB0E /* PreciseDate.swift */; };
+		ED1B70E31FEA973A00005658 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E21FEA973A00005658 /* Department.swift */; };
+		ED1B70E41FEA973A00005658 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E21FEA973A00005658 /* Department.swift */; };
+		ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E51FEA981800005658 /* DepartmentTests.swift */; };
+		ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E51FEA981800005658 /* DepartmentTests.swift */; };
 		ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
 		ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
 		ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
@@ -86,6 +90,8 @@
 		ED071F5A1FB33D11003FAB0E /* HardwareRemoteManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareRemoteManagement.swift; sourceTree = "<group>"; };
 		ED071F5D1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareRemoteManagementTests.swift; sourceTree = "<group>"; };
 		ED071F601FB34222003FAB0E /* PreciseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciseDate.swift; sourceTree = "<group>"; };
+		ED1B70E21FEA973A00005658 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		ED1B70E51FEA981800005658 /* DepartmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTests.swift; sourceTree = "<group>"; };
 		ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectTests.swift; sourceTree = "<group>"; };
 		ED1D930A1FA20FAB005589F5 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		ED1D930C1FA20FB0005589F5 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 			children = (
 				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
 				EDFE806D1FEA76EA00169C39 /* Building.swift */,
+				ED1B70E21FEA973A00005658 /* Department.swift */,
 				ED56BB7A1FB1B14400416C1A /* Hardware */,
 				ED071F601FB34222003FAB0E /* PreciseDate.swift */,
 				ED73839A1FAB5AD9006259FC /* Site.swift */,
@@ -238,11 +245,12 @@
 			isa = PBXGroup;
 			children = (
 				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
+				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
+				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
 				ED071F501FB33386003FAB0E /* Hardware */,
 				ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */,
 				ED73839D1FAB5B09006259FC /* SiteTests.swift */,
 				ED7383A21FAB7D5A006259FC /* UserTests.swift */,
-				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,7 +406,7 @@
 				};
 			};
 			buildConfigurationList = 52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "JAMFKit" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -497,6 +505,7 @@
 				EDCE84B01FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */,
 				ED071F4E1FB33275003FAB0E /* HardwareGeneral.swift in Sources */,
 				ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */,
+				ED1B70E31FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +516,7 @@
 				ED071F5E1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */,
 				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED071F551FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */,
+				ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
 				ED071F521FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839E1FAB5B09006259FC /* SiteTests.swift in Sources */,
@@ -532,6 +542,7 @@
 				EDCE84B11FC3152E0066AA75 /* HardwarePurchasing.swift in Sources */,
 				ED071F4F1FB33275003FAB0E /* HardwareGeneral.swift in Sources */,
 				ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */,
+				ED1B70E41FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +553,7 @@
 				ED071F5F1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */,
 				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED071F561FB333A6003FAB0E /* HardwareGeneralTests.swift in Sources */,
+				ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
 				ED071F531FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839F1FAB5B09006259FC /* SiteTests.swift in Sources */,

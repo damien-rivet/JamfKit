@@ -2,7 +2,6 @@
 //  Building.swift
 //  JAMFKit
 //
-//  Created by Damien Rivet on 20.12.17.
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
