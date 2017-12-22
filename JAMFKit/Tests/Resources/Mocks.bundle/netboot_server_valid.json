@@ -1,0 +1,16 @@
+{
+    "id": 12345,
+    "name": "Netboot Server",
+    "ip_address": "127.0.0.1",
+    "default_image": true,
+    "specific_image": false,
+    "target_platform": "PowerPC",
+    "share_point": "string",
+    "set": "string",
+    "image": "string",
+    "protocol": "nfs",
+    "configure_manually": true,
+    "boot_args": "string",
+    "boot_file": "string",
+    "boot_device": "string"
+}
