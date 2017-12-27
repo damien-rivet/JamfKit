@@ -4,10 +4,10 @@ osx_image: xcode9.2
 
 env:
   global:
-    - WORKSPACE="JAMFKit.xcworkspace"
+    - WORKSPACE="JamfKit.xcworkspace"
   matrix:  
-    - PLATFORM="macOS" SCHEME="JAMFKit macOS" DESTINATION="arch=x86_64" 
-    - PLATFORM="iOS" SCHEME="JAMFKit iOS" DESTINATION='platform=iOS Simulator,name=iPhone 7'
+    - PLATFORM="macOS" SCHEME="JamfKit macOS" DESTINATION="arch=x86_64" 
+    - PLATFORM="iOS" SCHEME="JamfKit iOS" DESTINATION='platform=iOS Simulator,name=iPhone 7'
 
 before_install:
   - gem install xcpretty
@@ -16,4 +16,4 @@ script:
   - set -o pipefail && xcodebuild clean test -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" | xcpretty
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -J 'JAMFKit'
+  - bash <(curl -s https://codecov.io/bash) -J 'JamfKit'
