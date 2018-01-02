@@ -21,7 +21,7 @@ public class Hardware: Identifiable {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         self.general = HardwareGeneral(json: json, node: Hardware.GeneralKey)
         self.location = HardwareLocation(json: json, node: Hardware.LocationKey)
         self.purchasing = HardwarePurchasing(json: json, node: Hardware.PurchasingKey)
@@ -29,7 +29,7 @@ public class Hardware: Identifiable {
 
     // MARK: - Functions
 
-    func toJSON() -> [String : Any] {
+    func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         if let general = general { json[Hardware.GeneralKey] = general.toJSON() }

@@ -23,7 +23,7 @@ public final class PreciseDate: Identifiable {
 
     // MARK: - Initialization
 
-    init?(json: [String : Any], node: String) {
+    init?(json: [String: Any], node: String) {
         self.node = node
 
         if let rawDate = json[node] as? String {
@@ -37,7 +37,7 @@ public final class PreciseDate: Identifiable {
         }
     }
 
-    func toJSON() -> [String : Any] {
+    func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         if let date = date {
