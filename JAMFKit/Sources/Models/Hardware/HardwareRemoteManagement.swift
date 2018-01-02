@@ -20,14 +20,14 @@ public final class HardwareRemoteManagement: Identifiable {
 
     // MARK: - Initialization
 
-    init?(json: [String : Any], node: String = HardwareRemoteManagement.ContainerKey) {
+    init?(json: [String: Any], node: String = HardwareRemoteManagement.ContainerKey) {
         isManaged = json[HardwareRemoteManagement.ManagedKey] as? Bool ?? false
         managementUsername = json[HardwareRemoteManagement.ManagementUsernameKey] as? String ?? ""
     }
 
     // MARK: - Functions
 
-    func toJSON() -> [String : Any] {
+    func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[HardwareRemoteManagement.ManagedKey] = isManaged

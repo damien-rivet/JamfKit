@@ -55,6 +55,10 @@
 		ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
 		ED9EF3F21FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
+		EDA3CFD21FFC100500B22D36 /* SMTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */; };
+		EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */; };
+		EDA3CFD51FFC195100B22D36 /* SMTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */; };
+		EDA3CFD61FFC195100B22D36 /* SMTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */; };
 		EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */; };
 		EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */; };
 		EDB698FE1FECF20800C021E6 /* NetbootServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */; };
@@ -114,6 +118,8 @@
 		ED7383A21FAB7D5A006259FC /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		ED9826F41FEAB14300DD5411 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterTests.swift; sourceTree = "<group>"; };
+		EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServer.swift; path = ../../../JamfKit/Sources/Models/SMTPServer.swift; sourceTree = "<group>"; };
+		EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServerTests.swift; path = ../../../JamfKit/Tests/Models/SMTPServerTests.swift; sourceTree = "<group>"; };
 		EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServer.swift; sourceTree = "<group>"; };
 		EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServerTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* HardwarePurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwarePurchasing.swift; sourceTree = "<group>"; };
@@ -242,6 +248,7 @@
 				ED071F601FB34222003FAB0E /* PreciseDate.swift */,
 				ED9826F41FEAB14300DD5411 /* Printer.swift */,
 				ED73839A1FAB5AD9006259FC /* Site.swift */,
+				EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */,
 				ED7383A01FAB75CE006259FC /* User.swift */,
 			);
 			path = Models;
@@ -267,6 +274,7 @@
 				ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */,
 				ED73839D1FAB5B09006259FC /* SiteTests.swift */,
 				ED7383A21FAB7D5A006259FC /* UserTests.swift */,
+				EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -523,6 +531,7 @@
 				ED071F4E1FB33275003FAB0E /* HardwareGeneral.swift in Sources */,
 				ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */,
 				EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
+				EDA3CFD21FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				ED1B70E31FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +550,7 @@
 				ED071F521FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839E1FAB5B09006259FC /* SiteTests.swift in Sources */,
 				ED071F581FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
+				EDA3CFD51FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80711FEA773600169C39 /* BuildingTests.swift in Sources */,
@@ -564,6 +574,7 @@
 				ED071F4F1FB33275003FAB0E /* HardwareGeneral.swift in Sources */,
 				ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */,
 				EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
+				EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				ED1B70E41FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,6 +593,7 @@
 				ED071F531FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839F1FAB5B09006259FC /* SiteTests.swift in Sources */,
 				ED071F591FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
+				EDA3CFD61FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80721FEA773600169C39 /* BuildingTests.swift in Sources */,

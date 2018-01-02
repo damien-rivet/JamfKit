@@ -31,7 +31,7 @@ public final class HardwareLocation: Identifiable {
 
     // MARK: - Initialization
 
-    init?(json: [String : Any], node: String = "") {
+    init?(json: [String: Any], node: String = "") {
         username = json[HardwareLocation.UsernameKey] as? String
         realName = json[HardwareLocation.RealNameKey] as? String
         emailAddress = json[HardwareLocation.EmailAddressKey] as? String
@@ -44,7 +44,7 @@ public final class HardwareLocation: Identifiable {
 
     // MARK: - Functions
 
-    func toJSON() -> [String : Any] {
+    func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[HardwareLocation.UsernameKey] = username
