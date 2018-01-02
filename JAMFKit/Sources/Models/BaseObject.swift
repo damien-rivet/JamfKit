@@ -37,7 +37,7 @@ public class BaseObject: Identifiable, CustomStringConvertible {
 
     // MARK: - Functions
 
-    func toJSON() -> [String : Any] {
+    func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[BaseObject.IdentifierKey] = identifier

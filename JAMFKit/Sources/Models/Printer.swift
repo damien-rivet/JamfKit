@@ -43,7 +43,7 @@ public final class Printer: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         category = json[Printer.CategoryKey] as? String ?? ""
         uri = json[Printer.UriKey] as? String ?? ""
         cupsName = json[Printer.CupsNameKey] as? String ?? ""
@@ -62,7 +62,7 @@ public final class Printer: BaseObject {
 
     // MARK: - Functions
 
-    override func toJSON() -> [String : Any] {
+    override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[Printer.CategoryKey] = category

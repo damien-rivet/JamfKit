@@ -43,7 +43,7 @@ public final class NetbootServer: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         ipAddress = json[NetbootServer.IpAddressKey] as? String ?? ""
         isDefaultImage = json[NetbootServer.DefaultImageKey] as? Bool ?? false
         isSpecificImage = json[NetbootServer.SpecificImageKey] as? Bool ?? false
@@ -62,7 +62,7 @@ public final class NetbootServer: BaseObject {
 
     // MARK: - Functions
 
-    override func toJSON() -> [String : Any] {
+    override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[NetbootServer.IpAddressKey] = ipAddress

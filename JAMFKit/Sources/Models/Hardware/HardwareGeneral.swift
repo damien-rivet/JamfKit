@@ -63,7 +63,7 @@ public final class HardwareGeneral: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         guard let rootNode = json[node] as? [String: Any] else {
             return nil
         }
@@ -98,7 +98,7 @@ public final class HardwareGeneral: BaseObject {
 
     // MARK: - Functions
 
-    override func toJSON() -> [String : Any] {
+    override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[HardwareGeneral.MacAddressKey] = macAddress
