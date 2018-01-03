@@ -1,6 +1,6 @@
 # JamfKit #
 
-<p align="center"><img src="Assets/JamfKit.png" alt="JamfKit" width="256" height="256"></p>
+<p align="center"><img src="Assets/JamfKit_256.png" alt="JamfKit"></p>
 
 ![Swift](https://img.shields.io/badge/Swift-3.1+-lightgrey.svg?style=flat-square)
 ![iOS](https://img.shields.io/badge/iOS-9+-lightgrey.svg?style=flat-square)
@@ -13,7 +13,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/Ethenyl/JamfKit.svg?style=flat-square)](https://github.com/Ethenyl/JamfKit/blob/master/LICENSE)
 
-`JamfKit` is an iOS / macOS framework to communicate with the JSS API offered by any JAMF host.
+`JamfKit` is an iOS / macOS framework to communicate with the JSS API offered by any Jamf host.
 
 ## Summary ##
 
