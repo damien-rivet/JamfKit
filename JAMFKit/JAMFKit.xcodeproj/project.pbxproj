@@ -55,6 +55,12 @@
 		ED7383A11FAB75CE006259FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A01FAB75CE006259FC /* User.swift */; };
 		ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
 		ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
+		ED7BF1051FFCD9C100F47566 /* Computer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1041FFCD9C100F47566 /* Computer.swift */; };
+		ED7BF1061FFCD9C100F47566 /* Computer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1041FFCD9C100F47566 /* Computer.swift */; };
+		ED7BF1081FFCDA9100F47566 /* ComputerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */; };
+		ED7BF1091FFCDA9100F47566 /* ComputerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */; };
+		ED7BF10B1FFCE03400F47566 /* HardwarePurchasingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF10A1FFCE03400F47566 /* HardwarePurchasingTests.swift */; };
+		ED7BF10C1FFCE03400F47566 /* HardwarePurchasingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF10A1FFCE03400F47566 /* HardwarePurchasingTests.swift */; };
 		ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
@@ -122,6 +128,9 @@
 		ED73839D1FAB5B09006259FC /* SiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTests.swift; sourceTree = "<group>"; };
 		ED7383A01FAB75CE006259FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED7383A21FAB7D5A006259FC /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		ED7BF1041FFCD9C100F47566 /* Computer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computer.swift; sourceTree = "<group>"; };
+		ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerTests.swift; sourceTree = "<group>"; };
+		ED7BF10A1FFCE03400F47566 /* HardwarePurchasingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwarePurchasingTests.swift; sourceTree = "<group>"; };
 		ED9826F41FEAB14300DD5411 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterTests.swift; sourceTree = "<group>"; };
 		EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServer.swift; path = ../../../JamfKit/Sources/Models/SMTPServer.swift; sourceTree = "<group>"; };
@@ -237,6 +246,7 @@
 			children = (
 				ED071F541FB333A6003FAB0E /* HardwareGeneralTests.swift */,
 				ED071F571FB333AF003FAB0E /* HardwareLocationTests.swift */,
+				ED7BF10A1FFCE03400F47566 /* HardwarePurchasingTests.swift */,
 				ED071F5D1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift */,
 				ED071F511FB33399003FAB0E /* HardwareTests.swift */,
 			);
@@ -248,6 +258,7 @@
 			children = (
 				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
 				EDFE806D1FEA76EA00169C39 /* Building.swift */,
+				ED7BF1041FFCD9C100F47566 /* Computer.swift */,
 				ED1B70E21FEA973A00005658 /* Department.swift */,
 				ED56BB7A1FB1B14400416C1A /* Hardware */,
 				EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */,
@@ -274,6 +285,7 @@
 			children = (
 				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
 				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
+				ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */,
 				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
 				ED071F501FB33386003FAB0E /* Hardware */,
 				EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */,
@@ -541,6 +553,7 @@
 				ED3E04801FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDA3CFD21FFC100500B22D36 /* SMTPServer.swift in Sources */,
+				ED7BF1051FFCD9C100F47566 /* Computer.swift in Sources */,
 				ED1B70E31FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7BF1081FFCDA9100F47566 /* ComputerTests.swift in Sources */,
 				ED3E04831FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */,
 				EDB698FE1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
 				ED071F5E1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */,
@@ -557,6 +571,7 @@
 				ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */,
 				ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
+				ED7BF10B1FFCE03400F47566 /* HardwarePurchasingTests.swift in Sources */,
 				ED071F521FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839E1FAB5B09006259FC /* SiteTests.swift in Sources */,
 				ED071F581FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
@@ -586,6 +601,7 @@
 				ED3E04811FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */,
+				ED7BF1061FFCD9C100F47566 /* Computer.swift in Sources */,
 				ED1B70E41FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,6 +610,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7BF1091FFCDA9100F47566 /* ComputerTests.swift in Sources */,
 				ED3E04841FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */,
 				EDB698FF1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
 				ED071F5F1FB33DF9003FAB0E /* HardwareRemoteManagementTests.swift in Sources */,
@@ -602,6 +619,7 @@
 				ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */,
 				ED9EF3F21FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
+				ED7BF10C1FFCE03400F47566 /* HardwarePurchasingTests.swift in Sources */,
 				ED071F531FB33399003FAB0E /* HardwareTests.swift in Sources */,
 				ED73839F1FAB5B09006259FC /* SiteTests.swift in Sources */,
 				ED071F591FB333AF003FAB0E /* HardwareLocationTests.swift in Sources */,
