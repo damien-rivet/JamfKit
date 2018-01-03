@@ -1,18 +1,19 @@
-# JAMFKit #
+# JamfKit #
 
-![Swift](https://img.shields.io/badge/Swift-3.1+-orange.svg?style=flat-square)
+<p align="center"><img src="Assets/JamfKit.png" alt="JamfKit" width="256" height="256"></p>
+
+![Swift](https://img.shields.io/badge/Swift-3.1+-lightgrey.svg?style=flat-square)
 ![iOS](https://img.shields.io/badge/iOS-9+-lightgrey.svg?style=flat-square)
 ![macOS](https://img.shields.io/badge/macOS-10.10+-lightgrey.svg?style=flat-square)
 
-[![Travis branch](https://img.shields.io/travis/Ethenyl/JAMFKit/master.svg?style=flat-square)](https://travis-ci.org/Ethenyl/JAMFKit)
-[![Codecov](https://img.shields.io/codecov/c/github/Ethenyl/JAMFKit.svg?style=flat-square)](https://codecov.io/gh/Ethenyl/JAMFKit)
+[![Travis branch](https://img.shields.io/travis/Ethenyl/JamfKit/master.svg?style=flat-square)](https://travis-ci.org/Ethenyl/JamfKit)
+[![Codecov](https://img.shields.io/codecov/c/github/Ethenyl/JamfKit.svg?style=flat-square)](https://codecov.io/gh/Ethenyl/JamfKit)
 [![Carthage compatible](https://img.shields.io/badge/carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
-[![CocoaPods](https://img.shields.io/cocoapods/v/JAMFKit.svg?style=flat-square)](https://cocoapods.org/pods/JAMFKit)
-[![CocoaPods](https://img.shields.io/cocoapods/p/JAMFKit.svg?style=flat-square)](https://cocoapods.org/pods/JAMFKit)
+[![CocoaPods](https://img.shields.io/cocoapods/v/JAMFKit.svg?style=flat-square)](https://cocoapods.org/pods/JamfKit)
 
-[![GitHub license](https://img.shields.io/github/license/Ethenyl/JAMFKit.svg?style=flat-square)](https://github.com/Ethenyl/JAMFKit/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/Ethenyl/JamfKit.svg?style=flat-square)](https://github.com/Ethenyl/JamfKit/blob/master/LICENSE)
 
-`JAMFKit` is an SDK to communicate with the JSS API from any JAMF host.
+`JamfKit` is an iOS / macOS framework to communicate with the JSS API offered by any JAMF host.
 
 ## Summary ##
 
@@ -33,25 +34,28 @@
 
 ## Features ##
 
-- [ ] Full JSON encoding / decoding support for JSS objects
-- [ ] Default REST services for out-of-the-box usage
-- [ ] Public REST service protocols to implement custom networking layer
-- [ ] Centralized manager with interchangeable services based on public protocols
+🚧 &nbsp;**In progress, list will be updated as features are implemented** 🚧
 
-## Requirements ##
+- [ ] Includes JSON encoding / decoding support for JSS objects
+- [ ] Includes Objective-C support
+- [ ] Includes Swift 4 support
+- [ ] Includes ready-for-consumption URLRequest for JSS endpoints
+- [ ] Includes demonstration playgrounds
+
+## Compatibilities ##
 
 - iOS 9+ / macOS 10.10+
 - XCode 8.3+
-- Swift 3.1+
+- Objective-C / Swift 3.1+
 
 ## Installation ##
 
 ### Carthage ###
 
-To integrate `JAMFKit` into your project, add the following line in your `Cartfile`:
+To integrate `JamfKit` into your project, add the following line in your `Cartfile`:
 
 ```ogdl
-github "Ethenyl/JAMFKit"
+github "Ethenyl/JamfKit"
 ```
 
 Then run the following command:
@@ -60,7 +64,7 @@ Then run the following command:
 
 ### Cocoapods ###
 
-To integrate `JAMFKit` into your project, add the following line in your `Podfile`:
+To integrate `JamfKit` into your project, add the following line in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -68,7 +72,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'JAMFKit'
+    pod 'JamfKit'
 end
 ```
 
@@ -93,9 +97,41 @@ Represents all objects that can be received from / sent to the JAMF host. Its ex
 
 Represents the common denominator between all the JAMF objects which must contains at least an `identifier` and a `name` properties.
 
+#### Building ####
+
+Represents a physical building.
+
+#### Computer ####
+
+Represents a JAMF computer, contains general / location / purchasing information.
+
+#### Department ####
+
+Represents a physical department.
+
+#### Netboot server ####
+
+Represents a physical netboot server, contains information about the server and it's configuration.
+
+#### Network segment ####
+
+Represents a physical network segment, contains information about the segment and it's configuration.
+
+#### Precise date ####
+
+Represents a logical date within JSS api, contains 3 properties, the date itself, an epoch version of the date and an UTC version of the date.
+
+#### Printer ####
+
+Represents a physical printer, contains information about the printer and it's configuration.
+
 #### Site ####
 
 Represents a physical location (building, office, etc.).
+
+#### SMTP server ####
+
+Represents a physical SMTP server, contains information about the server and it's configuration.
 
 #### User ####
 
@@ -105,13 +141,13 @@ Represents a JAMF user and contains the identification properties that are requi
 
 ### First steps ###
 
-🚧 &nbsp;Under construction 🚧
+🚧 &nbsp;**In progress, will be updated when URL requests will be available** 🚧
 
 ## Contributing ##
 
-If you think that something is either wrong or missing, please check the [issues](https://github.com/Ethenyl/JAMFKit/issues) and if you can't find anything related to your find, please file a new issue.
+If you think that something is either wrong or missing, please check the [issues](https://github.com/Ethenyl/JamfKit/issues) and if you can't find anything related to your find, please file a new issue.
 
-If you feel like contributing to the repository (either to solve an issue or just to improve it), feel free to clone it and open a pull-request with your changes.
+If you feel like contributing to the repository (either to solve an issue or just to improve the codebase), feel free to clone it and open a pull-request with your changes.
 
 ## FAQ ##
 
@@ -119,10 +155,10 @@ None for the moment.
 
 ## Credits ##
 
-`JAMFKit` is owned and maintained by [Ethenyl](https://github.com/Ethenyl).
+`JamfKit` is owned and maintained by [Ethenyl](https://github.com/Ethenyl).
 
 You can join the list by contributing to the repository.
 
 ## License ##
 
-`JAMFKit` is released under the MIT license. [See LICENSE](https://github.com/Ethenyl/JAMFKit/blob/master/LICENSE) for details.
+`JamfKit` is released under the MIT license. [See LICENSE](https://github.com/Ethenyl/JamfKit/blob/master/LICENSE) for details.
