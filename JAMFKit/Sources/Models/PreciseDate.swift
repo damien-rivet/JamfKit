@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Represents a logical date within JSS api, contains 3 properties, the date itself, an epoch version of the date and an UTC version of the date.
 public final class PreciseDate: Identifiable {
 
     // MARK: - Constants

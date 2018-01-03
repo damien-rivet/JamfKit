@@ -5,6 +5,7 @@
 //  Copyright © 2018 JAMFKit. All rights reserved.
 //
 
+/// Represents a physical SMTP server, contains information about the server and it's configuration.
 public final class SMTPServer: Identifiable, CustomStringConvertible {
 
     // MARK: - Constants

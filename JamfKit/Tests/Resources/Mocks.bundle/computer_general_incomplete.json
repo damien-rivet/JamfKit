@@ -1,6 +1,6 @@
 {
     "id": 12345,
-    "name": "hardware",
+    "name": "computer",
     "mac_address": "E0:AC:CB:97:36:G4",
     "alt_mac_address": "E0:AC:CB:97:36:G4",
     "ip_address": "10.1.1.1",
@@ -9,17 +9,7 @@
     "udid": "55900BDC-347C-58B1-D249-F32244B11D30",
     "jamf_version": "9.99.0-t1494340586",
     "platform": "Mac",
-    "barcode_1": "string",
-    "barcode_2": "string",
-    "asset_tag": "string",
-    "remote_management": {
-        "managed": true,
-        "management_username": "username"
-    },
     "mdm_capable": true,
-    "mdm_capable_users": {
-        "mdm_capable_user": "string"
-    },
     "report_date": "2017-07-07T18:37:04.000Z",
     "report_date_epoch": 1499470624555,
     "report_date_utc": "2017-07-07T18:37:04.555-0500",
@@ -31,14 +21,8 @@
     "initial_entry_date_utc": "2017-07-07T18:37:04.555-0500",
     "last_cloud_backup_date_epoch": 1499470624555,
     "last_cloud_backup_date_utc": "2017-07-07T18:37:04.555-0500",
-    "last_enrolled_date_epoch": 1499470624555,
-    "last_enrolled_date_utc": "2017-07-07T18:37:04.555-0500",
     "distribution_point": "string",
     "sus": "string",
     "netboot_server": "string",
-    "site": {
-        "id": 0,
-        "name": "None"
-    },
     "itunes_store_account_is_active": true
 }

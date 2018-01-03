@@ -86,7 +86,7 @@ Then run the following command:
 
 #### Identifiable ####
 
-Represents all objects that can be received from / sent to the JAMF host. Its exposes two criticals elements:
+Represents all objects that can be received from / sent to the Jamf host. Its exposes two criticals elements:
 
 - An failable initializer that takes a JSON payload and return the instantiated `Identifiable` object
 - A function to return the JSON payload that represents the instance of the `Identifiable` object
@@ -95,7 +95,7 @@ Represents all objects that can be received from / sent to the JAMF host. Its ex
 
 #### BaseObject ####
 
-Represents the common denominator between all the JAMF objects which must contains at least an `identifier` and a `name` properties.
+Represents the common denominator between all the JSS objects which must contains at least an `identifier` and a `name` properties.
 
 #### Building ####
 
@@ -103,11 +103,15 @@ Represents a physical building.
 
 #### Computer ####
 
-Represents a JAMF computer, contains general / location / purchasing information.
+Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.
 
 #### Department ####
 
 Represents a physical department.
+
+#### Mobile device ####
+
+Represents a Jamf managed mobile device, contains the general information about the device.
 
 #### Netboot server ####
 
@@ -135,7 +139,7 @@ Represents a physical SMTP server, contains information about the server and it'
 
 #### User ####
 
-Represents a JAMF user and contains the identification properties that are required to contact the actual user and identify the hardware assigned to him.
+Represents a Jamf user and contains the identification properties that are required to contact the actual user and identify the hardware devices assigned to him / her.
 
 ## Usage ##
 

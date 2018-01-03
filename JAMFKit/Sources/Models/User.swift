@@ -5,6 +5,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
+/// Represents a Jamf user and contains the identification properties that are required to contact the actual user and identify the hardware devices assigned to him / her.
 public final class User: BaseObject {
 
     // MARK: - Constants

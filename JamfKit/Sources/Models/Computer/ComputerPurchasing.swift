@@ -5,7 +5,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
-public final class HardwarePurchasing: Identifiable {
+public final class ComputerPurchasing: Identifiable {
 
     // MARK: - Constants
 
@@ -40,18 +40,18 @@ public final class HardwarePurchasing: Identifiable {
     // MARK: - Initialization
 
     init?(json: [String: Any], node: String = "") {
-        isPurchased = json[HardwarePurchasing.IsPurchasedKey] as? Bool ?? false
-        isLeased = json[HardwarePurchasing.IsLeasedKey] as? Bool ?? false
-        poNumber = json[HardwarePurchasing.PoNumberKey] as? String ?? ""
-        vendor = json[HardwarePurchasing.VendorKey] as? String ?? ""
-        appleCareIdentifier = json[HardwarePurchasing.AppleCareIdentifierKey] as? String ?? ""
-        purchasePrice = json[HardwarePurchasing.PurchasePriceKey] as? String ?? ""
-        purchasingAccount = json[HardwarePurchasing.PurchasingAccountKey] as? String ?? ""
-        purchasingContact = json[HardwarePurchasing.PurchasingContactKey] as? String ?? ""
-        poDate = PreciseDate(json: json, node: HardwarePurchasing.PoDateKey)
-        warrantyExpires = PreciseDate(json: json, node: HardwarePurchasing.WarrantyExpiresKey)
-        leaseExpires = PreciseDate(json: json, node: HardwarePurchasing.LeaseExpiresKey)
-        lifeExpectancy = json[HardwarePurchasing.LifeExpectancyKey] as? UInt ?? 0
+        isPurchased = json[ComputerPurchasing.IsPurchasedKey] as? Bool ?? false
+        isLeased = json[ComputerPurchasing.IsLeasedKey] as? Bool ?? false
+        poNumber = json[ComputerPurchasing.PoNumberKey] as? String ?? ""
+        vendor = json[ComputerPurchasing.VendorKey] as? String ?? ""
+        appleCareIdentifier = json[ComputerPurchasing.AppleCareIdentifierKey] as? String ?? ""
+        purchasePrice = json[ComputerPurchasing.PurchasePriceKey] as? String ?? ""
+        purchasingAccount = json[ComputerPurchasing.PurchasingAccountKey] as? String ?? ""
+        purchasingContact = json[ComputerPurchasing.PurchasingContactKey] as? String ?? ""
+        poDate = PreciseDate(json: json, node: ComputerPurchasing.PoDateKey)
+        warrantyExpires = PreciseDate(json: json, node: ComputerPurchasing.WarrantyExpiresKey)
+        leaseExpires = PreciseDate(json: json, node: ComputerPurchasing.LeaseExpiresKey)
+        lifeExpectancy = json[ComputerPurchasing.LifeExpectancyKey] as? UInt ?? 0
     }
 
     // MARK: - Functions
@@ -59,14 +59,14 @@ public final class HardwarePurchasing: Identifiable {
     func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[HardwarePurchasing.IsPurchasedKey] = isPurchased
-        json[HardwarePurchasing.IsLeasedKey] = isLeased
-        json[HardwarePurchasing.PoNumberKey] = poNumber
-        json[HardwarePurchasing.VendorKey] = vendor
-        json[HardwarePurchasing.AppleCareIdentifierKey] = appleCareIdentifier
-        json[HardwarePurchasing.PurchasePriceKey] = purchasePrice
-        json[HardwarePurchasing.PurchasingAccountKey] = purchasingAccount
-        json[HardwarePurchasing.PurchasingContactKey] = purchasingContact
+        json[ComputerPurchasing.IsPurchasedKey] = isPurchased
+        json[ComputerPurchasing.IsLeasedKey] = isLeased
+        json[ComputerPurchasing.PoNumberKey] = poNumber
+        json[ComputerPurchasing.VendorKey] = vendor
+        json[ComputerPurchasing.AppleCareIdentifierKey] = appleCareIdentifier
+        json[ComputerPurchasing.PurchasePriceKey] = purchasePrice
+        json[ComputerPurchasing.PurchasingAccountKey] = purchasingAccount
+        json[ComputerPurchasing.PurchasingContactKey] = purchasingContact
 
         if let poDate = poDate {
             json.merge(poDate.toJSON()) { (_, new) in new }
@@ -80,7 +80,7 @@ public final class HardwarePurchasing: Identifiable {
             json.merge(leaseExpires.toJSON()) { (_, new) in new }
         }
 
-        json[HardwarePurchasing.LifeExpectancyKey] = lifeExpectancy
+        json[ComputerPurchasing.LifeExpectancyKey] = lifeExpectancy
 
         return json
     }

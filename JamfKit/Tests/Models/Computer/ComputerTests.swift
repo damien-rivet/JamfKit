@@ -31,8 +31,8 @@ class ComputerTests: XCTestCase {
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.description, "[Computer]")
         XCTAssertNil(actualValue?.general)
-        XCTAssertNotNil(actualValue?.location)
-        XCTAssertNotNil(actualValue?.purchasing)
+        XCTAssertNil(actualValue?.location)
+        XCTAssertNil(actualValue?.purchasing)
     }
 
     func testShouldEncodeToJSON() {
