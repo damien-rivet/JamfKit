@@ -1,6 +1,7 @@
 {
     "general": {
         "id": 12345,
+        "name": "computer",
         "mac_address": "E0:AC:CB:97:36:G4",
         "alt_mac_address": "E0:AC:CB:97:36:G4",
         "ip_address": "10.1.1.1",
@@ -41,5 +42,37 @@
             "name": "None"
         },
         "itunes_store_account_is_active": true
+    },
+    "location": {
+        "username": "JBetty",
+        "realname": "Betty Jackson",
+        "real_name": "Betty Jackson",
+        "email_address": "jbetty@company.com",
+        "position": "Systems Engineer",
+        "phone": "123-555-6789",
+        "phone_number": "123-555-6789",
+        "department": "Sales Staff",
+        "building": "New York Office",
+        "room": 1159
+    },
+    "purchasing": {
+        "is_purchased": true,
+        "is_leased": true,
+        "po_number": "string",
+        "vendor": "string",
+        "applecare_id": "string",
+        "purchase_price": "string",
+        "purchasing_account": "string",
+        "po_date": "string",
+        "po_date_epoch": 0,
+        "po_date_utc": "string",
+        "warranty_expires": "string",
+        "warranty_expires_epoch": 0,
+        "warranty_expires_utc": "string",
+        "lease_expires": "string",
+        "lease_expires_epoch": 0,
+        "lease_expires_utc": "string",
+        "life_expectancy": 0,
+        "purchasing_contact": "string"
     }
 }

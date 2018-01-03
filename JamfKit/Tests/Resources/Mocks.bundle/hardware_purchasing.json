@@ -1,0 +1,20 @@
+{
+    "is_purchased": true,
+    "is_leased": true,
+    "po_number": "po_number",
+    "vendor": "vendor",
+    "applecare_id": "applecare_id",
+    "purchase_price": "purchase_price",
+    "purchasing_account": "purchasing_account",
+    "purchasing_contact": "purchasing_contact",
+    "po_date": "2017-07-07T18:37:04.000Z",
+    "po_date_epoch": 1499470624555,
+    "po_date_utc": "2017-07-07T18:37:04.555-0500",
+    "warranty_expires": "2017-07-07T18:37:04.000Z",
+    "warranty_expires_epoch": 1499470624555,
+    "warranty_expires_utc": "2017-07-07T18:37:04.555-0500",
+    "lease_expires": "2017-07-07T18:37:04.000Z",
+    "lease_expires_epoch": 1499470624555,
+    "lease_expires_utc": "2017-07-07T18:37:04.555-0500",
+    "life_expectancy": 0
+}
