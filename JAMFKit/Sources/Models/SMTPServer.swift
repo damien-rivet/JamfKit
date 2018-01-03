@@ -23,22 +23,22 @@ public final class SMTPServer: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
-    var isEnabled: Bool?
-    var host: String?
-    var port: UInt?
-    var timeout: UInt?
-    var isAuthorizationRequired: Bool?
-    var username: String?
-    var password: String?
-    var isSSLEnabled: Bool?
-    var isTLSEnabled: Bool?
-    var sendFromName: String?
-    var sendFromEmail: String?
+    var isEnabled: Bool
+    var host: String
+    var port: UInt
+    var timeout: UInt
+    var isAuthorizationRequired: Bool
+    var username: String
+    var password: String
+    var isSSLEnabled: Bool
+    var isTLSEnabled: Bool
+    var sendFromName: String
+    var sendFromEmail: String
 
     public var description: String {
         let baseDescription = "[\(String(describing: SMTPServer.self))]"
 
-        if let host = self.host, let port = self.port {
+        if !host.isEmpty, port > 0 {
             return "\(baseDescription)[\(host):\(port)]"
         }
 
@@ -48,17 +48,17 @@ public final class SMTPServer: Identifiable, CustomStringConvertible {
     // MARK: - Initialization
 
     public required init?(json: [String: Any], node: String = "") {
-        isEnabled = json[SMTPServer.EnabledKey] as? Bool
-        host = json[SMTPServer.HostKey] as? String
-        port = json[SMTPServer.PortKey] as? UInt
-        timeout = json[SMTPServer.TimeoutKey] as? UInt
-        isAuthorizationRequired = json[SMTPServer.AuthorizationRequiredKey] as? Bool
-        username = json[SMTPServer.UsernameKey] as? String
-        password = json[SMTPServer.PasswordKey] as? String
-        isSSLEnabled = json[SMTPServer.SslKey] as? Bool
-        isTLSEnabled = json[SMTPServer.TlsKey] as? Bool
-        sendFromName = json[SMTPServer.SendFromNameKey] as? String
-        sendFromEmail = json[SMTPServer.SendFromEmailKey] as? String
+        isEnabled = json[SMTPServer.EnabledKey] as? Bool ?? false
+        host = json[SMTPServer.HostKey] as? String ?? ""
+        port = json[SMTPServer.PortKey] as? UInt ?? 0
+        timeout = json[SMTPServer.TimeoutKey] as? UInt ?? 0
+        isAuthorizationRequired = json[SMTPServer.AuthorizationRequiredKey] as? Bool ?? false
+        username = json[SMTPServer.UsernameKey] as? String ?? ""
+        password = json[SMTPServer.PasswordKey] as? String ?? ""
+        isSSLEnabled = json[SMTPServer.SslKey] as? Bool ?? false
+        isTLSEnabled = json[SMTPServer.TlsKey] as? Bool ?? false
+        sendFromName = json[SMTPServer.SendFromNameKey] as? String ?? ""
+        sendFromEmail = json[SMTPServer.SendFromEmailKey] as? String ?? ""
     }
 
     // MARK: - Functions
