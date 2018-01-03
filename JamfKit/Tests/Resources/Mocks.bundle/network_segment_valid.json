@@ -1,0 +1,15 @@
+{
+    "id": 12345,
+    "name": "network_segment",
+    "starting_address": "127.0.0.1",
+    "ending_address": "127.0.0.255",
+    "distribution_server": "distribution_server",
+    "distribution_point": "distribution_point",
+    "url": "url",
+    "netboot_server": "netboot_server",
+    "swu_server": "swu_server",
+    "building": "building",
+    "department": "department",
+    "override_buildings": true,
+    "override_departments": false
+}
