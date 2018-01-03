@@ -20,26 +20,26 @@ public final class HardwareLocation: Identifiable {
 
     // MARK: - Properties
 
-    public var username: String?
-    public var realName: String?
-    public var emailAddress: String?
-    public var position: String?
-    public var phoneNumber: String?
-    public var department: String?
-    public var building: String?
-    public var room: UInt?
+    public var username: String
+    public var realName: String
+    public var emailAddress: String
+    public var position: String
+    public var phoneNumber: String
+    public var department: String
+    public var building: String
+    public var room: UInt
 
     // MARK: - Initialization
 
     init?(json: [String: Any], node: String = "") {
-        username = json[HardwareLocation.UsernameKey] as? String
-        realName = json[HardwareLocation.RealNameKey] as? String
-        emailAddress = json[HardwareLocation.EmailAddressKey] as? String
-        position = json[HardwareLocation.PositionKey] as? String
-        phoneNumber = json[HardwareLocation.PhoneNumberKey] as? String
-        department = json[HardwareLocation.DepartementKey] as? String
-        building = json[HardwareLocation.BuildingKey] as? String
-        room = json[HardwareLocation.RoomKey] as? UInt
+        username = json[HardwareLocation.UsernameKey] as? String ?? ""
+        realName = json[HardwareLocation.RealNameKey] as? String ?? ""
+        emailAddress = json[HardwareLocation.EmailAddressKey] as? String ?? ""
+        position = json[HardwareLocation.PositionKey] as? String ?? ""
+        phoneNumber = json[HardwareLocation.PhoneNumberKey] as? String ?? ""
+        department = json[HardwareLocation.DepartementKey] as? String ?? ""
+        building = json[HardwareLocation.BuildingKey] as? String ?? ""
+        room = json[HardwareLocation.RoomKey] as? UInt ?? 0
     }
 
     // MARK: - Functions

@@ -9,37 +9,49 @@ public final class HardwarePurchasing: Identifiable {
 
     // MARK: - Constants
 
-    static let UsernameKey = "username"
-    static let RealNameKey = "real_name"
-    static let EmailAddressKey = "email_address"
-    static let PositionKey = "position"
-    static let PhoneNumberKey = "phone_number"
-    static let DepartementKey = "department"
-    static let BuildingKey = "building"
-    static let RoomKey = "room"
+    static let IsPurchasedKey = "is_purchased"
+    static let IsLeasedKey = "is_leased"
+    static let PoNumberKey = "po_number"
+    static let VendorKey = "vendor"
+    static let AppleCareIdentifierKey = "applecare_id"
+    static let PurchasePriceKey = "purchase_price"
+    static let PurchasingAccountKey = "purchasing_account"
+    static let PurchasingContactKey = "purchasing_contact"
+    static let PoDateKey = "po_date"
+    static let WarrantyExpiresKey = "warranty_expires"
+    static let LeaseExpiresKey = "lease_expires"
+    static let LifeExpectancyKey = "life_expectancy"
 
     // MARK: - Properties
 
-    public var username: String?
-    public var realName: String?
-    public var emailAddress: String?
-    public var position: String?
-    public var phoneNumber: String?
-    public var department: String?
-    public var building: String?
-    public var room: UInt?
+    public var isPurchased: Bool
+    public var isLeased: Bool
+    public var poNumber: String
+    public var vendor: String
+    public var appleCareIdentifier: String
+    public var purchasePrice: String
+    public var purchasingAccount: String
+    public var purchasingContact: String
+    public var poDate: PreciseDate?
+    public var warrantyExpires: PreciseDate?
+    public var leaseExpires: PreciseDate?
+    public var lifeExpectancy: UInt
 
     // MARK: - Initialization
 
     init?(json: [String: Any], node: String = "") {
-        username = json[HardwareLocation.UsernameKey] as? String
-        realName = json[HardwareLocation.RealNameKey] as? String
-        emailAddress = json[HardwareLocation.EmailAddressKey] as? String
-        position = json[HardwareLocation.PositionKey] as? String
-        phoneNumber = json[HardwareLocation.PhoneNumberKey] as? String
-        department = json[HardwareLocation.DepartementKey] as? String
-        building = json[HardwareLocation.BuildingKey] as? String
-        room = json[HardwareLocation.RoomKey] as? UInt
+        isPurchased = json[HardwarePurchasing.IsPurchasedKey] as? Bool ?? false
+        isLeased = json[HardwarePurchasing.IsLeasedKey] as? Bool ?? false
+        poNumber = json[HardwarePurchasing.PoNumberKey] as? String ?? ""
+        vendor = json[HardwarePurchasing.VendorKey] as? String ?? ""
+        appleCareIdentifier = json[HardwarePurchasing.AppleCareIdentifierKey] as? String ?? ""
+        purchasePrice = json[HardwarePurchasing.PurchasePriceKey] as? String ?? ""
+        purchasingAccount = json[HardwarePurchasing.PurchasingAccountKey] as? String ?? ""
+        purchasingContact = json[HardwarePurchasing.PurchasingContactKey] as? String ?? ""
+        poDate = PreciseDate(json: json, node: HardwarePurchasing.PoDateKey)
+        warrantyExpires = PreciseDate(json: json, node: HardwarePurchasing.WarrantyExpiresKey)
+        leaseExpires = PreciseDate(json: json, node: HardwarePurchasing.LeaseExpiresKey)
+        lifeExpectancy = json[HardwarePurchasing.LifeExpectancyKey] as? UInt ?? 0
     }
 
     // MARK: - Functions
@@ -47,14 +59,28 @@ public final class HardwarePurchasing: Identifiable {
     func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[HardwareLocation.UsernameKey] = username
-        json[HardwareLocation.RealNameKey] = realName
-        json[HardwareLocation.EmailAddressKey] = emailAddress
-        json[HardwareLocation.PositionKey] = position
-        json[HardwareLocation.PhoneNumberKey] = phoneNumber
-        json[HardwareLocation.DepartementKey] = department
-        json[HardwareLocation.BuildingKey] = building
-        json[HardwareLocation.RoomKey] = room
+        json[HardwarePurchasing.IsPurchasedKey] = isPurchased
+        json[HardwarePurchasing.IsLeasedKey] = isLeased
+        json[HardwarePurchasing.PoNumberKey] = poNumber
+        json[HardwarePurchasing.VendorKey] = vendor
+        json[HardwarePurchasing.AppleCareIdentifierKey] = appleCareIdentifier
+        json[HardwarePurchasing.PurchasePriceKey] = purchasePrice
+        json[HardwarePurchasing.PurchasingAccountKey] = purchasingAccount
+        json[HardwarePurchasing.PurchasingContactKey] = purchasingContact
+
+        if let poDate = poDate {
+            json.merge(poDate.toJSON()) { (_, new) in new }
+        }
+
+        if let warrantyExpires = warrantyExpires {
+            json.merge(warrantyExpires.toJSON()) { (_, new) in new }
+        }
+
+        if let leaseExpires = leaseExpires {
+            json.merge(leaseExpires.toJSON()) { (_, new) in new }
+        }
+
+        json[HardwarePurchasing.LifeExpectancyKey] = lifeExpectancy
 
         return json
     }

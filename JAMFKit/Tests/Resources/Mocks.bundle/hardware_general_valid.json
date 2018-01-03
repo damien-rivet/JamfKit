@@ -1,7 +1,7 @@
 {
     "general": {
-        "id": 0,
-        "name": "Admins iMac",
+        "id": 12345,
+        "name": "hardware",
         "mac_address": "E0:AC:CB:97:36:G4",
         "alt_mac_address": "E0:AC:CB:97:36:G4",
         "ip_address": "10.1.1.1",

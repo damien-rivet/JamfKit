@@ -13,8 +13,8 @@ class HardwareGeneralTests: XCTestCase {
 
     // MARK: - Constants
 
-    let defaultIdentifier: UInt = 0
-    let defaultName = "Admins iMac"
+    let defaultIdentifier: UInt = 12345
+    let defaultName = "hardware"
     let defaultMacAddress = "E0:AC:CB:97:36:G4"
     let defaultAlternativeMacAddress = "E0:AC:CB:97:36:G4"
     let defaultIpAddress = "10.1.1.1"
@@ -54,6 +54,7 @@ class HardwareGeneralTests: XCTestCase {
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.macAddress, defaultMacAddress)
         XCTAssertEqual(actualValue?.alternativeMacAddress, defaultAlternativeMacAddress)
         XCTAssertEqual(actualValue?.ipAddress, defaultIpAddress)
@@ -109,6 +110,7 @@ class HardwareGeneralTests: XCTestCase {
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.macAddress, defaultMacAddress)
         XCTAssertEqual(actualValue?.alternativeMacAddress, defaultAlternativeMacAddress)
         XCTAssertEqual(actualValue?.ipAddress, defaultIpAddress)

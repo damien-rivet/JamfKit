@@ -25,7 +25,7 @@ class HardwareLocationTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "location")!
+        let payload = self.payload(for: "hardware_location")!
 
         let actualValue = HardwareLocation(json: payload)
 
@@ -41,7 +41,7 @@ class HardwareLocationTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "location")!
+        let payload = self.payload(for: "hardware_location")!
 
         let actualValue = HardwareLocation(json: payload)
         let encodedObject = actualValue?.toJSON()
