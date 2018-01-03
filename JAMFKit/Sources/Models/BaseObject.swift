@@ -5,6 +5,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
+/// Represents the common denominator between all the JSS objects which must contains at least an `identifier` and a `name` properties.
 public class BaseObject: Identifiable, CustomStringConvertible {
 
     // MARK: - Constants

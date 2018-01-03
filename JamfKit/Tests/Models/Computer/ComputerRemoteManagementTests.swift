@@ -1,5 +1,5 @@
 //
-//  HardwareRemoteManagementTests.swift
+//  ComputerRemoteManagementTests.swift
 //  JAMFKit
 //
 //  Copyright © 2017 JAMFKit. All rights reserved.
@@ -9,7 +9,7 @@ import XCTest
 
 @testable import JAMFKit
 
-class HardwareRemoteManagementTests: XCTestCase {
+class ComputerRemoteManagementTests: XCTestCase {
 
     // MARK: - Constants
 
@@ -19,9 +19,9 @@ class HardwareRemoteManagementTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "hardware_remote_management")!
+        let payload = self.payload(for: "computer_remote_management")!
 
-        let actualValue = HardwareRemoteManagement(json: payload)
+        let actualValue = ComputerRemoteManagement(json: payload)
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.isManaged, defaultManaged)
@@ -29,7 +29,7 @@ class HardwareRemoteManagementTests: XCTestCase {
     }
 
     func testShouldInitializeFromEmptyJSON() {
-        let actualValue = HardwareRemoteManagement(json: [String: Any]())
+        let actualValue = ComputerRemoteManagement(json: [String: Any]())
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.isManaged, false)
@@ -37,14 +37,14 @@ class HardwareRemoteManagementTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "hardware_remote_management")!
+        let payload = self.payload(for: "computer_remote_management")!
 
-        let actualValue = HardwareRemoteManagement(json: payload)
+        let actualValue = ComputerRemoteManagement(json: payload)
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
-        XCTAssertNotNil(encodedObject?[HardwareRemoteManagement.ManagedKey])
-        XCTAssertNotNil(encodedObject?[HardwareRemoteManagement.ManagementUsernameKey])
+        XCTAssertNotNil(encodedObject?[ComputerRemoteManagement.ManagedKey])
+        XCTAssertNotNil(encodedObject?[ComputerRemoteManagement.ManagementUsernameKey])
     }
 }

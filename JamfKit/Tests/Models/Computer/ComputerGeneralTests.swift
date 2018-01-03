@@ -9,12 +9,12 @@ import XCTest
 
 @testable import JAMFKit
 
-class HardwareGeneralTests: XCTestCase {
+class ComputerGeneralTests: XCTestCase {
 
     // MARK: - Constants
 
     let defaultIdentifier: UInt = 12345
-    let defaultName = "hardware"
+    let defaultName = "computer"
     let defaultMacAddress = "E0:AC:CB:97:36:G4"
     let defaultAlternativeMacAddress = "E0:AC:CB:97:36:G4"
     let defaultIpAddress = "10.1.1.1"
@@ -38,19 +38,15 @@ class HardwareGeneralTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "hardware_general_valid")!
-        guard let generalPayload = payload[Hardware.GeneralKey] as? [String: AnyObject] else {
-            XCTFail()
-            return
-        }
+        let payload = self.payload(for: "computer_general_valid")!
 
-        let defaultReportDate = PreciseDate(json: generalPayload, node: "report_date")
-        let defaultLastContactTime = PreciseDate(json: generalPayload, node: "last_contact_time")
-        let defaultInitialEntryDate = PreciseDate(json: generalPayload, node: "initial_entry_date")
-        let defaultLastCloudBackupDate = PreciseDate(json: generalPayload, node: "last_cloud_backup_date")
-        let defaultLastEnrolledDate = PreciseDate(json: generalPayload, node: "last_enrolled_date")
+        let defaultReportDate = PreciseDate(json: payload, node: "report_date")
+        let defaultLastContactTime = PreciseDate(json: payload, node: "last_contact_time")
+        let defaultInitialEntryDate = PreciseDate(json: payload, node: "initial_entry_date")
+        let defaultLastCloudBackupDate = PreciseDate(json: payload, node: "last_cloud_backup_date")
+        let defaultLastEnrolledDate = PreciseDate(json: payload, node: "last_enrolled_date")
 
-        let actualValue = HardwareGeneral(json: payload, node: Hardware.GeneralKey)
+        let actualValue = ComputerGeneral(json: payload)
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
@@ -94,19 +90,15 @@ class HardwareGeneralTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "hardware_general_incomplete")!
-        guard let generalPayload = payload[Hardware.GeneralKey] as? [String: AnyObject] else {
-            XCTFail()
-            return
-        }
+        let payload = self.payload(for: "computer_general_incomplete")!
 
-        let defaultReportDate = PreciseDate(json: generalPayload, node: "report_date")
-        let defaultLastContactTime = PreciseDate(json: generalPayload, node: "last_contact_time")
-        let defaultInitialEntryDate = PreciseDate(json: generalPayload, node: "initial_entry_date")
-        let defaultLastCloudBackupDate = PreciseDate(json: generalPayload, node: "last_cloud_backup_date")
-        let defaultLastEnrolledDate = PreciseDate(json: generalPayload, node: "last_enrolled_date")
+        let defaultReportDate = PreciseDate(json: payload, node: "report_date")
+        let defaultLastContactTime = PreciseDate(json: payload, node: "last_contact_time")
+        let defaultInitialEntryDate = PreciseDate(json: payload, node: "initial_entry_date")
+        let defaultLastCloudBackupDate = PreciseDate(json: payload, node: "last_cloud_backup_date")
+        let defaultLastEnrolledDate = PreciseDate(json: payload, node: "last_enrolled_date")
 
-        let actualValue = HardwareGeneral(json: payload, node: Hardware.GeneralKey)
+        let actualValue = ComputerGeneral(json: payload)
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
@@ -142,100 +134,92 @@ class HardwareGeneralTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "hardware_general_invalid")!
+        let payload = self.payload(for: "computer_general_invalid")!
 
-        let site = HardwareGeneral(json: payload, node: Hardware.GeneralKey)
-
-        XCTAssertNil(site)
-    }
-
-    func testShouldNotInitializeFromMalformedJSON() {
-        let payload = self.payload(for: "hardware_general_malformed")!
-
-        let site = HardwareGeneral(json: payload, node: Hardware.GeneralKey)
+        let site = ComputerGeneral(json: payload)
 
         XCTAssertNil(site)
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "hardware_general_valid")!
+        let payload = self.payload(for: "computer_general_valid")!
 
-        let actualValue = HardwareGeneral(json: payload, node: Hardware.GeneralKey)
+        let actualValue = ComputerGeneral(json: payload)
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 34)
 
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.NameKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.MacAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.AlternativeMacAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.IpAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastReportedIPAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.SerialNumberKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.UDIDKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.JAMFVersionKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.PlatformKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.Barcode1Key])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.Barcode2Key])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.AssetTagKey])
-        XCTAssertNotNil(encodedObject?[HardwareRemoteManagement.ContainerKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.MdmCapableKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.MdmCapableUsersKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ReportDateKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ReportDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ReportDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastContactTimeKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastContactTimeKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastContactTimeKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.InitialEntryDateKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.InitialEntryDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.InitialEntryDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastCloudBackupDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastCloudBackupDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastEnrolledDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastEnrolledDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.DistributionPointKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.SusKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.NetbootServerKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.SiteKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ItunesStoreAccountIsActiveKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.NameKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.MacAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.AlternativeMacAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.IpAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastReportedIPAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.SerialNumberKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.UDIDKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.JAMFVersionKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.PlatformKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.Barcode1Key])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.Barcode2Key])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.AssetTagKey])
+        XCTAssertNotNil(encodedObject?[ComputerRemoteManagement.ContainerKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.MdmCapableKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.MdmCapableUsersKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastCloudBackupDateKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastCloudBackupDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastEnrolledDateKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastEnrolledDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.DistributionPointKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.SusKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.NetbootServerKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.SiteKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ItunesStoreAccountIsActiveKey])
     }
 
     func testIncompleteShouldEncodeToJSON() {
-        let payload = self.payload(for: "hardware_general_incomplete")!
+        let payload = self.payload(for: "computer_general_incomplete")!
 
-        let actualValue = HardwareGeneral(json: payload, node: Hardware.GeneralKey)
+        let actualValue = ComputerGeneral(json: payload)
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 26)
 
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.NameKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.MacAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.AlternativeMacAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.IpAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastReportedIPAddressKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.SerialNumberKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.UDIDKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.JAMFVersionKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.PlatformKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.MdmCapableKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ReportDateKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ReportDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ReportDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastContactTimeKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastContactTimeKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastContactTimeKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.InitialEntryDateKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.InitialEntryDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.InitialEntryDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastCloudBackupDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.LastCloudBackupDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.DistributionPointKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.SusKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.NetbootServerKey])
-        XCTAssertNotNil(encodedObject?[HardwareGeneral.ItunesStoreAccountIsActiveKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.NameKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.MacAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.AlternativeMacAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.IpAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastReportedIPAddressKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.SerialNumberKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.UDIDKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.JAMFVersionKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.PlatformKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.MdmCapableKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastCloudBackupDateKey + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastCloudBackupDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.DistributionPointKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.SusKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.NetbootServerKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.ItunesStoreAccountIsActiveKey])
     }
 }
