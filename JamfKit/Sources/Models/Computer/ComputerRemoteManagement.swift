@@ -15,19 +15,19 @@ public final class ComputerRemoteManagement: Identifiable {
 
     // MARK: - Properties
 
-    var isManaged: Bool
-    var managementUsername: String
+    public var isManaged: Bool
+    public var managementUsername: String
 
     // MARK: - Initialization
 
-    init?(json: [String: Any], node: String = ComputerRemoteManagement.ContainerKey) {
+    public init?(json: [String: Any], node: String = "") {
         isManaged = json[ComputerRemoteManagement.ManagedKey] as? Bool ?? false
         managementUsername = json[ComputerRemoteManagement.ManagementUsernameKey] as? String ?? ""
     }
 
     // MARK: - Functions
 
-    func toJSON() -> [String: Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[ComputerRemoteManagement.ManagedKey] = isManaged

@@ -24,17 +24,17 @@ public final class NetworkSegment: BaseObject {
 
     // MARK: - Properties
 
-    var startingAddress: String
-    var endingAddress: String
-    var distributionServer: String
-    var distributionPoint: String
-    var url: String
-    var netbootServer: String
-    var swuServer: String
-    var building: String
-    var department: String
-    var overridesBuildings: Bool
-    var overridesDepartments: Bool
+    public var startingAddress: String
+    public var endingAddress: String
+    public var distributionServer: String
+    public var distributionPoint: String
+    public var url: String
+    public var netbootServer: String
+    public var swuServer: String
+    public var building: String
+    public var department: String
+    public var overridesBuildings: Bool
+    public var overridesDepartments: Bool
 
     public override var description: String {
         return "[\(String(describing: NetworkSegment.self))][\(identifier). \(self.name)]"
@@ -60,7 +60,7 @@ public final class NetworkSegment: BaseObject {
 
     // MARK: - Functions
 
-    override func toJSON() -> [String : Any] {
+    public override func toJSON() -> [String : Any] {
         var json = super.toJSON()
 
         json[NetworkSegment.StartingAddressKey] = startingAddress

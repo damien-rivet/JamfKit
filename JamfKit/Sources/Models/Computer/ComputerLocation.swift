@@ -31,7 +31,7 @@ public final class ComputerLocation: Identifiable {
 
     // MARK: - Initialization
 
-    init?(json: [String: Any], node: String = "") {
+    public init?(json: [String: Any], node: String = "") {
         username = json[ComputerLocation.UsernameKey] as? String ?? ""
         realName = json[ComputerLocation.RealNameKey] as? String ?? ""
         emailAddress = json[ComputerLocation.EmailAddressKey] as? String ?? ""
@@ -44,7 +44,7 @@ public final class ComputerLocation: Identifiable {
 
     // MARK: - Functions
 
-    func toJSON() -> [String: Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[ComputerLocation.UsernameKey] = username

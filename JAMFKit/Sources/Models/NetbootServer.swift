@@ -25,18 +25,18 @@ public final class NetbootServer: BaseObject {
 
     // MARK: - Properties
 
-    var ipAddress: String
-    var isDefaultImage: Bool
-    var isSpecificImage: Bool
-    var targetPlatform: String
-    var sharePoint: String
-    var set: String
-    var image: String
-    var filesystemProtocol: String
-    var configureManually: Bool
-    var bootArguments: String
-    var bootFile: String
-    var bootDevice: String
+    public var ipAddress: String
+    public var isDefaultImage: Bool
+    public var isSpecificImage: Bool
+    public var targetPlatform: String
+    public var sharePoint: String
+    public var set: String
+    public var image: String
+    public var filesystemProtocol: String
+    public var configureManually: Bool
+    public var bootArguments: String
+    public var bootFile: String
+    public var bootDevice: String
 
     public override var description: String {
         return "[\(String(describing: NetbootServer.self))][\(identifier). \(self.ipAddress)]"
@@ -63,7 +63,7 @@ public final class NetbootServer: BaseObject {
 
     // MARK: - Functions
 
-    override func toJSON() -> [String: Any] {
+    public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[NetbootServer.IpAddressKey] = ipAddress

@@ -15,8 +15,8 @@ public class BaseObject: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
-    let identifier: UInt
-    let name: String
+    public let identifier: UInt
+    public let name: String
 
     public var description: String {
         return "[\(identifier). \(self.name)]"
@@ -38,7 +38,7 @@ public class BaseObject: Identifiable, CustomStringConvertible {
 
     // MARK: - Functions
 
-    func toJSON() -> [String: Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[BaseObject.IdentifierKey] = identifier
