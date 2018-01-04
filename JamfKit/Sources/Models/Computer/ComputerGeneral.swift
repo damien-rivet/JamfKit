@@ -94,7 +94,7 @@ public final class ComputerGeneral: BaseObject {
 
     // MARK: - Functions
 
-    override func toJSON() -> [String: Any] {
+    public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[ComputerGeneral.MacAddressKey] = macAddress

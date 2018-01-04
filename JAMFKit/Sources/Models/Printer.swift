@@ -25,18 +25,18 @@ public final class Printer: BaseObject {
 
     // MARK: - Properties
 
-    var category: String
-    var uri: String
-    var cupsName: String
-    var location: String
-    var model: String
-    var information: String
-    var notes: String
-    var makeDefault: Bool
-    var useGeneric: Bool
-    var ppd: String
-    var ppdPath: String
-    var ppdContents: String
+    public var category: String
+    public var uri: String
+    public var cupsName: String
+    public var location: String
+    public var model: String
+    public var information: String
+    public var notes: String
+    public var makeDefault: Bool
+    public var useGeneric: Bool
+    public var ppd: String
+    public var ppdPath: String
+    public var ppdContents: String
 
     public override var description: String {
         return "[\(String(describing: Printer.self))][\(identifier). \(self.uri) \(self.location)]"
@@ -63,7 +63,7 @@ public final class Printer: BaseObject {
 
     // MARK: - Functions
 
-    override func toJSON() -> [String: Any] {
+    public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[Printer.CategoryKey] = category
