@@ -109,6 +109,10 @@ Represents a Jamf managed computer, contains the general / location / purchasing
 
 Represents a physical department.
 
+#### Directory binding ####
+
+Represents a logical binding between a computer and an active directory user.
+
 #### Mobile device ####
 
 Represents a Jamf managed mobile device, contains the general information about the device.

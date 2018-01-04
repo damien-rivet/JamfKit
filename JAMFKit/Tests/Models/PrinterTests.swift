@@ -13,6 +13,7 @@ class PrinterTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Printer/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "HP 9th Floor"
     let defaultCategory = "Printers"
@@ -31,7 +32,7 @@ class PrinterTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "printer_valid")!
+        let payload = self.payload(for: "printer_valid", subfolder: subfolder)!
 
         let actualValue = Printer(json: payload)
 
@@ -54,7 +55,7 @@ class PrinterTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "printer_incomplete")!
+        let payload = self.payload(for: "printer_incomplete", subfolder: subfolder)!
 
         let actualValue = Printer(json: payload)
 
@@ -77,7 +78,7 @@ class PrinterTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "printer_invalid")!
+        let payload = self.payload(for: "printer_invalid", subfolder: subfolder)!
 
         let actualValue = Printer(json: payload)
 
@@ -85,7 +86,7 @@ class PrinterTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "printer_valid")!
+        let payload = self.payload(for: "printer_valid", subfolder: subfolder)!
 
         let actualValue = Printer(json: payload)
         let encodedObject = actualValue?.toJSON()

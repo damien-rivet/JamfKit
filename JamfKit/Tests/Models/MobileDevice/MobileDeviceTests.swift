@@ -11,10 +11,14 @@ import XCTest
 
 class MobileDeviceTests: XCTestCase {
 
+    // MARK: - Constants
+
+    let subfolder = "MobileDevice/"
+
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "mobile_device")!
+        let payload = self.payload(for: "mobile_device", subfolder: subfolder)!
 
         let actualValue = MobileDevice(json: payload)
 
@@ -32,7 +36,7 @@ class MobileDeviceTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "mobile_device")!
+        let payload = self.payload(for: "mobile_device", subfolder: subfolder)!
 
         let actualValue = MobileDevice(json: payload)
         let encodedObject = actualValue?.toJSON()

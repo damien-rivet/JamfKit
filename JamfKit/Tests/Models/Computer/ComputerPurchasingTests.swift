@@ -13,6 +13,7 @@ class ComputerPurchasingTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Computer/"
     let defaultIsPurchased = true
     let defaultIsLeased = true
     let defaultPoNumber = "po_number"
@@ -26,7 +27,7 @@ class ComputerPurchasingTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "computer_purchasing")!
+        let payload = self.payload(for: "computer_purchasing", subfolder: subfolder)!
 
         let defaultPoDate = PreciseDate(json: payload, node: "po_date")
         let defaultWarrantyExpires = PreciseDate(json: payload, node: "warranty_expires")
@@ -71,7 +72,7 @@ class ComputerPurchasingTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer_purchasing")!
+        let payload = self.payload(for: "computer_purchasing", subfolder: subfolder)!
 
         let actualValue = ComputerPurchasing(json: payload)
         let encodedObject = actualValue?.toJSON()

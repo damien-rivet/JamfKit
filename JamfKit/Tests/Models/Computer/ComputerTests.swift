@@ -11,10 +11,14 @@ import XCTest
 
 class ComputerTests: XCTestCase {
 
+    // MARK: - Constants
+
+    let subfolder = "Computer/"
+
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "computer")!
+        let payload = self.payload(for: "computer", subfolder: subfolder)!
 
         let actualValue = Computer(json: payload)
 
@@ -36,7 +40,7 @@ class ComputerTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer")!
+        let payload = self.payload(for: "computer", subfolder: subfolder)!
 
         let actualValue = Computer(json: payload)
         let encodedObject = actualValue?.toJSON()

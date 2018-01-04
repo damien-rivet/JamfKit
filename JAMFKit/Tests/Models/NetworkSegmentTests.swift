@@ -13,6 +13,7 @@ class NetworkSegmentTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "NetworkSegment/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "network_segment"
     let defaultStartingAddress = "127.0.0.1"
@@ -30,7 +31,7 @@ class NetworkSegmentTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "network_segment_valid")!
+        let payload = self.payload(for: "network_segment_valid", subfolder: subfolder)!
 
         let actualValue = NetworkSegment(json: payload)
 
@@ -52,7 +53,7 @@ class NetworkSegmentTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "network_segment_incomplete")!
+        let payload = self.payload(for: "network_segment_incomplete", subfolder: subfolder)!
 
         let actualValue = NetworkSegment(json: payload)
 
@@ -61,7 +62,7 @@ class NetworkSegmentTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "network_segment_invalid")!
+        let payload = self.payload(for: "network_segment_invalid", subfolder: subfolder)!
 
         let actualValue = NetworkSegment(json: payload)
 
@@ -69,7 +70,7 @@ class NetworkSegmentTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "network_segment_valid")!
+        let payload = self.payload(for: "network_segment_valid", subfolder: subfolder)!
 
         let actualValue = NetworkSegment(json: payload)
         let encodedObject = actualValue?.toJSON()

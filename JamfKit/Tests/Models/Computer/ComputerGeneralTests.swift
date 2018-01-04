@@ -13,6 +13,7 @@ class ComputerGeneralTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Computer/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "computer"
     let defaultMacAddress = "E0:AC:CB:97:36:G4"
@@ -38,7 +39,7 @@ class ComputerGeneralTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "computer_general_valid")!
+        let payload = self.payload(for: "computer_general_valid", subfolder: subfolder)!
 
         let defaultReportDate = PreciseDate(json: payload, node: "report_date")
         let defaultLastContactTime = PreciseDate(json: payload, node: "last_contact_time")
@@ -90,7 +91,7 @@ class ComputerGeneralTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "computer_general_incomplete")!
+        let payload = self.payload(for: "computer_general_incomplete", subfolder: subfolder)!
 
         let defaultReportDate = PreciseDate(json: payload, node: "report_date")
         let defaultLastContactTime = PreciseDate(json: payload, node: "last_contact_time")
@@ -134,7 +135,7 @@ class ComputerGeneralTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "computer_general_invalid")!
+        let payload = self.payload(for: "computer_general_invalid", subfolder: subfolder)!
 
         let site = ComputerGeneral(json: payload)
 
@@ -142,7 +143,7 @@ class ComputerGeneralTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer_general_valid")!
+        let payload = self.payload(for: "computer_general_valid", subfolder: subfolder)!
 
         let actualValue = ComputerGeneral(json: payload)
         let encodedObject = actualValue?.toJSON()
@@ -187,7 +188,7 @@ class ComputerGeneralTests: XCTestCase {
     }
 
     func testIncompleteShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer_general_incomplete")!
+        let payload = self.payload(for: "computer_general_incomplete", subfolder: subfolder)!
 
         let actualValue = ComputerGeneral(json: payload)
         let encodedObject = actualValue?.toJSON()
