@@ -5,6 +5,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
+/// Represents a physical netboot server, contains information about the server and it's configuration.
 public final class NetbootServer: BaseObject {
 
     // MARK: - Constants

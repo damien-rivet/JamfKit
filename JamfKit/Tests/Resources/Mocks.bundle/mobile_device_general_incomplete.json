@@ -1,0 +1,15 @@
+{
+    "id": 12345,
+    "name": "Mobile Device",
+    "last_inventory_update": "2017-07-07T18:37:04.000Z",
+    "last_inventory_update_epoch": 1499470624555,
+    "last_inventory_update_utc": "2017-07-07T18:37:04.555-0500",
+    "initial_entry_date_epoch": 1499470624555,
+    "initial_entry_date_utc": "2017-07-07T18:37:04.555-0500",
+    "last_enrollment_epoch": 1499470624555,
+    "last_enrollment_utc": "2017-07-07T18:37:04.555-0500",
+    "last_cloud_backup_date_epoch": 1499470624555,
+    "last_cloud_backup_date_utc": "2017-07-07T18:37:04.555-0500",
+    "last_backup_time_epoch": 1499470624555,
+    "last_backup_time_utc": "2017-07-07T18:37:04.555-0500"
+}

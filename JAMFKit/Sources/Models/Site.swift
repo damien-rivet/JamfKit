@@ -5,6 +5,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
+/// Represents a physical location (building, office, etc.).
 public final class Site: BaseObject {
 
     // MARK: - Properties

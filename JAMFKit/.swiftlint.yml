@@ -2,3 +2,4 @@ included:
 - Sources
 
 line_length: 200
+function_body_length: 50 # JSS objects can get be pretty big

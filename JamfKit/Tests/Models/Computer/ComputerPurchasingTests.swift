@@ -1,5 +1,5 @@
 //
-//  HardwarePurchasingTests.swift
+//  ComputerPurchasingTests.swift
 //  JAMFKit
 //
 //  Copyright © 2018 JAMFKit. All rights reserved.
@@ -9,7 +9,7 @@ import XCTest
 
 @testable import JAMFKit
 
-class HardwarePurchasingTests: XCTestCase {
+class ComputerPurchasingTests: XCTestCase {
 
     // MARK: - Constants
 
@@ -26,13 +26,13 @@ class HardwarePurchasingTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "hardware_purchasing")!
+        let payload = self.payload(for: "computer_purchasing")!
 
         let defaultPoDate = PreciseDate(json: payload, node: "po_date")
         let defaultWarrantyExpires = PreciseDate(json: payload, node: "warranty_expires")
         let defaultLeaseExpires = PreciseDate(json: payload, node: "lease_expires")
 
-        let actualValue = HardwarePurchasing(json: payload)
+        let actualValue = ComputerPurchasing(json: payload)
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.isPurchased, defaultIsPurchased)
@@ -55,31 +55,46 @@ class HardwarePurchasingTests: XCTestCase {
         XCTAssertEqual(actualValue?.lifeExpectancy, defaultLifeExpectancy)
     }
 
-    func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "hardware_purchasing")!
+    func testShouldInitializeFromEmptyJSON() {
+        let actualValue = ComputerPurchasing(json: [String: Any]())
 
-        let actualValue = HardwarePurchasing(json: payload)
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.isPurchased, false)
+        XCTAssertEqual(actualValue?.isLeased, false)
+        XCTAssertEqual(actualValue?.poNumber, "")
+        XCTAssertEqual(actualValue?.vendor, "")
+        XCTAssertEqual(actualValue?.appleCareIdentifier, "")
+        XCTAssertEqual(actualValue?.purchasePrice, "")
+        XCTAssertEqual(actualValue?.purchasingAccount, "")
+        XCTAssertEqual(actualValue?.purchasingContact, "")
+        XCTAssertEqual(actualValue?.lifeExpectancy, 0)
+    }
+
+    func testShouldEncodeToJSON() {
+        let payload = self.payload(for: "computer_purchasing")!
+
+        let actualValue = ComputerPurchasing(json: payload)
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 18)
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.IsPurchasedKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.IsLeasedKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.PoNumberKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.VendorKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.AppleCareIdentifierKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.PurchasePriceKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.PurchasingAccountKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.PurchasingContactKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.PoDateKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.PoDateKey + "_epoch"])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.PoDateKey + "_utc"])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.WarrantyExpiresKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.WarrantyExpiresKey + "_epoch"])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.WarrantyExpiresKey + "_utc"])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.LeaseExpiresKey])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.LeaseExpiresKey + "_epoch"])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.LeaseExpiresKey + "_utc"])
-        XCTAssertNotNil(encodedObject?[HardwarePurchasing.LifeExpectancyKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.IsPurchasedKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.IsLeasedKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.PoNumberKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.VendorKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.AppleCareIdentifierKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.PurchasePriceKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.PurchasingAccountKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.PurchasingContactKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.PoDateKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.PoDateKey + "_epoch"])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.PoDateKey + "_utc"])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.WarrantyExpiresKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.WarrantyExpiresKey + "_epoch"])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.WarrantyExpiresKey + "_utc"])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.LeaseExpiresKey])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.LeaseExpiresKey + "_epoch"])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.LeaseExpiresKey + "_utc"])
+        XCTAssertNotNil(encodedObject?[ComputerPurchasing.LifeExpectancyKey])
     }
 }

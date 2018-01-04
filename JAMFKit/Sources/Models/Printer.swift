@@ -5,6 +5,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
+/// Represents a physical printer, contains information about the printer and it's configuration.
 public final class Printer: BaseObject {
 
     // MARK: - Constants

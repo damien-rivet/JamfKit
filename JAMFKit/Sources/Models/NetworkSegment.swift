@@ -5,6 +5,7 @@
 //  Copyright © 2018 JAMFKit. All rights reserved.
 //
 
+/// Represents a physical network segment, contains information about the segment and it's configuration.
 public final class NetworkSegment: BaseObject {
 
     // MARK: - Constants
