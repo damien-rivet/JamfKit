@@ -5,7 +5,7 @@
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
-protocol Identifiable {
+public protocol Identifiable {
 
     // MARK: - Initialization
 

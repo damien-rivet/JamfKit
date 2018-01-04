@@ -21,14 +21,14 @@ public final class User: BaseObject {
 
     // MARK: - Properties
 
-    var fullName: String
-    var email: String
-    var emailAddress: String
-    var phoneNumber: String
-    var position: String
-    var enableCustomPhotoURL: Bool
-    var customPhotoURL: String
-    var sites: [Site]
+    public var fullName: String
+    public var email: String
+    public var emailAddress: String
+    public var phoneNumber: String
+    public var position: String
+    public var enableCustomPhotoURL: Bool
+    public var customPhotoURL: String
+    public var sites: [Site]
 
     public override var description: String {
         return "[\(String(describing: User.self))][\(identifier). \(self.fullName)]"

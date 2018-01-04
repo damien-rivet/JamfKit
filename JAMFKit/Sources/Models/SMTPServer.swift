@@ -24,17 +24,17 @@ public final class SMTPServer: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
-    var isEnabled: Bool
-    var host: String
-    var port: UInt
-    var timeout: UInt
-    var isAuthorizationRequired: Bool
-    var username: String
-    var password: String
-    var isSSLEnabled: Bool
-    var isTLSEnabled: Bool
-    var sendFromName: String
-    var sendFromEmail: String
+    public var isEnabled: Bool
+    public var host: String
+    public var port: UInt
+    public var timeout: UInt
+    public var isAuthorizationRequired: Bool
+    public var username: String
+    public var password: String
+    public var isSSLEnabled: Bool
+    public var isTLSEnabled: Bool
+    public var sendFromName: String
+    public var sendFromEmail: String
 
     public var description: String {
         let baseDescription = "[\(String(describing: SMTPServer.self))]"
@@ -64,7 +64,7 @@ public final class SMTPServer: Identifiable, CustomStringConvertible {
 
     // MARK: - Functions
 
-    func toJSON() -> [String: Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[SMTPServer.EnabledKey] = isEnabled

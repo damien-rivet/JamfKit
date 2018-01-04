@@ -18,13 +18,13 @@ public final class PreciseDate: Identifiable {
     // MARK: - Properties
 
     private let node: String
-    var date: Date?
-    var epoch: Double?
-    var dateUTC: Date?
+    public var date: Date?
+    public var epoch: Double?
+    public var dateUTC: Date?
 
     // MARK: - Initialization
 
-    init?(json: [String: Any], node: String) {
+    public init?(json: [String: Any], node: String) {
         self.node = node
 
         if let rawDate = json[node] as? String {
@@ -38,7 +38,7 @@ public final class PreciseDate: Identifiable {
         }
     }
 
-    func toJSON() -> [String: Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         if let date = date {

@@ -1,0 +1,21 @@
+{
+    "id": 12345,
+    "name": "Package.dmg",
+    "category": "Unknown",
+    "filename": "Package.dmg",
+    "info": "information",
+    "notes": "notes",
+    "priority": 5,
+    "reboot_required": true,
+    "fill_user_template": true,
+    "fill_existing_users": true,
+    "boot_volume_required": true,
+    "allow_uninstalled": true,
+    "os_requirements": "requirement",
+    "required_processor": "None",
+    "switch_with_package": "Do Not Install",
+    "install_if_reported_available": true,
+    "reinstall_option": "Do Not Reinstall",
+    "triggering_files": "files",
+    "send_notification": true
+}

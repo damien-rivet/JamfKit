@@ -39,7 +39,7 @@ public final class ComputerPurchasing: Identifiable {
 
     // MARK: - Initialization
 
-    init?(json: [String: Any], node: String = "") {
+    public init?(json: [String: Any], node: String = "") {
         isPurchased = json[ComputerPurchasing.IsPurchasedKey] as? Bool ?? false
         isLeased = json[ComputerPurchasing.IsLeasedKey] as? Bool ?? false
         poNumber = json[ComputerPurchasing.PoNumberKey] as? String ?? ""
@@ -56,7 +56,7 @@ public final class ComputerPurchasing: Identifiable {
 
     // MARK: - Functions
 
-    func toJSON() -> [String: Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[ComputerPurchasing.IsPurchasedKey] = isPurchased

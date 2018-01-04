@@ -48,7 +48,7 @@ public final class Computer: Identifiable, CustomStringConvertible {
 
     // MARK: - Functions
 
-    func toJSON() -> [String: Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         if let general = general { json[Computer.GeneralKey] = general.toJSON() }

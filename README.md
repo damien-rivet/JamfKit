@@ -121,6 +121,10 @@ Represents a physical netboot server, contains information about the server and 
 
 Represents a physical network segment, contains information about the segment and it's configuration.
 
+#### Package ####
+
+Represents a logical application package, contains information about the application requirements and capabilities.
+
 #### Precise date ####
 
 Represents a logical date within JSS api, contains 3 properties, the date itself, an epoch version of the date and an UTC version of the date.
