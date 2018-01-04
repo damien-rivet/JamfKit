@@ -42,7 +42,7 @@ public final class NetworkSegment: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         startingAddress = json[NetworkSegment.StartingAddressKey] as? String ?? ""
         endingAddress = json[NetworkSegment.EndingAddressKey] as? String ?? ""
         distributionServer = json[NetworkSegment.DistributionServerKey] as? String ?? ""
@@ -60,7 +60,7 @@ public final class NetworkSegment: BaseObject {
 
     // MARK: - Functions
 
-    public override func toJSON() -> [String : Any] {
+    public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[NetworkSegment.StartingAddressKey] = startingAddress

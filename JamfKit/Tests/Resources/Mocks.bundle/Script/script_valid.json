@@ -1,0 +1,22 @@
+{
+    "id": 12345,
+    "name": "Script",
+    "category": "None",
+    "filename": "filename",
+    "info": "Script information",
+    "notes": "Script to decrypt FV2 encrypted drives",
+    "priority": "Before",
+    "parameters": {
+        "parameter4": "string",
+        "parameter5": "string",
+        "parameter6": "string",
+        "parameter7": "string",
+        "parameter8": "string",
+        "parameter9": "string",
+        "parameter10": "string",
+        "parameter11": "string"
+    },
+    "os_requirements": "requirements",
+    "script_contents": "echo \"Sample script\"",
+    "script_contents_encoded": "encoded"
+}
