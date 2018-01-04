@@ -1,0 +1,10 @@
+{
+    "id": 12345,
+    "name": "AD Binding",
+    "priority": 1,
+    "domain": "ad.company.com",
+    "username": "AD\\Administrator",
+    "password": "password",
+    "computer_ou": "CN=Computers,DC=ad,DC=company,DC=com",
+    "type": "Active Directory"
+}

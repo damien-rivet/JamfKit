@@ -1,0 +1,9 @@
+{
+    "id": 12345,
+    "priority": 1,
+    "domain": "ad.company.com",
+    "username": "AD\\Administrator",
+    "password": "password",
+    "computer_ou": "CN=Computers,DC=ad,DC=company,DC=com",
+    "type": "Active Directory"
+}

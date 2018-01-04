@@ -13,13 +13,14 @@ class ComputerRemoteManagementTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Computer/"
     let defaultManaged = true
     let defaultManagementUsername = "username"
 
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "computer_remote_management")!
+        let payload = self.payload(for: "computer_remote_management", subfolder: subfolder)!
 
         let actualValue = ComputerRemoteManagement(json: payload)
 
@@ -37,7 +38,7 @@ class ComputerRemoteManagementTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer_remote_management")!
+        let payload = self.payload(for: "computer_remote_management", subfolder: subfolder)!
 
         let actualValue = ComputerRemoteManagement(json: payload)
         let encodedObject = actualValue?.toJSON()

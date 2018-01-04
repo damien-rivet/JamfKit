@@ -13,6 +13,7 @@ class UserTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "User/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "JDoe"
     let defaultFullName = "John Doe"
@@ -26,7 +27,7 @@ class UserTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "user_valid")!
+        let payload = self.payload(for: "user_valid", subfolder: subfolder)!
 
         let actualValue = User(json: payload)
 
@@ -45,7 +46,7 @@ class UserTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "user_incomplete")!
+        let payload = self.payload(for: "user_incomplete", subfolder: subfolder)!
 
         let actualValue = User(json: payload)
 
@@ -64,7 +65,7 @@ class UserTests: XCTestCase {
     }
 
     func testShouldInitializeFromJSONWithMultiples() {
-        let payload = self.payload(for: "user_multiple")!
+        let payload = self.payload(for: "user_multiple", subfolder: subfolder)!
 
         let actualValue = User(json: payload)
 
@@ -83,7 +84,7 @@ class UserTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "user_invalid")!
+        let payload = self.payload(for: "user_invalid", subfolder: subfolder)!
 
         let actualValue = User(json: payload)
 
@@ -91,7 +92,7 @@ class UserTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "user_valid")!
+        let payload = self.payload(for: "user_valid", subfolder: subfolder)!
 
         let actualValue = User(json: payload)
         let encodedObject = actualValue?.toJSON()

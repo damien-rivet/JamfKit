@@ -13,6 +13,7 @@ class PreciseDateTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "PreciseDate/"
     let defaultNode = "precise_date"
     let defaultDateValue = "2017-07-07T18:37:04.000Z"
     let defaultDateUTCValue = "2017-07-07T18:37:04.555-0500"
@@ -24,7 +25,7 @@ class PreciseDateTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInstantiateFromJSON() {
-        let payload = self.payload(for: "precise_date")!
+        let payload = self.payload(for: "precise_date", subfolder: subfolder)!
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -46,7 +47,7 @@ class PreciseDateTests: XCTestCase {
     }
 
     func testShouldInstantiateFromIncompleteJSON() {
-        let payload = self.payload(for: "precise_date_incomplete")!
+        let payload = self.payload(for: "precise_date_incomplete", subfolder: subfolder)!
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -62,7 +63,7 @@ class PreciseDateTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "precise_date")!
+        let payload = self.payload(for: "precise_date", subfolder: subfolder)!
 
         let actualValue = PreciseDate(json: payload, node: defaultNode)
         let encodedObject = actualValue?.toJSON()

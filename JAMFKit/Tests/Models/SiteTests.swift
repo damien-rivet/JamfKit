@@ -13,13 +13,14 @@ class SiteTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Site/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "Nowhere"
 
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "site_valid")!
+        let payload = self.payload(for: "site_valid", subfolder: subfolder)!
 
         let actualValue = Site(json: payload)
 
@@ -30,7 +31,7 @@ class SiteTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "site_invalid")!
+        let payload = self.payload(for: "site_invalid", subfolder: subfolder)!
 
         let actualValue = Site(json: payload)
 
@@ -38,7 +39,7 @@ class SiteTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "site_valid")!
+        let payload = self.payload(for: "site_valid", subfolder: subfolder)!
 
         let actualValue = Site(json: payload)
         let encodedObject = actualValue?.toJSON()

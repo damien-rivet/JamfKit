@@ -13,6 +13,7 @@ class MobileDeviceGeneralTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "MobileDevice/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "Mobile Device"
     let defaultDisplayName = "Mobile Device"
@@ -54,7 +55,7 @@ class MobileDeviceGeneralTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "mobile_device_general_valid")!
+        let payload = self.payload(for: "mobile_device_general_valid", subfolder: subfolder)!
 
         let defaultLastInventoryUpdate = PreciseDate(json: payload, node: "last_inventory_update")
         let defaultInitialEntryDate = PreciseDate(json: payload, node: "initial_entry_date")
@@ -120,7 +121,7 @@ class MobileDeviceGeneralTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "mobile_device_general_incomplete")!
+        let payload = self.payload(for: "mobile_device_general_incomplete", subfolder: subfolder)!
 
         let defaultLastInventoryUpdate = PreciseDate(json: payload, node: "last_inventory_update")
         let defaultInitialEntryDate = PreciseDate(json: payload, node: "initial_entry_date")
@@ -185,7 +186,7 @@ class MobileDeviceGeneralTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "mobile_device_general_invalid")!
+        let payload = self.payload(for: "mobile_device_general_invalid", subfolder: subfolder)!
 
         let site = MobileDeviceGeneral(json: payload)
 
@@ -193,7 +194,7 @@ class MobileDeviceGeneralTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "mobile_device_general_valid")!
+        let payload = self.payload(for: "mobile_device_general_valid", subfolder: subfolder)!
 
         let actualValue = MobileDeviceGeneral(json: payload)
         let encodedObject = actualValue?.toJSON()
@@ -249,41 +250,4 @@ class MobileDeviceGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastBackupTimeKey + PreciseDate.EpochKey])
         XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastBackupTimeKey + PreciseDate.UTCKey])
     }
-
-//    func testIncompleteShouldEncodeToJSON() {
-//        let payload = self.payload(for: "mobile_device_general_incomplete")!
-//
-//        let actualValue = MobileDeviceGeneral(json: payload)
-//        let encodedObject = actualValue?.toJSON()
-//
-//        XCTAssertNotNil(encodedObject)
-//        XCTAssertEqual(encodedObject?.count, 26)
-//
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.IdentifierKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.NameKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.MacAddressKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.AlternativeMacAddressKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.IpAddressKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastReportedIPAddressKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.SerialNumberKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.UDIDKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.JAMFVersionKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.PlatformKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.MdmCapableKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.ReportDateKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.ReportDateKey + PreciseDate.EpochKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.ReportDateKey + PreciseDate.UTCKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastContactTimeKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastContactTimeKey + PreciseDate.EpochKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastContactTimeKey + PreciseDate.UTCKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.InitialEntryDateKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.InitialEntryDateKey + PreciseDate.EpochKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.InitialEntryDateKey + PreciseDate.UTCKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastCloudBackupDateKey + PreciseDate.EpochKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastCloudBackupDateKey + PreciseDate.UTCKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.DistributionPointKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.SusKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.NetbootServerKey])
-//        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.ItunesStoreAccountIsActiveKey])
-//    }
 }
