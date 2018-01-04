@@ -14,6 +14,7 @@ class NetbootServerTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "NetbootServer/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "Netboot Server"
     let defaultIpAddress = "127.0.0.1"
@@ -32,7 +33,7 @@ class NetbootServerTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "netboot_server_valid")!
+        let payload = self.payload(for: "netboot_server_valid", subfolder: subfolder)!
 
         let actualValue = NetbootServer(json: payload)
 
@@ -55,7 +56,7 @@ class NetbootServerTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "netboot_server_incomplete")!
+        let payload = self.payload(for: "netboot_server_incomplete", subfolder: subfolder)!
 
         let actualValue = NetbootServer(json: payload)
 
@@ -78,7 +79,7 @@ class NetbootServerTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "netboot_server_invalid")!
+        let payload = self.payload(for: "netboot_server_invalid", subfolder: subfolder)!
 
         let actualValue = NetbootServer(json: payload)
 
@@ -86,7 +87,7 @@ class NetbootServerTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "netboot_server_valid")!
+        let payload = self.payload(for: "netboot_server_valid", subfolder: subfolder)!
 
         let actualValue = NetbootServer(json: payload)
         let encodedObject = actualValue?.toJSON()

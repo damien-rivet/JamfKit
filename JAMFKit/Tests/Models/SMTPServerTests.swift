@@ -13,6 +13,7 @@ class SMTPServerTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "SMTPServer/"
     let defaultIsEnabled = true
     let defaultHost = "smtp.jamfkit.com"
     let defaultPort: UInt = 12345
@@ -28,7 +29,7 @@ class SMTPServerTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "smtp_server")!
+        let payload = self.payload(for: "smtp_server", subfolder: subfolder)!
 
         let actualValue = SMTPServer(json: payload)
 
@@ -55,7 +56,7 @@ class SMTPServerTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "smtp_server")!
+        let payload = self.payload(for: "smtp_server", subfolder: subfolder)!
 
         let actualValue = SMTPServer(json: payload)
         let encodedObject = actualValue?.toJSON()

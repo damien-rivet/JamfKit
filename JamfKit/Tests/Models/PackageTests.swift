@@ -13,6 +13,7 @@ class PackageTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Package/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "Package.dmg"
     let defaultCategory = "Unknown"
@@ -36,7 +37,7 @@ class PackageTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "package_valid")!
+        let payload = self.payload(for: "package_valid", subfolder: subfolder)!
 
         let actualValue = Package(json: payload)
 
@@ -64,7 +65,7 @@ class PackageTests: XCTestCase {
     }
 
     func testShouldInitializeFromIncompleteJSON() {
-        let payload = self.payload(for: "package_incomplete")!
+        let payload = self.payload(for: "package_incomplete", subfolder: subfolder)!
 
         let actualValue = Package(json: payload)
 
@@ -92,7 +93,7 @@ class PackageTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "package_invalid")!
+        let payload = self.payload(for: "package_invalid", subfolder: subfolder)!
 
         let actualValue = Package(json: payload)
 
@@ -100,7 +101,7 @@ class PackageTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "package_valid")!
+        let payload = self.payload(for: "package_valid", subfolder: subfolder)!
 
         let actualValue = Package(json: payload)
         let encodedObject = actualValue?.toJSON()

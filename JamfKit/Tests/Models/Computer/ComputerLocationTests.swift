@@ -13,6 +13,7 @@ class ComputerLocationTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Computer/"
     let defaultUsername = "JDoe"
     let defaultRealName = "John Doe"
     let defaultEmailAddress = "john.doe@doecorp.com"
@@ -25,7 +26,7 @@ class ComputerLocationTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "computer_location")!
+        let payload = self.payload(for: "computer_location", subfolder: subfolder)!
 
         let actualValue = ComputerLocation(json: payload)
 
@@ -55,7 +56,7 @@ class ComputerLocationTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer_location")!
+        let payload = self.payload(for: "computer_location", subfolder: subfolder)!
 
         let actualValue = ComputerLocation(json: payload)
         let encodedObject = actualValue?.toJSON()

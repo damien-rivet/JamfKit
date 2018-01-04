@@ -13,13 +13,14 @@ class DepartmentTests: XCTestCase {
 
     // MARK: - Constants
 
+    let subfolder = "Department/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "Unknown"
 
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "department_valid")!
+        let payload = self.payload(for: "department_valid", subfolder: subfolder)!
 
         let actualValue = Department(json: payload)
 
@@ -30,7 +31,7 @@ class DepartmentTests: XCTestCase {
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "department_invalid")!
+        let payload = self.payload(for: "department_invalid", subfolder: subfolder)!
 
         let actualValue = Department(json: payload)
 
@@ -38,7 +39,7 @@ class DepartmentTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "department_valid")!
+        let payload = self.payload(for: "department_valid", subfolder: subfolder)!
 
         let actualValue = Department(json: payload)
         let encodedObject = actualValue?.toJSON()
