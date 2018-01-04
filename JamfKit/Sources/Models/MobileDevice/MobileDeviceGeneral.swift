@@ -95,7 +95,7 @@ public final class MobileDeviceGeneral: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         displayName = json[MobileDeviceGeneral.DisplayNameKey] as? String ?? ""
         deviceName = json[MobileDeviceGeneral.DeviceNameKey] as? String ?? ""
         assetTag = json[MobileDeviceGeneral.AssetTagNameKey] as? String ?? ""
@@ -142,7 +142,7 @@ public final class MobileDeviceGeneral: BaseObject {
 
     // MARK: - Functions
 
-    public override func toJSON() -> [String : Any] {
+    public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[MobileDeviceGeneral.DisplayNameKey] = displayName

@@ -32,7 +32,7 @@ public final class DirectoryBinding: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         priority = json[DirectoryBinding.PriorityKey] as? UInt ?? 0
         domain = json[DirectoryBinding.DomainKey] as? String ?? ""
         username = json[DirectoryBinding.UsernameKey] as? String ?? ""
@@ -45,7 +45,7 @@ public final class DirectoryBinding: BaseObject {
 
     // MARK: - Functions
 
-    public override func toJSON() -> [String : Any] {
+    public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[DirectoryBinding.PriorityKey] = priority
