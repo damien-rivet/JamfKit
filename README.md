@@ -137,6 +137,10 @@ Represents a logical date within JSS api, contains 3 properties, the date itself
 
 Represents a physical printer, contains information about the printer and it's configuration.
 
+#### Script ####
+
+Represents a logical script that can be executed on one (or more) machine managed by Jamf.
+
 #### Site ####
 
 Represents a physical location (building, office, etc.).

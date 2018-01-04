@@ -2,7 +2,6 @@
 //  NetbootServerTests.swift
 //  JAMFKit
 //
-//  Created by Damien Rivet on 22.12.17.
 //  Copyright © 2017 JAMFKit. All rights reserved.
 //
 
