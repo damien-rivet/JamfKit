@@ -16,26 +16,25 @@ public final class Computer: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
-    public var general: ComputerGeneral?
+    public var general: ComputerGeneral
     public var location: ComputerLocation?
     public var purchasing: ComputerPurchasing?
 
     public var description: String {
-        let baseDescription = "[\(String(describing: Computer.self))]"
-
-        if let general = self.general {
-            return "\(baseDescription)[\(general.identifier). \(general.name)]"
-        }
-
-        return baseDescription
+        return "[\(String(describing: Computer.self))][\(general.identifier). \(general.name)]"
     }
 
     // MARK: - Initialization
 
     public required init?(json: [String: Any], node: String = "") {
-        if let generalNode = json[Computer.GeneralKey] as? [String: Any] {
-            general = ComputerGeneral(json: generalNode)
+        guard
+            let generalNode = json[Computer.GeneralKey] as? [String: Any],
+            let general = ComputerGeneral(json: generalNode)
+            else {
+                return nil
         }
+
+        self.general = general
 
         if let locationNode = json[Computer.LocationKey] as? [String: Any] {
             location = ComputerLocation(json: locationNode)
@@ -51,7 +50,8 @@ public final class Computer: Identifiable, CustomStringConvertible {
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        if let general = general { json[Computer.GeneralKey] = general.toJSON() }
+        json[Computer.GeneralKey] = general.toJSON()
+
         if let location = location { json[Computer.LocationKey] = location.toJSON() }
         if let purchasing = purchasing { json[Computer.PurchasingKey] = purchasing.toJSON() }
 

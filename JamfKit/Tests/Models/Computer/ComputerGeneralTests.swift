@@ -164,7 +164,7 @@ class ComputerGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject?[ComputerGeneral.Barcode1Key])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.Barcode2Key])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.AssetTagKey])
-        XCTAssertNotNil(encodedObject?[ComputerRemoteManagement.ContainerKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.RemoteManagementKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.MdmCapableKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.MdmCapableUsersKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey])
@@ -184,43 +184,6 @@ class ComputerGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject?[ComputerGeneral.SusKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.NetbootServerKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.SiteKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.ItunesStoreAccountIsActiveKey])
-    }
-
-    func testIncompleteShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer_general_incomplete", subfolder: subfolder)!
-
-        let actualValue = ComputerGeneral(json: payload)
-        let encodedObject = actualValue?.toJSON()
-
-        XCTAssertNotNil(encodedObject)
-        XCTAssertEqual(encodedObject?.count, 26)
-
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.NameKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.MacAddressKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.AlternativeMacAddressKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.IpAddressKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastReportedIPAddressKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.SerialNumberKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.UDIDKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.JAMFVersionKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.PlatformKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.MdmCapableKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.ReportDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastContactTimeKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.InitialEntryDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastCloudBackupDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.LastCloudBackupDateKey + PreciseDate.UTCKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.DistributionPointKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.SusKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.NetbootServerKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.ItunesStoreAccountIsActiveKey])
     }
 }

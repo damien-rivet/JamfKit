@@ -29,14 +29,22 @@ class ComputerTests: XCTestCase {
         XCTAssertNotNil(actualValue?.purchasing)
     }
 
-    func testShouldInitializeFromEmptyJSON() {
-        let actualValue = Computer(json: [String: Any]())
+    func testShouldInitializeFromIncompleteJSON() {
+        let payload = self.payload(for: "computer_incomplete", subfolder: subfolder)!
+
+        let actualValue = Computer(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[Computer]")
-        XCTAssertNil(actualValue?.general)
+        XCTAssertEqual(actualValue?.description, "[Computer][12345. computer]")
+        XCTAssertNotNil(actualValue?.general)
         XCTAssertNil(actualValue?.location)
         XCTAssertNil(actualValue?.purchasing)
+    }
+
+    func testShouldNotInitializeFromEmptyJSON() {
+        let actualValue = Computer(json: [String: Any]())
+
+        XCTAssertNil(actualValue)
     }
 
     func testShouldEncodeToJSON() {

@@ -9,7 +9,6 @@ public final class ComputerRemoteManagement: Identifiable {
 
     // MARK: - Constants
 
-    static let ContainerKey = "remote_management"
     static let ManagedKey = "managed"
     static let ManagementUsernameKey = "management_username"
 
