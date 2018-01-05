@@ -5,7 +5,7 @@ osx_image: xcode9.2
 env:
   global:
     - WORKSPACE="JamfKit.xcworkspace"
-  matrix:  
+  matrix:
     - PLATFORM="macOS" SCHEME="JamfKit macOS" DESTINATION="arch=x86_64" 
     - PLATFORM="iOS" SCHEME="JamfKit iOS" DESTINATION='platform=iOS Simulator,name=iPhone 8'
 
