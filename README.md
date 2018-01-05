@@ -133,7 +133,11 @@ Represents a physical network segment, contains information about the segment an
 
 Represents a logical application package, contains information about the application requirements and capabilities.
 
-#### Package ####
+#### Partition ####
+
+Represents a logical partition for an hard drive installed inside an hardware element managed by Jamf.
+
+#### Policy ####
 
 Reprents as logical policy that can be applied to any hardware element managed by Jamf.
 
