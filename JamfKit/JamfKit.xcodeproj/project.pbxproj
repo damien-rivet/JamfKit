@@ -41,6 +41,10 @@
 		ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
 		ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
 		ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
+		ED2DF2A72000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */; };
+		ED2DF2A82000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */; };
+		ED2DF2AA2000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A92000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift */; };
+		ED2DF2AB2000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A92000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift */; };
 		ED326B821FFD1B3900809793 /* MobileDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B811FFD1B3900809793 /* MobileDevice.swift */; };
 		ED326B831FFD1B3900809793 /* MobileDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B811FFD1B3900809793 /* MobileDevice.swift */; };
 		ED326B861FFD1D6200809793 /* MobileDeviceGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B851FFD1D6200809793 /* MobileDeviceGeneral.swift */; };
@@ -64,6 +68,10 @@
 		ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A01FAB75CE006259FC /* User.swift */; };
 		ED71F2B51FA9ED890056790C /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED71F2B41FA9ED890056790C /* Mocks.bundle */; };
 		ED71F2B61FA9ED890056790C /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED71F2B41FA9ED890056790C /* Mocks.bundle */; };
+		ED72A2BE2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72A2BD2000125D0047E0B7 /* MobileDeviceGroup.swift */; };
+		ED72A2BF2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72A2BD2000125D0047E0B7 /* MobileDeviceGroup.swift */; };
+		ED72A2C1200013810047E0B7 /* MobileDeviceGroupCriterion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72A2C0200013810047E0B7 /* MobileDeviceGroupCriterion.swift */; };
+		ED72A2C2200013810047E0B7 /* MobileDeviceGroupCriterion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72A2C0200013810047E0B7 /* MobileDeviceGroupCriterion.swift */; };
 		ED73839B1FAB5AD9006259FC /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED73839A1FAB5AD9006259FC /* Site.swift */; };
 		ED73839C1FAB5AD9006259FC /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED73839A1FAB5AD9006259FC /* Site.swift */; };
 		ED73839E1FAB5B09006259FC /* SiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED73839D1FAB5B09006259FC /* SiteTests.swift */; };
@@ -169,6 +177,8 @@
 		ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectTests.swift; sourceTree = "<group>"; };
 		ED1D930A1FA20FAB005589F5 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		ED1D930C1FA20FB0005589F5 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceGroupTests.swift; sourceTree = "<group>"; };
+		ED2DF2A92000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceGroupCriterionTests.swift; sourceTree = "<group>"; };
 		ED326B811FFD1B3900809793 /* MobileDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDevice.swift; sourceTree = "<group>"; };
 		ED326B851FFD1D6200809793 /* MobileDeviceGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MobileDeviceGeneral.swift; path = ../../../../JamfKit/Sources/Models/MobileDevice/MobileDeviceGeneral.swift; sourceTree = "<group>"; };
 		ED326B891FFD2AAA00809793 /* MobileDeviceGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MobileDeviceGeneralTests.swift; path = ../../../../JamfKit/Tests/Models/MobileDevice/MobileDeviceGeneralTests.swift; sourceTree = "<group>"; };
@@ -180,6 +190,8 @@
 		ED56BB7E1FB1B24B00416C1A /* ComputerLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerLocation.swift; sourceTree = "<group>"; };
 		ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciseDateTests.swift; sourceTree = "<group>"; };
 		ED71F2B41FA9ED890056790C /* Mocks.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mocks.bundle; sourceTree = "<group>"; };
+		ED72A2BD2000125D0047E0B7 /* MobileDeviceGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceGroup.swift; sourceTree = "<group>"; };
+		ED72A2C0200013810047E0B7 /* MobileDeviceGroupCriterion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceGroupCriterion.swift; sourceTree = "<group>"; };
 		ED73839A1FAB5AD9006259FC /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		ED73839D1FAB5B09006259FC /* SiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTests.swift; sourceTree = "<group>"; };
 		ED7383A01FAB75CE006259FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -335,6 +347,7 @@
 				ED1B70E21FEA973A00005658 /* Department.swift */,
 				ED169F211FFE5F2F00DD7B61 /* DirectoryBinding.swift */,
 				ED326B841FFD1CA800809793 /* MobileDevice */,
+				ED72A2BC200012420047E0B7 /* MobileDeviceGroup */,
 				EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */,
 				ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */,
 				ED4C59051FFE3CCE00E84A25 /* Package.swift */,
@@ -368,6 +381,7 @@
 				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
 				ED169F231FFE613900DD7B61 /* DirectoryBindingTests.swift */,
 				ED326B881FFD2A9700809793 /* MobileDevice */,
+				ED2DF2A52000204D00FD0A30 /* MobileDeviceGroup */,
 				EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */,
 				ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */,
 				ED169F1B1FFE504000DD7B61 /* PackageTests.swift */,
@@ -381,6 +395,15 @@
 				ED7383A21FAB7D5A006259FC /* UserTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ED2DF2A52000204D00FD0A30 /* MobileDeviceGroup */ = {
+			isa = PBXGroup;
+			children = (
+				ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */,
+				ED2DF2A92000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift */,
+			);
+			path = MobileDeviceGroup;
 			sourceTree = "<group>";
 		};
 		ED326B841FFD1CA800809793 /* MobileDevice */ = {
@@ -427,6 +450,15 @@
 				ED71F2B41FA9ED890056790C /* Mocks.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		ED72A2BC200012420047E0B7 /* MobileDeviceGroup */ = {
+			isa = PBXGroup;
+			children = (
+				ED72A2BD2000125D0047E0B7 /* MobileDeviceGroup.swift */,
+				ED72A2C0200013810047E0B7 /* MobileDeviceGroupCriterion.swift */,
+			);
+			path = MobileDeviceGroup;
 			sourceTree = "<group>";
 		};
 		EDB9B9441FFF836500287739 /* Policy */ = {
@@ -677,6 +709,7 @@
 				ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */,
 				EDB9B94C1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
 				EDB9B93E1FFF712400287739 /* ComputerCommand.swift in Sources */,
+				ED72A2BE2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB7F1FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */,
@@ -689,6 +722,7 @@
 				ED169F221FFE5F2F00DD7B61 /* DirectoryBinding.swift in Sources */,
 				ED3E04801FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDC664501FFFC87C00504DDB /* Partition.swift in Sources */,
+				ED72A2C1200013810047E0B7 /* MobileDeviceGroupCriterion.swift in Sources */,
 				EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDA3CFD21FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				ED326B821FFD1B3900809793 /* MobileDevice.swift in Sources */,
@@ -713,6 +747,7 @@
 				EDB9B9681FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift in Sources */,
 				EDB9B9651FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift in Sources */,
 				ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */,
+				ED2DF2A72000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */,
 				EDB9B95F1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
 				ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
@@ -731,6 +766,7 @@
 				EDB9B95C1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1C1FFE504000DD7B61 /* PackageTests.swift in Sources */,
 				EDB9B9591FFF9B8B00287739 /* PolicyTests.swift in Sources */,
+				ED2DF2AA2000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +785,7 @@
 				ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */,
 				EDB9B94D1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
 				EDB9B9421FFF7B6400287739 /* ComputerCommand.swift in Sources */,
+				ED72A2BF2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB801FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */,
@@ -761,6 +798,7 @@
 				ED169F291FFE6D8F00DD7B61 /* DirectoryBinding.swift in Sources */,
 				ED3E04811FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDC664511FFFC87C00504DDB /* Partition.swift in Sources */,
+				ED72A2C2200013810047E0B7 /* MobileDeviceGroupCriterion.swift in Sources */,
 				EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				ED326B831FFD1B3900809793 /* MobileDevice.swift in Sources */,
@@ -785,6 +823,7 @@
 				EDB9B9691FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift in Sources */,
 				EDB9B9661FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift in Sources */,
 				ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */,
+				ED2DF2A82000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */,
 				EDB9B9601FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
 				ED9EF3F21FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
@@ -803,6 +842,7 @@
 				EDB9B95D1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1D1FFE504000DD7B61 /* PackageTests.swift in Sources */,
 				EDB9B95A1FFF9B8B00287739 /* PolicyTests.swift in Sources */,
+				ED2DF2AB2000213500FD0A30 /* MobileDeviceGroupCriterionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,7 @@ public final class ComputerCommand: Identifiable, CustomStringConvertible {
 
     // MARK: - Initialization
 
-    public init?(json: [String : Any], node: String = "") {
+    public init?(json: [String: Any], node: String = "") {
         guard
             let generalNode = json[ComputerCommand.GeneralKey] as? [String: Any],
             let general = ComputerCommandGeneral(json: generalNode)
@@ -43,7 +43,7 @@ public final class ComputerCommand: Identifiable, CustomStringConvertible {
 
     // MARK: - Functions
 
-    public func toJSON() -> [String : Any] {
+    public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
         json[ComputerCommand.GeneralKey] = general.toJSON()

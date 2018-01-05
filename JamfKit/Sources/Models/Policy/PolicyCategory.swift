@@ -17,7 +17,7 @@ public final class PolicyCategory: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String : Any], node: String = "") {
+    public required init?(json: [String: Any], node: String = "") {
         guard let priority = json[PolicyCategory.PriorityKey] as? UInt else {
             return nil
         }
@@ -29,7 +29,7 @@ public final class PolicyCategory: BaseObject {
 
     // MARK: - Functions
 
-    public override func toJSON() -> [String : Any] {
+    public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
         json[PolicyCategory.PriorityKey] = priority
