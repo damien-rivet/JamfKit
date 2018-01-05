@@ -1,8 +1,8 @@
 //
 //  PolicyOverrideDefaultSettings.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2018 JAMFKit. All rights reserved.
+//  Copyright © 2018 JamfKit. All rights reserved.
 //
 
 public final class PolicyOverrideDefaultSettings: Identifiable {

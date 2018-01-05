@@ -1,8 +1,8 @@
 //
 //  DirectoryBinding.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2018 JAMFKit. All rights reserved.
+//  Copyright © 2018 JamfKit. All rights reserved.
 //
 
 /// Represents a logical binding between a computer and an active directory user.

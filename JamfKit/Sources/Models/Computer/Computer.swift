@@ -1,8 +1,8 @@
 //
 //  Computer.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2018 JAMFKit. All rights reserved.
+//  Copyright © 2018 JamfKit. All rights reserved.
 //
 
 /// Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.

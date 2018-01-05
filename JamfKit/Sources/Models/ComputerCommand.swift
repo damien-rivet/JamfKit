@@ -1,8 +1,8 @@
 //
 //  ComputerCommand.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2018 JAMFKit. All rights reserved.
+//  Copyright © 2018 JamfKit. All rights reserved.
 //
 
 /// Represents a logical command that can be executed on any hardware element manageg by Jamf.

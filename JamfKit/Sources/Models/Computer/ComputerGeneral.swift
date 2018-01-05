@@ -1,8 +1,8 @@
 //
 //  ComputerGeneral.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2017 JAMFKit. All rights reserved.
+//  Copyright © 2017 JamfKit. All rights reserved.
 //
 
 public final class ComputerGeneral: BaseObject {
@@ -15,7 +15,7 @@ public final class ComputerGeneral: BaseObject {
     static let LastReportedIPAddressKey = "last_reported_ip"
     static let SerialNumberKey = "serial_number"
     static let UDIDKey = "udid"
-    static let JAMFVersionKey = "jamf_version"
+    static let JamfVersionKey = "jamf_version"
     static let PlatformKey = "platform"
     static let Barcode1Key = "barcode_1"
     static let Barcode2Key = "barcode_2"
@@ -71,7 +71,7 @@ public final class ComputerGeneral: BaseObject {
         lastReportedIpAddress = json[ComputerGeneral.LastReportedIPAddressKey] as? String
         serialNumber = json[ComputerGeneral.SerialNumberKey] as? String
         udid = json[ComputerGeneral.UDIDKey] as? String
-        jamfVersion = json[ComputerGeneral.JAMFVersionKey] as? String
+        jamfVersion = json[ComputerGeneral.JamfVersionKey] as? String
         platform = json[ComputerGeneral.PlatformKey] as? String
         barcode1 = json[ComputerGeneral.Barcode1Key] as? String
         barcode2 = json[ComputerGeneral.Barcode2Key] as? String
@@ -104,7 +104,7 @@ public final class ComputerGeneral: BaseObject {
         json[ComputerGeneral.LastReportedIPAddressKey] = lastReportedIpAddress
         json[ComputerGeneral.SerialNumberKey] = serialNumber
         json[ComputerGeneral.UDIDKey] = udid
-        json[ComputerGeneral.JAMFVersionKey] = jamfVersion
+        json[ComputerGeneral.JamfVersionKey] = jamfVersion
         json[ComputerGeneral.PlatformKey] = platform
         json[ComputerGeneral.Barcode1Key] = barcode1
         json[ComputerGeneral.Barcode2Key] = barcode2

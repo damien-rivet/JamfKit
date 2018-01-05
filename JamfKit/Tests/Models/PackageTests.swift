@@ -1,13 +1,13 @@
 //
 //  PackageTests.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2018 JAMFKit. All rights reserved.
+//  Copyright © 2018 JamfKit. All rights reserved.
 //
 
 import XCTest
 
-@testable import JAMFKit
+@testable import JamfKit
 
 class PackageTests: XCTestCase {
 
