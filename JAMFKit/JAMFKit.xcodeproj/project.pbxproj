@@ -89,6 +89,10 @@
 		EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */; };
 		EDB698FE1FECF20800C021E6 /* NetbootServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */; };
 		EDB698FF1FECF20800C021E6 /* NetbootServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */; };
+		EDB9B93E1FFF712400287739 /* ComputerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93D1FFF712400287739 /* ComputerCommand.swift */; };
+		EDB9B9401FFF73A700287739 /* ComputerCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */; };
+		EDB9B9411FFF73A700287739 /* ComputerCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */; };
+		EDB9B9421FFF7B6400287739 /* ComputerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93D1FFF712400287739 /* ComputerCommand.swift */; };
 		EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
 		EDCE84B11FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
 		EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE806D1FEA76EA00169C39 /* Building.swift */; };
@@ -161,6 +165,8 @@
 		EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServerTests.swift; path = ../../../JamfKit/Tests/Models/SMTPServerTests.swift; sourceTree = "<group>"; };
 		EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServer.swift; sourceTree = "<group>"; };
 		EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServerTests.swift; sourceTree = "<group>"; };
+		EDB9B93D1FFF712400287739 /* ComputerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComputerCommand.swift; path = ../../../../JamfKit/Sources/Models/Computer/ComputerCommand.swift; sourceTree = "<group>"; };
+		EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComputerCommandTests.swift; path = ../../../../JamfKit/Tests/Models/Computer/ComputerCommandTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPurchasing.swift; sourceTree = "<group>"; };
 		EDFE806D1FEA76EA00169C39 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		EDFE80701FEA773600169C39 /* BuildingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTests.swift; sourceTree = "<group>"; };
@@ -268,6 +274,7 @@
 		ED071F501FB33386003FAB0E /* Computer */ = {
 			isa = PBXGroup;
 			children = (
+				EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */,
 				ED071F541FB333A6003FAB0E /* ComputerGeneralTests.swift */,
 				ED071F571FB333AF003FAB0E /* ComputerLocationTests.swift */,
 				ED7BF10A1FFCE03400F47566 /* ComputerPurchasingTests.swift */,
@@ -359,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				ED7BF1041FFCD9C100F47566 /* Computer.swift */,
+				EDB9B93D1FFF712400287739 /* ComputerCommand.swift */,
 				ED071F4D1FB33275003FAB0E /* ComputerGeneral.swift */,
 				ED56BB7E1FB1B24B00416C1A /* ComputerLocation.swift */,
 				EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */,
@@ -594,6 +602,7 @@
 				ED4C59061FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */,
+				EDB9B93E1FFF712400287739 /* ComputerCommand.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB7F1FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */,
@@ -618,6 +627,7 @@
 				ED3E04831FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */,
 				EDB698FE1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
 				ED071F5E1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
+				EDB9B9401FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
 				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F241FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
 				ED071F551FB333A6003FAB0E /* ComputerGeneralTests.swift in Sources */,
@@ -650,6 +660,7 @@
 				ED4C59071FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806F1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */,
+				EDB9B9421FFF7B6400287739 /* ComputerCommand.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB801FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */,
@@ -674,6 +685,7 @@
 				ED3E04841FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */,
 				EDB698FF1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
 				ED071F5F1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
+				EDB9B9411FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
 				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F251FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
 				ED071F561FB333A6003FAB0E /* ComputerGeneralTests.swift in Sources */,
