@@ -1,13 +1,13 @@
 //
 //  ComputerRemoteManagementTests.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2017 JAMFKit. All rights reserved.
+//  Copyright © 2017 JamfKit. All rights reserved.
 //
 
 import XCTest
 
-@testable import JAMFKit
+@testable import JamfKit
 
 class ComputerRemoteManagementTests: XCTestCase {
 

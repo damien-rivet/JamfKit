@@ -8,6 +8,6 @@
     "password": "password",
     "ssl": true,
     "tls": true,
-    "send_from_name": "JAMFKit SMTP Server",
+    "send_from_name": "JamfKit SMTP Server",
     "send_from_email": "smtp@jamfkit.com"
 }

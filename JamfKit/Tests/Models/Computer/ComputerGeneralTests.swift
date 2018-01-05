@@ -1,13 +1,13 @@
 //
 //  HardwareGeneralTests.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2017 JAMFKit. All rights reserved.
+//  Copyright © 2017 JamfKit. All rights reserved.
 //
 
 import XCTest
 
-@testable import JAMFKit
+@testable import JamfKit
 
 class ComputerGeneralTests: XCTestCase {
 
@@ -159,7 +159,7 @@ class ComputerGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject?[ComputerGeneral.LastReportedIPAddressKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.SerialNumberKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.UDIDKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.JAMFVersionKey])
+        XCTAssertNotNil(encodedObject?[ComputerGeneral.JamfVersionKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.PlatformKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.Barcode1Key])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.Barcode2Key])
