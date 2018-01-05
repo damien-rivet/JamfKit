@@ -105,6 +105,10 @@ Represents a physical building.
 
 Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.
 
+#### Computer command ####
+
+Represents a logical command that can be executed on any hardware element manageg by Jamf.
+
 #### Department ####
 
 Represents a physical department.
@@ -128,6 +132,10 @@ Represents a physical network segment, contains information about the segment an
 #### Package ####
 
 Represents a logical application package, contains information about the application requirements and capabilities.
+
+#### Package ####
+
+Reprents as logical policy that can be applied to any hardware element managed by Jamf.
 
 #### Precise date ####
 

@@ -1,0 +1,13 @@
+{
+    "activation_date": "2017-07-07T18:37:04.000Z",
+    "activation_date_epoch": 1499470624555,
+    "activation_date_utc": "2017-07-07T18:37:04.555-0500",
+    "expiration_date": "2017-07-07T18:37:04.000Z",
+    "expiration_date_epoch": 1499470624555,
+    "expiration_date_utc": "2017-07-07T18:37:04.555-0500",
+    "no_execute_on": {
+        "day": "Sun"
+    },
+    "no_execute_start": "2:00 AM",
+    "no_execute_end": "4:00 AM"
+}

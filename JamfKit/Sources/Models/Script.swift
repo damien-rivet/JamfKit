@@ -5,7 +5,7 @@
 //  Copyright © 2018 JAMFKit. All rights reserved.
 //
 
-/// Represents a logical script that can be executed on one (or more) machine managed by Jamf.
+/// Represents a logical script that can be executed on one (or more) hardware element managed by Jamf.
 public final class Script: BaseObject {
 
     // MARK: - Constants

@@ -93,6 +93,30 @@
 		EDB9B9401FFF73A700287739 /* ComputerCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */; };
 		EDB9B9411FFF73A700287739 /* ComputerCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */; };
 		EDB9B9421FFF7B6400287739 /* ComputerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93D1FFF712400287739 /* ComputerCommand.swift */; };
+		EDB9B9461FFF837B00287739 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9451FFF837B00287739 /* Policy.swift */; };
+		EDB9B9471FFF837B00287739 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9451FFF837B00287739 /* Policy.swift */; };
+		EDB9B9491FFF838A00287739 /* PolicyGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9481FFF838A00287739 /* PolicyGeneral.swift */; };
+		EDB9B94A1FFF838A00287739 /* PolicyGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9481FFF838A00287739 /* PolicyGeneral.swift */; };
+		EDB9B94C1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B94B1FFF83AF00287739 /* PolicyDateTimeLimitations.swift */; };
+		EDB9B94D1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B94B1FFF83AF00287739 /* PolicyDateTimeLimitations.swift */; };
+		EDB9B94F1FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */; };
+		EDB9B9501FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */; };
+		EDB9B9521FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */; };
+		EDB9B9531FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */; };
+		EDB9B9551FFF879F00287739 /* PolicyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9541FFF879F00287739 /* PolicyCategory.swift */; };
+		EDB9B9561FFF879F00287739 /* PolicyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9541FFF879F00287739 /* PolicyCategory.swift */; };
+		EDB9B9591FFF9B8B00287739 /* PolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */; };
+		EDB9B95A1FFF9B8B00287739 /* PolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */; };
+		EDB9B95C1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */; };
+		EDB9B95D1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */; };
+		EDB9B95F1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */; };
+		EDB9B9601FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */; };
+		EDB9B9621FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */; };
+		EDB9B9631FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */; };
+		EDB9B9651FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */; };
+		EDB9B9661FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */; };
+		EDB9B9681FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9671FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift */; };
+		EDB9B9691FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9671FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift */; };
 		EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
 		EDCE84B11FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
 		EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE806D1FEA76EA00169C39 /* Building.swift */; };
@@ -165,8 +189,20 @@
 		EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServerTests.swift; path = ../../../JamfKit/Tests/Models/SMTPServerTests.swift; sourceTree = "<group>"; };
 		EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServer.swift; sourceTree = "<group>"; };
 		EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServerTests.swift; sourceTree = "<group>"; };
-		EDB9B93D1FFF712400287739 /* ComputerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComputerCommand.swift; path = ../../../../JamfKit/Sources/Models/Computer/ComputerCommand.swift; sourceTree = "<group>"; };
-		EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComputerCommandTests.swift; path = ../../../../JamfKit/Tests/Models/Computer/ComputerCommandTests.swift; sourceTree = "<group>"; };
+		EDB9B93D1FFF712400287739 /* ComputerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerCommand.swift; sourceTree = "<group>"; };
+		EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandTests.swift; sourceTree = "<group>"; };
+		EDB9B9451FFF837B00287739 /* Policy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Policy.swift; path = ../../../../JamfKit/Sources/Models/Policy/Policy.swift; sourceTree = "<group>"; };
+		EDB9B9481FFF838A00287739 /* PolicyGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyGeneral.swift; sourceTree = "<group>"; };
+		EDB9B94B1FFF83AF00287739 /* PolicyDateTimeLimitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyDateTimeLimitations.swift; sourceTree = "<group>"; };
+		EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyNetworkLimitations.swift; sourceTree = "<group>"; };
+		EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyOverrideDefaultSettings.swift; sourceTree = "<group>"; };
+		EDB9B9541FFF879F00287739 /* PolicyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyCategory.swift; sourceTree = "<group>"; };
+		EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PolicyTests.swift; path = ../../../../JamfKit/Tests/Models/Policy/PolicyTests.swift; sourceTree = "<group>"; };
+		EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyCategoryTests.swift; sourceTree = "<group>"; };
+		EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyDateTimeLimitationsTests.swift; sourceTree = "<group>"; };
+		EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyGeneralTests.swift; sourceTree = "<group>"; };
+		EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyNetworkLimitationsTests.swift; sourceTree = "<group>"; };
+		EDB9B9671FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyOverrideDefaultSettingsTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPurchasing.swift; sourceTree = "<group>"; };
 		EDFE806D1FEA76EA00169C39 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		EDFE80701FEA773600169C39 /* BuildingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingTests.swift; sourceTree = "<group>"; };
@@ -274,7 +310,6 @@
 		ED071F501FB33386003FAB0E /* Computer */ = {
 			isa = PBXGroup;
 			children = (
-				EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */,
 				ED071F541FB333A6003FAB0E /* ComputerGeneralTests.swift */,
 				ED071F571FB333AF003FAB0E /* ComputerLocationTests.swift */,
 				ED7BF10A1FFCE03400F47566 /* ComputerPurchasingTests.swift */,
@@ -290,12 +325,14 @@
 				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
 				EDFE806D1FEA76EA00169C39 /* Building.swift */,
 				ED56BB7A1FB1B14400416C1A /* Computer */,
+				EDB9B93D1FFF712400287739 /* ComputerCommand.swift */,
 				ED1B70E21FEA973A00005658 /* Department.swift */,
 				ED169F211FFE5F2F00DD7B61 /* DirectoryBinding.swift */,
 				ED326B841FFD1CA800809793 /* MobileDevice */,
 				EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */,
 				ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */,
 				ED4C59051FFE3CCE00E84A25 /* Package.swift */,
+				EDB9B9441FFF836500287739 /* Policy */,
 				ED071F601FB34222003FAB0E /* PreciseDate.swift */,
 				ED9826F41FEAB14300DD5411 /* Printer.swift */,
 				ED169F2D1FFE743200DD7B61 /* Script.swift */,
@@ -320,12 +357,14 @@
 				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
 				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
 				ED071F501FB33386003FAB0E /* Computer */,
+				EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */,
 				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
 				ED169F231FFE613900DD7B61 /* DirectoryBindingTests.swift */,
 				ED326B881FFD2A9700809793 /* MobileDevice */,
 				EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */,
 				ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */,
 				ED169F1B1FFE504000DD7B61 /* PackageTests.swift */,
+				EDB9B9571FFF9B7900287739 /* Policy */,
 				ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */,
 				ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */,
 				ED169F2A1FFE742300DD7B61 /* ScriptTests.swift */,
@@ -366,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				ED7BF1041FFCD9C100F47566 /* Computer.swift */,
-				EDB9B93D1FFF712400287739 /* ComputerCommand.swift */,
 				ED071F4D1FB33275003FAB0E /* ComputerGeneral.swift */,
 				ED56BB7E1FB1B24B00416C1A /* ComputerLocation.swift */,
 				EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */,
@@ -381,6 +419,32 @@
 				ED71F2B41FA9ED890056790C /* Mocks.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EDB9B9441FFF836500287739 /* Policy */ = {
+			isa = PBXGroup;
+			children = (
+				EDB9B9451FFF837B00287739 /* Policy.swift */,
+				EDB9B9541FFF879F00287739 /* PolicyCategory.swift */,
+				EDB9B94B1FFF83AF00287739 /* PolicyDateTimeLimitations.swift */,
+				EDB9B9481FFF838A00287739 /* PolicyGeneral.swift */,
+				EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */,
+				EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */,
+			);
+			path = Policy;
+			sourceTree = "<group>";
+		};
+		EDB9B9571FFF9B7900287739 /* Policy */ = {
+			isa = PBXGroup;
+			children = (
+				EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */,
+				EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */,
+				EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */,
+				EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */,
+				EDB9B9671FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift */,
+				EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */,
+			);
+			path = Policy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -598,22 +662,28 @@
 				ED169F2E1FFE743200DD7B61 /* Script.swift in Sources */,
 				ED071F5B1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED7383A11FAB75CE006259FC /* User.swift in Sources */,
+				EDB9B94F1FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */,
 				ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */,
 				ED4C59061FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */,
+				EDB9B94C1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
 				EDB9B93E1FFF712400287739 /* ComputerCommand.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB7F1FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */,
+				EDB9B9491FFF838A00287739 /* PolicyGeneral.swift in Sources */,
 				EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */,
+				EDB9B9461FFF837B00287739 /* Policy.swift in Sources */,
 				ED071F4E1FB33275003FAB0E /* ComputerGeneral.swift in Sources */,
+				EDB9B9521FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */,
 				ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */,
 				ED169F221FFE5F2F00DD7B61 /* DirectoryBinding.swift in Sources */,
 				ED3E04801FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDA3CFD21FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				ED326B821FFD1B3900809793 /* MobileDevice.swift in Sources */,
+				EDB9B9551FFF879F00287739 /* PolicyCategory.swift in Sources */,
 				ED7BF1051FFCD9C100F47566 /* Computer.swift in Sources */,
 				ED1B70E31FEA973A00005658 /* Department.swift in Sources */,
 			);
@@ -631,7 +701,10 @@
 				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F241FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
 				ED071F551FB333A6003FAB0E /* ComputerGeneralTests.swift in Sources */,
+				EDB9B9681FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift in Sources */,
+				EDB9B9651FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift in Sources */,
 				ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */,
+				EDB9B95F1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
 				ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
 				ED326B8A1FFD2AAA00809793 /* MobileDeviceGeneralTests.swift in Sources */,
@@ -642,9 +715,12 @@
 				ED326B8D1FFD2AB500809793 /* MobileDeviceTests.swift in Sources */,
 				EDA3CFD51FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
+				EDB9B9621FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */,
 				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80711FEA773600169C39 /* BuildingTests.swift in Sources */,
+				EDB9B95C1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1C1FFE504000DD7B61 /* PackageTests.swift in Sources */,
+				EDB9B9591FFF9B8B00287739 /* PolicyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,22 +732,28 @@
 				ED169F2F1FFE743200DD7B61 /* Script.swift in Sources */,
 				ED071F5C1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */,
+				EDB9B9501FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */,
 				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
 				ED4C59071FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806F1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */,
+				EDB9B94D1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
 				EDB9B9421FFF7B6400287739 /* ComputerCommand.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB801FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */,
+				EDB9B94A1FFF838A00287739 /* PolicyGeneral.swift in Sources */,
 				EDCE84B11FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */,
+				EDB9B9471FFF837B00287739 /* Policy.swift in Sources */,
 				ED071F4F1FB33275003FAB0E /* ComputerGeneral.swift in Sources */,
+				EDB9B9531FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */,
 				ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */,
 				ED169F291FFE6D8F00DD7B61 /* DirectoryBinding.swift in Sources */,
 				ED3E04811FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				ED326B831FFD1B3900809793 /* MobileDevice.swift in Sources */,
+				EDB9B9561FFF879F00287739 /* PolicyCategory.swift in Sources */,
 				ED7BF1061FFCD9C100F47566 /* Computer.swift in Sources */,
 				ED1B70E41FEA973A00005658 /* Department.swift in Sources */,
 			);
@@ -689,7 +771,10 @@
 				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F251FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
 				ED071F561FB333A6003FAB0E /* ComputerGeneralTests.swift in Sources */,
+				EDB9B9691FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift in Sources */,
+				EDB9B9661FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift in Sources */,
 				ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */,
+				EDB9B9601FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
 				ED9EF3F21FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
 				ED326B8B1FFD2AAA00809793 /* MobileDeviceGeneralTests.swift in Sources */,
@@ -700,9 +785,12 @@
 				ED326B8E1FFD2AB500809793 /* MobileDeviceTests.swift in Sources */,
 				EDA3CFD61FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
+				EDB9B9631FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */,
 				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80721FEA773600169C39 /* BuildingTests.swift in Sources */,
+				EDB9B95D1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1D1FFE504000DD7B61 /* PackageTests.swift in Sources */,
+				EDB9B95A1FFF9B8B00287739 /* PolicyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

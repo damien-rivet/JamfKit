@@ -20,6 +20,7 @@ public final class ComputerGeneral: BaseObject {
     static let Barcode1Key = "barcode_1"
     static let Barcode2Key = "barcode_2"
     static let AssetTagKey = "asset_tag"
+    static let RemoteManagementKey = "remote_management"
     static let MdmCapableKey = "mdm_capable"
     static let MdmCapableUsersKey = "mdm_capable_users"
     static let MdmCapableUserKey = "mdm_capable_user"
@@ -108,7 +109,11 @@ public final class ComputerGeneral: BaseObject {
         json[ComputerGeneral.Barcode1Key] = barcode1
         json[ComputerGeneral.Barcode2Key] = barcode2
         json[ComputerGeneral.AssetTagKey] = assetTag
-        json[ComputerRemoteManagement.ContainerKey] = remoteManagement ?? remoteManagement?.toJSON()
+
+        if let remoteManagement = remoteManagement {
+            json[ComputerGeneral.RemoteManagementKey] = remoteManagement.toJSON()
+        }
+
         json[ComputerGeneral.MdmCapableKey] = isMdmCapable
         json[ComputerGeneral.MdmCapableUsersKey] = mdmCapableUsers
 
@@ -145,7 +150,7 @@ public final class ComputerGeneral: BaseObject {
 
     private static func parseRemoteManagement(from json: [String: Any]) -> ComputerRemoteManagement? {
         guard
-            let remoteManagementContainer = json[ComputerRemoteManagement.ContainerKey] as? [String: Any],
+            let remoteManagementContainer = json[ComputerGeneral.RemoteManagementKey] as? [String: Any],
             let remoteManagement = ComputerRemoteManagement(json: remoteManagementContainer)
             else {
                 return nil
