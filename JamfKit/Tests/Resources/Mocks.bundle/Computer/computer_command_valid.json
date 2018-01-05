@@ -1,0 +1,11 @@
+{
+    "general": {
+        "command": "command",
+        "passcode": 123456
+    },
+    "computers": {
+        "computer": {
+            "id": 1
+        }
+    }
+}
