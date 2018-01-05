@@ -5,6 +5,7 @@
 //  Copyright © 2018 JAMFKit. All rights reserved.
 //
 
+/// Represents a logical command that can be executed on any hardware element manageg by Jamf.
 public final class ComputerCommand: Identifiable, CustomStringConvertible {
 
     // MARK: - Constants
