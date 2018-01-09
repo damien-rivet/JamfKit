@@ -1,0 +1,7 @@
+{
+    "username": "administrator",
+    "password": "password",
+    "create_account": true,
+    "hide_account": true,
+    "allow_ssh_for_management_only": true
+}

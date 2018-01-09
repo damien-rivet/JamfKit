@@ -46,4 +46,31 @@ public class BaseObject: Identifiable, CustomStringConvertible {
 
         return json
     }
+
+    /**
+     * Parse the supplied JSON dictionary and extract a list of elements matching the supplied type.
+     *
+     * @param json The JSON payload to extract the list of elements from.
+     * @param singleNodeKey The string key used to identify a single element.
+     *
+     */
+    internal static func parseElements<Element: Identifiable>(from json: [String: Any], nodeKey: String, singleNodeKey: String) -> [Element] {
+        var elements = [Element]()
+
+        guard let elementsNode = json[nodeKey] as? [[String: [String: Any]]] else {
+            return elements
+        }
+
+        let newElements = elementsNode.map { $0[singleNodeKey] }.flatMap { rawElementNode -> Element? in
+            guard let rawElement = rawElementNode else {
+                return nil
+            }
+
+            return Element(json: rawElement, node: "")
+        }
+
+        elements.append(contentsOf: newElements)
+
+        return elements
+    }
 }
