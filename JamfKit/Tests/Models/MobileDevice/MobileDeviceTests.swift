@@ -23,7 +23,7 @@ class MobileDeviceTests: XCTestCase {
         let actualValue = MobileDevice(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[MobileDevice][12345. Mobile Device]")
+        XCTAssertEqual(actualValue?.description, "[MobileDevice][12345 - Mobile Device]")
         XCTAssertNotNil(actualValue?.general)
     }
 

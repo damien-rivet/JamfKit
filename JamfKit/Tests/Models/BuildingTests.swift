@@ -27,7 +27,7 @@ class BuildingTests: XCTestCase {
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
-        XCTAssertEqual(actualValue?.description, "[Building][\(defaultIdentifier). \(defaultName)]")
+        XCTAssertEqual(actualValue?.description, "[Building][\(defaultIdentifier) - \(defaultName)]")
     }
 
     func testShouldNotInitializeFromInvalidJSON() {

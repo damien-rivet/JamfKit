@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
-public final class PolicyOverrideDefaultSettings: Identifiable {
+import Foundation
+
+@objc(JMFKPolicyOverrideDefaultSettings)
+public final class PolicyOverrideDefaultSettings: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -17,10 +20,19 @@ public final class PolicyOverrideDefaultSettings: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var targetDrive: String
+
+    @objc
     public var distributionPoint: String
+
+    @objc
     public var shouldForceAfpSmb: Bool
+
+    @objc
     public var sus: String
+
+    @objc
     public var netbootServer: String
 
     // MARK: - Initialization

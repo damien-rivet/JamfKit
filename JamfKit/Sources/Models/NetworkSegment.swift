@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a physical network segment, contains information about the segment and it's configuration.
+@objc(JMFKNetworkSegment)
 public final class NetworkSegment: BaseObject {
 
     // MARK: - Constants
@@ -24,21 +27,38 @@ public final class NetworkSegment: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var startingAddress: String
-    public var endingAddress: String
-    public var distributionServer: String
-    public var distributionPoint: String
-    public var url: String
-    public var netbootServer: String
-    public var swuServer: String
-    public var building: String
-    public var department: String
-    public var overridesBuildings: Bool
-    public var overridesDepartments: Bool
 
-    public override var description: String {
-        return "[\(String(describing: NetworkSegment.self))][\(identifier). \(self.name)]"
-    }
+    @objc
+    public var endingAddress: String
+
+    @objc
+    public var distributionServer: String
+
+    @objc
+    public var distributionPoint: String
+
+    @objc
+    public var url: String
+
+    @objc
+    public var netbootServer: String
+
+    @objc
+    public var swuServer: String
+
+    @objc
+    public var building: String
+
+    @objc
+    public var department: String
+
+    @objc
+    public var overridesBuildings: Bool
+
+    @objc
+    public var overridesDepartments: Bool
 
     // MARK: - Initialization
 

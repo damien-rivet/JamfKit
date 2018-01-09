@@ -5,8 +5,11 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a logical partition for an hard drive installed inside an hardware element managed by Jamf.
-public final class Partition: Identifiable {
+@objc(JMFKPartition)
+public final class Partition: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -21,13 +24,28 @@ public final class Partition: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var name: String
+
+    @objc
     public var sizeInGigabytes: UInt
+
+    @objc
     public var maximumPercentage: UInt
+
+    @objc
     public var format: String
+
+    @objc
     public var isRestorePartition: Bool
+
+    @objc
     public var computerConfiguration: String
+
+    @objc
     public var reimage: Bool
+
+    @objc
     public var appendToName: String
 
     // MARK: - Initialization

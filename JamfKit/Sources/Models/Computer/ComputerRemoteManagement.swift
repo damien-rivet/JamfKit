@@ -5,7 +5,10 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
-public final class ComputerRemoteManagement: Identifiable {
+import Foundation
+
+@objc(JMFKComputerRemoteManagement)
+public final class ComputerRemoteManagement: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -14,7 +17,10 @@ public final class ComputerRemoteManagement: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var isManaged: Bool
+
+    @objc
     public var managementUsername: String
 
     // MARK: - Initialization

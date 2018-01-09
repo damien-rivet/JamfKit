@@ -5,7 +5,10 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a physical netboot server, contains information about the server and it's configuration.
+@objc(JMFKNetbootServer)
 public final class NetbootServer: BaseObject {
 
     // MARK: - Constants
@@ -25,21 +28,44 @@ public final class NetbootServer: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var ipAddress: String
+
+    @objc
     public var isDefaultImage: Bool
+
+    @objc
     public var isSpecificImage: Bool
+
+    @objc
     public var targetPlatform: String
+
+    @objc
     public var sharePoint: String
+
+    @objc
     public var set: String
+
+    @objc
     public var image: String
+
+    @objc
     public var filesystemProtocol: String
+
+    @objc
     public var configureManually: Bool
+
+    @objc
     public var bootArguments: String
+
+    @objc
     public var bootFile: String
+
+    @objc
     public var bootDevice: String
 
     public override var description: String {
-        return "[\(String(describing: NetbootServer.self))][\(identifier). \(self.ipAddress)]"
+        return "[\(String(describing: NetbootServer.self))][\(identifier) - \(self.ipAddress)]"
     }
 
     // MARK: - Initialization

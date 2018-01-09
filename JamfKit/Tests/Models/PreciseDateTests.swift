@@ -19,7 +19,7 @@ class PreciseDateTests: XCTestCase {
     let defaultDateUTCValue = "2017-07-07T18:37:04.555-0500"
 
     var defaultDate: Date!
-    let defaultEpoch: Double = 1499470624555
+    let defaultEpoch: UInt = 1499470624555
     var defaultDateUTC: Date!
 
     // MARK: - Tests
@@ -43,6 +43,7 @@ class PreciseDateTests: XCTestCase {
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.date, defaultDate)
         XCTAssertEqual(actualValue?.epoch, defaultEpoch)
+        XCTAssertEqual(actualValue?.internalEpoch?.uintValue, defaultEpoch)
         XCTAssertEqual(actualValue?.dateUTC, defaultDateUTC)
     }
 
@@ -58,7 +59,8 @@ class PreciseDateTests: XCTestCase {
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.date, defaultDate)
-        XCTAssertEqual(actualValue?.epoch, defaultEpoch)
+        XCTAssertNil(actualValue?.epoch)
+        XCTAssertEqual(actualValue?.internalEpoch?.uintValue, 0)
         XCTAssertNil(actualValue?.dateUTC)
     }
 
@@ -71,7 +73,7 @@ class PreciseDateTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 3)
         XCTAssertEqual(encodedObject?[defaultNode] as? String, defaultDateValue)
-        XCTAssertEqual(encodedObject?[defaultNode + PreciseDate.EpochKey] as? Double, defaultEpoch)
+        XCTAssertEqual(encodedObject?[defaultNode + PreciseDate.EpochKey] as? UInt, defaultEpoch)
         // TOFIX: Output format is not exactly the same
         // XCTAssertEqual(encodedObject?[defaultNode + PreciseDate.UTCKey] as? String, defaultDateUTCValue)
     }

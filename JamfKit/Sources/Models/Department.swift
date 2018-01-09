@@ -5,12 +5,8 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a physical department.
-public final class Department: BaseObject {
-
-    // MARK: - Properties
-
-    public override var description: String {
-        return "[\(String(describing: Department.self))][\(identifier). \(self.name)]"
-    }
-}
+@objc(JMFKDepartment)
+public final class Department: BaseObject { }

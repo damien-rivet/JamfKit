@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
-public final class ComputerConfigurationManagement: Identifiable {
+import Foundation
+
+@objc(JMFKComputerConfigurationManagement)
+public final class ComputerConfigurationManagement: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -17,10 +20,19 @@ public final class ComputerConfigurationManagement: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var username: String
+
+    @objc
     public var password: String
+
+    @objc
     public var shouldCreateAccount: Bool
+
+    @objc
     public var shouldHideAccount: Bool
+
+    @objc
     public var isSSHAllowedForManagementOnly: Bool
 
     // MARK: - Initialization

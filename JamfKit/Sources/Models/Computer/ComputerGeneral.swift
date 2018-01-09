@@ -5,6 +5,9 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+@objc(JMFKComputerGeneral)
 public final class ComputerGeneral: BaseObject {
 
     // MARK: - Constants
@@ -37,58 +40,105 @@ public final class ComputerGeneral: BaseObject {
 
     // MARK: - Properties
 
-    public var macAddress: String?
-    public var alternativeMacAddress: String?
-    public var ipAddress: String?
-    public var lastReportedIpAddress: String?
-    public var serialNumber: String?
-    public var udid: String?
-    public var jamfVersion: String?
-    public var platform: String?
-    public var barcode1: String?
-    public var barcode2: String?
-    public var assetTag: String?
+    @objc
+    public var macAddress: String
+
+    @objc
+    public var alternativeMacAddress: String
+
+    @objc
+    public var ipAddress: String
+
+    @objc
+    public var lastReportedIpAddress: String
+
+    @objc
+    public var serialNumber: String
+
+    @objc
+    public var udid: String
+
+    @objc
+    public var jamfVersion: String
+
+    @objc
+    public var platform: String
+
+    @objc
+    public var barcode1: String
+
+    @objc
+    public var barcode2: String
+
+    @objc
+    public var assetTag: String
+
+    @objc
     public var remoteManagement: ComputerRemoteManagement?
-    public var isMdmCapable: Bool?
-    public var mdmCapableUsers: [String]?
+
+    @objc
+    public var isMdmCapable: Bool
+
+    @objc
+    public var mdmCapableUsers: [String]
+
+    @objc
     public var reportDate: PreciseDate?
+
+    @objc
     public var lastContactTime: PreciseDate?
+
+    @objc
     public var initialEntryDate: PreciseDate?
+
+    @objc
     public var lastCloudBackupDate: PreciseDate?
+
+    @objc
     public var lastEnrolledDate: PreciseDate?
-    public var distributionPoint: String?
-    public var sus: String?
-    public var netbootServer: String?
+
+    @objc
+    public var distributionPoint: String
+
+    @objc
+    public var sus: String
+
+    @objc
+    public var netbootServer: String
+
+    @objc
     public var site: Site?
-    public var isITunesStoreAcccountActivated: Bool?
+
+    @objc
+    public var isITunesStoreAcccountActivated: Bool
 
     // MARK: - Initialization
 
     public required init?(json: [String: Any], node: String = "") {
-        macAddress = json[ComputerGeneral.MacAddressKey] as? String
-        alternativeMacAddress = json[ComputerGeneral.AlternativeMacAddressKey] as? String
-        ipAddress = json[ComputerGeneral.IpAddressKey] as? String
-        lastReportedIpAddress = json[ComputerGeneral.LastReportedIPAddressKey] as? String
-        serialNumber = json[ComputerGeneral.SerialNumberKey] as? String
-        udid = json[ComputerGeneral.UDIDKey] as? String
-        jamfVersion = json[ComputerGeneral.JamfVersionKey] as? String
-        platform = json[ComputerGeneral.PlatformKey] as? String
-        barcode1 = json[ComputerGeneral.Barcode1Key] as? String
-        barcode2 = json[ComputerGeneral.Barcode2Key] as? String
-        assetTag = json[ComputerGeneral.AssetTagKey] as? String
+        macAddress = json[ComputerGeneral.MacAddressKey] as? String ?? ""
+        alternativeMacAddress = json[ComputerGeneral.AlternativeMacAddressKey] as? String ?? ""
+        ipAddress = json[ComputerGeneral.IpAddressKey] as? String ?? ""
+        lastReportedIpAddress = json[ComputerGeneral.LastReportedIPAddressKey] as? String ?? ""
+        serialNumber = json[ComputerGeneral.SerialNumberKey] as? String ?? ""
+        udid = json[ComputerGeneral.UDIDKey] as? String ?? ""
+        jamfVersion = json[ComputerGeneral.JamfVersionKey] as? String ?? ""
+        platform = json[ComputerGeneral.PlatformKey] as? String ?? ""
+        barcode1 = json[ComputerGeneral.Barcode1Key] as? String ?? ""
+        barcode2 = json[ComputerGeneral.Barcode2Key] as? String ?? ""
+        assetTag = json[ComputerGeneral.AssetTagKey] as? String ?? ""
         remoteManagement = ComputerGeneral.parseRemoteManagement(from: json)
-        isMdmCapable = json[ComputerGeneral.MdmCapableKey] as? Bool
+        isMdmCapable = json[ComputerGeneral.MdmCapableKey] as? Bool ?? false
         mdmCapableUsers = ComputerGeneral.parseMdmCapableUsers(from: json)
         reportDate = PreciseDate(json: json, node: ComputerGeneral.ReportDateKey)
         lastContactTime = PreciseDate(json: json, node: ComputerGeneral.LastContactTimeKey)
         initialEntryDate = PreciseDate(json: json, node: ComputerGeneral.InitialEntryDateKey)
         lastCloudBackupDate = PreciseDate(json: json, node: ComputerGeneral.LastCloudBackupDateKey)
         lastEnrolledDate = PreciseDate(json: json, node: ComputerGeneral.LastEnrolledDateKey)
-        distributionPoint = json[ComputerGeneral.DistributionPointKey] as? String
-        sus = json[ComputerGeneral.SusKey] as? String
-        netbootServer = json[ComputerGeneral.NetbootServerKey] as? String
+        distributionPoint = json[ComputerGeneral.DistributionPointKey] as? String ?? ""
+        sus = json[ComputerGeneral.SusKey] as? String ?? ""
+        netbootServer = json[ComputerGeneral.NetbootServerKey] as? String ?? ""
         site = ComputerGeneral.parseSite(from: json)
-        isITunesStoreAcccountActivated = json[ComputerGeneral.ItunesStoreAccountIsActiveKey] as? Bool
+        isITunesStoreAcccountActivated = json[ComputerGeneral.ItunesStoreAccountIsActiveKey] as? Bool ?? false
 
         super.init(json: json)
     }
@@ -159,9 +209,9 @@ public final class ComputerGeneral: BaseObject {
         return remoteManagement
     }
 
-    private static func parseMdmCapableUsers(from json: [String: Any]) -> [String]? {
+    private static func parseMdmCapableUsers(from json: [String: Any]) -> [String] {
         guard let rawMdmCapableUsers = json[ComputerGeneral.MdmCapableUsersKey] as? [String: String] else {
-            return nil
+            return [String]()
         }
 
         return rawMdmCapableUsers.map { $1 }

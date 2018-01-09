@@ -5,8 +5,11 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.
-public final class Computer: Identifiable, CustomStringConvertible {
+@objc(JMFKComputer)
+public final class Computer: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -16,12 +19,17 @@ public final class Computer: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
+    @objc
     public var general: ComputerGeneral
+
+    @objc
     public var location: ComputerLocation?
+
+    @objc
     public var purchasing: ComputerPurchasing?
 
-    public var description: String {
-        return "[\(String(describing: Computer.self))][\(general.identifier). \(general.name)]"
+    public override var description: String {
+        return "[\(String(describing: type(of: self)))][\(general.identifier) - \(general.name)]"
     }
 
     // MARK: - Initialization

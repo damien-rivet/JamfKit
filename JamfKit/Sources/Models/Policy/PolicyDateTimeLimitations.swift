@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
-public final class PolicyDateTimeLimitations: Identifiable {
+import Foundation
+
+@objc(JMFKPolicyDateTimeLimitations)
+public final class PolicyDateTimeLimitations: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -17,10 +20,19 @@ public final class PolicyDateTimeLimitations: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var activationDate: PreciseDate?
+
+    @objc
     public var expirationDate: PreciseDate?
+
+    @objc
     public var noExecutionOn: [String: String]
+
+    @objc
     public var noExecutionStart: String
+
+    @objc
     public var noExecutionEnd: String
 
     // MARK: - Initialization
@@ -46,7 +58,7 @@ public final class PolicyDateTimeLimitations: Identifiable {
             json.merge(expirationDate.toJSON()) { (_, new) in new }
         }
 
-        if noExecutionOn.count > 0 {
+        if !noExecutionOn.isEmpty {
             json[PolicyDateTimeLimitations.NoExecuteOnKey] = noExecutionOn
         }
 

@@ -23,7 +23,7 @@ class ComputerTests: XCTestCase {
         let actualValue = Computer(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[Computer][12345. computer]")
+        XCTAssertEqual(actualValue?.description, "[Computer][12345 - computer]")
         XCTAssertNotNil(actualValue?.general)
         XCTAssertNotNil(actualValue?.location)
         XCTAssertNotNil(actualValue?.purchasing)
@@ -35,7 +35,7 @@ class ComputerTests: XCTestCase {
         let actualValue = Computer(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[Computer][12345. computer]")
+        XCTAssertEqual(actualValue?.description, "[Computer][12345 - computer]")
         XCTAssertNotNil(actualValue?.general)
         XCTAssertNil(actualValue?.location)
         XCTAssertNil(actualValue?.purchasing)

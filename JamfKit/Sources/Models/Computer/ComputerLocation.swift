@@ -5,7 +5,10 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
-public final class ComputerLocation: Identifiable {
+import Foundation
+
+@objc(JMFKComputerLocation)
+public final class ComputerLocation: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -20,13 +23,28 @@ public final class ComputerLocation: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var username: String
+
+    @objc
     public var realName: String
+
+    @objc
     public var emailAddress: String
+
+    @objc
     public var position: String
+
+    @objc
     public var phoneNumber: String
+
+    @objc
     public var department: String
+
+    @objc
     public var building: String
+
+    @objc
     public var room: UInt
 
     // MARK: - Initialization
