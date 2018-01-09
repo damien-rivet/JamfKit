@@ -9,11 +9,11 @@ import XCTest
 
 @testable import JamfKit
 
-class MobileDeviceGroupCriterionTests: XCTestCase {
+class HardwareGroupCriterionTests: XCTestCase {
 
     // MARK: - Constants
 
-    let subfolder = "MobileDeviceGroup/"
+    let subfolder = "HardwareGroup/"
     let defaultName = "Last Inventory Update"
     let defaultPriority: UInt = 0
     let defaultAndOr = "and"
@@ -25,9 +25,9 @@ class MobileDeviceGroupCriterionTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "mobile_device_group_criterion", subfolder: subfolder)!
+        let payload = self.payload(for: "hardware_group_criterion", subfolder: subfolder)!
 
-        let actualValue = MobileDeviceGroupCriterion(json: payload)
+        let actualValue = HardwareGroupCriterion(json: payload)
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.name, defaultName)
@@ -40,7 +40,7 @@ class MobileDeviceGroupCriterionTests: XCTestCase {
     }
 
     func testShouldInitializeFromEmptyJSON() {
-        let actualValue = MobileDeviceGroupCriterion(json: [String: Any]())
+        let actualValue = HardwareGroupCriterion(json: [String: Any]())
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.name, "")
@@ -53,19 +53,19 @@ class MobileDeviceGroupCriterionTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "mobile_device_group_criterion", subfolder: subfolder)!
+        let payload = self.payload(for: "hardware_group_criterion", subfolder: subfolder)!
 
-        let actualValue = MobileDeviceGroupCriterion(json: payload)
+        let actualValue = HardwareGroupCriterion(json: payload)
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 7)
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroupCriterion.NameKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroupCriterion.PriorityKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroupCriterion.AndOrKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroupCriterion.SearchTypeKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroupCriterion.ValueKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroupCriterion.OpeningParenKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroupCriterion.ClosingParenKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.NameKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.PriorityKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.AndOrKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.SearchTypeKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.ValueKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.OpeningParenKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.ClosingParenKey])
     }
 }

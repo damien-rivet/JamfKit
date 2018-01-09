@@ -27,12 +27,10 @@ class MobileDeviceTests: XCTestCase {
         XCTAssertNotNil(actualValue?.general)
     }
 
-    func testShouldInitializeFromEmptyJSON() {
+    func testShouldNotInitializeFromEmptyJSON() {
         let actualValue = MobileDevice(json: [String: Any]())
 
-        XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[MobileDevice]")
-        XCTAssertNil(actualValue?.general)
+        XCTAssertNil(actualValue)
     }
 
     func testShouldEncodeToJSON() {
