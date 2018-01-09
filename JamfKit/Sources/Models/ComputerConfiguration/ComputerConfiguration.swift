@@ -5,8 +5,11 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a logical configuration that can be applied to any hardware element managed by Jamf.
-public final class ComputerConfiguration: Identifiable, CustomStringConvertible {
+@objc(JMFKComputerConfiguration)
+public final class ComputerConfiguration: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -14,10 +17,11 @@ public final class ComputerConfiguration: Identifiable, CustomStringConvertible 
 
     // MARK: - Properties
 
+    @objc
     public var general: ComputerConfigurationGeneral
 
-    public var description: String {
-        return "[\(String(describing: ComputerConfiguration.self))][\(general.identifier). \(general.name)]"
+    public override var description: String {
+        return "[\(String(describing: type(of: self)))][\(general.identifier). \(general.name)]"
     }
 
     // MARK: - Initialization

@@ -23,7 +23,7 @@ class PolicyTests: XCTestCase {
         let actualValue = Policy(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[Policy][12345. policy]")
+        XCTAssertEqual(actualValue?.description, "[Policy][12345 - policy]")
         XCTAssertNotNil(actualValue?.general)
     }
 
@@ -33,7 +33,7 @@ class PolicyTests: XCTestCase {
         let actualValue = Policy(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[Policy][12345. policy]")
+        XCTAssertEqual(actualValue?.description, "[Policy][12345 - policy]")
         XCTAssertNotNil(actualValue?.general)
     }
 

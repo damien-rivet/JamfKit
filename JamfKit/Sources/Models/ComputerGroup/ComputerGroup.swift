@@ -5,6 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+/// Represents a group of computers managed by Jamf, contains grouping information.
+@objc(JMFKComputerGroup)
 public final class ComputerGroup: HardwareGroup {
 
     // MARK: - Constants
@@ -13,11 +17,8 @@ public final class ComputerGroup: HardwareGroup {
 
     // MARK: - Properties
 
+    @objc
     public var computers: [ComputerGeneral]
-
-    public override var description: String {
-        return "[\(String(describing: ComputerGroup.self))]\(super.description)"
-    }
 
     // MARK: - Initialization
 
@@ -32,7 +33,7 @@ public final class ComputerGroup: HardwareGroup {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        if computers.count > 0 {
+        if !computers.isEmpty {
             json[ComputerGroup.ComputersKey] = computers.map { computer -> [String: [String: Any]] in
                 return ["computer": computer.toJSON()]
             }

@@ -5,6 +5,9 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+@objc(JMFKHardwareGroup)
 public class HardwareGroup: BaseObject {
     // MARK: - Constants
 
@@ -14,8 +17,13 @@ public class HardwareGroup: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var isSmart: Bool
+
+    @objc
     public var criteria: [HardwareGroupCriterion]
+
+    @objc
     public var site: Site?
 
     // MARK: - Initialization
@@ -35,7 +43,7 @@ public class HardwareGroup: BaseObject {
 
         json[MobileDeviceGroup.IsSmartKey] = isSmart
 
-        if criteria.count > 0 {
+        if !criteria.isEmpty {
             let criterions = criteria.map { criterion -> [String: [String: Any]] in
                 return ["criterion": criterion.toJSON()]
             }

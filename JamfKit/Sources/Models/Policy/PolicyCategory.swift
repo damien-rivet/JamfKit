@@ -5,6 +5,9 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+@objc(JMFKPolicyCategory)
 public final class PolicyCategory: BaseObject {
 
     // MARK: - Constants
@@ -13,6 +16,7 @@ public final class PolicyCategory: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var priority: UInt
 
     // MARK: - Initialization

@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a logical binding between a computer and an active directory user.
+@objc(JMFKDirectoryBinding)
 public final class DirectoryBinding: BaseObject {
 
     // MARK: - Constants
@@ -19,16 +22,23 @@ public final class DirectoryBinding: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var priority: UInt
-    public var domain: String
-    public var username: String
-    public var password: String
-    public var computerOrganisationalUnit: String
-    public var type: String
 
-    public override var description: String {
-        return "[\(String(describing: DirectoryBinding.self))][\(identifier). \(self.name)]"
-    }
+    @objc
+    public var domain: String
+
+    @objc
+    public var username: String
+
+    @objc
+    public var password: String
+
+    @objc
+    public var computerOrganisationalUnit: String
+
+    @objc
+    public var type: String
 
     // MARK: - Initialization
 

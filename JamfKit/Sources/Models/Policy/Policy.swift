@@ -5,8 +5,11 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Reprents as logical policy that can be applied to any hardware element managed by Jamf.
-public final class Policy: Identifiable {
+@objc(JMFKPolicy)
+public final class Policy: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -14,10 +17,11 @@ public final class Policy: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var general: PolicyGeneral
 
-    public var description: String {
-        return "[\(String(describing: Policy.self))][\(general.identifier). \(general.name)]"
+    public override var description: String {
+        return "[\(String(describing: type(of: self)))][\(general.identifier) - \(general.name)]"
     }
 
     // MARK: - Initialization

@@ -5,8 +5,11 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents the common denominator between all the JSS objects which must contains at least an `identifier` and a `name` properties.
-public class BaseObject: Identifiable, CustomStringConvertible {
+@objc
+public class BaseObject: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -15,11 +18,14 @@ public class BaseObject: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
+    @objc
     public let identifier: UInt
+
+    @objc
     public let name: String
 
-    public var description: String {
-        return "[\(identifier). \(self.name)]"
+    public override var description: String {
+        return "[\(String(describing: type(of: self)))][\(identifier) - \(self.name)]"
     }
 
     // MARK: - Initialization

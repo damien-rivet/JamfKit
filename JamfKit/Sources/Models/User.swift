@@ -5,7 +5,10 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a Jamf user and contains the identification properties that are required to contact the actual user and identify the hardware devices assigned to him / her.
+@objc(JMFKUser)
 public final class User: BaseObject {
 
     // MARK: - Constants
@@ -21,17 +24,32 @@ public final class User: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var fullName: String
+
+    @objc
     public var email: String
+
+    @objc
     public var emailAddress: String
+
+    @objc
     public var phoneNumber: String
+
+    @objc
     public var position: String
+
+    @objc
     public var enableCustomPhotoURL: Bool
+
+    @objc
     public var customPhotoURL: String
+
+    @objc
     public var sites: [Site]
 
     public override var description: String {
-        return "[\(String(describing: User.self))][\(identifier). \(self.fullName)]"
+        return "[\(String(describing: type(of: self)))][\(identifier) - \(self.fullName)]"
     }
 
     // MARK: - Initialization
@@ -57,5 +75,25 @@ public final class User: BaseObject {
         self.sites = sites
 
         super.init(json: json)
+    }
+
+    public override func toJSON() -> [String: Any] {
+        var json = super.toJSON()
+
+        json[User.FullNameKey] = fullName
+        json[User.EmailKey] = email
+        json[User.EmailAddressKey] = emailAddress
+        json[User.PhoneNumberKey] = phoneNumber
+        json[User.PositionKey] = position
+        json[User.EnableCustomPhotoURLKey] = enableCustomPhotoURL
+        json[User.CustomPhotoURLKey] = customPhotoURL
+
+        if !sites.isEmpty {
+            json[User.SitesKey] = sites.map { site -> [String: [String: Any]] in
+                return ["site": site.toJSON()]
+            }
+        }
+
+        return json
     }
 }

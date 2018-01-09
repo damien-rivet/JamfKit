@@ -95,6 +95,12 @@
 		ED7BF1091FFCDA9100F47566 /* ComputerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */; };
 		ED7BF10B1FFCE03400F47566 /* ComputerPurchasingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF10A1FFCE03400F47566 /* ComputerPurchasingTests.swift */; };
 		ED7BF10C1FFCE03400F47566 /* ComputerPurchasingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF10A1FFCE03400F47566 /* ComputerPurchasingTests.swift */; };
+		ED9100C320050B4C000935E8 /* JamfKit.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9100C220050B4C000935E8 /* JamfKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9100C420050B4C000935E8 /* JamfKit.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9100C220050B4C000935E8 /* JamfKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED91011A200516AA000935E8 /* ComputerCommandGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */; };
+		ED91011B200516AA000935E8 /* ComputerCommandGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */; };
+		ED91011E200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */; };
+		ED91011F200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */; };
 		ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
@@ -222,6 +228,9 @@
 		ED7BF1041FFCD9C100F47566 /* Computer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computer.swift; sourceTree = "<group>"; };
 		ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerTests.swift; sourceTree = "<group>"; };
 		ED7BF10A1FFCE03400F47566 /* ComputerPurchasingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPurchasingTests.swift; sourceTree = "<group>"; };
+		ED9100C220050B4C000935E8 /* JamfKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JamfKit.h; sourceTree = "<group>"; };
+		ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandGeneral.swift; sourceTree = "<group>"; };
+		ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandGeneralTests.swift; sourceTree = "<group>"; };
 		ED9826F41FEAB14300DD5411 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterTests.swift; sourceTree = "<group>"; };
 		EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServer.swift; path = ../../../JamfKit/Sources/Models/SMTPServer.swift; sourceTree = "<group>"; };
@@ -322,6 +331,7 @@
 			children = (
 				ED1D93061FA20F49005589F5 /* Protocols */,
 				ED1D93051FA20F43005589F5 /* Models */,
+				ED9100C220050B4C000935E8 /* JamfKit.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -370,7 +380,7 @@
 				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
 				EDFE806D1FEA76EA00169C39 /* Building.swift */,
 				ED56BB7A1FB1B14400416C1A /* Computer */,
-				EDB9B93D1FFF712400287739 /* ComputerCommand.swift */,
+				ED91011820051692000935E8 /* ComputerCommand */,
 				ED680AF42003B02600F80EDB /* ComputerConfiguration */,
 				EDC96DAE2004C5D500262530 /* ComputerGroup */,
 				ED1B70E21FEA973A00005658 /* Department.swift */,
@@ -404,10 +414,10 @@
 		ED1D93071FA20F86005589F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED91011C200516D0000935E8 /* ComputerCommand */,
 				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
 				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
 				ED071F501FB33386003FAB0E /* Computer */,
-				EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */,
 				ED680AFB2003C10600F80EDB /* ComputerConfiguration */,
 				EDC96DB32004C6DF00262530 /* ComputerGroup */,
 				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
@@ -512,6 +522,24 @@
 			path = MobileDeviceGroup;
 			sourceTree = "<group>";
 		};
+		ED91011820051692000935E8 /* ComputerCommand */ = {
+			isa = PBXGroup;
+			children = (
+				EDB9B93D1FFF712400287739 /* ComputerCommand.swift */,
+				ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */,
+			);
+			path = ComputerCommand;
+			sourceTree = "<group>";
+		};
+		ED91011C200516D0000935E8 /* ComputerCommand */ = {
+			isa = PBXGroup;
+			children = (
+				EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */,
+				ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */,
+			);
+			path = ComputerCommand;
+			sourceTree = "<group>";
+		};
 		EDB9B9441FFF836500287739 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +606,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9100C320050B4C000935E8 /* JamfKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +614,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9100C420050B4C000935E8 /* JamfKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +813,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED326B861FFD1D6200809793 /* MobileDeviceGeneral.swift in Sources */,
+				ED91011A200516AA000935E8 /* ComputerCommandGeneral.swift in Sources */,
 				ED169F2E1FFE743200DD7B61 /* Script.swift in Sources */,
 				ED071F5B1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED7383A11FAB75CE006259FC /* User.swift in Sources */,
@@ -830,6 +861,7 @@
 				EDB698FE1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
 				ED071F5E1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
 				EDB9B9401FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
+				ED91011E200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */,
 				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F241FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
 				ED071F551FB333A6003FAB0E /* ComputerGeneralTests.swift in Sources */,
@@ -868,6 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED326B871FFD1D6200809793 /* MobileDeviceGeneral.swift in Sources */,
+				ED91011B200516AA000935E8 /* ComputerCommandGeneral.swift in Sources */,
 				ED169F2F1FFE743200DD7B61 /* Script.swift in Sources */,
 				ED071F5C1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */,
@@ -915,6 +948,7 @@
 				EDB698FF1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
 				ED071F5F1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
 				EDB9B9411FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
+				ED91011F200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */,
 				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F251FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
 				ED071F561FB333A6003FAB0E /* ComputerGeneralTests.swift in Sources */,
@@ -1148,6 +1182,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -1169,6 +1204,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;

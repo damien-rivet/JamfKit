@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a logical application package, contains information about the application requirements and capabilities.
+@objc(JMFKPackage)
 public final class Package: BaseObject {
 
     // MARK: - Constants
@@ -30,27 +33,56 @@ public final class Package: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var category: String
-    public var filename: String
-    public var information: String
-    public var notes: String
-    public var priority: UInt
-    public var isRebootRequired: Bool
-    public var shouldFillUserTemplate: Bool
-    public var shouldFillExistingUsers: Bool
-    public var isBootVolumeRequired: Bool
-    public var allowsUninstallation: Bool
-    public var osRequirements: String
-    public var requiredProcessor: String
-    public var switchWithPackage: String
-    public var shouldInstallIfReportedAvailable: Bool
-    public var reinstallOption: String
-    public var triggeringFiles: String
-    public var shouldSendNotificaton: Bool
 
-    public override var description: String {
-        return "[\(String(describing: Package.self))][\(identifier). \(self.name)]"
-    }
+    @objc
+    public var filename: String
+
+    @objc
+    public var information: String
+
+    @objc
+    public var notes: String
+
+    @objc
+    public var priority: UInt
+
+    @objc
+    public var isRebootRequired: Bool
+
+    @objc
+    public var shouldFillUserTemplate: Bool
+
+    @objc
+    public var shouldFillExistingUsers: Bool
+
+    @objc
+    public var isBootVolumeRequired: Bool
+
+    @objc
+    public var allowsUninstallation: Bool
+
+    @objc
+    public var osRequirements: String
+
+    @objc
+    public var requiredProcessor: String
+
+    @objc
+    public var switchWithPackage: String
+
+    @objc
+    public var shouldInstallIfReportedAvailable: Bool
+
+    @objc
+    public var reinstallOption: String
+
+    @objc
+    public var triggeringFiles: String
+
+    @objc
+    public var shouldSendNotificaton: Bool
 
     // MARK: - Initialization
 

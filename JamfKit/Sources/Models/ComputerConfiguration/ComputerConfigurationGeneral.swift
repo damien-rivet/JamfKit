@@ -5,6 +5,9 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+@objc(JMFKComputerConfigurationGeneral)
 public final class ComputerConfigurationGeneral: BaseObject {
 
     // MARK: - Constants
@@ -22,15 +25,34 @@ public final class ComputerConfigurationGeneral: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var desc: String
+
+    @objc
     public var type: String
+
+    @objc
     public var parent: String
+
+    @objc
     public var packages: [Package]
+
+    @objc
     public var scripts: [Script]
+
+    @objc
     public var printers: [Printer]
+
+    @objc
     public var directoryBindings: [DirectoryBinding]
+
+    @objc
     public var management: ComputerConfigurationManagement?
+
+    @objc
     public var homepage: String
+
+    @objc
     public var partitions: [Partition]
 
     // MARK: - Initialization
@@ -59,25 +81,25 @@ public final class ComputerConfigurationGeneral: BaseObject {
         json[ComputerConfigurationGeneral.TypeKey] = type
         json[ComputerConfigurationGeneral.ParentKey] = parent
 
-        if packages.count > 0 {
+        if !packages.isEmpty {
             json[ComputerConfigurationGeneral.PackagesKey] = packages.map { package -> [String: [String: Any]] in
                 return ["package": package.toJSON()]
             }
         }
 
-        if scripts.count > 0 {
+        if !scripts.isEmpty {
             json[ComputerConfigurationGeneral.ScriptsKey] = scripts.map { script -> [String: [String: Any]] in
                 return ["script": script.toJSON()]
             }
         }
 
-        if printers.count > 0 {
+        if !printers.isEmpty {
             json[ComputerConfigurationGeneral.PrintersKey] = printers.map { printer -> [String: [String: Any]] in
                 return ["printer": printer.toJSON()]
             }
         }
 
-        if directoryBindings.count > 0 {
+        if !directoryBindings.isEmpty {
             json[ComputerConfigurationGeneral.DirectoryBindingsKey] = directoryBindings.map { directoryBinding -> [String: [String: Any]] in
                 return ["directory_binding": directoryBinding.toJSON()]
             }
@@ -86,7 +108,7 @@ public final class ComputerConfigurationGeneral: BaseObject {
         json[ComputerConfigurationGeneral.ManagementKey] = management?.toJSON()
         json[ComputerConfigurationGeneral.HomepageKey] = homepage
 
-        if partitions.count > 0 {
+        if !partitions.isEmpty {
             json[ComputerConfigurationGeneral.PartitionsKey] = partitions.map { partition -> [String: [String: Any]] in
                 return ["parition": partition.toJSON()]
             }
@@ -96,9 +118,7 @@ public final class ComputerConfigurationGeneral: BaseObject {
     }
 
     private static func parsePackages(json: [String: Any]) -> [Package] {
-        let packages: [Package] = BaseObject.parseElements(from: json, nodeKey: ComputerConfigurationGeneral.PackagesKey, singleNodeKey: "package")
-
-        return packages
+        return BaseObject.parseElements(from: json, nodeKey: ComputerConfigurationGeneral.PackagesKey, singleNodeKey: "package")
     }
 
     private static func parseScripts(json: [String: Any]) -> [Script] {

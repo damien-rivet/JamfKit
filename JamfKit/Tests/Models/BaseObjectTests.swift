@@ -27,7 +27,7 @@ class BaseObjectTests: XCTestCase {
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
-        XCTAssertEqual(actualValue?.description, "[\(defaultIdentifier). \(defaultName)]")
+        XCTAssertEqual(actualValue?.description, "[BaseObject][\(defaultIdentifier) - \(defaultName)]")
     }
 
     func testShouldNotInitializeFromInvalidJSON() {

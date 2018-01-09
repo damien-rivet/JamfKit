@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
-public final class PolicyNetworkLimitations: Identifiable {
+import Foundation
+
+@objc(JMFKPolicyNetworkLimitations)
+public final class PolicyNetworkLimitations: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -14,7 +17,10 @@ public final class PolicyNetworkLimitations: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var minimumNetworkConnection: String
+
+    @objc
     public var anyIpAddress: Bool
 
     // MARK: - Initialization

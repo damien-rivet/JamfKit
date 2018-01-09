@@ -36,7 +36,7 @@ class NetworkSegmentTests: XCTestCase {
         let actualValue = NetworkSegment(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[NetworkSegment][\(defaultIdentifier). \(defaultName)]")
+        XCTAssertEqual(actualValue?.description, "[NetworkSegment][\(defaultIdentifier) - \(defaultName)]")
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.startingAddress, defaultStartingAddress)
@@ -58,7 +58,7 @@ class NetworkSegmentTests: XCTestCase {
         let actualValue = NetworkSegment(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[NetworkSegment][\(defaultIdentifier). \(defaultName)]")
+        XCTAssertEqual(actualValue?.description, "[NetworkSegment][\(defaultIdentifier) - \(defaultName)]")
     }
 
     func testShouldNotInitializeFromInvalidJSON() {

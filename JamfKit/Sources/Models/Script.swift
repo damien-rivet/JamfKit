@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a logical script that can be executed on one (or more) hardware element managed by Jamf.
+@objc(JMFKScript)
 public final class Script: BaseObject {
 
     // MARK: - Constants
@@ -22,19 +25,32 @@ public final class Script: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var category: String
-    public var filename: String
-    public var information: String
-    public var notes: String
-    public var priority: String
-    public var parameters: [String: String]
-    public var osRequirements: String
-    public var scriptContents: String
-    public var scriptEncodedContents: String
 
-    public override var description: String {
-        return "[\(String(describing: Script.self))][\(identifier). \(self.name)]"
-    }
+    @objc
+    public var filename: String
+
+    @objc
+    public var information: String
+
+    @objc
+    public var notes: String
+
+    @objc
+    public var priority: String
+
+    @objc
+    public var parameters: [String: String]
+
+    @objc
+    public var osRequirements: String
+
+    @objc
+    public var scriptContents: String
+
+    @objc
+    public var scriptEncodedContents: String
 
     // MARK: - Initialization
 

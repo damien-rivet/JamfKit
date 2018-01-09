@@ -5,6 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+/// Represents a group of mobile devices managed by Jamf, contains grouping information.
+@objc(JMFKMobileDeviceGroup)
 public final class MobileDeviceGroup: HardwareGroup {
 
     // MARK: - Constants
@@ -13,11 +17,8 @@ public final class MobileDeviceGroup: HardwareGroup {
 
     // MARK: - Properties
 
+    @objc
     public var mobileDevices: [MobileDeviceGeneral]
-
-    public override var description: String {
-        return "[\(String(describing: MobileDeviceGroup.self))]\(super.description)"
-    }
 
     // MARK: - Initialization
 
@@ -32,7 +33,7 @@ public final class MobileDeviceGroup: HardwareGroup {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        if mobileDevices.count > 0 {
+        if !mobileDevices.isEmpty {
             json[MobileDeviceGroup.MobileDevicesKey] = mobileDevices.map { mobileDevice -> [String: [String: Any]] in
                 return ["mobile_device": mobileDevice.toJSON()]
             }
