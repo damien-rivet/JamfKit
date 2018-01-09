@@ -65,23 +65,7 @@ public final class MobileDeviceGroup: BaseObject {
     }
 
     private static func parseCriteria(json: [String: Any]) -> [MobileDeviceGroupCriterion] {
-        var criterions = [MobileDeviceGroupCriterion]()
-
-        guard let criteriaNode = json[MobileDeviceGroup.CriteriaKey] as? [[String: [String: Any]]] else {
-            return criterions
-        }
-
-        let newCriterions = criteriaNode.map { $0["criterion"] }.flatMap { rawCriterionNode -> MobileDeviceGroupCriterion? in
-            guard let rawCriterion = rawCriterionNode else {
-                return nil
-            }
-
-            return MobileDeviceGroupCriterion(json: rawCriterion)
-        }
-
-        criterions.append(contentsOf: newCriterions)
-
-        return criterions
+        return BaseObject.parseElements(from: json, nodeKey: MobileDeviceGroup.CriteriaKey, singleNodeKey: "criterion")
     }
 
     private static func parseSite(from json: [String: Any]) -> Site? {
@@ -95,22 +79,6 @@ public final class MobileDeviceGroup: BaseObject {
     }
 
     static func parseMobileDevices(json: [String: Any]) -> [MobileDevice] {
-        var mobileDevices = [MobileDevice]()
-
-        guard let mobileDevicesNode = json[MobileDeviceGroup.MobileDevicesKey] as? [[String: [String: Any]]] else {
-            return mobileDevices
-        }
-
-        let newMobileDevices = mobileDevicesNode.map { $0["mobile_device"] }.flatMap { rawMobileDeviceNode -> MobileDevice? in
-            guard let rawMobileDevice = rawMobileDeviceNode else {
-                return nil
-            }
-
-            return MobileDevice(json: rawMobileDevice)
-        }
-
-        mobileDevices.append(contentsOf: newMobileDevices)
-
-        return mobileDevices
+        return BaseObject.parseElements(from: json, nodeKey: MobileDeviceGroup.MobileDevicesKey, singleNodeKey: "mobile_device")
     }
 }
