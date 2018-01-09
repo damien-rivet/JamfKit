@@ -1,0 +1,22 @@
+{
+    "id": 12345,
+    "name": "hardwares",
+    "is_smart": true,
+    "criteria": [
+        {
+            "criterion": {
+                "name": "Last Inventory Update",
+                "priority": 0,
+                "and_or": "and",
+                "search_type": "more than x days ago",
+                "value": 7,
+                "opening_paren": false,
+                "closing_paren": false
+            }
+        }
+    ],
+    "site": {
+        "id": 0,
+        "name": "site"
+    }
+}

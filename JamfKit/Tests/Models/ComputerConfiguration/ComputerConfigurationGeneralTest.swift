@@ -2,7 +2,6 @@
 //  ComputerConfigurationGeneralTest.swift
 //  JamfKit
 //
-//  Created by Damien Rivet on 08.01.18.
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
