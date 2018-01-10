@@ -1,0 +1,7 @@
+{
+    "target_drive": "target_drive",
+    "distribution_point": "distribution_point",
+    "force_afp_smb": true,
+    "sus": "sus",
+    "netboot_server": "netboot_server"
+}

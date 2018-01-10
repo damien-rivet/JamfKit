@@ -1,0 +1,13 @@
+{
+    "enabled": true,
+    "host": "smtp.jamfkit.com",
+    "port": 12345,
+    "timeout": 5,
+    "authorization_required": true,
+    "username": "username",
+    "password": "password",
+    "ssl": true,
+    "tls": true,
+    "send_from_name": "JamfKit SMTP Server",
+    "send_from_email": "smtp@jamfkit.com"
+}

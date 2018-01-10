@@ -1,0 +1,10 @@
+{
+    "name": "partition",
+    "size_gb": 50,
+    "maximum_percentage": 25,
+    "format": "Journaled HFS+",
+    "is_restore_partition": true,
+    "computer_configuration": "Recovery HD",
+    "reimage": true,
+    "append_to_name": "suffix"
+}

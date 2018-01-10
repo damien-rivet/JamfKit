@@ -1,0 +1,52 @@
+{
+    "general": {
+        "id": 12345,
+        "enabled": true,
+        "trigger": "string",
+        "trigger_checkin": false,
+        "trigger_enrollment_complete": false,
+        "trigger_login": false,
+        "trigger_logout": false,
+        "trigger_network_state_changed": false,
+        "trigger_startup": false,
+        "trigger_other": "string",
+        "frequency": "Once per computer",
+        "location_user_only": true,
+        "target_drive": "/",
+        "offline": true,
+        "category": {
+            "id": 0,
+            "name": "string",
+            "priority": 0
+        },
+        "date_time_limitations": {
+            "activation_date": "2017-07-07T18:37:04.000Z",
+            "activation_date_epoch": 1499470624555,
+            "activation_date_utc": "2017-07-07T18:37:04.555-0500",
+            "expiration_date": "2017-07-07T18:37:04.000Z",
+            "expiration_date_epoch": 1499470624555,
+            "expiration_date_utc": "2017-07-07T18:37:04.555-0500",
+            "no_execute_on": {
+                "day": "Sun"
+            },
+            "no_execute_start": "2:00 AM",
+            "no_execute_end": "4:00 AM"
+        },
+        "network_limitations": {
+            "minimum_network_connection": "No Minimum",
+            "any_ip_address": true
+        },
+        "override_default_settings": {
+            "target_drive": "string",
+            "distribution_point": "string",
+            "force_afp_smb": true,
+            "sus": "string",
+            "netboot_server": "string"
+        },
+        "network_requirements": "Any",
+        "site": {
+            "id": 0,
+            "name": "None"
+        }
+    }
+}

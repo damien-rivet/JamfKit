@@ -1,0 +1,103 @@
+{
+    "id": 12345,
+    "description": "description",
+    "type": "Standard",
+    "parent": "parent",
+    "packages": {
+        "package": {
+            "id": 0,
+            "name": "Firefox.dmg",
+            "category": "Unknown",
+            "filename": "Firefox.dmg",
+            "info": "string",
+            "notes": "string",
+            "priority": 5,
+            "reboot_required": true,
+            "fill_user_template": true,
+            "fill_existing_users": true,
+            "boot_volume_required": true,
+            "allow_uninstalled": true,
+            "os_requirements": "string",
+            "required_processor": "None",
+            "switch_with_package": "Do Not Install",
+            "install_if_reported_available": true,
+            "reinstall_option": "Do Not Reinstall",
+            "triggering_files": "string",
+            "send_notification": true
+        }
+    },
+    "scripts": {
+        "script": {
+            "id": 0,
+            "name": "Decrypt Drive",
+            "category": "None",
+            "filename": "string",
+            "info": "Script information",
+            "notes": "Script to decrypt FV2 encrypted drives",
+            "priority": "Before",
+            "parameters": {
+                "parameter4": "string",
+                "parameter5": "string",
+                "parameter6": "string",
+                "parameter7": "string",
+                "parameter8": "string",
+                "parameter9": "string",
+                "parameter10": "string",
+                "parameter11": "string"
+            },
+            "os_requirements": "string",
+            "script_contents": "echo \"Sample script\"",
+            "script_contents_encoded": "string"
+        }
+    },
+    "printers": {
+        "printer": {
+            "id": 0,
+            "name": "HP 9th Floor",
+            "category": "Printers",
+            "uri": "lpd://10.1.20.204/",
+            "CUPS_name": "HP_9th_Floor",
+            "location": "string",
+            "model": "HP LaserJet 500 color MFP M575",
+            "info": "string",
+            "notes": "string",
+            "make_default": true,
+            "use_generic": true,
+            "ppd": "9th_Floor_HP.ppd",
+            "ppd_path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd",
+            "ppd_contents": "string"
+        }
+    },
+    "directory_bindings": {
+        "directory_binding": {
+            "id": 0,
+            "name": "AD Binding",
+            "priority": 1,
+            "domain": "ad.company.com",
+            "username": "AD\\Administrator",
+            "password": "string",
+            "computer_ou": "CN=Computers,DC=ad,DC=company,DC=com",
+            "type": "Active Directory"
+        }
+    },
+    "management": {
+        "username": "administrator",
+        "password": "password",
+        "create_account": true,
+        "hide_account": true,
+        "allow_ssh_for_management_only": true
+    },
+    "homepage": "https://www.jamf.com",
+    "partitions": {
+        "partition": {
+            "name": "Macintosh HD",
+            "size_gb": 0,
+            "maximum_percentage": 0,
+            "format": "Journaled HFS+",
+            "is_restore_partition": true,
+            "computer_configuration": "Recovery HD",
+            "reimage": true,
+            "append_to_name": "Lab-100"
+        }
+    }
+}

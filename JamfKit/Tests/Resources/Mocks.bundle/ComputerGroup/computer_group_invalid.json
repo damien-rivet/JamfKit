@@ -1,0 +1,32 @@
+{
+    "id": 12345,
+    "is_smart": true,
+    "site": {
+        "id": 12345,
+        "name": "None"
+    },
+    "criteria": [
+        {
+            "criterion": {
+                "name": "Last Inventory Update",
+                "priority": 0,
+                "and_or": "and",
+                "search_type": "more than x days ago",
+                "value": 7,
+                "opening_paren": false,
+                "closing_paren": false
+            }
+        }
+    ],
+    "computers": [
+        {
+            "computer": {
+                "id": 12345,
+                "name": "Joes iMac",
+                "mac_address": "E0:AC:CB:97:36:G4",
+                "alt_mac_address": "E0:AC:CB:67:36:T4",
+                "serial_number": "C02Q7KHTGFWF"
+            }
+        }
+    ]
+}
