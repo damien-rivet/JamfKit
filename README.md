@@ -184,13 +184,13 @@ Represents a Jamf user and contains the identification properties that are requi
 
 So, I heard you want to help improve `JamfKit`? That's great! Any useful contribution is welcome!
 
-Check [CONTRIBUTING](https://github.com/Ethenyl/JamfKit/blob/master/CONTRIBUTING) for more details on how you can contribute to `JamfKit`.
+Check [CONTRIBUTING](https://github.com/Ethenyl/JamfKit/blob/master/CONTRIBUTING.md) for more details on how you can contribute to `JamfKit`.
 
 ## Code of conduct ##
 
 Any contributions (issues, pull requests, comments, etc.) to `JamfKit` are more than welcome.
 
-But before making any contribution, please make sure that you follow the [CODE OF CONDUCT](https://github.com/Ethenyl/JamfKit/blob/master/CODE_OF_CONDUCT).
+But before making any contribution, please make sure that you follow the [CODE OF CONDUCT](https://github.com/Ethenyl/JamfKit/blob/master/CODE_OF_CONDUCT.md).
 
 Otherwise, there's a great chance that your contribution will be removed / blocked / hidden.
 

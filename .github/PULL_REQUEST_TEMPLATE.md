@@ -8,7 +8,7 @@
 - [ ] Description must contain a comprehensive explanation of what changed and links toward related issues
 - [ ] Unit tests must put in place for every single new object
 - [ ] New objects must be fully documented (inline + README)
-- [ ] Pull request is following the [CODE OF CONDUCT](https://github.com/Ethenyl/JamfKit/blob/master/CODE_OF_CONDUCT)
+- [ ] Pull request is following the [CODE OF CONDUCT](https://github.com/Ethenyl/JamfKit/blob/master/CODE_OF_CONDUCT.md)
 
 :warning:
 
