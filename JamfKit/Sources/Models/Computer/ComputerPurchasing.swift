@@ -1,8 +1,8 @@
 //
 //  Purchasing.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2017 JAMFKit. All rights reserved.
+//  Copyright © 2017 JamfKit. All rights reserved.
 //
 
 public final class ComputerPurchasing: Identifiable {

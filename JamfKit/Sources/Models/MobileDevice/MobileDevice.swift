@@ -1,8 +1,8 @@
 //
 //  MobileDevice.swift
-//  JAMFKit
+//  JamfKit
 //
-//  Copyright © 2018 JAMFKit. All rights reserved.
+//  Copyright © 2018 JamfKit. All rights reserved.
 //
 
 /// Represents a Jamf managed mobile device, contains the general information about the device.

@@ -9,4 +9,4 @@ coverage:
         enabled: yes
         target: 75%
   ignore:
-  - "JAMFKit/Tests"
+  - "JamfKit/Tests"
