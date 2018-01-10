@@ -1,0 +1,12 @@
+{
+    "username": "JDoe",
+    "realname": "John Doe",
+    "real_name": "John Doe",
+    "email_address": "john.doe@doecorp.com",
+    "position": "Unknown",
+    "phone": "123-456-7890",
+    "phone_number": "123-456-7890",
+    "department": "Unknown department",
+    "building": "Unknown building",
+    "room": 1234
+}
