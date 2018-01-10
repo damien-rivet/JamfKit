@@ -5,7 +5,10 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a physical printer, contains information about the printer and it's configuration.
+@objc(JMFKPrinter)
 public final class Printer: BaseObject {
 
     // MARK: - Constants
@@ -25,21 +28,50 @@ public final class Printer: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var category: String
+
+    @objc
     public var uri: String
+
+    @objc
     public var cupsName: String
+
+    @objc
     public var location: String
+
+    @objc
     public var model: String
+
+    @objc
     public var information: String
+
+    @objc
     public var notes: String
+
+    @objc
     public var makeDefault: Bool
+
+    @objc
     public var useGeneric: Bool
+
+    @objc
     public var ppd: String
+
+    @objc
     public var ppdPath: String
+
+    @objc
     public var ppdContents: String
 
     public override var description: String {
-        return "[\(String(describing: Printer.self))][\(identifier). \(self.uri) \(self.location)]"
+        let baseDescription = super.description
+
+        if !uri.isEmpty, !location.isEmpty {
+            return "\(baseDescription)[\(self.uri) \(self.location)]"
+        }
+
+        return baseDescription
     }
 
     // MARK: - Initialization

@@ -1,7 +1,4 @@
 {
-    "general": {
-        "command": "command"
-    },
     "computers": {
         "computer": {
             "id": 1

@@ -26,7 +26,7 @@ class MobileDeviceGroupTests: XCTestCase {
         let actualValue = MobileDeviceGroup(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[MobileDeviceGroup][12345. mobile_devices]")
+        XCTAssertEqual(actualValue?.description, "[MobileDeviceGroup][12345 - mobile_devices]")
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.isSmart, defaultIsSmart)
@@ -51,7 +51,7 @@ class MobileDeviceGroupTests: XCTestCase {
         let actualValue = MobileDeviceGroup(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[MobileDeviceGroup][12345. mobile_devices]")
+        XCTAssertEqual(actualValue?.description, "[MobileDeviceGroup][12345 - mobile_devices]")
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.isSmart, defaultIsSmart)
@@ -68,7 +68,7 @@ class MobileDeviceGroupTests: XCTestCase {
         let actualValue = MobileDeviceGroup(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[MobileDeviceGroup][12345. mobile_devices]")
+        XCTAssertEqual(actualValue?.description, "[MobileDeviceGroup][12345 - mobile_devices]")
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.isSmart, defaultIsSmart)

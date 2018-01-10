@@ -26,7 +26,7 @@ class ComputerGroupTests: XCTestCase {
         let actualValue = ComputerGroup(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[ComputerGroup][12345. computers]")
+        XCTAssertEqual(actualValue?.description, "[ComputerGroup][12345 - computers]")
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.isSmart, defaultIsSmart)
@@ -51,7 +51,7 @@ class ComputerGroupTests: XCTestCase {
         let actualValue = ComputerGroup(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[ComputerGroup][12345. computers]")
+        XCTAssertEqual(actualValue?.description, "[ComputerGroup][12345 - computers]")
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.isSmart, defaultIsSmart)
@@ -68,7 +68,7 @@ class ComputerGroupTests: XCTestCase {
         let actualValue = ComputerGroup(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[ComputerGroup][12345. computers]")
+        XCTAssertEqual(actualValue?.description, "[ComputerGroup][12345 - computers]")
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.isSmart, defaultIsSmart)

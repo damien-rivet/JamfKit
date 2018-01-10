@@ -5,8 +5,11 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a logical command that can be executed on any hardware element manageg by Jamf.
-public final class ComputerCommand: Identifiable, CustomStringConvertible {
+@objc(JMFKComputerCommand)
+public final class ComputerCommand: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -15,11 +18,14 @@ public final class ComputerCommand: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
+    @objc
     public var general: ComputerCommandGeneral
+
+    @objc
     public var computers: [UInt]
 
-    public var description: String {
-        return "[\(String(describing: ComputerCommand.self))][\(general.command)]"
+    public override var description: String {
+        return "[\(String(describing: type(of: self)))][\(general.command)]"
     }
 
     // MARK: - Initialization
@@ -48,7 +54,7 @@ public final class ComputerCommand: Identifiable, CustomStringConvertible {
 
         json[ComputerCommand.GeneralKey] = general.toJSON()
 
-        if computers.count > 0 {
+        if !computers.isEmpty {
             let rawComputers = computers.map { computerIdentifier -> [String: [String: UInt]] in
                 return [
                     "computer": [
@@ -59,44 +65,6 @@ public final class ComputerCommand: Identifiable, CustomStringConvertible {
 
             json[ComputerCommand.ComputersKey] = rawComputers
         }
-
-        return json
-    }
-}
-
-public final class ComputerCommandGeneral: Identifiable {
-
-    // MARK: - Constants
-
-    static let CommandKey = "command"
-    static let PasscodeKey = "passcode"
-
-    // MARK: - Properties
-
-    public var command: String
-    public var passcode: UInt
-
-    // MARK: - Initialization
-
-    public init?(json: [String: Any], node: String = "") {
-        guard
-            let command = json[ComputerCommandGeneral.CommandKey] as? String,
-            let passcode = json[ComputerCommandGeneral.PasscodeKey] as? UInt
-            else {
-                return nil
-        }
-
-        self.command = command
-        self.passcode = passcode
-    }
-
-    // MARK: - Functions
-
-    public func toJSON() -> [String: Any] {
-        var json = [String: Any]()
-
-        json[ComputerCommandGeneral.CommandKey] = command
-        json[ComputerCommandGeneral.PasscodeKey] = passcode
 
         return json
     }

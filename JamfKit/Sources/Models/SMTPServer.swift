@@ -5,8 +5,11 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a physical SMTP server, contains information about the server and it's configuration.
-public final class SMTPServer: Identifiable, CustomStringConvertible {
+@objc(JMFKSMTPServer)
+public final class SMTPServer: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -24,20 +27,41 @@ public final class SMTPServer: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
+    @objc
     public var isEnabled: Bool
+
+    @objc
     public var host: String
+
+    @objc
     public var port: UInt
+
+    @objc
     public var timeout: UInt
+
+    @objc
     public var isAuthorizationRequired: Bool
+
+    @objc
     public var username: String
+
+    @objc
     public var password: String
+
+    @objc
     public var isSSLEnabled: Bool
+
+    @objc
     public var isTLSEnabled: Bool
+
+    @objc
     public var sendFromName: String
+
+    @objc
     public var sendFromEmail: String
 
-    public var description: String {
-        let baseDescription = "[\(String(describing: SMTPServer.self))]"
+    public override var description: String {
+        let baseDescription = "[\(String(describing: type(of: self)))]"
 
         if !host.isEmpty, port > 0 {
             return "\(baseDescription)[\(host):\(port)]"

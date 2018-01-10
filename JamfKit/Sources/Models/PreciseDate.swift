@@ -8,7 +8,8 @@
 import Foundation
 
 /// Represents a logical date within JSS api, contains 3 properties, the date itself, an epoch version of the date and an UTC version of the date.
-public final class PreciseDate: Identifiable {
+@objc(JMFKPreciseDate)
+public final class PreciseDate: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -18,8 +19,23 @@ public final class PreciseDate: Identifiable {
     // MARK: - Properties
 
     private let node: String
+
+    @objc
     public var date: Date?
-    public var epoch: Double?
+
+    @objc(epoch)
+    public var internalEpoch: NSNumber? {
+        guard let epoch = self.epoch else {
+            return 0
+        }
+
+        return NSNumber(value: epoch)
+    }
+
+    @nonobjc
+    public var epoch: UInt?
+
+    @objc
     public var dateUTC: Date?
 
     // MARK: - Initialization
@@ -31,7 +47,7 @@ public final class PreciseDate: Identifiable {
             date = PreciseDate.getDateFormatter().date(from: rawDate)
         }
 
-        epoch = json[node + PreciseDate.EpochKey] as? Double
+        epoch = json[node + PreciseDate.EpochKey] as? UInt
 
         if let rawDateUTC = json[node + PreciseDate.UTCKey] as? String {
             dateUTC = PreciseDate.getUTCDateFormatter().date(from: rawDateUTC)

@@ -5,7 +5,10 @@
 //  Copyright © 2017 JamfKit. All rights reserved.
 //
 
-public final class ComputerPurchasing: Identifiable {
+import Foundation
+
+@objc(JMFKComputerPurchasing)
+public final class ComputerPurchasing: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -24,17 +27,40 @@ public final class ComputerPurchasing: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var isPurchased: Bool
+
+    @objc
     public var isLeased: Bool
+
+    @objc
     public var poNumber: String
+
+    @objc
     public var vendor: String
+
+    @objc
     public var appleCareIdentifier: String
+
+    @objc
     public var purchasePrice: String
+
+    @objc
     public var purchasingAccount: String
+
+    @objc
     public var purchasingContact: String
+
+    @objc
     public var poDate: PreciseDate?
+
+    @objc
     public var warrantyExpires: PreciseDate?
+
+    @objc
     public var leaseExpires: PreciseDate?
+
+    @objc
     public var lifeExpectancy: UInt
 
     // MARK: - Initialization

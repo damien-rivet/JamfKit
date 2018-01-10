@@ -5,7 +5,10 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
-public final class HardwareGroupCriterion: Identifiable {
+import Foundation
+
+@objc(JMFKHardwareGroupCriterion)
+public final class HardwareGroupCriterion: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -19,12 +22,25 @@ public final class HardwareGroupCriterion: Identifiable {
 
     // MARK: - Properties
 
+    @objc
     public var name: String
+
+    @objc
     public var priority: UInt
+
+    @objc
     public var andOr: String
+
+    @objc
     public var searchType: String
+
+    @objc
     public var value: UInt
+
+    @objc
     public var openingParen: Bool
+
+    @objc
     public var closingParen: Bool
 
     // MARK: - Initialization

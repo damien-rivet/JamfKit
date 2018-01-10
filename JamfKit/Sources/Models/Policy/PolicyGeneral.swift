@@ -5,6 +5,9 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+@objc(JMFKPolicyGeneral)
 public final class PolicyGeneral: BaseObject {
 
     // MARK: - Constants
@@ -31,24 +34,61 @@ public final class PolicyGeneral: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var isEnabled: Bool
+
+    @objc
     public var trigger: String
+
+    @objc
     public var triggerCheckin: Bool
+
+    @objc
     public var triggerEnrollmentComplete: Bool
+
+    @objc
     public var triggerLogin: Bool
+
+    @objc
     public var triggerLogout: Bool
+
+    @objc
     public var triggerNetworkStateChanged: Bool
+
+    @objc
     public var triggerStartup: Bool
+
+    @objc
     public var triggerOther: String
+
+    @objc
     public var frequency: String
+
+    @objc
     public var locationUserOnly: Bool
+
+    @objc
     public var targetDrive: String
+
+    @objc
     public var offline: Bool
+
+    @objc
     public var category: PolicyCategory?
+
+    @objc
     public var dateTimeLimitations: PolicyDateTimeLimitations?
+
+    @objc
     public var networkLimitations: PolicyNetworkLimitations?
+
+    @objc
     public var overrideDefaultSettings: PolicyOverrideDefaultSettings?
+
+    @objc
     public var networkRequirements: String
+
+    @objc
     public var site: Site?
 
     // MARK: - Initialization

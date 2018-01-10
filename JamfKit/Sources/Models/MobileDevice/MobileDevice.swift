@@ -5,8 +5,11 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
 /// Represents a Jamf managed mobile device, contains the general information about the device.
-public final class MobileDevice: Identifiable, CustomStringConvertible {
+@objc(JMFKMobileDevice)
+public final class MobileDevice: NSObject, Identifiable {
 
     // MARK: - Constants
 
@@ -14,10 +17,11 @@ public final class MobileDevice: Identifiable, CustomStringConvertible {
 
     // MARK: - Properties
 
+    @objc
     public var general: MobileDeviceGeneral
 
-    public var description: String {
-        return "[\(String(describing: MobileDevice.self))][\(general.identifier). \(general.name)]"
+    public override var description: String {
+        return "[\(String(describing: type(of: self)))][\(general.identifier) - \(general.name)]"
     }
 
     // MARK: - Initialization

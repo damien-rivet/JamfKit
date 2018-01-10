@@ -5,6 +5,9 @@
 //  Copyright © 2018 JamfKit. All rights reserved.
 //
 
+import Foundation
+
+@objc(JMFKMobileDeviceGeneral)
 public final class MobileDeviceGeneral: BaseObject {
 
     // MARK: - Constants
@@ -52,45 +55,124 @@ public final class MobileDeviceGeneral: BaseObject {
 
     // MARK: - Properties
 
+    @objc
     public var displayName: String
+
+    @objc
     public var deviceName: String
+
+    @objc
     public var assetTag: String
+
+    @objc
     public var lastInventoryUpdate: PreciseDate?
+
+    @objc
     public var capacity: UInt
+
+    @objc
     public var capacityMb: UInt
+
+    @objc
     public var available: UInt
+
+    @objc
     public var availableMb: UInt
+
+    @objc
     public var percentageUsed: UInt
+
+    @objc
     public var osType: String
+
+    @objc
     public var osVersion: String
+
+    @objc
     public var osBuild: String
+
+    @objc
     public var serialNumber: String
+
+    @objc
     public var udid: String
+
+    @objc
     public var initialEntryDate: PreciseDate?
+
+    @objc
     public var phoneNumber: String
+
+    @objc
     public var ipAddress: String
+
+    @objc
     public var wifiMacAddress: String
+
+    @objc
     public var bluetoothMacAddress: String
+
+    @objc
     public var modemFirmware: String
+
+    @objc
     public var model: String
+
+    @objc
     public var modelIdentifier: String
+
+    @objc
     public var modelNumber: String
+
+    @objc
     public var modelDisplay: String
+
+    @objc
     public var deviceOwnershipLevel: String
+
+    @objc
     public var lastEnrollment: PreciseDate?
+
+    @objc
     public var isManaged: Bool
+
+    @objc
     public var isSupervised: Bool
+
+    @objc
     public var exchangeActiveSyncDeviceIdentifier: String
+
+    @objc
     public var shared: String
+
+    @objc
     public var tethered: String
+
+    @objc
     public var batteryLevel: UInt
+
+    @objc
     public var isBluetoothCapable: Bool
+
+    @objc
     public var isDeviceLocatorServiceEnabled: Bool
+
+    @objc
     public var isDoNotDisturbEnabled: Bool
+
+    @objc
     public var isCloudBackupEnabled: Bool
+
+    @objc
     public var lastCloudBackupDate: PreciseDate?
+
+    @objc
     public var isLocationServicesEnabled: Bool
+
+    @objc
     public var isITunesStoreAccountActive: Bool
+
+    @objc
     public var lastBackupTime: PreciseDate?
 
     // MARK: - Initialization

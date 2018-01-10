@@ -13,14 +13,14 @@ class ComputerCommandTests: XCTestCase {
 
     // MARK: - Constants
 
-    let subfolder = "Computer/"
+    let subfolder = "ComputerCommand/"
     let defaultCommand = "command"
     let defaultPasscode: UInt = 123456
 
     // MARK: - Tests
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "computer_command_valid", subfolder: subfolder)!
+        let payload = self.payload(for: "computer_command", subfolder: subfolder)!
 
         let actualValue = ComputerCommand(json: payload)
 
@@ -43,7 +43,7 @@ class ComputerCommandTests: XCTestCase {
         XCTAssertEqual(actualValue?.computers.count, 0)
     }
 
-    func testShouldNotInitializeFromInvalidJSON() {
+    func testShouldInitializeFromInvalidJSON() {
         let payload = self.payload(for: "computer_command_invalid", subfolder: subfolder)!
 
         let actualValue = ComputerCommand(json: payload)
@@ -52,14 +52,13 @@ class ComputerCommandTests: XCTestCase {
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "computer_command_valid", subfolder: subfolder)!
+        let payload = self.payload(for: "computer_command", subfolder: subfolder)!
 
         let actualValue = ComputerCommand(json: payload)
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
-        XCTAssertNotNil(encodedObject?[ComputerCommand.GeneralKey])
         XCTAssertNotNil(encodedObject?[ComputerCommand.GeneralKey])
         XCTAssertNotNil(encodedObject?[ComputerCommand.ComputersKey])
 
