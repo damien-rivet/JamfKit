@@ -18,7 +18,7 @@
 ## Summary ##
 
 - [Features](#features)
-- [Requirements](#requirements)
+- [Compatibilities](#compatibilities)
 - [Installation](#installation)
   - [Carthage](#carthage)
   - [CocoaPods](#cocoapods)
@@ -28,6 +28,7 @@
 - [Usage](#usage)
   - [First steps](#first-steps)
 - [Contributing](#contributing)
+- [Code of conduct](#code-of-conduct)
 - [FAQ](#faq)
 - [Credits](#credits)
 - [License](#license)
@@ -36,10 +37,10 @@
 
 🚧 &nbsp;**In progress, list will be updated as features are implemented** 🚧
 
-- [ ] Includes JSON encoding / decoding support for JSS objects
-- [ ] Includes Objective-C support
-- [ ] Includes Swift 4 support
-- [ ] Includes ready-for-consumption URLRequest for JSS endpoints
+- [ ] Includes JSON encoding / decoding support for most of the JSS objects
+- [x] Includes Objective-C support
+- [x] Includes Swift 4 support
+- [ ] Includes ready-for-consumption `URLRequest` for JSS endpoints
 - [ ] Includes demonstration playgrounds
 
 ## Compatibilities ##
@@ -95,7 +96,7 @@ Represents all objects that can be received from / sent to the Jamf host. Its ex
 
 #### BaseObject ####
 
-Represents the common denominator between all the JSS objects which must contains at least an `identifier` and a `name` properties.
+Represents the common denominator between most of the JSS objects which must contains at least an `identifier` and a `name` properties.
 
 #### Building ####
 
@@ -103,11 +104,15 @@ Represents a physical building.
 
 #### Computer ####
 
-Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.
+Represents a computer managed by Jamf, contains the general / location / purchasing information about the hardware.
 
 #### Computer command ####
 
 Represents a logical command that can be executed on any hardware element manageg by Jamf.
+
+#### Computer group ####
+
+Represents a group of computers managed by Jamf, contains grouping information.
 
 #### Department ####
 
@@ -119,7 +124,11 @@ Represents a logical binding between a computer and an active directory user.
 
 #### Mobile device ####
 
-Represents a Jamf managed mobile device, contains the general information about the device.
+Represents a mobile device managed by Jamf, contains the general information about the device.
+
+#### Mobile device group ####
+
+Represents a group of mobile devices managed by Jamf, contains grouping information.
 
 #### Netboot server ####
 
@@ -173,9 +182,17 @@ Represents a Jamf user and contains the identification properties that are requi
 
 ## Contributing ##
 
-If you think that something is either wrong or missing, please check the [issues](https://github.com/Ethenyl/JamfKit/issues) and if you can't find anything related to your find, please file a new issue.
+So, I heard you want to help improve `JamfKit`? That's great! Any useful contribution is welcome!
 
-If you feel like contributing to the repository (either to solve an issue or just to improve the codebase), feel free to clone it and open a pull-request with your changes.
+Check [CONTRIBUTING](https://github.com/Ethenyl/JamfKit/blob/master/CONTRIBUTING) for more details on how you can contribute to `JamfKit`.
+
+## Code of conduct ##
+
+Any contributions (issues, pull requests, comments, etc.) to `JamfKit` are more than welcome.
+
+But before making any contribution, please make sure that you follow the [CODE OF CONDUCT](https://github.com/Ethenyl/JamfKit/blob/master/CODE_OF_CONDUCT).
+
+Otherwise, there's a great chance that your contribution will be removed / blocked / hidden.
 
 ## FAQ ##
 
@@ -189,4 +206,4 @@ You can join the list by contributing to the repository.
 
 ## License ##
 
-`JamfKit` is released under the MIT license. [See LICENSE](https://github.com/Ethenyl/JamfKit/blob/master/LICENSE) for details.
+`JamfKit` is released under the MIT license. See [LICENSE](https://github.com/Ethenyl/JamfKit/blob/master/LICENSE) for more details.
