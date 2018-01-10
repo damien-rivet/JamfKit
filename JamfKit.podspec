@@ -6,15 +6,15 @@ Pod::Spec.new do |s|
     JamfKit is an iOS / macOS framework to communicate with the JSS API offered by any Jamf host. 
   DESC
   
-  s.homepage     = "https://Ethenyl@github.com/Ethenyl/JamfKit"
+  s.homepage     = "https://github.com/Ethenyl/JamfKit"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Damien Rivet" => "damien.rivet@gmail.com" }
   
   s.ios.deployment_target = "9.0"
   s.osx.deployment_target = "10.10"
 
-  s.source       = { :git => "https://Ethenyl@github.com/Ethenyl/JamfKit.git", :tag => s.version.to_s }
-  s.source_files  = "Sources/*.swift"
+  s.source       = { :git => "https://github.com/Ethenyl/JamfKit.git", :tag => s.version.to_s }
+  s.source_files  = "JamfKit/Sources/**/*.swift"
 
   s.frameworks  = "Foundation"
 end
