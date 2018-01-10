@@ -7,7 +7,7 @@ New issue checklist:
 - [ ] Issue tracker does not already contain the same (or a very similar) issue
 - [ ] Title must be clear about what is the issue
 - [ ] All relevant fields of the description are filled
-- [ ] Issue is following the [CODE OF CONDUCT](https://github.com/Ethenyl/JamfKit/blob/master/CODE_OF_CONDUCT)
+- [ ] Issue is following the [CODE OF CONDUCT](https://github.com/Ethenyl/JamfKit/blob/master/CODE_OF_CONDUCT.md)
 
 **Please delete this section once you're ready to finally create the issue.**
 
