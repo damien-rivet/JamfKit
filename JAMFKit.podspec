@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "JamfKit"
+  s.name         = "JAMFKit"
   s.version      = "0.2.0"
   s.summary      = "A JSS communication framework written in Swift"
   s.description  = <<-DESC
