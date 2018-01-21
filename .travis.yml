@@ -12,6 +12,9 @@ env:
 before_install:
   - gem install xcpretty
 
+before_script:
+  - pod lib lint --quick
+
 script:
   - set -o pipefail && xcodebuild clean test -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" | xcpretty
 
