@@ -14,9 +14,13 @@ public final class Department: BaseObject { }
 
 extension Department: Endpoint, Creatable {
 
+    // MARK: - Constants
+
+    public static var Endpoint: String = "departments"
+
     // MARK: - Properties
 
     public var endpoint: String {
-        return "departments"
+        return Department.Endpoint
     }
 }

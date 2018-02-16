@@ -44,17 +44,6 @@ public class BaseObject: NSObject, Requestable, Identifiable {
         self.name = name
     }
 
-    public init?(identifier: UInt, name: String) {
-        guard !name.isEmpty else {
-            return nil
-        }
-
-        self.identifier = identifier
-        self.name = name
-
-        super.init()
-    }
-
     // MARK: - Functions
 
     @objc

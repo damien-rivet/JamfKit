@@ -6,10 +6,14 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-public enum HttpHeader: String {
+internal enum HttpHeader: String {
     case accept = "Accept"
     case authorization = "Authorization"
     case contentType = "Content-Type"
+}
+
+internal enum HeaderContentType: String {
+    case json = "application/json"
 }
 
 extension SessionManager {
@@ -37,41 +41,108 @@ extension SessionManager {
 
         return request
     }
+}
+
+extension SessionManager {
+
+    // MARK: - Create
 
     /// Returns a `CREATE` URLRequest for the supplied URL
-    internal func createRequest(for object: Endpoint, key: String = "id", value: String) -> URLRequest? {
-        guard let url = host?.appendingPathComponent("\(object.endpoint)/\(key)/\(value)") else {
+    internal func createRequest(for object: Endpoint & Requestable, key: String, value: String) -> URLRequest? {
+        guard
+            let url = host?.appendingPathComponent("\(object.endpoint)/\(key)/\(value)"),
+            let data = try? JSONSerialization.data(withJSONObject: object.toJSON(), options: .prettyPrinted) else {
             return nil
         }
 
-        return authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.post)
-    }
+        var request = authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.post)
+        request.setValue(HeaderContentType.json.rawValue, forHTTPHeaderField: HttpHeader.contentType.rawValue)
+        request.httpBody = data
 
-    /// Returns a `READ` URLRequest for the supplied URL
-    internal func readRequest(for url: URL) -> URLRequest {
-        return authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.get)
-    }
-
-    /// Returns an `UPDATE` URLRequest for the supplied URL
-    internal func updateRequest(for url: URL) -> URLRequest {
-        return authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.put)
-    }
-
-    /// Returns a `DELETE` URLRequest for the supplied URL
-    internal func deleteRequest(for url: URL) -> URLRequest {
-        return authentifiedRequest(for: url.appendingPathComponent(""), authorizationHeader: authorizationHeader, method: HttpMethod.delete)
+        return request
     }
 }
 
 extension SessionManager {
 
-    // MARK: - Functions
+    // MARK: - Read
 
-    public func request(for object: Requestable & Endpoint, method: HttpMethod = .get, filter: String = "") -> URLRequest? {
-        guard let host = self.host else {
+    /// Returns a `READ` URLRequest for the supplied JSS endpoint
+    internal func readAllRequest(for endpoint: String) -> URLRequest? {
+        guard let url = host?.appendingPathComponent("\(endpoint)") else {
             return nil
         }
 
-        return authentifiedRequest(for: host.appendingPathComponent(object.endpoint), authorizationHeader: authorizationHeader, method: method)
+        var request = authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.get)
+        request.setValue(HeaderContentType.json.rawValue, forHTTPHeaderField: HttpHeader.accept.rawValue)
+
+        return request
+    }
+
+    /// Returns a `READ` URLRequest for the supplied endpoint type & identifier
+    internal func readRequest(for endpoint: Endpoint.Type, key: String, value: String) -> URLRequest? {
+        guard let url = host?.appendingPathComponent("\(endpoint.Endpoint)/\(key)/\(value)") else {
+            return nil
+        }
+
+        var request = authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.get)
+        request.setValue(HeaderContentType.json.rawValue, forHTTPHeaderField: HttpHeader.accept.rawValue)
+
+        return request
+    }
+
+    /// Returns a `READ` URLRequest for the supplied JSS object
+    internal func readRequest(for object: Endpoint, key: String, value: String) -> URLRequest? {
+        guard let url = host?.appendingPathComponent("\(object.endpoint)/\(key)/\(value)") else {
+            return nil
+        }
+
+        var request = authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.get)
+        request.setValue(HeaderContentType.json.rawValue, forHTTPHeaderField: HttpHeader.accept.rawValue)
+
+        return request
+    }
+}
+
+extension SessionManager {
+
+    // MARK: - Update
+
+    /// Returns an `UPDATE` URLRequest for the supplied JSS object
+    internal func updateRequest(for object: Endpoint & Requestable, key: String, value: String) -> URLRequest? {
+        guard
+            let url = host?.appendingPathComponent("\(object.endpoint)/\(key)/\(value)"),
+            let data = try? JSONSerialization.data(withJSONObject: object.toJSON(), options: .prettyPrinted) else {
+                return nil
+        }
+
+        var request = authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.put)
+        request.setValue(HeaderContentType.json.rawValue, forHTTPHeaderField: HttpHeader.contentType.rawValue)
+        request.httpBody = data
+
+        return request
+    }
+}
+
+extension SessionManager {
+
+    // MARK: - Delete
+
+    /// Returns a `DELETE` URLRequest for the supplied endpoint type & identifier
+    internal func deleteRequest(for object: Endpoint.Type, key: String, value: String) -> URLRequest? {
+        guard let url = host?.appendingPathComponent("\(object.Endpoint)/\(key)/\(value)") else {
+            return nil
+        }
+
+        return authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.delete)
+    }
+
+    /// Returns a `DELETE` URLRequest for the supplied URL
+    internal func deleteRequest(for object: Endpoint, key: String, value: String) -> URLRequest? {
+        guard let url = host?.appendingPathComponent("\(object.endpoint)/\(key)/\(value)") else {
+            return nil
+        }
+
+        return authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.delete)
     }
 }

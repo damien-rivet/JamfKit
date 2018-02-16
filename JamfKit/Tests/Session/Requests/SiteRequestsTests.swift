@@ -16,13 +16,15 @@ class SiteRequestsTests: XCTestCase {
 
     let subfolder = "Site/"
     let defaultHost = "http://localhost"
-    let defaultUsername = "username"
-    let defaultPassword = "password"
+    var element: Site!
 
     // MARK: - Lifecycle
 
     override func setUp() {
-        try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+        try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
+
+        let payload = self.payload(for: "site_valid", subfolder: subfolder)!
+        element = Site(json: payload)!
     }
 
     override func tearDown() {
@@ -31,13 +33,11 @@ class SiteRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testReturnCreateRequest() {
-        let payload = self.payload(for: "site_valid", subfolder: subfolder)!
-        let element = Site(json: payload)!
-
+    func testShouldReturnCreateRequest() {
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
     }
 }

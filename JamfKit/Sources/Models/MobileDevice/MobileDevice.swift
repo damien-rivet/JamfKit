@@ -51,15 +51,13 @@ public final class MobileDevice: NSObject, Requestable {
 
 extension MobileDevice: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "mobiledevices"
-    }
+    public static var Endpoint: String = "mobiledevices"
 
     // MARK: - Functions
 
-    public func create(with key: String) -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: key, value: String(general.identifier))
+    public func create() -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
     }
 }

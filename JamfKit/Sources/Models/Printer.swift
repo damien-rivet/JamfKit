@@ -118,9 +118,7 @@ public final class Printer: BaseObject {
 
 extension Printer: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "printers"
-    }
+    public static var Endpoint: String = "printers"
 }

@@ -14,9 +14,7 @@ public final class Site: BaseObject { }
 
 extension Site: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "sites"
-    }
+    public static var Endpoint: String = "sites"
 }

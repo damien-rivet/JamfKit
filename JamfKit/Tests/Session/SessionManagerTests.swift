@@ -61,35 +61,35 @@ class SessionManagerTests: XCTestCase {
         XCTAssertEqual(SessionManager.instance.authorizationHeader, "")
     }
 
-    func testShouldPerformThrowingConnectivityCheckWithEmptyConfiguration() {
-        SessionManager.instance.clearConfiguration()
-
-        XCTAssertThrowsError(try SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        })
-    }
-
-    func testShouldPerformFailingConnectivityCheckWithEmptyHost() {
-        try? SessionManager.instance.configure(for: "", username: defaultUsername, password: defaultPassword)
-
-        try? SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        }
-    }
-
-    func testShouldPerformFailingConnectivityCheckWithEmptyUsername() {
-        try? SessionManager.instance.configure(for: self.defaultHost, username: "", password: defaultPassword)
-
-        try? SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        }
-    }
-
-    func testShouldPerformFailingConnectivityCheckWithEmptyPassword() {
-        try? SessionManager.instance.configure(for: self.defaultHost, username: defaultUsername, password: "")
-
-        try? SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        }
-    }
+//    func testShouldPerformThrowingConnectivityCheckWithEmptyConfiguration() {
+//        SessionManager.instance.clearConfiguration()
+//
+//        XCTAssertThrowsError(try SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        })
+//    }
+//
+//    func testShouldPerformFailingConnectivityCheckWithEmptyHost() {
+//        try? SessionManager.instance.configure(for: "", username: defaultUsername, password: defaultPassword)
+//
+//        try? SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        }
+//    }
+//
+//    func testShouldPerformFailingConnectivityCheckWithEmptyUsername() {
+//        try? SessionManager.instance.configure(for: self.defaultHost, username: "", password: defaultPassword)
+//
+//        try? SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        }
+//    }
+//
+//    func testShouldPerformFailingConnectivityCheckWithEmptyPassword() {
+//        try? SessionManager.instance.configure(for: self.defaultHost, username: defaultUsername, password: "")
+//
+//        try? SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        }
+//    }
 }

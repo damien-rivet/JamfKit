@@ -12,11 +12,9 @@ public final class Building: BaseObject { }
 
 // MARK: - Protocols
 
-extension Building: Endpoint, Creatable {
+extension Building: Endpoint, Creatable, Readable, Updatable, Deletable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "buildings"
-    }
+    public static var Endpoint: String = "buildings"
 }

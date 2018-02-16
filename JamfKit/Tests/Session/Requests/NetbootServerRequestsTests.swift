@@ -16,13 +16,15 @@ class NetbootServerRequestsTests: XCTestCase {
 
     let subfolder = "NetbootServer/"
     let defaultHost = "http://localhost"
-    let defaultUsername = "username"
-    let defaultPassword = "password"
+    var element: NetbootServer!
 
     // MARK: - Lifecycle
 
     override func setUp() {
-        try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+        try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
+
+        let payload = self.payload(for: "netboot_server_valid", subfolder: subfolder)!
+        element = NetbootServer(json: payload)!
     }
 
     override func tearDown() {
@@ -31,13 +33,11 @@ class NetbootServerRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testReturnCreateRequest() {
-        let payload = self.payload(for: "netboot_server_valid", subfolder: subfolder)!
-        let element = NetbootServer(json: payload)!
-
+    func testShouldReturnCreateRequest() {
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
     }
 }

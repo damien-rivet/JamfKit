@@ -98,9 +98,7 @@ public final class Script: BaseObject {
 
 extension Script: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "scripts"
-    }
+    public static var Endpoint: String = "scripts"
 }

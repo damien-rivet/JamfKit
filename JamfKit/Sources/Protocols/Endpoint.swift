@@ -7,11 +7,20 @@
 //
 
 /// Represents any JSS object that is matched by a JSS endpoint
-@objc(JMFKEndpoint)
 public protocol Endpoint {
 
     // MARK: - Properties
 
-    @objc
+    static var Endpoint: String { get }
+
     var endpoint: String { get }
+}
+
+extension Endpoint {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return Self.Endpoint
+    }
 }

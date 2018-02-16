@@ -16,5 +16,5 @@ public protocol Identifiable {
     var identifier: UInt { get }
 
     @objc
-    optional var name: String { get }
+    var name: String { get }
 }

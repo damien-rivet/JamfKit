@@ -31,13 +31,14 @@ class ScriptRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testReturnCreateRequest() {
+    func testShouldReturnCreateRequest() {
         let payload = self.payload(for: "script_valid", subfolder: subfolder)!
         let element = Script(json: payload)!
 
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
     }
 }

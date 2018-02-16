@@ -16,13 +16,15 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
 
     let subfolder = "MobileDeviceGroup/"
     let defaultHost = "http://localhost"
-    let defaultUsername = "username"
-    let defaultPassword = "password"
+    var element: MobileDeviceGroup!
 
     // MARK: - Lifecycle
 
     override func setUp() {
-        try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+        try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
+
+        let payload = self.payload(for: "mobile_device_group_valid", subfolder: subfolder)!
+        element = MobileDeviceGroup(json: payload)!
     }
 
     override func tearDown() {
@@ -31,13 +33,11 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testReturnCreateRequest() {
-        let payload = self.payload(for: "mobile_device_group_valid", subfolder: subfolder)!
-        let element = MobileDeviceGroup(json: payload)!
-
+    func testShouldReturnCreateRequest() {
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
     }
 }

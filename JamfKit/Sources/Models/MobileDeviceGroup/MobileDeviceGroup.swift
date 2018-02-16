@@ -50,9 +50,7 @@ public final class MobileDeviceGroup: HardwareGroup {
 
 extension MobileDeviceGroup: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "mobiledevicegroups"
-    }
+    public static var Endpoint: String = "mobiledevicegroups"
 }

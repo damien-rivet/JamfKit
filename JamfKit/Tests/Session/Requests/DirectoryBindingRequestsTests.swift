@@ -16,13 +16,15 @@ class DirectoryBindingRequestsTests: XCTestCase {
 
     let subfolder = "DirectoryBinding/"
     let defaultHost = "http://localhost"
-    let defaultUsername = "username"
-    let defaultPassword = "password"
+    var element: DirectoryBinding!
 
     // MARK: - Lifecycle
 
     override func setUp() {
-        try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+        try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
+
+        let payload = self.payload(for: "directory_binding_valid", subfolder: subfolder)!
+        element = DirectoryBinding(json: payload)!
     }
 
     override func tearDown() {
@@ -31,13 +33,11 @@ class DirectoryBindingRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testReturnCreateRequest() {
-        let payload = self.payload(for: "directory_binding_valid", subfolder: subfolder)!
-        let element = DirectoryBinding(json: payload)!
-
+    func testShouldReturnCreateRequest() {
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
     }
 }

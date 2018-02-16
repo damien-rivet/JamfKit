@@ -73,15 +73,13 @@ public final class ComputerCommand: NSObject, Requestable {
 
 extension ComputerCommand: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "computercommands"
-    }
+    public static var Endpoint: String = "computercommands"
 
     // MARK: - Functions
 
-    public func create(with key: String) -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: key, value: general.command)
+    public func create() -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: ComputerCommandGeneral.CommandKey, value: general.command)
     }
 }

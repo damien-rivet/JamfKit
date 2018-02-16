@@ -50,9 +50,7 @@ public final class ComputerGroup: HardwareGroup {
 
 extension ComputerGroup: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "computergroups"
-    }
+    public static var Endpoint: String = "computergroups"
 }

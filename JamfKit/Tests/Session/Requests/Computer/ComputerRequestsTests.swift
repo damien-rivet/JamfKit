@@ -16,13 +16,15 @@ class ComputerRequestsTests: XCTestCase {
 
     let subfolder = "Computer/"
     let defaultHost = "http://localhost"
-    let defaultUsername = "username"
-    let defaultPassword = "password"
+    var element: Computer!
 
     // MARK: - Lifecycle
 
     override func setUp() {
-        try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+        try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
+
+        let payload = self.payload(for: "computer", subfolder: subfolder)!
+        element = Computer(json: payload)!
     }
 
     override func tearDown() {
@@ -31,13 +33,11 @@ class ComputerRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testReturnCreateRequest() {
-        let payload = self.payload(for: "computer", subfolder: subfolder)!
-        let element = Computer(json: payload)!
-
-        let actualValue = element.create(with: "id")
+    func testShouldReturnCreateRequest() {
+        let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.general.identifier)")
     }
 }

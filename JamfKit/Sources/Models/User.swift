@@ -101,9 +101,7 @@ public final class User: BaseObject {
 
 extension User: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "users"
-    }
+    public static var Endpoint: String = "users"
 }

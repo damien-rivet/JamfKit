@@ -51,15 +51,13 @@ public final class ComputerConfiguration: NSObject, Requestable {
 
 extension ComputerConfiguration: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "computerconfigurations"
-    }
+    public static var Endpoint: String = "computerconfigurations"
 
     // MARK: - Functions
 
-    public func create(with key: String) -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: key, value: String(general.identifier))
+    public func create() -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
     }
 }

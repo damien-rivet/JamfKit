@@ -72,9 +72,7 @@ public final class DirectoryBinding: BaseObject {
 
 extension DirectoryBinding: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "directorybindings"
-    }
+    public static var Endpoint: String = "directorybindings"
 }

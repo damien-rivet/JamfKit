@@ -82,23 +82,23 @@ public final class SessionManager: NSObject {
      *
      * - Throws: `SessionManagerErrorCode.incompleteHostConfiguration` if the configuration is not fully specified.
      */
-    public func performConnectivityCheck(completion completionBlock: @escaping (Bool) -> Void) throws {
-        guard let url = host else {
-            throw SessionManagerError(code: .incompleteHostConfiguration)
-        }
-
-        URLSession.shared.dataTask(with: readRequest(for: url)) { (_, response, error) in
-            guard error == nil else {
-                completionBlock(false)
-                return
-            }
-
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                completionBlock(false)
-                return
-            }
-
-            completionBlock(true)
-        }.resume()
-    }
+//    public func performConnectivityCheck(completion completionBlock: @escaping (Bool) -> Void) throws {
+//        guard let url = host else {
+//            throw SessionManagerError(code: .incompleteHostConfiguration)
+//        }
+//
+//        URLSession.shared.dataTask(with: readRequest(for: url)) { (_, response, error) in
+//            guard error == nil else {
+//                completionBlock(false)
+//                return
+//            }
+//
+//            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+//                completionBlock(false)
+//                return
+//            }
+//
+//            completionBlock(true)
+//        }.resume()
+//    }
 }

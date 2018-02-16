@@ -16,13 +16,15 @@ class BuildingRequestsTests: XCTestCase {
 
     let subfolder = "Building/"
     let defaultHost = "http://localhost"
-    let defaultUsername = "username"
-    let defaultPassword = "password"
+    var element: Building!
 
     // MARK: - Lifecycle
 
     override func setUp() {
-        try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+        try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
+
+        let payload = self.payload(for: "building_valid", subfolder: subfolder)!
+        element = Building(json: payload)!
     }
 
     override func tearDown() {
@@ -31,13 +33,84 @@ class BuildingRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testReturnCreateRequest() {
-        let payload = self.payload(for: "building_valid", subfolder: subfolder)!
-        let element = Building(json: payload)!
+    func testShouldReturnReadAllRequest() {
+        let actualValue = Building.readAll()
 
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/buildings")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnCreateRequest() {
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnStaticReadRequestWithIdentifier() {
+        let actualValue = Building.read(identifier: "12345")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Building.Endpoint)/id/12345")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnReadRequestWithIdentifier() {
+        let actualValue = element.read()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnReadRequestWithName() {
+        let actualValue = element.readWithName()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.name)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnUpdateRequestWithIdentifier() {
+        let actualValue = element.update()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnUpdateRequestWithName() {
+        let actualValue = element.updateWithName()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.name)")
+        XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnDeleteRequestWithIdentifier() {
+        let actualValue = element.delete()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnDeleteRequestWithName() {
+        let actualValue = element.deleteWithName()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.name)")
+        XCTAssertNil(actualValue?.httpBody)
     }
 }

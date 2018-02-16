@@ -112,9 +112,7 @@ public final class NetbootServer: BaseObject {
 
 extension NetbootServer: Endpoint, Creatable {
 
-    // MARK: - Properties
+    // MARK: - Constants
 
-    public var endpoint: String {
-        return "netbootservers"
-    }
+    public static var Endpoint: String = "netbootservers"
 }
