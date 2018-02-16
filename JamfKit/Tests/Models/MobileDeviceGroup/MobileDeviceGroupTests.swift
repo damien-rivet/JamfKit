@@ -2,7 +2,8 @@
 //  MobileDeviceGroup.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -93,8 +94,8 @@ class MobileDeviceGroupTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 6)
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroup.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGroup.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[MobileDeviceGroup.IsSmartKey])
         XCTAssertNotNil(encodedObject?[MobileDeviceGroup.CriteriaKey])
         XCTAssertNotNil(encodedObject?[MobileDeviceGroup.SiteKey])

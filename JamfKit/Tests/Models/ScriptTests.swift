@@ -2,7 +2,8 @@
 //  ScriptTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -94,8 +95,8 @@ class ScriptTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 11)
 
-        XCTAssertNotNil(encodedObject?[Script.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[Script.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[Script.CategoryKey])
         XCTAssertNotNil(encodedObject?[Script.FilenameKey])
         XCTAssertNotNil(encodedObject?[Script.InfoKey])

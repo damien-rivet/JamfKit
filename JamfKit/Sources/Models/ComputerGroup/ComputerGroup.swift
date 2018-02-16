@@ -2,10 +2,9 @@
 //  ComputerGroup.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a group of computers managed by Jamf, contains grouping information.
 @objc(JMFKComputerGroup)
@@ -44,5 +43,16 @@ public final class ComputerGroup: HardwareGroup {
 
     private static func parseComputers(json: [String: Any]) -> [ComputerGeneral] {
         return BaseObject.parseElements(from: json, nodeKey: ComputerGroup.ComputersKey, singleNodeKey: "computer")
+    }
+}
+
+// MARK: - Requestable
+
+extension ComputerGroup: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "computergroups"
     }
 }

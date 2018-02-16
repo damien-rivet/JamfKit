@@ -2,14 +2,13 @@
 //  Policy.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Reprents as logical policy that can be applied to any hardware element managed by Jamf.
 @objc(JMFKPolicy)
-public final class Policy: NSObject, Identifiable {
+public final class Policy: NSObject, Requestable {
 
     // MARK: - Constants
 

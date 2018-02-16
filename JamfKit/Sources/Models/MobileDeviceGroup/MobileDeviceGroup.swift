@@ -2,10 +2,9 @@
 //  MobileDeviceGroup.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a group of mobile devices managed by Jamf, contains grouping information.
 @objc(JMFKMobileDeviceGroup)
@@ -44,5 +43,16 @@ public final class MobileDeviceGroup: HardwareGroup {
 
     private static func parseMobileDevices(json: [String: Any]) -> [MobileDeviceGeneral] {
         return BaseObject.parseElements(from: json, nodeKey: MobileDeviceGroup.MobileDevicesKey, singleNodeKey: "mobile_device")
+    }
+}
+
+// MARK: - Protocols
+
+extension MobileDeviceGroup: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "mobiledevicegroups"
     }
 }

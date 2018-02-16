@@ -2,7 +2,8 @@
 //  NetbootServerTests.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -94,8 +95,8 @@ class NetbootServerTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 14)
 
-        XCTAssertNotNil(encodedObject?[NetbootServer.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[NetbootServer.IpAddressKey])
         XCTAssertNotNil(encodedObject?[NetbootServer.DefaultImageKey])
         XCTAssertNotNil(encodedObject?[NetbootServer.SpecificImageKey])

@@ -2,7 +2,8 @@
 //  ComputerConfigurationGeneralTest.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -59,8 +60,9 @@ class ComputerConfigurationGeneralTest: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 12)
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.NameKey])
+
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.DescriptionKey])
         XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.TypeKey])
         XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.ParentKey])

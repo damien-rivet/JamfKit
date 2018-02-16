@@ -2,7 +2,8 @@
 //  UserTests.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -99,8 +100,9 @@ class UserTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 10)
-        XCTAssertNotNil(encodedObject?[User.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[User.NameKey])
+        
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[User.FullNameKey])
         XCTAssertNotNil(encodedObject?[User.EmailKey])
         XCTAssertNotNil(encodedObject?[User.EmailAddressKey])

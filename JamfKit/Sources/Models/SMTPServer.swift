@@ -2,14 +2,13 @@
 //  SMTPServer.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a physical SMTP server, contains information about the server and it's configuration.
 @objc(JMFKSMTPServer)
-public final class SMTPServer: NSObject, Identifiable {
+public final class SMTPServer: NSObject, Requestable {
 
     // MARK: - Constants
 

@@ -2,14 +2,13 @@
 //  MobileDevice.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a Jamf managed mobile device, contains the general information about the device.
 @objc(JMFKMobileDevice)
-public final class MobileDevice: NSObject, Identifiable {
+public final class MobileDevice: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -45,5 +44,22 @@ public final class MobileDevice: NSObject, Identifiable {
         json[MobileDevice.GeneralKey] = general.toJSON()
 
         return json
+    }
+}
+
+// MARK: - Protocols
+
+extension MobileDevice: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "mobiledevices"
+    }
+
+    // MARK: - Functions
+
+    public func create(with key: String) -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: key, value: String(general.identifier))
     }
 }

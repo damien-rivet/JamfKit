@@ -2,14 +2,13 @@
 //  Epoch.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a logical date within JSS api, contains 3 properties, the date itself, an epoch version of the date and an UTC version of the date.
 @objc(JMFKPreciseDate)
-public final class PreciseDate: NSObject, Identifiable {
+public final class PreciseDate: NSObject, Requestable {
 
     // MARK: - Constants
 

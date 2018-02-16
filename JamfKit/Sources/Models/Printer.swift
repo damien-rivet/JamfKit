@@ -2,10 +2,9 @@
 //  Printer.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a physical printer, contains information about the printer and it's configuration.
 @objc(JMFKPrinter)
@@ -112,5 +111,16 @@ public final class Printer: BaseObject {
         json[Printer.PpdContentsKey] = ppdContents
 
         return json
+    }
+}
+
+// MARK: - Protocols
+
+extension Printer: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "printers"
     }
 }

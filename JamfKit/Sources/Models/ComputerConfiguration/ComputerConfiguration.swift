@@ -2,14 +2,13 @@
 //  ComputerConfiguration.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a logical configuration that can be applied to any hardware element managed by Jamf.
 @objc(JMFKComputerConfiguration)
-public final class ComputerConfiguration: NSObject, Identifiable {
+public final class ComputerConfiguration: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -45,5 +44,22 @@ public final class ComputerConfiguration: NSObject, Identifiable {
         json[ComputerConfiguration.GeneralKey] = general.toJSON()
 
         return json
+    }
+}
+
+// MARK: - Requestable
+
+extension ComputerConfiguration: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "computerconfigurations"
+    }
+
+    // MARK: - Functions
+
+    public func create(with key: String) -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: key, value: String(general.identifier))
     }
 }

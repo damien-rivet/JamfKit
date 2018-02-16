@@ -2,10 +2,9 @@
 //  User.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a Jamf user and contains the identification properties that are required to contact the actual user and identify the hardware devices assigned to him / her.
 @objc(JMFKUser)
@@ -95,5 +94,16 @@ public final class User: BaseObject {
         }
 
         return json
+    }
+}
+
+// MARK: - Protocols
+
+extension User: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "users"
     }
 }

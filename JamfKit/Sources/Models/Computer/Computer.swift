@@ -2,14 +2,13 @@
 //  Computer.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.
 @objc(JMFKComputer)
-public final class Computer: NSObject, Identifiable {
+public final class Computer: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -64,5 +63,22 @@ public final class Computer: NSObject, Identifiable {
         if let purchasing = purchasing { json[Computer.PurchasingKey] = purchasing.toJSON() }
 
         return json
+    }
+}
+
+// MARK: - Requestable
+
+extension Computer: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "computers"
+    }
+
+    // MARK: - Functions
+
+    public func create(with key: String) -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: key, value: String(general.identifier))
     }
 }

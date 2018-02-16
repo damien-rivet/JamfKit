@@ -2,10 +2,9 @@
 //  NetbootServer.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a physical netboot server, contains information about the server and it's configuration.
 @objc(JMFKNetbootServer)
@@ -106,5 +105,16 @@ public final class NetbootServer: BaseObject {
         json[NetbootServer.BootDeviceKey] = bootDevice
 
         return json
+    }
+}
+
+// MARK: - Protocols
+
+extension NetbootServer: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "netbootservers"
     }
 }

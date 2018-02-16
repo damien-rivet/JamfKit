@@ -2,7 +2,8 @@
 //  MobileDeviceGeneralTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -202,8 +203,8 @@ class MobileDeviceGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 48)
         
-        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.DeviceNameKey])
         XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.AssetTagNameKey])
         XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.LastInventoryUpdateKey])

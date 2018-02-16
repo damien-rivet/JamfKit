@@ -2,10 +2,9 @@
 //  DirectoryBinding.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a logical binding between a computer and an active directory user.
 @objc(JMFKDirectoryBinding)
@@ -66,5 +65,16 @@ public final class DirectoryBinding: BaseObject {
         json[DirectoryBinding.TypeKey] = type
 
         return json
+    }
+}
+
+// MARK: - Protocols
+
+extension DirectoryBinding: Endpoint, Creatable {
+
+    // MARK: - Properties
+
+    public var endpoint: String {
+        return "directorybindings"
     }
 }

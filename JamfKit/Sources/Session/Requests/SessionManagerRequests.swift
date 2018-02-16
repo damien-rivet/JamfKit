@@ -2,10 +2,9 @@
 //  JamfKitSessionManagerRequests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 public enum HttpHeader: String {
     case accept = "Accept"
@@ -40,7 +39,11 @@ extension SessionManager {
     }
 
     /// Returns a `CREATE` URLRequest for the supplied URL
-    internal func createRequest(for url: URL) -> URLRequest {
+    internal func createRequest(for object: Endpoint, key: String = "id", value: String) -> URLRequest? {
+        guard let url = host?.appendingPathComponent("\(object.endpoint)/\(key)/\(value)") else {
+            return nil
+        }
+
         return authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.post)
     }
 
@@ -56,6 +59,19 @@ extension SessionManager {
 
     /// Returns a `DELETE` URLRequest for the supplied URL
     internal func deleteRequest(for url: URL) -> URLRequest {
-        return authentifiedRequest(for: url, authorizationHeader: authorizationHeader, method: HttpMethod.delete)
+        return authentifiedRequest(for: url.appendingPathComponent(""), authorizationHeader: authorizationHeader, method: HttpMethod.delete)
+    }
+}
+
+extension SessionManager {
+
+    // MARK: - Functions
+
+    public func request(for object: Requestable & Endpoint, method: HttpMethod = .get, filter: String = "") -> URLRequest? {
+        guard let host = self.host else {
+            return nil
+        }
+
+        return authentifiedRequest(for: host.appendingPathComponent(object.endpoint), authorizationHeader: authorizationHeader, method: method)
     }
 }

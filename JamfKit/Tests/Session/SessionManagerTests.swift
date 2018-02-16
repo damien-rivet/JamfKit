@@ -2,7 +2,8 @@
 //  JamfKitSessionManagerTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -20,8 +21,8 @@ class SessionManagerTests: XCTestCase {
 
     // MARK: - Lifecycle
 
-    override func setUp() {
-
+    override func tearDown() {
+        SessionManager.instance.clearConfiguration()
     }
 
     // MARK: - Tests
