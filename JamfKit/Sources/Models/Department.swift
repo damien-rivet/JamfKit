@@ -8,19 +8,13 @@
 
 /// Represents a physical department.
 @objc(JMFKDepartment)
-public final class Department: BaseObject { }
-
-// MARK: - Protocols
-
-extension Department: Endpoint, Creatable {
+public final class Department: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static var Endpoint: String = "departments"
-
-    // MARK: - Properties
-
-    public var endpoint: String {
-        return Department.Endpoint
-    }
+    public static let Endpoint: String = "departments"
 }
+
+// MARK: - Protocols
+
+extension Department: Creatable, Readable, Updatable, Deletable { }

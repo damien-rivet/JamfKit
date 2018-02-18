@@ -8,10 +8,11 @@
 
 /// Represents a physical SMTP server, contains information about the server and it's configuration.
 @objc(JMFKSMTPServer)
-public final class SMTPServer: NSObject, Requestable {
+public final class SMTPServer: NSObject, Requestable, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "smtpserver"
     static let EnabledKey = "enabled"
     static let HostKey = "host"
     static let PortKey = "port"
@@ -103,5 +104,30 @@ public final class SMTPServer: NSObject, Requestable {
         json[SMTPServer.SendFromEmailKey] = sendFromEmail
 
         return json
+    }
+}
+
+// MARK: - Readable
+
+extension SMTPServer: Readable {
+    public static func readAll() -> URLRequest? {
+        return nil
+    }
+
+    public static func read(identifier: String) -> URLRequest? {
+        return nil
+    }
+
+    public func read() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self)
+    }
+}
+
+// MARK: - Updatable
+
+extension SMTPServer: Updatable {
+
+    public func update() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self)
     }
 }

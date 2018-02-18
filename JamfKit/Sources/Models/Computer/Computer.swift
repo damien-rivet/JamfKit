@@ -8,10 +8,11 @@
 
 /// Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.
 @objc(JMFKComputer)
-public final class Computer: NSObject, Requestable {
+public final class Computer: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "computers"
     static let GeneralKey = "general"
     static let LocationKey = "location"
     static let PurchasingKey = "purchasing"
@@ -66,17 +67,86 @@ public final class Computer: NSObject, Requestable {
     }
 }
 
-// MARK: - Requestable
+// MARK: - Creatable
 
-extension Computer: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "computers"
-
-    // MARK: - Functions
+extension Computer: Creatable {
 
     public func create() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+    }
+}
+
+// MARK: - Readable
+
+extension Computer: Readable {
+
+    public func read() -> URLRequest? {
+        return Computer.read(identifier: String(general.identifier))
+    }
+
+    public func readWithName() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    }
+
+    public func readWithUdid() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.UDIDKey, value: general.udid)
+    }
+
+    public func readWithSerialNumber() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: general.serialNumber)
+    }
+
+    public func readWithMacAddress() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.MacAddressKey, value: general.macAddress)
+    }
+}
+
+// MARK: - Updatable
+
+extension Computer: Updatable {
+
+    public func update() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+    }
+
+    public func updateWithName() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    }
+
+    public func updateWithUdid() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.UDIDKey, value: general.udid)
+    }
+
+    public func updateWithSerialNumber() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: general.serialNumber)
+    }
+
+    public func updateWithMacAddress() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.MacAddressKey, value: general.macAddress)
+    }
+}
+
+// MARK: - Deletable
+
+extension Computer: Deletable {
+
+    public func delete() -> URLRequest? {
+        return Computer.delete(identifier: String(general.identifier))
+    }
+
+    public func deleteWithName() -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    }
+
+    public func deleteWithUdid() -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.UDIDKey, value: general.udid)
+    }
+
+    public func deleteWithSerialNumber() -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: general.serialNumber)
+    }
+
+    public func deleteWithMacAddress() -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.MacAddressKey, value: general.macAddress)
     }
 }

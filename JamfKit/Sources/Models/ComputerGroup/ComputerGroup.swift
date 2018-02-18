@@ -8,10 +8,11 @@
 
 /// Represents a group of computers managed by Jamf, contains grouping information.
 @objc(JMFKComputerGroup)
-public final class ComputerGroup: HardwareGroup {
+public final class ComputerGroup: HardwareGroup, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "computergroups"
     static let ComputersKey = "computers"
 
     // MARK: - Properties
@@ -46,11 +47,6 @@ public final class ComputerGroup: HardwareGroup {
     }
 }
 
-// MARK: - Requestable
+// MARK: - Protocols
 
-extension ComputerGroup: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "computergroups"
-}
+extension ComputerGroup: Creatable, Readable, Updatable, Deletable { }

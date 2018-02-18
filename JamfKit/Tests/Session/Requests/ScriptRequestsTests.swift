@@ -16,13 +16,15 @@ class ScriptRequestsTests: XCTestCase {
 
     let subfolder = "Script/"
     let defaultHost = "http://localhost"
-    let defaultUsername = "username"
-    let defaultPassword = "password"
+    var element: Script!
 
     // MARK: - Lifecycle
 
     override func setUp() {
-        try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+        try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
+
+        let payload = self.payload(for: "script_valid", subfolder: subfolder)!
+        element = Script(json: payload)!
     }
 
     override func tearDown() {
@@ -32,13 +34,95 @@ class ScriptRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnCreateRequest() {
-        let payload = self.payload(for: "script_valid", subfolder: subfolder)!
-        let element = Script(json: payload)!
-
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnReadAllRequest() {
+        let actualValue = Script.readAll()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Script.Endpoint)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnStaticReadRequestWithIdentifier() {
+        let actualValue = Script.read(identifier: "12345")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Script.Endpoint)/id/12345")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnReadRequestWithIdentifier() {
+        let actualValue = element.read()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnReadRequestWithName() {
+        let actualValue = element.readWithName()
+        let encodedName = element.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnUpdateRequestWithIdentifier() {
+        let actualValue = element.update()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnUpdateRequestWithName() {
+        let actualValue = element.updateWithName()
+        let encodedName = element.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
+        XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnStaticDeleteRequestWithIdentifier() {
+        let actualValue = Script.delete(identifier: "12345")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Script.Endpoint)/id/12345")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnDeleteRequestWithIdentifier() {
+        let actualValue = element.delete()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnDeleteRequestWithName() {
+        let actualValue = element.deleteWithName()
+        let encodedName = element.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
+        XCTAssertNil(actualValue?.httpBody)
     }
 }

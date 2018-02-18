@@ -33,15 +33,6 @@ class BuildingRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testShouldReturnReadAllRequest() {
-        let actualValue = Building.readAll()
-
-        XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/buildings")
-        XCTAssertNil(actualValue?.httpBody)
-    }
-
     func testShouldReturnCreateRequest() {
         let actualValue = element.create()
 
@@ -49,6 +40,15 @@ class BuildingRequestsTests: XCTestCase {
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/id/\(element.identifier)")
         XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnReadAllRequest() {
+        let actualValue = Building.readAll()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Building.Endpoint)")
+        XCTAssertNil(actualValue?.httpBody)
     }
 
     func testShouldReturnStaticReadRequestWithIdentifier() {
@@ -94,6 +94,15 @@ class BuildingRequestsTests: XCTestCase {
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.name)")
         XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldReturnStaticDeleteRequestWithIdentifier() {
+        let actualValue = Building.delete(identifier: "12345")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Building.Endpoint)/id/12345")
+        XCTAssertNil(actualValue?.httpBody)
     }
 
     func testShouldReturnDeleteRequestWithIdentifier() {

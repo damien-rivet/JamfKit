@@ -44,3 +44,16 @@ public extension Readable where Self: Endpoint & Identifiable & Requestable {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
     }
 }
+
+public extension Readable where Self: Endpoint & Requestable & Subset {
+
+    // MARK: - Functions
+
+    public static func readAll() -> URLRequest? {
+        return SessionManager.instance.readAllRequest(for: self.Endpoint)
+    }
+
+    static func read(identifier: String) -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
+    }
+}

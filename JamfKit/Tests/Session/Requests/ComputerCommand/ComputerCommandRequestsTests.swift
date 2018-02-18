@@ -33,11 +33,33 @@ class ComputerCommandRequestsTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldReturnReadAllRequest() {
+        let actualValue = ComputerCommand.readAll()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(ComputerCommand.Endpoint)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnCreateRequest() {
         let actualValue = element.create()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/command/\(element.general.command)")
+        XCTAssertNotNil(actualValue?.httpBody)
+    }
+
+    func testShouldNotReturnStaticReadRequestWithIdentifier() {
+        let actualValue = ComputerCommand.read(identifier: "12345")
+
+        XCTAssertNil(actualValue)
+    }
+
+    func testShouldNotReturnReadRequestWithIdentifier() {
+        let actualValue = element.read()
+        
+        XCTAssertNil(actualValue)
     }
 }

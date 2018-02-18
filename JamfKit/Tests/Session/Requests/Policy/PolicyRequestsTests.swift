@@ -1,5 +1,5 @@
 //
-//  ComputerConfigurationRequestsTests.swift
+//  PolicyRequestsTests.swift
 //  JamfKit
 //
 //  Copyright © 2017-present JamfKit. All rights reserved.
@@ -10,21 +10,21 @@ import XCTest
 
 @testable import JamfKit
 
-class ComputerConfigurationRequestsTests: XCTestCase {
+class PolicyRequestsTests: XCTestCase {
 
     // MARK: - Constants
 
-    let subfolder = "ComputerConfiguration/"
+    let subfolder = "Policy/"
     let defaultHost = "http://localhost"
-    var element: ComputerConfiguration!
+    var element: Policy!
 
     // MARK: - Lifecycle
 
     override func setUp() {
         try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
 
-        let payload = self.payload(for: "computer_configuration", subfolder: subfolder)!
-        element = ComputerConfiguration(json: payload)!
+        let payload = self.payload(for: "policy", subfolder: subfolder)!
+        element = Policy(json: payload)!
     }
 
     override func tearDown() {
@@ -32,6 +32,15 @@ class ComputerConfigurationRequestsTests: XCTestCase {
     }
 
     // MARK: - Tests
+
+    func testShouldReturnReadAllRequest() {
+        let actualValue = Policy.readAll()
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Policy.Endpoint)")
+        XCTAssertNil(actualValue?.httpBody)
+    }
 
     func testShouldReturnCreateRequest() {
         let actualValue = element.create()
@@ -42,21 +51,12 @@ class ComputerConfigurationRequestsTests: XCTestCase {
         XCTAssertNotNil(actualValue?.httpBody)
     }
 
-    func testShouldReturnReadAllRequest() {
-        let actualValue = ComputerConfiguration.readAll()
-
-        XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(ComputerConfiguration.Endpoint)")
-        XCTAssertNil(actualValue?.httpBody)
-    }
-
     func testShouldReturnStaticReadRequestWithIdentifier() {
-        let actualValue = ComputerConfiguration.read(identifier: "12345")
+        let actualValue = Policy.read(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(ComputerConfiguration.Endpoint)/id/12345")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Policy.Endpoint)/id/12345")
         XCTAssertNil(actualValue?.httpBody)
     }
 
@@ -71,11 +71,10 @@ class ComputerConfigurationRequestsTests: XCTestCase {
 
     func testShouldReturnReadRequestWithName() {
         let actualValue = element.readWithName()
-        let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.general.name)")
         XCTAssertNil(actualValue?.httpBody)
     }
 
@@ -90,11 +89,10 @@ class ComputerConfigurationRequestsTests: XCTestCase {
 
     func testShouldReturnUpdateRequestWithName() {
         let actualValue = element.updateWithName()
-        let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.general.name)")
         XCTAssertNotNil(actualValue?.httpBody)
     }
 
@@ -109,11 +107,10 @@ class ComputerConfigurationRequestsTests: XCTestCase {
 
     func testShouldReturnDeleteRequestWithName() {
         let actualValue = element.deleteWithName()
-        let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.general.name)")
         XCTAssertNil(actualValue?.httpBody)
     }
 }

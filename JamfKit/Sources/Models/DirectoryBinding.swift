@@ -8,10 +8,11 @@
 
 /// Represents a logical binding between a computer and an active directory user.
 @objc(JMFKDirectoryBinding)
-public final class DirectoryBinding: BaseObject {
+public final class DirectoryBinding: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "directorybindings"
     static let PriorityKey = "priority"
     static let DomainKey = "domain"
     static let UsernameKey = "username"
@@ -70,9 +71,4 @@ public final class DirectoryBinding: BaseObject {
 
 // MARK: - Protocols
 
-extension DirectoryBinding: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "directorybindings"
-}
+extension DirectoryBinding: Creatable, Readable, Updatable, Deletable { }

@@ -8,10 +8,11 @@
 
 /// Represents a logical command that can be executed on any hardware element manageg by Jamf.
 @objc(JMFKComputerCommand)
-public final class ComputerCommand: NSObject, Requestable {
+public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "computercommands"
     static let GeneralKey = "general"
     static let ComputersKey = "computers"
 
@@ -69,17 +70,24 @@ public final class ComputerCommand: NSObject, Requestable {
     }
 }
 
-// MARK: - Requestable
+// MARK: - Creatable
 
-extension ComputerCommand: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "computercommands"
-
-    // MARK: - Functions
+extension ComputerCommand: Creatable {
 
     public func create() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: ComputerCommandGeneral.CommandKey, value: general.command)
+    }
+}
+
+// MARK: - Readable
+
+extension ComputerCommand: Readable {
+
+    public static func read(identifier: String) -> URLRequest? {
+        return nil
+    }
+
+    public func read() -> URLRequest? {
+        return nil
     }
 }

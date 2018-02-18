@@ -8,10 +8,11 @@
 
 /// Represents a logical configuration that can be applied to any hardware element managed by Jamf.
 @objc(JMFKComputerConfiguration)
-public final class ComputerConfiguration: NSObject, Requestable {
+public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "computerconfigurations"
     static let GeneralKey = "general"
 
     // MARK: - Properties
@@ -47,17 +48,50 @@ public final class ComputerConfiguration: NSObject, Requestable {
     }
 }
 
-// MARK: - Requestable
+// MARK: - Creatable
 
-extension ComputerConfiguration: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "computerconfigurations"
-
-    // MARK: - Functions
+extension ComputerConfiguration: Creatable {
 
     public func create() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+    }
+}
+
+// MARK: - Readable
+
+extension ComputerConfiguration: Readable {
+
+    public func read() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+    }
+
+    public func readWithName() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    }
+}
+
+// MARK: - Updatable
+
+extension ComputerConfiguration: Updatable {
+
+    public func update() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+    }
+
+    public func updateWithName() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    }
+}
+
+// MARK: - Deletable
+
+extension ComputerConfiguration: Deletable {
+
+    public func delete() -> URLRequest? {
+        return ComputerConfiguration.delete(identifier: String(general.identifier))
+    }
+
+    public func deleteWithName() -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
     }
 }

@@ -8,10 +8,11 @@
 
 /// Represents a physical printer, contains information about the printer and it's configuration.
 @objc(JMFKPrinter)
-public final class Printer: BaseObject {
+public final class Printer: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "printers"
     static let CategoryKey = "category"
     static let UriKey = "uri"
     static let CupsNameKey = "CUPS_name"
@@ -116,9 +117,4 @@ public final class Printer: BaseObject {
 
 // MARK: - Protocols
 
-extension Printer: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "printers"
-}
+extension Printer: Creatable, Readable, Updatable, Deletable { }

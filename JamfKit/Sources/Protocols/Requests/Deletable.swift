@@ -37,3 +37,12 @@ public extension Deletable where Self: Endpoint & Identifiable {
         return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
     }
 }
+
+public extension Deletable where Self: Endpoint & Requestable & Subset {
+
+    // MARK: - Functions
+
+    static func delete(identifier: String) -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
+    }
+}

@@ -8,10 +8,11 @@
 
 /// Represents a physical netboot server, contains information about the server and it's configuration.
 @objc(JMFKNetbootServer)
-public final class NetbootServer: BaseObject {
+public final class NetbootServer: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "netbootservers"
     static let IpAddressKey = "ip_address"
     static let DefaultImageKey = "default_image"
     static let SpecificImageKey = "specific_image"
@@ -110,9 +111,4 @@ public final class NetbootServer: BaseObject {
 
 // MARK: - Protocols
 
-extension NetbootServer: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "netbootservers"
-}
+extension NetbootServer: Creatable, Readable, Updatable, Deletable { }

@@ -143,6 +143,10 @@
 		ED91011B200516AA000935E8 /* ComputerCommandGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */; };
 		ED91011E200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */; };
 		ED91011F200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */; };
+		ED96A6AA203A1EE000C711D5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6A9203A1EE000C711D5 /* StringExtension.swift */; };
+		ED96A6AB203A1EE000C711D5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6A9203A1EE000C711D5 /* StringExtension.swift */; };
+		ED96A6AE203A1FB700C711D5 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */; };
+		ED96A6AF203A1FB700C711D5 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */; };
 		ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
@@ -201,6 +205,12 @@
 		EDC96DB62004C73000262530 /* ComputerGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC96DB42004C73000262530 /* ComputerGroupTests.swift */; };
 		EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
 		EDCE84B11FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
+		EDE3AA1F203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */; };
+		EDE3AA20203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */; };
+		EDE3AA23203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */; };
+		EDE3AA24203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */; };
+		EDE3AA26203C863F00ABB163 /* Subset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA25203C863F00ABB163 /* Subset.swift */; };
+		EDE3AA27203C863F00ABB163 /* Subset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA25203C863F00ABB163 /* Subset.swift */; };
 		EDF70B6920075944006B5DFF /* SessionManagerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */; };
 		EDF70B6A20075944006B5DFF /* SessionManagerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */; };
 		EDF70B6D20076067006B5DFF /* SessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6C20076067006B5DFF /* SessionManagerTests.swift */; };
@@ -304,6 +314,8 @@
 		ED9100C220050B4C000935E8 /* JamfKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JamfKit.h; sourceTree = "<group>"; };
 		ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandGeneral.swift; sourceTree = "<group>"; };
 		ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandGeneralTests.swift; sourceTree = "<group>"; };
+		ED96A6A9203A1EE000C711D5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		ED9826F41FEAB14300DD5411 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterTests.swift; sourceTree = "<group>"; };
 		EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServer.swift; path = ../../../JamfKit/Sources/Models/SMTPServer.swift; sourceTree = "<group>"; };
@@ -334,6 +346,9 @@
 		EDC96DAF2004C5F400262530 /* ComputerGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGroup.swift; sourceTree = "<group>"; };
 		EDC96DB42004C73000262530 /* ComputerGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGroupTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPurchasing.swift; sourceTree = "<group>"; };
+		EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPServerRequestsTests.swift; sourceTree = "<group>"; };
+		EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyRequestsTests.swift; sourceTree = "<group>"; };
+		EDE3AA25203C863F00ABB163 /* Subset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subset.swift; sourceTree = "<group>"; };
 		EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerRequests.swift; sourceTree = "<group>"; };
 		EDF70B6C20076067006B5DFF /* SessionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerTests.swift; sourceTree = "<group>"; };
 		EDF70B6F20076079006B5DFF /* SessionManagerRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerRequestsTests.swift; sourceTree = "<group>"; };
@@ -409,11 +424,12 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				ED47ED1420206FBC00AF1BF6 /* Constants.swift */,
+				ED96A6A8203A1EC900C711D5 /* Extensions */,
 				ED9100C220050B4C000935E8 /* JamfKit.h */,
 				ED1D93051FA20F43005589F5 /* Models */,
 				ED1D93061FA20F49005589F5 /* Protocols */,
 				ED0D101820066ED700E0001A /* Session */,
-				ED47ED1420206FBC00AF1BF6 /* Constants.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -421,6 +437,7 @@
 		8933C7831EB5B7EB000D00A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ED96A6AC203A1F9F00C711D5 /* Extensions */,
 				ED3597811FAA1182006E3B66 /* Helpers */,
 				ED1D93071FA20F86005589F5 /* Models */,
 				ED71F2B31FA9ED720056790C /* Resources */,
@@ -503,6 +520,7 @@
 				EDB3318E2036D0B500F43D31 /* Identifiable.swift */,
 				ED21F25B2020D89600E4F852 /* Requestable.swift */,
 				EDB331912036D1DF00F43D31 /* Endpoint.swift */,
+				EDE3AA25203C863F00ABB163 /* Subset.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -602,10 +620,12 @@
 				ED3441B920370CCE0078450E /* MobileDevice */,
 				ED3441B820370CC50078450E /* MobileDeviceGroup */,
 				ED3441C1203714490078450E /* NetbootServerRequestsTests.swift */,
+				EDE3AA21203C7BA500ABB163 /* Policy */,
 				ED3441AC20370A820078450E /* PrinterRequestsTests.swift */,
 				ED3441AF20370B3F0078450E /* ScriptRequestsTests.swift */,
 				EDF70B6F20076079006B5DFF /* SessionManagerRequestsTests.swift */,
 				ED3441B220370BA30078450E /* SiteRequestsTests.swift */,
+				EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */,
 				ED3441B520370C280078450E /* UserRequestsTests.swift */,
 			);
 			path = Requests;
@@ -733,6 +753,22 @@
 			path = ComputerCommand;
 			sourceTree = "<group>";
 		};
+		ED96A6A8203A1EC900C711D5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED96A6A9203A1EE000C711D5 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ED96A6AC203A1F9F00C711D5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EDB9B9441FFF836500287739 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,6 +826,14 @@
 				EDC96DB42004C73000262530 /* ComputerGroupTests.swift */,
 			);
 			path = ComputerGroup;
+			sourceTree = "<group>";
+		};
+		EDE3AA21203C7BA500ABB163 /* Policy */ = {
+			isa = PBXGroup;
+			children = (
+				EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */,
+			);
+			path = Policy;
 			sourceTree = "<group>";
 		};
 		EDF70B6B20076048006B5DFF /* Session */ = {
@@ -1020,6 +1064,7 @@
 				ED071F5B1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED7383A11FAB75CE006259FC /* User.swift in Sources */,
 				EDB9B94F1FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */,
+				EDE3AA26203C863F00ABB163 /* Subset.swift in Sources */,
 				EDC96DAC2004C54000262530 /* HardwareGroupCriterion.swift in Sources */,
 				ED4C59061FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */,
@@ -1034,6 +1079,7 @@
 				EDB3318F2036D0B500F43D31 /* Identifiable.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB7F1FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
+				ED96A6AA203A1EE000C711D5 /* StringExtension.swift in Sources */,
 				ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */,
 				EDB9B9491FFF838A00287739 /* PolicyGeneral.swift in Sources */,
 				EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */,
@@ -1100,6 +1146,7 @@
 				ED3441972036E73E0078450E /* BuildingRequestsTests.swift in Sources */,
 				ED680B062003C61200F80EDB /* ComputerConfigurationGeneralTest.swift in Sources */,
 				ED071F581FB333AF003FAB0E /* ComputerLocationTests.swift in Sources */,
+				EDE3AA1F203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */,
 				ED34419E2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */,
 				ED169F2B1FFE742300DD7B61 /* ScriptTests.swift in Sources */,
 				ED3441AA2036EFD30078450E /* ComputerConfigurationRequestsTests.swift in Sources */,
@@ -1114,12 +1161,14 @@
 				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80711FEA773600169C39 /* BuildingTests.swift in Sources */,
 				ED3441B020370B3F0078450E /* ScriptRequestsTests.swift in Sources */,
+				EDE3AA23203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */,
 				ED3441C2203714490078450E /* NetbootServerRequestsTests.swift in Sources */,
 				EDB9B95C1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1C1FFE504000DD7B61 /* PackageTests.swift in Sources */,
 				EDB9B9591FFF9B8B00287739 /* PolicyTests.swift in Sources */,
 				ED3441A22036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */,
 				ED2DF2AA2000213500FD0A30 /* HardwareGroupCriterionTests.swift in Sources */,
+				ED96A6AE203A1FB700C711D5 /* StringExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1133,6 +1182,7 @@
 				ED071F5C1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */,
 				EDB9B9501FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */,
+				EDE3AA27203C863F00ABB163 /* Subset.swift in Sources */,
 				EDC96DAD2004C54000262530 /* HardwareGroupCriterion.swift in Sources */,
 				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
 				ED4C59071FFE3CCE00E84A25 /* Package.swift in Sources */,
@@ -1147,6 +1197,7 @@
 				EDB331902036D0B500F43D31 /* Identifiable.swift in Sources */,
 				ED21F25D2020D89600E4F852 /* Requestable.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
+				ED96A6AB203A1EE000C711D5 /* StringExtension.swift in Sources */,
 				ED56BB801FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */,
 				EDB9B94A1FFF838A00287739 /* PolicyGeneral.swift in Sources */,
@@ -1213,6 +1264,7 @@
 				ED3441982036E73E0078450E /* BuildingRequestsTests.swift in Sources */,
 				ED680B072003C61200F80EDB /* ComputerConfigurationGeneralTest.swift in Sources */,
 				ED071F591FB333AF003FAB0E /* ComputerLocationTests.swift in Sources */,
+				EDE3AA20203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */,
 				ED34419F2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */,
 				ED169F2C1FFE742300DD7B61 /* ScriptTests.swift in Sources */,
 				ED3441AB2036EFD30078450E /* ComputerConfigurationRequestsTests.swift in Sources */,
@@ -1227,12 +1279,14 @@
 				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80721FEA773600169C39 /* BuildingTests.swift in Sources */,
 				ED3441B120370B3F0078450E /* ScriptRequestsTests.swift in Sources */,
+				EDE3AA24203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */,
 				ED3441C3203714490078450E /* NetbootServerRequestsTests.swift in Sources */,
 				EDB9B95D1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1D1FFE504000DD7B61 /* PackageTests.swift in Sources */,
 				EDB9B95A1FFF9B8B00287739 /* PolicyTests.swift in Sources */,
 				ED3441A32036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */,
 				ED2DF2AB2000213500FD0A30 /* HardwareGroupCriterionTests.swift in Sources */,
+				ED96A6AF203A1FB700C711D5 /* StringExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

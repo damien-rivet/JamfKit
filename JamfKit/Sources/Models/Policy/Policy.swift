@@ -8,10 +8,11 @@
 
 /// Reprents as logical policy that can be applied to any hardware element managed by Jamf.
 @objc(JMFKPolicy)
-public final class Policy: NSObject, Requestable {
+public final class Policy: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "policies"
     static let GeneralKey = "general"
 
     // MARK: - Properties
@@ -44,5 +45,53 @@ public final class Policy: NSObject, Requestable {
         json[Policy.GeneralKey] = general.toJSON()
 
         return json
+    }
+}
+
+// MARK: - Creatable
+
+extension Policy: Creatable {
+
+    public func create() -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+    }
+}
+
+// MARK: - Readable
+
+extension Policy: Readable {
+
+    public func read() -> URLRequest? {
+        return Policy.read(identifier: String(general.identifier))
+    }
+
+    public func readWithName() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    }
+}
+
+// MARK: - Updatable
+
+extension Policy: Updatable {
+
+    public func update() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+    }
+
+    public func updateWithName() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    }
+}
+
+// MARK: - Deletable
+
+extension Policy: Deletable {
+
+    public func delete() -> URLRequest? {
+        return Policy.delete(identifier: String(general.identifier))
+    }
+
+    public func deleteWithName() -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
     }
 }

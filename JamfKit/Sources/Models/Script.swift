@@ -8,10 +8,11 @@
 
 /// Represents a logical script that can be executed on one (or more) hardware element managed by Jamf.
 @objc(JMFKScript)
-public final class Script: BaseObject {
+public final class Script: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "scripts"
     static let CategoryKey = "category"
     static let FilenameKey = "filename"
     static let InfoKey = "info"
@@ -96,9 +97,4 @@ public final class Script: BaseObject {
 
 // MARK: - Protocols
 
-extension Script: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "scripts"
-}
+extension Script: Creatable, Readable, Updatable, Deletable { }

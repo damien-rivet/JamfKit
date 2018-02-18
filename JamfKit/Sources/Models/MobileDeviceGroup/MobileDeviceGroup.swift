@@ -8,10 +8,11 @@
 
 /// Represents a group of mobile devices managed by Jamf, contains grouping information.
 @objc(JMFKMobileDeviceGroup)
-public final class MobileDeviceGroup: HardwareGroup {
+public final class MobileDeviceGroup: HardwareGroup, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "mobiledevicegroups"
     static let MobileDevicesKey = "mobile_devices"
 
     // MARK: - Properties
@@ -48,9 +49,4 @@ public final class MobileDeviceGroup: HardwareGroup {
 
 // MARK: - Protocols
 
-extension MobileDeviceGroup: Endpoint, Creatable {
-
-    // MARK: - Constants
-
-    public static var Endpoint: String = "mobiledevicegroups"
-}
+extension MobileDeviceGroup: Creatable, Readable, Updatable, Deletable { }

@@ -8,13 +8,13 @@
 
 /// Represents a physical location (building, office, etc.).
 @objc(JMFKSite)
-public final class Site: BaseObject { }
-
-// MARK: - Protocols
-
-extension Site: Endpoint, Creatable {
+public final class Site: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static var Endpoint: String = "sites"
+    public static let Endpoint: String = "sites"
 }
+
+// MARK: - Protocols
+
+extension Site: Creatable, Readable, Updatable, Deletable { }

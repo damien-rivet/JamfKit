@@ -8,10 +8,11 @@
 
 /// Represents a Jamf user and contains the identification properties that are required to contact the actual user and identify the hardware devices assigned to him / her.
 @objc(JMFKUser)
-public final class User: BaseObject {
+public final class User: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "users"
     static let FullNameKey = "full_name"
     static let EmailKey = "email"
     static let EmailAddressKey = "email_address"
@@ -97,11 +98,33 @@ public final class User: BaseObject {
     }
 }
 
+// MARK: - Creatable
+
+extension User: Creatable { }
+
 // MARK: - Protocols
 
-extension User: Endpoint, Creatable {
+extension User: Readable {
 
-    // MARK: - Constants
+    public func readWithEmail() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: User.EmailKey, value: email)
+    }
+}
 
-    public static var Endpoint: String = "users"
+// MARK: - Updatable
+
+extension User: Updatable {
+
+    public func updateWithEmail() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: User.EmailKey, value: email)
+    }
+}
+
+// MARK: - Deletable
+
+extension User: Deletable {
+
+    public func deleteWithEmail() -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: User.EmailKey, value: email)
+    }
 }

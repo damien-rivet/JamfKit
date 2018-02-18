@@ -8,13 +8,13 @@
 
 /// Represents a physical building.
 @objc(JMFKBuilding)
-public final class Building: BaseObject { }
-
-// MARK: - Protocols
-
-extension Building: Endpoint, Creatable, Readable, Updatable, Deletable {
+public final class Building: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static var Endpoint: String = "buildings"
+    public static let Endpoint: String = "buildings"
 }
+
+// MARK: - Protocols
+
+extension Building: Creatable, Readable, Updatable, Deletable { }
