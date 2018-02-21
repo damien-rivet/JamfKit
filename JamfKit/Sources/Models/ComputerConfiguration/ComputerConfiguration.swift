@@ -37,6 +37,14 @@ public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subse
         self.general = general
     }
 
+    public init?(identifier: UInt, name: String) {
+        guard let general = ComputerConfigurationGeneral(identifier: identifier, name: name) else {
+            return nil
+        }
+
+        self.general = general
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {

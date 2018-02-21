@@ -21,6 +21,20 @@ class ComputerGroupTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = ComputerGroup(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = ComputerGroup(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer_group_valid", subfolder: subfolder)!
 

@@ -35,6 +35,20 @@ class PolicyGeneralTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = PolicyGeneral(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = PolicyGeneral(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "policy_general_valid", subfolder: subfolder)!
 

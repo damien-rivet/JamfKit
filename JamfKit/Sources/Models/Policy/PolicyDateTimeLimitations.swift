@@ -26,13 +26,13 @@ public final class PolicyDateTimeLimitations: NSObject, Requestable {
     public var expirationDate: PreciseDate?
 
     @objc
-    public var noExecutionOn: [String: String]
+    public var noExecutionOn = [String: String]()
 
     @objc
-    public var noExecutionStart: String
+    public var noExecutionStart = ""
 
     @objc
-    public var noExecutionEnd: String
+    public var noExecutionEnd = ""
 
     // MARK: - Initialization
 
@@ -42,6 +42,10 @@ public final class PolicyDateTimeLimitations: NSObject, Requestable {
         noExecutionOn = json[PolicyDateTimeLimitations.NoExecuteOnKey] as? [String: String] ?? [String: String]()
         noExecutionStart = json[PolicyDateTimeLimitations.NoExecuteStartKey] as? String ?? ""
         noExecutionEnd = json[PolicyDateTimeLimitations.NoExecuteEndKey] as? String ?? ""
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

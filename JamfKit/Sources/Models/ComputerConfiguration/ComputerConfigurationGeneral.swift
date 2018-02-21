@@ -25,34 +25,34 @@ public final class ComputerConfigurationGeneral: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var desc: String
+    public var desc = ""
 
     @objc
-    public var type: String
+    public var type = ""
 
     @objc
-    public var parent: String
+    public var parent = ""
 
     @objc
-    public var packages: [Package]
+    public var packages = [Package]()
 
     @objc
-    public var scripts: [Script]
+    public var scripts = [Script]()
 
     @objc
-    public var printers: [Printer]
+    public var printers = [Printer]()
 
     @objc
-    public var directoryBindings: [DirectoryBinding]
+    public var directoryBindings = [DirectoryBinding]()
 
     @objc
     public var management: ComputerConfigurationManagement?
 
     @objc
-    public var homepage: String
+    public var homepage = ""
 
     @objc
-    public var partitions: [Partition]
+    public var partitions = [Partition]()
 
     // MARK: - Initialization
 
@@ -69,6 +69,10 @@ public final class ComputerConfigurationGeneral: BaseObject {
         partitions = ComputerConfigurationGeneral.parsePartitions(json: json)
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

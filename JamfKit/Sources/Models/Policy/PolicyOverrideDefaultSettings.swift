@@ -20,19 +20,19 @@ public final class PolicyOverrideDefaultSettings: NSObject, Requestable {
     // MARK: - Properties
 
     @objc
-    public var targetDrive: String
+    public var targetDrive = ""
 
     @objc
-    public var distributionPoint: String
+    public var distributionPoint = ""
 
     @objc
-    public var shouldForceAfpSmb: Bool
+    public var shouldForceAfpSmb = false
 
     @objc
-    public var sus: String
+    public var sus = ""
 
     @objc
-    public var netbootServer: String
+    public var netbootServer = ""
 
     // MARK: - Initialization
 
@@ -42,6 +42,10 @@ public final class PolicyOverrideDefaultSettings: NSObject, Requestable {
         shouldForceAfpSmb = json[PolicyOverrideDefaultSettings.ForceAfpSmbKey] as? Bool ?? false
         sus = json[PolicyOverrideDefaultSettings.SusKey] as? String ?? ""
         netbootServer = json[PolicyOverrideDefaultSettings.NetbootServerKey] as? String ?? ""
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

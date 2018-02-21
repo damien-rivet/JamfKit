@@ -24,28 +24,33 @@ public final class Partition: NSObject, Requestable {
     // MARK: - Properties
 
     @objc
-    public var name: String
+    public var name = ""
 
     @objc
-    public var sizeInGigabytes: UInt
+    public var sizeInGigabytes: UInt = 0
 
     @objc
-    public var maximumPercentage: UInt
+    public var maximumPercentage: UInt = 0
 
     @objc
-    public var format: String
+    public var format = ""
 
     @objc
-    public var isRestorePartition: Bool
+    public var isRestorePartition = false
 
     @objc
-    public var computerConfiguration: String
+    public var computerConfiguration = ""
 
     @objc
-    public var reimage: Bool
+    public var reimage = false
 
     @objc
-    public var appendToName: String
+    public var appendToName = ""
+
+    @objc
+    public override var description: String {
+        return "[\(String(describing: type(of: self)))][\(name)]"
+    }
 
     // MARK: - Initialization
 
@@ -58,6 +63,16 @@ public final class Partition: NSObject, Requestable {
         computerConfiguration = json[Partition.ComputerConfigurationKey] as? String ?? ""
         reimage = json[Partition.ReimageKey] as? Bool ?? false
         appendToName = json[Partition.AppendToNameKey] as? String ?? ""
+    }
+
+    public init?(name: String) {
+        guard !name.isEmpty else {
+            return nil
+        }
+
+        self.name = name
+
+        super.init()
     }
 
     // MARK: - Functions

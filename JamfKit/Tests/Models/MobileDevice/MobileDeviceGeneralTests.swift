@@ -55,6 +55,12 @@ class MobileDeviceGeneralTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = MobileDeviceGeneral(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "mobile_device_general_valid", subfolder: subfolder)!
 

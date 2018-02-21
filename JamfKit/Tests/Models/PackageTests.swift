@@ -37,6 +37,20 @@ class PackageTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = Package(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = Package(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "package_valid", subfolder: subfolder)!
 

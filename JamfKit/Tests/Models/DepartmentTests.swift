@@ -20,6 +20,20 @@ class DepartmentTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = Department(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = Department(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "department_valid", subfolder: subfolder)!
 

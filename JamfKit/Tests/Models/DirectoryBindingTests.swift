@@ -26,6 +26,20 @@ class DirectoryBindingTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = DirectoryBinding(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = DirectoryBinding(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "directory_binding_valid", subfolder: subfolder)!
 

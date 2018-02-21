@@ -22,7 +22,7 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
     public var general: ComputerCommandGeneral
 
     @objc
-    public var computers: [UInt]
+    public var computers = [UInt]()
 
     public override var description: String {
         return "[\(String(describing: type(of: self)))][\(general.command)]"
@@ -45,6 +45,14 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
         } else {
             computers = [UInt]()
         }
+    }
+
+    public init?(command: String, passcode: UInt) {
+        guard let general = ComputerCommandGeneral(command: command, passcode: passcode) else {
+            return nil
+        }
+
+        self.general = general
     }
 
     // MARK: - Functions

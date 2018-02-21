@@ -37,6 +37,16 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
         self.general = general
     }
 
+    public init?(identifier: UInt, name: String) {
+        guard let general = PolicyGeneral(identifier: identifier, name: name) else {
+            return nil
+        }
+
+        self.general = general
+
+        super.init()
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {

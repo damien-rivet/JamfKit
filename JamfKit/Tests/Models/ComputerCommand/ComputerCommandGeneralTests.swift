@@ -20,6 +20,20 @@ class ComputerCommandGeneralTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = ComputerCommandGeneral(command: defaultCommand, passcode: defaultPasscode)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.command, defaultCommand)
+        XCTAssertEqual(actualValue?.passcode, defaultPasscode)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = ComputerCommandGeneral(command: "", passcode: defaultPasscode)
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer_command_general_valid", subfolder: subfolder)!
 

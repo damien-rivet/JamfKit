@@ -29,6 +29,20 @@ class SMTPServerTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = SMTPServer(host: defaultHost, port: defaultPort)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.host, defaultHost)
+        XCTAssertEqual(actualValue?.port, defaultPort)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = SMTPServer(host: "", port: defaultPort)
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "smtp_server", subfolder: subfolder)!
 

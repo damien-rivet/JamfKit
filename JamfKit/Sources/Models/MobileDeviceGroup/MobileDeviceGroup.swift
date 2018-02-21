@@ -18,7 +18,7 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var mobileDevices: [MobileDeviceGeneral]
+    public var mobileDevices = [MobileDeviceGeneral]()
 
     // MARK: - Initialization
 
@@ -26,6 +26,10 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
         mobileDevices = MobileDeviceGroup.parseMobileDevices(json: json)
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

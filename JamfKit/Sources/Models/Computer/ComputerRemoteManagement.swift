@@ -17,16 +17,20 @@ public final class ComputerRemoteManagement: NSObject, Requestable {
     // MARK: - Properties
 
     @objc
-    public var isManaged: Bool
+    public var isManaged = false
 
     @objc
-    public var managementUsername: String
+    public var managementUsername = ""
 
     // MARK: - Initialization
 
     public init?(json: [String: Any], node: String = "") {
         isManaged = json[ComputerRemoteManagement.ManagedKey] as? Bool ?? false
         managementUsername = json[ComputerRemoteManagement.ManagementUsernameKey] as? String ?? ""
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

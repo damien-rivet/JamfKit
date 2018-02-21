@@ -26,31 +26,31 @@ public final class Script: BaseObject, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var category: String
+    public var category = ""
 
     @objc
-    public var filename: String
+    public var filename = ""
 
     @objc
-    public var information: String
+    public var information = ""
 
     @objc
-    public var notes: String
+    public var notes = ""
 
     @objc
-    public var priority: String
+    public var priority = ""
 
     @objc
-    public var parameters: [String: String]
+    public var parameters = [String: String]()
 
     @objc
-    public var osRequirements: String
+    public var osRequirements = ""
 
     @objc
-    public var scriptContents: String
+    public var scriptContents = ""
 
     @objc
-    public var scriptEncodedContents: String
+    public var scriptEncodedContents = ""
 
     // MARK: - Initialization
 
@@ -66,6 +66,10 @@ public final class Script: BaseObject, Endpoint {
         scriptEncodedContents = json[Script.ScriptContentsEncodedKey] as? String ?? ""
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

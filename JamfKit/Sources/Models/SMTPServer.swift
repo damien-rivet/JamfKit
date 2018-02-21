@@ -28,37 +28,37 @@ public final class SMTPServer: NSObject, Requestable, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var isEnabled: Bool
+    public var isEnabled = false
 
     @objc
-    public var host: String
+    public var host = ""
 
     @objc
-    public var port: UInt
+    public var port: UInt = 0
 
     @objc
-    public var timeout: UInt
+    public var timeout: UInt = 0
 
     @objc
-    public var isAuthorizationRequired: Bool
+    public var isAuthorizationRequired = false
 
     @objc
-    public var username: String
+    public var username = ""
 
     @objc
-    public var password: String
+    public var password = ""
 
     @objc
-    public var isSSLEnabled: Bool
+    public var isSSLEnabled = false
 
     @objc
-    public var isTLSEnabled: Bool
+    public var isTLSEnabled = false
 
     @objc
-    public var sendFromName: String
+    public var sendFromName = ""
 
     @objc
-    public var sendFromEmail: String
+    public var sendFromEmail = ""
 
     public override var description: String {
         let baseDescription = "[\(String(describing: type(of: self)))]"
@@ -84,6 +84,17 @@ public final class SMTPServer: NSObject, Requestable, Endpoint {
         isTLSEnabled = json[SMTPServer.TlsKey] as? Bool ?? false
         sendFromName = json[SMTPServer.SendFromNameKey] as? String ?? ""
         sendFromEmail = json[SMTPServer.SendFromEmailKey] as? String ?? ""
+    }
+
+    public init?(host: String, port: UInt) {
+        guard !host.isEmpty, port > 0 else {
+            return nil
+        }
+
+        self.host = host
+        self.port = port
+
+        super.init()
     }
 
     // MARK: - Functions

@@ -29,40 +29,40 @@ public final class Printer: BaseObject, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var category: String
+    public var category = ""
 
     @objc
-    public var uri: String
+    public var uri = ""
 
     @objc
-    public var cupsName: String
+    public var cupsName = ""
 
     @objc
-    public var location: String
+    public var location = ""
 
     @objc
-    public var model: String
+    public var model = ""
 
     @objc
-    public var information: String
+    public var information = ""
 
     @objc
-    public var notes: String
+    public var notes = ""
 
     @objc
-    public var makeDefault: Bool
+    public var makeDefault = false
 
     @objc
-    public var useGeneric: Bool
+    public var useGeneric = false
 
     @objc
-    public var ppd: String
+    public var ppd = ""
 
     @objc
-    public var ppdPath: String
+    public var ppdPath = ""
 
     @objc
-    public var ppdContents: String
+    public var ppdContents = ""
 
     public override var description: String {
         let baseDescription = super.description
@@ -91,6 +91,10 @@ public final class Printer: BaseObject, Endpoint {
         ppdContents = json[Printer.PpdContentsKey] as? String ?? ""
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

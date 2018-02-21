@@ -53,6 +53,18 @@ public final class Computer: NSObject, Requestable, Endpoint, Subset {
         }
     }
 
+    public init?(identifier: UInt, name: String) {
+        guard let general = ComputerGeneral(identifier: identifier, name: name) else {
+            return nil
+        }
+
+        self.general = general
+        location = ComputerLocation()
+        purchasing = ComputerPurchasing()
+
+        super.init()
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {

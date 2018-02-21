@@ -27,28 +27,28 @@ public final class ComputerPurchasing: NSObject, Requestable {
     // MARK: - Properties
 
     @objc
-    public var isPurchased: Bool
+    public var isPurchased = false
 
     @objc
-    public var isLeased: Bool
+    public var isLeased = false
 
     @objc
-    public var poNumber: String
+    public var poNumber = ""
 
     @objc
-    public var vendor: String
+    public var vendor = ""
 
     @objc
-    public var appleCareIdentifier: String
+    public var appleCareIdentifier = ""
 
     @objc
-    public var purchasePrice: String
+    public var purchasePrice = ""
 
     @objc
-    public var purchasingAccount: String
+    public var purchasingAccount = ""
 
     @objc
-    public var purchasingContact: String
+    public var purchasingContact = ""
 
     @objc
     public var poDate: PreciseDate?
@@ -60,7 +60,7 @@ public final class ComputerPurchasing: NSObject, Requestable {
     public var leaseExpires: PreciseDate?
 
     @objc
-    public var lifeExpectancy: UInt
+    public var lifeExpectancy: UInt = 0
 
     // MARK: - Initialization
 
@@ -77,6 +77,10 @@ public final class ComputerPurchasing: NSObject, Requestable {
         warrantyExpires = PreciseDate(json: json, node: ComputerPurchasing.WarrantyExpiresKey)
         leaseExpires = PreciseDate(json: json, node: ComputerPurchasing.LeaseExpiresKey)
         lifeExpectancy = json[ComputerPurchasing.LifeExpectancyKey] as? UInt ?? 0
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

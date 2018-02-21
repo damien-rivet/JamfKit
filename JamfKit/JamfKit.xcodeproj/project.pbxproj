@@ -97,6 +97,8 @@
 		ED3E04811FFCCA58001600CA /* NetworkSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */; };
 		ED3E04831FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */; };
 		ED3E04841FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */; };
+		ED406202203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */; };
+		ED406203203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */; };
 		ED47ED1220206B3A00AF1BF6 /* SessionManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */; };
 		ED47ED1320206B3A00AF1BF6 /* SessionManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */; };
 		ED47ED1520206FBC00AF1BF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1420206FBC00AF1BF6 /* Constants.swift */; };
@@ -291,6 +293,7 @@
 		ED3597821FAA11B6006E3B66 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkSegment.swift; path = ../../../JamfKit/Sources/Models/NetworkSegment.swift; sourceTree = "<group>"; };
 		ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSegmentTests.swift; sourceTree = "<group>"; };
+		ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareGroupTests.swift; sourceTree = "<group>"; };
 		ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerError.swift; sourceTree = "<group>"; };
 		ED47ED1420206FBC00AF1BF6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED4C59051FFE3CCE00E84A25 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -516,10 +519,10 @@
 		ED1D93061FA20F49005589F5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				ED3441882036E50E0078450E /* Requests */,
+				EDB331912036D1DF00F43D31 /* Endpoint.swift */,
 				EDB3318E2036D0B500F43D31 /* Identifiable.swift */,
 				ED21F25B2020D89600E4F852 /* Requestable.swift */,
-				EDB331912036D1DF00F43D31 /* Endpoint.swift */,
+				ED3441882036E50E0078450E /* Requests */,
 				EDE3AA25203C863F00ABB163 /* Subset.swift */,
 			);
 			path = Protocols;
@@ -816,6 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				ED2DF2A92000213500FD0A30 /* HardwareGroupCriterionTests.swift */,
+				ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */,
 			);
 			path = HardwareGroup;
 			sourceTree = "<group>";
@@ -1155,6 +1159,7 @@
 				EDA3CFD51FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3441BB20370CE20078450E /* MobileDeviceRequestsTests.swift in Sources */,
+				ED406202203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */,
 				ED3441A62036EF0C0078450E /* ComputerRequestsTests.swift in Sources */,
 				EDB9B9621FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */,
 				EDF70B7020076079006B5DFF /* SessionManagerRequestsTests.swift in Sources */,
@@ -1273,6 +1278,7 @@
 				EDA3CFD61FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
 				ED3441BC20370CE20078450E /* MobileDeviceRequestsTests.swift in Sources */,
+				ED406203203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */,
 				ED3441A72036EF0C0078450E /* ComputerRequestsTests.swift in Sources */,
 				EDB9B9631FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */,
 				EDF70B7120076079006B5DFF /* SessionManagerRequestsTests.swift in Sources */,

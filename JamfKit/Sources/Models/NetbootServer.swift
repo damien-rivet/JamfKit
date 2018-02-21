@@ -29,40 +29,40 @@ public final class NetbootServer: BaseObject, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var ipAddress: String
+    public var ipAddress = ""
 
     @objc
-    public var isDefaultImage: Bool
+    public var isDefaultImage = false
 
     @objc
-    public var isSpecificImage: Bool
+    public var isSpecificImage = false
 
     @objc
-    public var targetPlatform: String
+    public var targetPlatform = ""
 
     @objc
-    public var sharePoint: String
+    public var sharePoint = ""
 
     @objc
-    public var set: String
+    public var set = ""
 
     @objc
-    public var image: String
+    public var image = ""
 
     @objc
-    public var filesystemProtocol: String
+    public var filesystemProtocol = ""
 
     @objc
-    public var configureManually: Bool
+    public var configureManually = false
 
     @objc
-    public var bootArguments: String
+    public var bootArguments = ""
 
     @objc
-    public var bootFile: String
+    public var bootFile = ""
 
     @objc
-    public var bootDevice: String
+    public var bootDevice = ""
 
     public override var description: String {
         return "[\(String(describing: NetbootServer.self))][\(identifier) - \(self.ipAddress)]"
@@ -85,6 +85,10 @@ public final class NetbootServer: BaseObject, Endpoint {
         bootDevice = json[NetbootServer.BootDeviceKey] as? String ?? ""
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

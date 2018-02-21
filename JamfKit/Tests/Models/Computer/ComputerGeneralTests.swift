@@ -39,6 +39,12 @@ class ComputerGeneralTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = ComputerGeneral(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer_general_valid", subfolder: subfolder)!
 

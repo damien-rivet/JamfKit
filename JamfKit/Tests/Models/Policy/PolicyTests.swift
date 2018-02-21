@@ -15,8 +15,24 @@ class PolicyTests: XCTestCase {
     // MARK: - Constants
 
     let subfolder = "Policy/"
+    let defaultIdentifier: UInt = 12345
+    let defaultName = "policy"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = Policy(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.general.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.general.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = Policy(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "policy", subfolder: subfolder)!

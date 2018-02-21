@@ -23,22 +23,22 @@ public final class DirectoryBinding: BaseObject, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var priority: UInt
+    public var priority: UInt = 0
 
     @objc
-    public var domain: String
+    public var domain = ""
 
     @objc
-    public var username: String
+    public var username = ""
 
     @objc
-    public var password: String
+    public var password = ""
 
     @objc
-    public var computerOrganisationalUnit: String
+    public var computerOrganisationalUnit = ""
 
     @objc
-    public var type: String
+    public var type = ""
 
     // MARK: - Initialization
 
@@ -51,6 +51,10 @@ public final class DirectoryBinding: BaseObject, Endpoint {
         type = json[DirectoryBinding.TypeKey] as? String ?? ""
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

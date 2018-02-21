@@ -55,121 +55,121 @@ public final class MobileDeviceGeneral: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var displayName: String
+    public var displayName = ""
 
     @objc
-    public var deviceName: String
+    public var deviceName = ""
 
     @objc
-    public var assetTag: String
+    public var assetTag = ""
 
     @objc
     public var lastInventoryUpdate: PreciseDate?
 
     @objc
-    public var capacity: UInt
+    public var capacity: UInt = 0
 
     @objc
-    public var capacityMb: UInt
+    public var capacityMb: UInt = 0
 
     @objc
-    public var available: UInt
+    public var available: UInt = 0
 
     @objc
-    public var availableMb: UInt
+    public var availableMb: UInt = 0
 
     @objc
-    public var percentageUsed: UInt
+    public var percentageUsed: UInt = 0
 
     @objc
-    public var osType: String
+    public var osType = ""
 
     @objc
-    public var osVersion: String
+    public var osVersion = ""
 
     @objc
-    public var osBuild: String
+    public var osBuild = ""
 
     @objc
-    public var serialNumber: String
+    public var serialNumber = ""
 
     @objc
-    public var udid: String
+    public var udid = ""
 
     @objc
     public var initialEntryDate: PreciseDate?
 
     @objc
-    public var phoneNumber: String
+    public var phoneNumber = ""
 
     @objc
-    public var ipAddress: String
+    public var ipAddress = ""
 
     @objc
-    public var wifiMacAddress: String
+    public var wifiMacAddress = ""
 
     @objc
-    public var bluetoothMacAddress: String
+    public var bluetoothMacAddress = ""
 
     @objc
-    public var modemFirmware: String
+    public var modemFirmware = ""
 
     @objc
-    public var model: String
+    public var model = ""
 
     @objc
-    public var modelIdentifier: String
+    public var modelIdentifier = ""
 
     @objc
-    public var modelNumber: String
+    public var modelNumber = ""
 
     @objc
-    public var modelDisplay: String
+    public var modelDisplay = ""
 
     @objc
-    public var deviceOwnershipLevel: String
+    public var deviceOwnershipLevel = ""
 
     @objc
     public var lastEnrollment: PreciseDate?
 
     @objc
-    public var isManaged: Bool
+    public var isManaged = false
 
     @objc
-    public var isSupervised: Bool
+    public var isSupervised = false
 
     @objc
-    public var exchangeActiveSyncDeviceIdentifier: String
+    public var exchangeActiveSyncDeviceIdentifier = ""
 
     @objc
-    public var shared: String
+    public var shared = ""
 
     @objc
-    public var tethered: String
+    public var tethered = ""
 
     @objc
-    public var batteryLevel: UInt
+    public var batteryLevel: UInt = 0
 
     @objc
-    public var isBluetoothCapable: Bool
+    public var isBluetoothCapable = false
 
     @objc
-    public var isDeviceLocatorServiceEnabled: Bool
+    public var isDeviceLocatorServiceEnabled = false
 
     @objc
-    public var isDoNotDisturbEnabled: Bool
+    public var isDoNotDisturbEnabled = false
 
     @objc
-    public var isCloudBackupEnabled: Bool
+    public var isCloudBackupEnabled = false
 
     @objc
     public var lastCloudBackupDate: PreciseDate?
 
     @objc
-    public var isLocationServicesEnabled: Bool
+    public var isLocationServicesEnabled = false
 
     @objc
-    public var isITunesStoreAccountActive: Bool
+    public var isITunesStoreAccountActive = false
 
     @objc
     public var lastBackupTime: PreciseDate?
@@ -219,6 +219,10 @@ public final class MobileDeviceGeneral: BaseObject {
         lastBackupTime = PreciseDate(json: json, node: MobileDeviceGeneral.LastBackupTimeKey)
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

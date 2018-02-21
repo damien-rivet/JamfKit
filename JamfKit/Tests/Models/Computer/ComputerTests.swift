@@ -15,8 +15,24 @@ class ComputerTests: XCTestCase {
     // MARK: - Constants
 
     let subfolder = "Computer/"
+    let defaultIdentifier: UInt = 12345
+    let defaultName = "computer"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = Computer(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.general.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.general.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = Computer(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer", subfolder: subfolder)!

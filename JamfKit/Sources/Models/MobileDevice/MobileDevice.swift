@@ -37,6 +37,14 @@ public final class MobileDevice: NSObject, Requestable, Endpoint, Subset {
         self.general = general
     }
 
+    public init?(identifier: UInt, name: String) {
+        guard let general = MobileDeviceGeneral(identifier: identifier, name: name) else {
+            return nil
+        }
+
+        self.general = general
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {

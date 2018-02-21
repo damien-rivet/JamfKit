@@ -16,7 +16,7 @@ public final class PolicyCategory: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var priority: UInt
+    public var priority: UInt = 0
 
     // MARK: - Initialization
 
@@ -28,6 +28,10 @@ public final class PolicyCategory: BaseObject {
         self.priority = priority
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

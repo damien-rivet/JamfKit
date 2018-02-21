@@ -25,31 +25,37 @@ public final class User: BaseObject, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var fullName: String
+    public var fullName = ""
 
     @objc
-    public var email: String
+    public var email = ""
 
     @objc
-    public var emailAddress: String
+    public var emailAddress = ""
 
     @objc
-    public var phoneNumber: String
+    public var phoneNumber = ""
 
     @objc
-    public var position: String
+    public var position = ""
 
     @objc
-    public var enableCustomPhotoURL: Bool
+    public var enableCustomPhotoURL = false
 
     @objc
-    public var customPhotoURL: String
+    public var customPhotoURL = ""
 
     @objc
-    public var sites: [Site]
+    public var sites = [Site]()
 
     public override var description: String {
-        return "[\(String(describing: type(of: self)))][\(identifier) - \(self.fullName)]"
+        let baseDescription = super.description
+
+        if !fullName.isEmpty {
+            return "\(baseDescription)[\(self.fullName)]"
+        }
+
+        return baseDescription
     }
 
     // MARK: - Initialization
@@ -75,6 +81,10 @@ public final class User: BaseObject, Endpoint {
         self.sites = sites
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     public override func toJSON() -> [String: Any] {

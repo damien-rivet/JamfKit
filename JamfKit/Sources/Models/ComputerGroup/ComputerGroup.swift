@@ -18,7 +18,7 @@ public final class ComputerGroup: HardwareGroup, Endpoint {
     // MARK: - Properties
 
     @objc
-    public var computers: [ComputerGeneral]
+    public var computers = [ComputerGeneral]()
 
     // MARK: - Initialization
 
@@ -26,6 +26,10 @@ public final class ComputerGroup: HardwareGroup, Endpoint {
         computers = ComputerGroup.parseComputers(json: json)
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions
