@@ -2,7 +2,7 @@
 
 <p align="center"><img src="Assets/JamfKit_256.png" alt="JamfKit"></p>
 
-![Swift](https://img.shields.io/badge/Swift-3.1+-lightgrey.svg?style=flat-square)
+![Swift](https://img.shields.io/badge/Swift-4.1+-lightgrey.svg?style=flat-square)
 ![iOS](https://img.shields.io/badge/iOS-9+-lightgrey.svg?style=flat-square)
 ![macOS](https://img.shields.io/badge/macOS-10.10+-lightgrey.svg?style=flat-square)
 
@@ -18,7 +18,6 @@
 ## Summary ##
 
 - [Features](#features)
-- [Compatibilities](#compatibilities)
 - [Installation](#installation)
   - [Carthage](#carthage)
   - [CocoaPods](#cocoapods)
@@ -40,12 +39,6 @@
 - [x] Includes Swift 4 support
 - [x] Includes ready-for-consumption CRUD `URLRequest` for JSS endpoints
 - [x] Includes demonstration playgrounds for class handling or request generation
-
-## Compatibilities ##
-
-- iOS 9+ / macOS 10.10+
-- XCode 9.2+
-- Objective-C / Swift 4.1+
 
 ## Installation ##
 
