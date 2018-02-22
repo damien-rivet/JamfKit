@@ -6,13 +6,13 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-internal enum HttpHeader: String {
+enum HttpHeader: String {
     case accept = "Accept"
     case authorization = "Authorization"
     case contentType = "Content-Type"
 }
 
-internal enum HeaderContentType: String {
+enum HeaderContentType: String {
     case json = "application/json"
 }
 
@@ -21,7 +21,7 @@ extension SessionManager {
     // MARK: - Functions
 
     /// Returns a Base64 encoded username & password pair to be used for Basic HTTP authentication
-    internal static func computeAuthorizationHeader(from username: String, password: String) -> String {
+    static func computeAuthorizationHeader(from username: String, password: String) -> String {
         guard
             !username.isEmpty,
             !password.isEmpty,
@@ -34,7 +34,7 @@ extension SessionManager {
     }
 
     /// Returns an authentified URLRequst matching the supplied configuration
-    internal func authentifiedRequest(for url: URL, authorizationHeader: String, method: HttpMethod) -> URLRequest {
+    func authentifiedRequest(for url: URL, authorizationHeader: String, method: HttpMethod) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue(authorizationHeader, forHTTPHeaderField: HttpHeader.authorization.rawValue)
@@ -42,7 +42,7 @@ extension SessionManager {
         return request
     }
 
-    internal func baseRequest(endpoint: String, key: String, value: String, method: HttpMethod) -> URLRequest? {
+    func baseRequest(endpoint: String, key: String, value: String, method: HttpMethod) -> URLRequest? {
         guard let url = host?.appendingPathComponent("\(endpoint)/\(key.asCleanedKey())/\(value)") else {
             return nil
         }
@@ -56,7 +56,7 @@ extension SessionManager {
 extension SessionManager {
 
     /// Returns a `CREATE` URLRequest for the supplied URL
-    internal func createRequest(for object: Endpoint & Requestable, key: String, value: String) -> URLRequest? {
+    func createRequest(for object: Endpoint & Requestable, key: String, value: String) -> URLRequest? {
         guard
             var request = baseRequest(endpoint: object.endpoint, key: key, value: value, method: .post),
             let data = try? JSONSerialization.data(withJSONObject: object.toJSON(), options: .prettyPrinted) else {
@@ -75,7 +75,7 @@ extension SessionManager {
 extension SessionManager {
 
     /// Returns a `READ` URLRequest for the supplied JSS endpoint
-    internal func readAllRequest(for endpoint: String) -> URLRequest? {
+    func readAllRequest(for endpoint: String) -> URLRequest? {
         guard let url = host?.appendingPathComponent("\(endpoint)") else {
             return nil
         }
@@ -87,7 +87,7 @@ extension SessionManager {
     }
 
     /// Returns a `READ` URLRequest for the supplied endpoint type & identifier
-    internal func readRequest(for endpoint: Endpoint.Type, key: String, value: String) -> URLRequest? {
+    func readRequest(for endpoint: Endpoint.Type, key: String, value: String) -> URLRequest? {
         guard var request = baseRequest(endpoint: endpoint.Endpoint, key: key, value: value, method: .get) else {
             return nil
         }
@@ -98,7 +98,7 @@ extension SessionManager {
     }
 
     /// Returns a `READ` URLRequest for the supplied JSS object
-    internal func readRequest(for object: Endpoint) -> URLRequest? {
+    func readRequest(for object: Endpoint) -> URLRequest? {
         guard let url = host?.appendingPathComponent("\(object.endpoint)") else {
             return nil
         }
@@ -110,7 +110,7 @@ extension SessionManager {
     }
 
     /// Returns a `READ` URLRequest for the supplied JSS object
-    internal func readRequest(for object: Endpoint, key: String, value: String) -> URLRequest? {
+    func readRequest(for object: Endpoint, key: String, value: String) -> URLRequest? {
         guard var request = baseRequest(endpoint: object.endpoint, key: key, value: value, method: .get) else {
             return nil
         }
@@ -126,7 +126,7 @@ extension SessionManager {
 extension SessionManager {
 
     /// Returns an `UPDATE` URLRequest for the supplied JSS object
-    internal func updateRequest(for object: Endpoint & Requestable) -> URLRequest? {
+    func updateRequest(for object: Endpoint & Requestable) -> URLRequest? {
         guard
             let url = host?.appendingPathComponent("\(object.endpoint)"),
             let data = try? JSONSerialization.data(withJSONObject: object.toJSON(), options: .prettyPrinted) else {
@@ -141,7 +141,7 @@ extension SessionManager {
     }
 
     /// Returns an `UPDATE` URLRequest for the supplied JSS object
-    internal func updateRequest(for object: Endpoint & Requestable, key: String, value: String) -> URLRequest? {
+    func updateRequest(for object: Endpoint & Requestable, key: String, value: String) -> URLRequest? {
         guard
             var request = self.baseRequest(endpoint: object.endpoint, key: key, value: value, method: .put),
             let data = try? JSONSerialization.data(withJSONObject: object.toJSON(), options: .prettyPrinted) else {
@@ -160,12 +160,12 @@ extension SessionManager {
 extension SessionManager {
 
     /// Returns a `DELETE` URLRequest for the supplied endpoint type & identifier
-    internal func deleteRequest(for endpoint: Endpoint.Type, key: String, value: String) -> URLRequest? {
+    func deleteRequest(for endpoint: Endpoint.Type, key: String, value: String) -> URLRequest? {
         return baseRequest(endpoint: endpoint.Endpoint, key: key, value: value, method: .delete)
     }
 
     /// Returns a `DELETE` URLRequest for the supplied URL
-    internal func deleteRequest(for object: Endpoint, key: String, value: String) -> URLRequest? {
+    func deleteRequest(for object: Endpoint, key: String, value: String) -> URLRequest? {
         return baseRequest(endpoint: object.endpoint, key: key, value: value, method: .delete)
     }
 }

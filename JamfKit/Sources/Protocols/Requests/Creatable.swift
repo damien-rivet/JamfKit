@@ -7,6 +7,7 @@
 //
 
 /// Represents an object that can be created with an URLRequest
+@objc(JMFKCreatable)
 public protocol Creatable {
 
     // MARK: - Functions
@@ -21,7 +22,7 @@ public extension Creatable where Self: Endpoint & Identifiable & Requestable {
 
     // MARK: - Functions
 
-    func create() -> URLRequest? {
+    func createRequest() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
     }
 }

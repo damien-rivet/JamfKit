@@ -99,6 +99,15 @@ public final class Script: BaseObject, Endpoint {
     }
 }
 
+// MARK: - Creatable
+
+extension Script: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension Script: Creatable, Readable, Updatable, Deletable { }
+extension Script: Readable, Updatable, Deletable { }

@@ -76,7 +76,7 @@ public class BaseObject: NSObject, Requestable, Identifiable {
      * - Parameter singleNodeKey: The string key used to identify a single element within the main node.
      *
      */
-    internal static func parseElements<Element: Requestable>(from json: [String: Any], nodeKey: String, singleNodeKey: String) -> [Element] {
+    static func parseElements<Element: Requestable>(from json: [String: Any], nodeKey: String, singleNodeKey: String) -> [Element] {
         var elements = [Element]()
 
         guard let elementsNode = json[nodeKey] as? [[String: [String: Any]]] else {

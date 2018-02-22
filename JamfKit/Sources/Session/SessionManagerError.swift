@@ -29,7 +29,7 @@ public class SessionManagerError: NSError {
 
     // MARK: - Initialization
 
-    convenience internal init(code: SessionManagerErrorCode) {
+    convenience init(code: SessionManagerErrorCode) {
         self.init(domain: Constants.domain, code: code.rawValue)
     }
 }

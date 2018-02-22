@@ -73,6 +73,15 @@ public final class DirectoryBinding: BaseObject, Endpoint {
     }
 }
 
+// MARK: - Creatable
+
+extension DirectoryBinding: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension DirectoryBinding: Creatable, Readable, Updatable, Deletable { }
+extension DirectoryBinding: Readable, Updatable, Deletable { }

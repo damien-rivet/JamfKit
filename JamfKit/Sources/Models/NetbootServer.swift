@@ -113,6 +113,15 @@ public final class NetbootServer: BaseObject, Endpoint {
     }
 }
 
+// MARK: - Creatable
+
+extension NetbootServer: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension NetbootServer: Creatable, Readable, Updatable, Deletable { }
+extension NetbootServer: Readable, Updatable, Deletable { }

@@ -51,6 +51,15 @@ public final class ComputerGroup: HardwareGroup, Endpoint {
     }
 }
 
+// MARK: - Creatable
+
+extension ComputerGroup: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension ComputerGroup: Creatable, Readable, Updatable, Deletable { }
+extension ComputerGroup: Readable, Updatable, Deletable { }

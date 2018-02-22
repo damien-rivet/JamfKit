@@ -15,6 +15,15 @@ public final class Site: BaseObject, Endpoint {
     public static let Endpoint: String = "sites"
 }
 
+// MARK: - Creatable
+
+extension Site: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension Site: Creatable, Readable, Updatable, Deletable { }
+extension Site: Readable, Updatable, Deletable { }

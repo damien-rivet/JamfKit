@@ -110,7 +110,12 @@ public final class User: BaseObject, Endpoint {
 
 // MARK: - Creatable
 
-extension User: Creatable { }
+extension User: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
 
 // MARK: - Protocols
 

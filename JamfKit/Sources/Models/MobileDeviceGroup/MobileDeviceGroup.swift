@@ -51,6 +51,15 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
     }
 }
 
+// MARK: - Creatable
+
+extension MobileDeviceGroup: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension MobileDeviceGroup: Creatable, Readable, Updatable, Deletable { }
+extension MobileDeviceGroup: Readable, Updatable, Deletable { }

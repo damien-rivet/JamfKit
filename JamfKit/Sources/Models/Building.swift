@@ -15,6 +15,15 @@ public final class Building: BaseObject, Endpoint {
     public static let Endpoint: String = "buildings"
 }
 
+// MARK: - Creatable
+
+extension Building: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension Building: Creatable, Readable, Updatable, Deletable { }
+extension Building: Readable, Updatable, Deletable { }

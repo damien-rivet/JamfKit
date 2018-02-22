@@ -119,6 +119,15 @@ public final class Printer: BaseObject, Endpoint {
     }
 }
 
+// MARK: - Creatable
+
+extension Printer: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension Printer: Creatable, Readable, Updatable, Deletable { }
+extension Printer: Readable, Updatable, Deletable { }

@@ -36,7 +36,7 @@ public class HardwareGroup: BaseObject {
         super.init(json: json)
     }
 
-    internal override init?(identifier: UInt, name: String) {
+    override init?(identifier: UInt, name: String) {
         super.init(identifier: identifier, name: name)
     }
 

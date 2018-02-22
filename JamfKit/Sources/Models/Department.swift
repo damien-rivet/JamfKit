@@ -15,6 +15,15 @@ public final class Department: BaseObject, Endpoint {
     public static let Endpoint: String = "departments"
 }
 
+// MARK: - Creatable
+
+extension Department: Creatable {
+
+    public func create() -> URLRequest? {
+        return self.createRequest()
+    }
+}
+
 // MARK: - Protocols
 
-extension Department: Creatable, Readable, Updatable, Deletable { }
+extension Department: Readable, Updatable, Deletable { }
