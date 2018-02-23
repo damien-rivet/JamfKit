@@ -8,10 +8,9 @@
 
 [![Travis branch](https://img.shields.io/travis/Ethenyl/JamfKit/master.svg?style=flat-square)](https://travis-ci.org/Ethenyl/JamfKit)
 [![Codecov](https://img.shields.io/codecov/c/github/Ethenyl/JamfKit.svg?style=flat-square)](https://codecov.io/gh/Ethenyl/JamfKit)
+[![Codacy grade](https://img.shields.io/codacy/grade/9f7907afc4884c2c9acbf1dc9412519d.svg?style=flat-square)]()
 [![Carthage compatible](https://img.shields.io/badge/carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 [![CocoaPods](https://img.shields.io/cocoapods/v/JAMFKit.svg?style=flat-square)](https://cocoapods.org/pods/JamfKit)
-
-[![GitHub license](https://img.shields.io/github/license/Ethenyl/JamfKit.svg?style=flat-square)](https://github.com/Ethenyl/JamfKit/blob/master/LICENSE)
 
 `JamfKit` is an iOS / macOS framework to communicate with the JSS API offered by any Jamf host.
 

@@ -11,7 +11,7 @@ import XCTest
 @testable import JamfKit
 
 class HardwareGroupTests: XCTestCase {
-    
+
     // MARK: - Constants
 
     let subfolder = "ComputerGroup/"

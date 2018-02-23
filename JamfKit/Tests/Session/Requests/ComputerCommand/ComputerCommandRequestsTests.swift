@@ -59,7 +59,7 @@ class ComputerCommandRequestsTests: XCTestCase {
 
     func testShouldNotReturnReadRequestWithIdentifier() {
         let actualValue = element.read()
-        
+
         XCTAssertNil(actualValue)
     }
 }

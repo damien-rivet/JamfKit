@@ -114,7 +114,7 @@ class UserTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 10)
-        
+
         XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
         XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[User.FullNameKey])

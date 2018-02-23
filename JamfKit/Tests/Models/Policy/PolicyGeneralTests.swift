@@ -1,4 +1,3 @@
-
 //
 //  PolicyGeneralTests.swift
 //  JamfKit

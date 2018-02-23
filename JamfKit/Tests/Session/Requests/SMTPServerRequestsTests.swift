@@ -53,7 +53,7 @@ class SMTPServerRequestsTests: XCTestCase {
         XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)")
         XCTAssertNil(actualValue?.httpBody)
     }
-    
+
     func testShouldReturnUpdateRequestWithIdentifier() {
         let actualValue = element.update()
 

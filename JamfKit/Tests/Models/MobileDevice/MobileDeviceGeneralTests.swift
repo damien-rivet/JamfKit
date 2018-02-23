@@ -208,7 +208,7 @@ class MobileDeviceGeneralTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 48)
-        
+
         XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
         XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[MobileDeviceGeneral.DeviceNameKey])

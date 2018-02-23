@@ -48,4 +48,5 @@ class BaseObjectTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
     }
+
 }

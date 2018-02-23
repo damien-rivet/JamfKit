@@ -11,7 +11,7 @@ import XCTest
 @testable import JamfKit
 
 class StringExtensionTests: XCTestCase {
-    
+
     // MARK: - Tests
 
     func testShouldReturnCleanedUpKey() {

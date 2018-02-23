@@ -62,8 +62,4 @@ class BuildingTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
     }
-
-    func testShouldReturnCreateRequest() {
-        
-    }
 }
