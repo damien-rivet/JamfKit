@@ -34,7 +34,7 @@ class UserRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnCreateRequest() {
-        let actualValue = element.create()
+        let actualValue = element.createRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
@@ -43,7 +43,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadAllRequest() {
-        let actualValue = User.readAll()
+        let actualValue = User.readAllRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -52,7 +52,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticReadRequestWithIdentifier() {
-        let actualValue = User.read(identifier: "12345")
+        let actualValue = User.readRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -61,7 +61,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithIdentifier() {
-        let actualValue = element.read()
+        let actualValue = element.readRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -69,8 +69,17 @@ class UserRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticReadRequestWithName() {
+        let actualValue = User.readRequest(name: "User")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(User.Endpoint)/name/User")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnReadRequestWithName() {
-        let actualValue = element.readWithName()
+        let actualValue = element.readRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -78,8 +87,17 @@ class UserRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticReadRequestWithEmail() {
+        let actualValue = User.readRequest(email: "john.appleseed@apple.com")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(User.Endpoint)/email/john.appleseed@apple.com")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnReadRequestWithEmail() {
-        let actualValue = element.readWithEmail()
+        let actualValue = element.readRequestWithEmail()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -88,7 +106,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithIdentifier() {
-        let actualValue = element.update()
+        let actualValue = element.updateRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -97,7 +115,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithName() {
-        let actualValue = element.updateWithName()
+        let actualValue = element.updateRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -106,7 +124,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithEmail() {
-        let actualValue = element.updateWithEmail()
+        let actualValue = element.updateRequestWithEmail()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -115,7 +133,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticDeleteRequestWithIdentifier() {
-        let actualValue = User.delete(identifier: "12345")
+        let actualValue = User.deleteRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -124,7 +142,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithIdentifier() {
-        let actualValue = element.delete()
+        let actualValue = element.deleteRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -133,7 +151,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithName() {
-        let actualValue = element.deleteWithName()
+        let actualValue = element.deleteRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -142,7 +160,7 @@ class UserRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithEmail() {
-        let actualValue = element.deleteWithEmail()
+        let actualValue = element.deleteRequestWithEmail()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)

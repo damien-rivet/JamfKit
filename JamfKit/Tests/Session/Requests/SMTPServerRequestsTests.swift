@@ -34,19 +34,19 @@ class SMTPServerRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldNotReturnReadAllRequest() {
-        let actualValue = SMTPServer.readAll()
+        let actualValue = SMTPServer.readAllRequest()
 
         XCTAssertNil(actualValue)
     }
 
     func testShouldNotReturnStaticReadRequestWithIdentifier() {
-        let actualValue = SMTPServer.read(identifier: "12345")
+        let actualValue = SMTPServer.readRequest(identifier: "12345")
 
         XCTAssertNil(actualValue)
     }
 
     func testShouldReturnReadRequest() {
-        let actualValue = element.read()
+        let actualValue = element.readRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -55,7 +55,7 @@ class SMTPServerRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithIdentifier() {
-        let actualValue = element.update()
+        let actualValue = element.updateRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)

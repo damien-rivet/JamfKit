@@ -34,7 +34,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnCreateRequest() {
-        let actualValue = element.create()
+        let actualValue = element.createRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
@@ -43,7 +43,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadAllRequest() {
-        let actualValue = MobileDeviceGroup.readAll()
+        let actualValue = MobileDeviceGroup.readAllRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -52,7 +52,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticReadRequestWithIdentifier() {
-        let actualValue = MobileDeviceGroup.read(identifier: "12345")
+        let actualValue = MobileDeviceGroup.readRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -61,7 +61,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithIdentifier() {
-        let actualValue = element.read()
+        let actualValue = element.readRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -69,8 +69,17 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticReadRequestWithName() {
+        let actualValue = MobileDeviceGroup.readRequest(name: "Mobile Device Group")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(MobileDeviceGroup.Endpoint)/name/Mobile%20Device%20Group")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnReadRequestWithName() {
-        let actualValue = element.readWithName()
+        let actualValue = element.readRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -79,7 +88,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithIdentifier() {
-        let actualValue = element.update()
+        let actualValue = element.updateRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -88,7 +97,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithName() {
-        let actualValue = element.updateWithName()
+        let actualValue = element.updateRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -97,7 +106,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticDeleteRequestWithIdentifier() {
-        let actualValue = MobileDeviceGroup.delete(identifier: "12345")
+        let actualValue = MobileDeviceGroup.deleteRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -106,7 +115,7 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithIdentifier() {
-        let actualValue = element.delete()
+        let actualValue = element.deleteRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -114,8 +123,17 @@ class MobileDeviceGroupRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticDeleteRequestWithName() {
+        let actualValue = MobileDeviceGroup.deleteRequest(name: "12345")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(MobileDeviceGroup.Endpoint)/name/12345")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnDeleteRequestWithName() {
-        let actualValue = element.deleteWithName()
+        let actualValue = element.deleteRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)

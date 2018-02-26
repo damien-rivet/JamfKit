@@ -7,53 +7,55 @@
 //
 
 /// Represents an object that can be read with an URLRequest
+@objc(JMFKReadable)
 public protocol Readable {
 
     // MARK: - Functions
 
     /// Returns a GET **URLRequest** based on the JSS object type.
-    static func readAll() -> URLRequest?
+    static func readAllRequest() -> URLRequest?
 
     /// Returns a GET **URLRequest** based on the JSS object type & the supplied identifier.
-    static func read(identifier: String) -> URLRequest?
+    static func readRequest(identifier: String) -> URLRequest?
 
     /// Returns a GET **URLRequest** based on the identifier property of the supplied JSS object.
-    func read() -> URLRequest?
+    func readRequest() -> URLRequest?
 }
 
 // MARK: - Implementation
 
-public extension Readable where Self: Endpoint & Identifiable & Requestable {
+extension Readable where Self: Endpoint & Identifiable & Requestable {
 
     // MARK: - Functions
 
-    static func readAll() -> URLRequest? {
+    static func getReadAllRequest() -> URLRequest? {
         return SessionManager.instance.readAllRequest(for: self.Endpoint)
     }
 
-    static func read(identifier: String) -> URLRequest? {
+    static func getReadRequest(identifier: String) -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
     }
 
-    func read() -> URLRequest? {
+    func getReadRequest() -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
     }
 
-    /// Returns a GET **URLRequest** based on the name property of the supplied JSS object.
-    func readWithName() -> URLRequest? {
+    static func getReadRequest(name: String) -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+    }
+
+    func getReadRequestWithName() -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
     }
 }
 
-public extension Readable where Self: Endpoint & Requestable & Subset {
+extension Readable where Self: Endpoint & Requestable & Subset {
 
-    // MARK: - Functions
-
-    public static func readAll() -> URLRequest? {
+    public static func getReadAllRequest() -> URLRequest? {
         return SessionManager.instance.readAllRequest(for: self.Endpoint)
     }
 
-    static func read(identifier: String) -> URLRequest? {
+    static func getReadRequest(identifier: String) -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
     }
 }

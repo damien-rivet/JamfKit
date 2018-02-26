@@ -34,7 +34,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnCreateRequest() {
-        let actualValue = element.create()
+        let actualValue = element.createRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
@@ -42,7 +42,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadAllRequest() {
-        let actualValue = ComputerGroup.readAll()
+        let actualValue = ComputerGroup.readAllRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -51,7 +51,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticReadRequestWithIdentifier() {
-        let actualValue = ComputerGroup.read(identifier: "12345")
+        let actualValue = ComputerGroup.readRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -60,7 +60,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithIdentifier() {
-        let actualValue = element.read()
+        let actualValue = element.readRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -68,8 +68,17 @@ class ComputerGroupRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticReadRequestWithName() {
+        let actualValue = ComputerGroup.readRequest(name: "Computer Group")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(ComputerGroup.Endpoint)/name/Computer%20Group")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnReadRequestWithName() {
-        let actualValue = element.readWithName()
+        let actualValue = element.readRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -78,7 +87,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithIdentifier() {
-        let actualValue = element.update()
+        let actualValue = element.updateRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -87,7 +96,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithName() {
-        let actualValue = element.updateWithName()
+        let actualValue = element.updateRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -96,7 +105,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticDeleteRequestWithIdentifier() {
-        let actualValue = ComputerGroup.delete(identifier: "12345")
+        let actualValue = ComputerGroup.deleteRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -105,7 +114,7 @@ class ComputerGroupRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithIdentifier() {
-        let actualValue = element.delete()
+        let actualValue = element.deleteRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -113,8 +122,17 @@ class ComputerGroupRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticDeleteRequestWithName() {
+        let actualValue = ComputerGroup.deleteRequest(name: "12345")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(ComputerGroup.Endpoint)/name/12345")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnDeleteRequestWithName() {
-        let actualValue = element.deleteWithName()
+        let actualValue = element.deleteRequestWithName()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)

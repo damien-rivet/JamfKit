@@ -34,7 +34,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnReadAllRequest() {
-        let actualValue = MobileDevice.readAll()
+        let actualValue = MobileDevice.readAllRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -43,7 +43,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnCreateRequest() {
-        let actualValue = element.create()
+        let actualValue = element.createRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
@@ -52,7 +52,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticReadRequestWithIdentifier() {
-        let actualValue = MobileDevice.read(identifier: "12345")
+        let actualValue = MobileDevice.readRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -61,7 +61,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithIdentifier() {
-        let actualValue = element.read()
+        let actualValue = element.readRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -70,7 +70,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithName() {
-        let actualValue = element.readWithName()
+        let actualValue = element.readRequestWithName()
         let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
@@ -80,7 +80,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithUdid() {
-        let actualValue = element.readWithUdid()
+        let actualValue = element.readRequestWithUdid()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -89,7 +89,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithSerialNumber() {
-        let actualValue = element.readWithSerialNumber()
+        let actualValue = element.readRequestWithSerialNumber()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -98,7 +98,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithIdentifier() {
-        let actualValue = element.update()
+        let actualValue = element.updateRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -107,7 +107,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithName() {
-        let actualValue = element.updateWithName()
+        let actualValue = element.updateRequestWithName()
         let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
@@ -117,7 +117,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithUdid() {
-        let actualValue = element.updateWithUdid()
+        let actualValue = element.updateRequestWithUdid()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -126,7 +126,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithSerialNumber() {
-        let actualValue = element.updateWithSerialNumber()
+        let actualValue = element.updateRequestWithSerialNumber()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -135,7 +135,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithIdentifier() {
-        let actualValue = element.delete()
+        let actualValue = element.deleteRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -144,7 +144,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithName() {
-        let actualValue = element.deleteWithName()
+        let actualValue = element.deleteRequestWithName()
         let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
@@ -154,7 +154,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithUdid() {
-        let actualValue = element.deleteWithUdid()
+        let actualValue = element.deleteRequestWithUdid()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -163,7 +163,7 @@ class MobileDeviceRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithSerialNumber() {
-        let actualValue = element.deleteWithSerialNumber()
+        let actualValue = element.deleteRequestWithSerialNumber()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)

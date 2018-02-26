@@ -60,7 +60,7 @@ public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subse
 
 extension ComputerConfiguration: Creatable {
 
-    public func create() -> URLRequest? {
+    public func createRequest() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
     }
 }
@@ -69,11 +69,19 @@ extension ComputerConfiguration: Creatable {
 
 extension ComputerConfiguration: Readable {
 
-    public func read() -> URLRequest? {
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
     }
 
-    public func readWithName() -> URLRequest? {
+    public func readRequestWithName() -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
     }
 }
@@ -82,11 +90,12 @@ extension ComputerConfiguration: Readable {
 
 extension ComputerConfiguration: Updatable {
 
-    public func update() -> URLRequest? {
+    public func updateRequest() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
     }
 
-    public func updateWithName() -> URLRequest? {
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
     }
 }
@@ -95,11 +104,21 @@ extension ComputerConfiguration: Updatable {
 
 extension ComputerConfiguration: Deletable {
 
-    public func delete() -> URLRequest? {
-        return ComputerConfiguration.delete(identifier: String(general.identifier))
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
     }
 
-    public func deleteWithName() -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    public func deleteRequest() -> URLRequest? {
+        return ComputerConfiguration.deleteRequest(identifier: String(general.identifier))
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return getDeleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return ComputerConfiguration.deleteRequest(name: general.name)
     }
 }

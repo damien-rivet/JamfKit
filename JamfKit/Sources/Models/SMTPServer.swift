@@ -121,15 +121,15 @@ public final class SMTPServer: NSObject, Requestable, Endpoint {
 // MARK: - Readable
 
 extension SMTPServer: Readable {
-    public static func readAll() -> URLRequest? {
+    public static func readAllRequest() -> URLRequest? {
         return nil
     }
 
-    public static func read(identifier: String) -> URLRequest? {
+    public static func readRequest(identifier: String) -> URLRequest? {
         return nil
     }
 
-    public func read() -> URLRequest? {
+    public func readRequest() -> URLRequest? {
         return SessionManager.instance.readRequest(for: self)
     }
 }
@@ -138,7 +138,7 @@ extension SMTPServer: Readable {
 
 extension SMTPServer: Updatable {
 
-    public func update() -> URLRequest? {
+    public func updateRequest() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self)
     }
 }

@@ -34,7 +34,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnCreateRequest() {
-        let actualValue = element.create()
+        let actualValue = element.createRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.post.rawValue)
@@ -43,7 +43,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadAllRequest() {
-        let actualValue = DirectoryBinding.readAll()
+        let actualValue = DirectoryBinding.readAllRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -52,7 +52,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticReadRequestWithIdentifier() {
-        let actualValue = DirectoryBinding.read(identifier: "12345")
+        let actualValue = DirectoryBinding.readRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -61,7 +61,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     }
 
     func testShouldReturnReadRequestWithIdentifier() {
-        let actualValue = element.read()
+        let actualValue = element.readRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
@@ -69,8 +69,17 @@ class DirectoryBindingRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticReadRequestWithName() {
+        let actualValue = DirectoryBinding.readRequest(name: "Directory Binding")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(DirectoryBinding.Endpoint)/name/Directory%20Binding")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnReadRequestWithName() {
-        let actualValue = element.readWithName()
+        let actualValue = element.readRequestWithName()
         let encodedName = element.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
@@ -80,7 +89,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithIdentifier() {
-        let actualValue = element.update()
+        let actualValue = element.updateRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
@@ -89,7 +98,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     }
 
     func testShouldReturnUpdateRequestWithName() {
-        let actualValue = element.updateWithName()
+        let actualValue = element.updateRequestWithName()
         let encodedName = element.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
@@ -99,7 +108,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticDeleteRequestWithIdentifier() {
-        let actualValue = DirectoryBinding.delete(identifier: "12345")
+        let actualValue = DirectoryBinding.deleteRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -108,7 +117,7 @@ class DirectoryBindingRequestsTests: XCTestCase {
     }
 
     func testShouldReturnDeleteRequestWithIdentifier() {
-        let actualValue = element.delete()
+        let actualValue = element.deleteRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
@@ -116,8 +125,17 @@ class DirectoryBindingRequestsTests: XCTestCase {
         XCTAssertNil(actualValue?.httpBody)
     }
 
+    func testShouldReturnStaticDeleteRequestWithName() {
+        let actualValue = DirectoryBinding.deleteRequest(name: "12345")
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(DirectoryBinding.Endpoint)/name/12345")
+        XCTAssertNil(actualValue?.httpBody)
+    }
+
     func testShouldReturnDeleteRequestWithName() {
-        let actualValue = element.deleteWithName()
+        let actualValue = element.deleteRequestWithName()
         let encodedName = element.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)

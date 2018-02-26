@@ -19,11 +19,71 @@ public final class Building: BaseObject, Endpoint {
 
 extension Building: Creatable {
 
-    public func create() -> URLRequest? {
-        return self.createRequest()
+    public func createRequest() -> URLRequest? {
+        return getCreateRequest()
     }
 }
 
-// MARK: - Protocols
+// MARK: - Readable
 
-extension Building: Readable, Updatable, Deletable { }
+extension Building: Readable {
+
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return getReadRequest()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied name.
+    public static func readRequest(name: String) -> URLRequest? {
+        return getReadRequest(name: name)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithName() -> URLRequest? {
+        return getReadRequestWithName()
+    }
+}
+
+// MARK: - Updatable
+
+extension Building: Updatable {
+
+    public func updateRequest() -> URLRequest? {
+        return getUpdateRequest()
+    }
+
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
+        return getUpdateRequestWithName()
+    }
+}
+
+// MARK: - Deletable
+
+extension Building: Deletable {
+
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
+    }
+
+    public func deleteRequest() -> URLRequest? {
+        return getDeleteRequest()
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return getDeleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return getDeleteRequestWithName()
+    }
+}

@@ -7,26 +7,24 @@
 //
 
 /// Represents an object that can be updated with an URLRequest
+@objc(JMFKUpdatable)
 public protocol Updatable {
 
     // MARK: - Functions
 
     /// Returns a PUT **URLRequest** based on the identifier property of the supplied JSS object.
-    func update() -> URLRequest?
+    func updateRequest() -> URLRequest?
 }
 
 // MARK: - Implementation
 
-public extension Updatable where Self: Endpoint & Identifiable & Requestable {
+extension Updatable where Self: Endpoint & Identifiable & Requestable {
 
-    // MARK: - Functions
-
-    func update() -> URLRequest? {
+    func getUpdateRequest() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
     }
 
-    /// Returns a PUT **URLRequest** based on the name property of the supplied JSS object.
-    func updateWithName() -> URLRequest? {
+    func getUpdateRequestWithName() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
     }
 }

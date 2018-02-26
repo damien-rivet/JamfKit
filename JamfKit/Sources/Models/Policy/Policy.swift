@@ -62,7 +62,7 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
 
 extension Policy: Creatable {
 
-    public func create() -> URLRequest? {
+    public func createRequest() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
     }
 }
@@ -71,11 +71,19 @@ extension Policy: Creatable {
 
 extension Policy: Readable {
 
-    public func read() -> URLRequest? {
-        return Policy.read(identifier: String(general.identifier))
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
     }
 
-    public func readWithName() -> URLRequest? {
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return Policy.readRequest(identifier: String(general.identifier))
+    }
+
+    public func readRequestWithName() -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
     }
 }
@@ -84,11 +92,12 @@ extension Policy: Readable {
 
 extension Policy: Updatable {
 
-    public func update() -> URLRequest? {
+    public func updateRequest() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
     }
 
-    public func updateWithName() -> URLRequest? {
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
     }
 }
@@ -97,11 +106,21 @@ extension Policy: Updatable {
 
 extension Policy: Deletable {
 
-    public func delete() -> URLRequest? {
-        return Policy.delete(identifier: String(general.identifier))
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
     }
 
-    public func deleteWithName() -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+    public func deleteRequest() -> URLRequest? {
+        return Policy.deleteRequest(identifier: String(general.identifier))
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return getDeleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return Policy.deleteRequest(name: general.name)
     }
 }

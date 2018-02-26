@@ -82,7 +82,7 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
 
 extension ComputerCommand: Creatable {
 
-    public func create() -> URLRequest? {
+    public func createRequest() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: ComputerCommandGeneral.CommandKey, value: general.command)
     }
 }
@@ -91,11 +91,15 @@ extension ComputerCommand: Creatable {
 
 extension ComputerCommand: Readable {
 
-    public static func read(identifier: String) -> URLRequest? {
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
         return nil
     }
 
-    public func read() -> URLRequest? {
+    public func readRequest() -> URLRequest? {
         return nil
     }
 }

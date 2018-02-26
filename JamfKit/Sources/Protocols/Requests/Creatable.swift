@@ -13,16 +13,14 @@ public protocol Creatable {
     // MARK: - Functions
 
     /// Returns a POST **URLRequest** based on the identifier property of the supplied JSS object.
-    func create() -> URLRequest?
+    func createRequest() -> URLRequest?
 }
 
 // MARK: - Implementation
 
-public extension Creatable where Self: Endpoint & Identifiable & Requestable {
+extension Creatable where Self: Endpoint & Identifiable & Requestable {
 
-    // MARK: - Functions
-
-    func createRequest() -> URLRequest? {
+    func getCreateRequest() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
     }
 }

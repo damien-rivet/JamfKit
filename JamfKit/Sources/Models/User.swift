@@ -112,17 +112,45 @@ public final class User: BaseObject, Endpoint {
 
 extension User: Creatable {
 
-    public func create() -> URLRequest? {
-        return self.createRequest()
+    public func createRequest() -> URLRequest? {
+        return getCreateRequest()
     }
 }
 
-// MARK: - Protocols
+// MARK: - Readable
 
 extension User: Readable {
 
-    public func readWithEmail() -> URLRequest? {
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return getReadRequest()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied name.
+    public static func readRequest(name: String) -> URLRequest? {
+        return getReadRequest(name: name)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithName() -> URLRequest? {
+        return getReadRequestWithName()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied email.
+    public static func readRequest(email: String) -> URLRequest? {
         return SessionManager.instance.readRequest(for: self, key: User.EmailKey, value: email)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithEmail() -> URLRequest? {
+        return User.readRequest(email: email)
     }
 }
 
@@ -130,7 +158,17 @@ extension User: Readable {
 
 extension User: Updatable {
 
-    public func updateWithEmail() -> URLRequest? {
+    public func updateRequest() -> URLRequest? {
+        return getUpdateRequest()
+    }
+
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
+        return getUpdateRequestWithName()
+    }
+
+    /// Returns a PUT **URLRequest** based on the email.
+    public func updateRequestWithEmail() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: User.EmailKey, value: email)
     }
 }
@@ -139,7 +177,31 @@ extension User: Updatable {
 
 extension User: Deletable {
 
-    public func deleteWithEmail() -> URLRequest? {
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
+    }
+
+    public func deleteRequest() -> URLRequest? {
+        return getDeleteRequest()
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return User.deleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied email.
+    public static func deleteRequest(email: String) -> URLRequest? {
         return SessionManager.instance.deleteRequest(for: self, key: User.EmailKey, value: email)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the email.
+    public func deleteRequestWithEmail() -> URLRequest? {
+        return User.deleteRequest(email: email)
     }
 }

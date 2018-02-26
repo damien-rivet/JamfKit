@@ -35,7 +35,7 @@
 
 - [x] Includes JSON encoding / decoding support for most of the JSS objects
 - [x] Includes Objective-C support
-- [x] Includes Swift 4 support
+- [x] Includes Swift 4+ support
 - [x] Includes ready-for-consumption CRUD `URLRequest` for JSS endpoints
 - [x] Includes demonstration playgrounds for class handling or request generation
 
@@ -134,17 +134,17 @@ By adhering to the different CRUD protocols (`Creatable`, `Readable`, `Updatable
 
 You'll find below the basic functions to get `URLRequest`:
 
-|Function|Type|HTTP Method|Example|
-|-----|:-----:|:-----:|-----|
-|`create()`|`instance`|`POST`|http://jamf.com/jss/objects/1|
-|`readAll()`|`static`|`GET`|http://jamf.com/jss/objects|
-|`read(identifier:)`|`static`|`GET`|http://jamf.com/jss/objects/1|
-|`read()`|`instance`|`GET`|http://jamf.com/jss/objects/1|
-|`update()`|`instance`|`PUT`|http://jamf.com/jss/objects/1|
-|`delete(identifier:)`|`static`|`DELETE`|http://jamf.com/jss/objects/1|
-|`delete()`|`instance`|`DELETE`|http://jamf.com/jss/objects/1|
+|Function|Type|HTTP Method|Example|Output|
+|-----|:-----:|:-----:|-----|------|
+|`createRequest()`|`instance`|`POST`|`building.createRequest()`|`http://jss.host/jss/objects/1`|
+|`readAllRequest()`|`static`|`GET`|`Building.readAllRequest()`|`http://jamf.com/jss/objects`|
+|`readRequest(identifier:)`|`static`|`GET`|`Building.readRequest(identifier: "12345")`|`http://jamf.com/jss/objects/1`|
+|`readRequest()`|`instance`|`GET`|`building.readRequest()`|`http://jamf.com/jss/objects/1`|
+|`updateRequest()`|`instance`|`PUT`|`building.updateRequest()`|`http://jamf.com/jss/objects/1`|
+|`deleteRequest(identifier:)`|`static`|`DELETE`|`Building.deleteRequest(identifier: "12345")`|`http://jamf.com/jss/objects/1`|
+|`deleteRequest()`|`instance`|`DELETE`|`building.deleteRequest()`|`http://jamf.com/jss/objects/1`|
 
-Some objects will offer variants of those requests, like `MobileDevice` with `readWithName()` or `readWithSerialNumber()` (with both `static` and `instance` variants).
+Some objects will offer variants of those requests, like `MobileDevice` with `readRequestWithName()` or `deleteRequestWithSerialNumber()` (with both `static` and `instance` variants).
 
 ## Contributing ##
 

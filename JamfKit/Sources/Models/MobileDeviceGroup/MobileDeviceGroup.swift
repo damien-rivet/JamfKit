@@ -55,11 +55,71 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
 
 extension MobileDeviceGroup: Creatable {
 
-    public func create() -> URLRequest? {
-        return self.createRequest()
+    public func createRequest() -> URLRequest? {
+        return getCreateRequest()
     }
 }
 
-// MARK: - Protocols
+// MARK: - Readable
 
-extension MobileDeviceGroup: Readable, Updatable, Deletable { }
+extension MobileDeviceGroup: Readable {
+
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return getReadRequest()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied name.
+    public static func readRequest(name: String) -> URLRequest? {
+        return getReadRequest(name: name)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithName() -> URLRequest? {
+        return getReadRequestWithName()
+    }
+}
+
+// MARK: - Updatable
+
+extension MobileDeviceGroup: Updatable {
+
+    public func updateRequest() -> URLRequest? {
+        return getUpdateRequest()
+    }
+
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
+        return getUpdateRequestWithName()
+    }
+}
+
+// MARK: - Deletable
+
+extension MobileDeviceGroup: Deletable {
+
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
+    }
+
+    public func deleteRequest() -> URLRequest? {
+        return getDeleteRequest()
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return getDeleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return getDeleteRequestWithName()
+    }
+}
