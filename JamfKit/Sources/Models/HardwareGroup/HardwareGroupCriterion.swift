@@ -2,13 +2,12 @@
 //  HardwareGroupCriterion.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
 @objc(JMFKHardwareGroupCriterion)
-public final class HardwareGroupCriterion: NSObject, Identifiable {
+public final class HardwareGroupCriterion: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -23,25 +22,25 @@ public final class HardwareGroupCriterion: NSObject, Identifiable {
     // MARK: - Properties
 
     @objc
-    public var name: String
+    public var name = ""
 
     @objc
-    public var priority: UInt
+    public var priority: UInt = 0
 
     @objc
-    public var andOr: String
+    public var andOr = ""
 
     @objc
-    public var searchType: String
+    public var searchType = ""
 
     @objc
-    public var value: UInt
+    public var value: UInt = 0
 
     @objc
-    public var openingParen: Bool
+    public var openingParen = false
 
     @objc
-    public var closingParen: Bool
+    public var closingParen = false
 
     // MARK: - Initialization
 
@@ -53,6 +52,16 @@ public final class HardwareGroupCriterion: NSObject, Identifiable {
         value = json[HardwareGroupCriterion.ValueKey] as? UInt ?? 0
         openingParen = json[HardwareGroupCriterion.OpeningParenKey] as? Bool ?? false
         closingParen = json[HardwareGroupCriterion.ClosingParenKey] as? Bool ?? false
+    }
+
+    public init?(name: String) {
+        guard !name.isEmpty else {
+            return nil
+        }
+
+        self.name = name
+
+        super.init()
     }
 
     // MARK: - Functions

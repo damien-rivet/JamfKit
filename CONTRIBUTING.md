@@ -17,7 +17,7 @@
 
 To get started on contributing on `JamfKit` you'll need to clone the repository from `GitHub`.
 
-`JamfKit` relies on a very few external libraries but still, you'll have to use `Carthage` to download the required dependencies.
+Next step will be to verify that you're using **XCode 9.2**.
 
 Once those two steps are completed, you'll be able to start contributing to `JamfKit`.
 

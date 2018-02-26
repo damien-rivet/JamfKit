@@ -2,7 +2,8 @@
 //  DepartmentTests.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -18,6 +19,20 @@ class DepartmentTests: XCTestCase {
     let defaultName = "Unknown"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = Department(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = Department(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "department_valid", subfolder: subfolder)!

@@ -2,10 +2,9 @@
 //  PolicyCategory.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 @objc(JMFKPolicyCategory)
 public final class PolicyCategory: BaseObject {
@@ -17,7 +16,7 @@ public final class PolicyCategory: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var priority: UInt
+    public var priority: UInt = 0
 
     // MARK: - Initialization
 
@@ -29,6 +28,10 @@ public final class PolicyCategory: BaseObject {
         self.priority = priority
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

@@ -2,7 +2,8 @@
 //  PolicyCategoryTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -19,6 +20,20 @@ class PolicyCategoryTests: XCTestCase {
     let defaultPriority: UInt = 10
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = PolicyCategory(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = PolicyCategory(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "policy_category_valid", subfolder: subfolder)!
@@ -47,8 +62,9 @@ class PolicyCategoryTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 3)
-        XCTAssertNotNil(encodedObject?[PolicyCategory.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[PolicyCategory.NameKey])
+
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[PolicyCategory.PriorityKey])
     }
 }

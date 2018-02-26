@@ -2,17 +2,17 @@
 //  Script.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a logical script that can be executed on one (or more) hardware element managed by Jamf.
 @objc(JMFKScript)
-public final class Script: BaseObject {
+public final class Script: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "scripts"
     static let CategoryKey = "category"
     static let FilenameKey = "filename"
     static let InfoKey = "info"
@@ -26,31 +26,31 @@ public final class Script: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var category: String
+    public var category = ""
 
     @objc
-    public var filename: String
+    public var filename = ""
 
     @objc
-    public var information: String
+    public var information = ""
 
     @objc
-    public var notes: String
+    public var notes = ""
 
     @objc
-    public var priority: String
+    public var priority = ""
 
     @objc
-    public var parameters: [String: String]
+    public var parameters = [String: String]()
 
     @objc
-    public var osRequirements: String
+    public var osRequirements = ""
 
     @objc
-    public var scriptContents: String
+    public var scriptContents = ""
 
     @objc
-    public var scriptEncodedContents: String
+    public var scriptEncodedContents = ""
 
     // MARK: - Initialization
 
@@ -66,6 +66,10 @@ public final class Script: BaseObject {
         scriptEncodedContents = json[Script.ScriptContentsEncodedKey] as? String ?? ""
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions
@@ -92,5 +96,78 @@ public final class Script: BaseObject {
         }
 
         return rawParameters
+    }
+}
+
+// MARK: - Creatable
+
+extension Script: Creatable {
+
+    public func createRequest() -> URLRequest? {
+        return getCreateRequest()
+    }
+}
+
+// MARK: - Readable
+
+extension Script: Readable {
+
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return getReadRequest()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied name.
+    public static func readRequest(name: String) -> URLRequest? {
+        return getReadRequest(name: name)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithName() -> URLRequest? {
+        return getReadRequestWithName()
+    }
+}
+
+// MARK: - Updatable
+
+extension Script: Updatable {
+
+    public func updateRequest() -> URLRequest? {
+        return getUpdateRequest()
+    }
+
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
+        return getUpdateRequestWithName()
+    }
+}
+
+// MARK: - Deletable
+
+extension Script: Deletable {
+
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
+    }
+
+    public func deleteRequest() -> URLRequest? {
+        return getDeleteRequest()
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return getDeleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return getDeleteRequestWithName()
     }
 }

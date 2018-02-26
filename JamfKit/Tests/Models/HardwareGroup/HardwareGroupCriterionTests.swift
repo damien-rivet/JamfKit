@@ -2,7 +2,8 @@
 //  MobileDeviceGroupCriterionTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -23,6 +24,19 @@ class HardwareGroupCriterionTests: XCTestCase {
     let defaultClosingParen = false
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = HardwareGroupCriterion(name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = HardwareGroupCriterion(name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "hardware_group_criterion", subfolder: subfolder)!

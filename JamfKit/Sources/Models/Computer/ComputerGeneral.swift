@@ -2,10 +2,9 @@
 //  ComputerGeneral.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 @objc(JMFKComputerGeneral)
 public final class ComputerGeneral: BaseObject {
@@ -41,46 +40,46 @@ public final class ComputerGeneral: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var macAddress: String
+    public var macAddress = ""
 
     @objc
-    public var alternativeMacAddress: String
+    public var alternativeMacAddress = ""
 
     @objc
-    public var ipAddress: String
+    public var ipAddress = ""
 
     @objc
-    public var lastReportedIpAddress: String
+    public var lastReportedIpAddress = ""
 
     @objc
-    public var serialNumber: String
+    public var serialNumber = ""
 
     @objc
-    public var udid: String
+    public var udid = ""
 
     @objc
-    public var jamfVersion: String
+    public var jamfVersion = ""
 
     @objc
-    public var platform: String
+    public var platform = ""
 
     @objc
-    public var barcode1: String
+    public var barcode1 = ""
 
     @objc
-    public var barcode2: String
+    public var barcode2 = ""
 
     @objc
-    public var assetTag: String
+    public var assetTag = ""
 
     @objc
     public var remoteManagement: ComputerRemoteManagement?
 
     @objc
-    public var isMdmCapable: Bool
+    public var isMdmCapable = false
 
     @objc
-    public var mdmCapableUsers: [String]
+    public var mdmCapableUsers = [String]()
 
     @objc
     public var reportDate: PreciseDate?
@@ -98,19 +97,19 @@ public final class ComputerGeneral: BaseObject {
     public var lastEnrolledDate: PreciseDate?
 
     @objc
-    public var distributionPoint: String
+    public var distributionPoint = ""
 
     @objc
-    public var sus: String
+    public var sus = ""
 
     @objc
-    public var netbootServer: String
+    public var netbootServer = ""
 
     @objc
     public var site: Site?
 
     @objc
-    public var isITunesStoreAcccountActivated: Bool
+    public var isITunesStoreAcccountActivated = false
 
     // MARK: - Initialization
 
@@ -141,6 +140,12 @@ public final class ComputerGeneral: BaseObject {
         isITunesStoreAcccountActivated = json[ComputerGeneral.ItunesStoreAccountIsActiveKey] as? Bool ?? false
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        remoteManagement = ComputerRemoteManagement()
+
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

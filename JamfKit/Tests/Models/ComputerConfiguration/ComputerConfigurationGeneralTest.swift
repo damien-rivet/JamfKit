@@ -2,7 +2,8 @@
 //  ComputerConfigurationGeneralTest.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -22,6 +23,20 @@ class ComputerConfigurationGeneralTest: XCTestCase {
     let defaultHomepage = "https://www.jamf.com"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = ComputerConfigurationGeneral(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = ComputerConfigurationGeneral(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer_configuration_general_valid", subfolder: subfolder)!
@@ -59,8 +74,9 @@ class ComputerConfigurationGeneralTest: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 12)
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.NameKey])
+
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.DescriptionKey])
         XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.TypeKey])
         XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.ParentKey])

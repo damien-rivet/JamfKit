@@ -2,7 +2,8 @@
 //  HardwareGeneralTests.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -37,6 +38,12 @@ class ComputerGeneralTests: XCTestCase {
     let defaultITunesStoreAccountActivated = true
 
     // MARK: - Tests
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = ComputerGeneral(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer_general_valid", subfolder: subfolder)!
@@ -150,8 +157,8 @@ class ComputerGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 34)
 
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[ComputerGeneral.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.MacAddressKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.AlternativeMacAddressKey])
         XCTAssertNotNil(encodedObject?[ComputerGeneral.IpAddressKey])

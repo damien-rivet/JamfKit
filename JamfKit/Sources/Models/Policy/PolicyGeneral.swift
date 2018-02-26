@@ -2,10 +2,9 @@
 //  PolicyGeneral.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 @objc(JMFKPolicyGeneral)
 public final class PolicyGeneral: BaseObject {
@@ -35,43 +34,43 @@ public final class PolicyGeneral: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var isEnabled: Bool
+    public var isEnabled = false
 
     @objc
-    public var trigger: String
+    public var trigger = ""
 
     @objc
-    public var triggerCheckin: Bool
+    public var triggerCheckin = false
 
     @objc
-    public var triggerEnrollmentComplete: Bool
+    public var triggerEnrollmentComplete = false
 
     @objc
-    public var triggerLogin: Bool
+    public var triggerLogin = false
 
     @objc
-    public var triggerLogout: Bool
+    public var triggerLogout = false
 
     @objc
-    public var triggerNetworkStateChanged: Bool
+    public var triggerNetworkStateChanged = false
 
     @objc
-    public var triggerStartup: Bool
+    public var triggerStartup = false
 
     @objc
-    public var triggerOther: String
+    public var triggerOther = ""
 
     @objc
-    public var frequency: String
+    public var frequency = ""
 
     @objc
-    public var locationUserOnly: Bool
+    public var locationUserOnly = false
 
     @objc
-    public var targetDrive: String
+    public var targetDrive = ""
 
     @objc
-    public var offline: Bool
+    public var offline = false
 
     @objc
     public var category: PolicyCategory?
@@ -86,7 +85,7 @@ public final class PolicyGeneral: BaseObject {
     public var overrideDefaultSettings: PolicyOverrideDefaultSettings?
 
     @objc
-    public var networkRequirements: String
+    public var networkRequirements = ""
 
     @objc
     public var site: Site?
@@ -131,6 +130,14 @@ public final class PolicyGeneral: BaseObject {
         }
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        dateTimeLimitations = PolicyDateTimeLimitations()
+        networkLimitations = PolicyNetworkLimitations()
+        overrideDefaultSettings = PolicyOverrideDefaultSettings()
+
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

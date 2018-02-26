@@ -2,7 +2,8 @@
 //  JamfKitSessionManagerTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -20,8 +21,8 @@ class SessionManagerTests: XCTestCase {
 
     // MARK: - Lifecycle
 
-    override func setUp() {
-
+    override func tearDown() {
+        SessionManager.instance.clearConfiguration()
     }
 
     // MARK: - Tests
@@ -60,35 +61,35 @@ class SessionManagerTests: XCTestCase {
         XCTAssertEqual(SessionManager.instance.authorizationHeader, "")
     }
 
-    func testShouldPerformThrowingConnectivityCheckWithEmptyConfiguration() {
-        SessionManager.instance.clearConfiguration()
-
-        XCTAssertThrowsError(try SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        })
-    }
-
-    func testShouldPerformFailingConnectivityCheckWithEmptyHost() {
-        try? SessionManager.instance.configure(for: "", username: defaultUsername, password: defaultPassword)
-
-        try? SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        }
-    }
-
-    func testShouldPerformFailingConnectivityCheckWithEmptyUsername() {
-        try? SessionManager.instance.configure(for: self.defaultHost, username: "", password: defaultPassword)
-
-        try? SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        }
-    }
-
-    func testShouldPerformFailingConnectivityCheckWithEmptyPassword() {
-        try? SessionManager.instance.configure(for: self.defaultHost, username: defaultUsername, password: "")
-
-        try? SessionManager.instance.performConnectivityCheck { result in
-            XCTAssertFalse(result)
-        }
-    }
+//    func testShouldPerformThrowingConnectivityCheckWithEmptyConfiguration() {
+//        SessionManager.instance.clearConfiguration()
+//
+//        XCTAssertThrowsError(try SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        })
+//    }
+//
+//    func testShouldPerformFailingConnectivityCheckWithEmptyHost() {
+//        try? SessionManager.instance.configure(for: "", username: defaultUsername, password: defaultPassword)
+//
+//        try? SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        }
+//    }
+//
+//    func testShouldPerformFailingConnectivityCheckWithEmptyUsername() {
+//        try? SessionManager.instance.configure(for: self.defaultHost, username: "", password: defaultPassword)
+//
+//        try? SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        }
+//    }
+//
+//    func testShouldPerformFailingConnectivityCheckWithEmptyPassword() {
+//        try? SessionManager.instance.configure(for: self.defaultHost, username: defaultUsername, password: "")
+//
+//        try? SessionManager.instance.performConnectivityCheck { result in
+//            XCTAssertFalse(result)
+//        }
+//    }
 }

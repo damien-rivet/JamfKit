@@ -2,7 +2,8 @@
 //  SessionManagerError.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 @objc(JMFKSessionManagerErrorCode)
@@ -28,7 +29,7 @@ public class SessionManagerError: NSError {
 
     // MARK: - Initialization
 
-    convenience internal init(code: SessionManagerErrorCode) {
+    convenience init(code: SessionManagerErrorCode) {
         self.init(domain: Constants.domain, code: code.rawValue)
     }
 }

@@ -2,13 +2,12 @@
 //  PolicyDateTimeLimitations.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
 @objc(JMFKPolicyDateTimeLimitations)
-public final class PolicyDateTimeLimitations: NSObject, Identifiable {
+public final class PolicyDateTimeLimitations: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -27,13 +26,13 @@ public final class PolicyDateTimeLimitations: NSObject, Identifiable {
     public var expirationDate: PreciseDate?
 
     @objc
-    public var noExecutionOn: [String: String]
+    public var noExecutionOn = [String: String]()
 
     @objc
-    public var noExecutionStart: String
+    public var noExecutionStart = ""
 
     @objc
-    public var noExecutionEnd: String
+    public var noExecutionEnd = ""
 
     // MARK: - Initialization
 
@@ -43,6 +42,10 @@ public final class PolicyDateTimeLimitations: NSObject, Identifiable {
         noExecutionOn = json[PolicyDateTimeLimitations.NoExecuteOnKey] as? [String: String] ?? [String: String]()
         noExecutionStart = json[PolicyDateTimeLimitations.NoExecuteStartKey] as? String ?? ""
         noExecutionEnd = json[PolicyDateTimeLimitations.NoExecuteEndKey] as? String ?? ""
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

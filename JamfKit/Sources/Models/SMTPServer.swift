@@ -2,17 +2,17 @@
 //  SMTPServer.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a physical SMTP server, contains information about the server and it's configuration.
 @objc(JMFKSMTPServer)
-public final class SMTPServer: NSObject, Identifiable {
+public final class SMTPServer: NSObject, Requestable, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint: String = "smtpserver"
     static let EnabledKey = "enabled"
     static let HostKey = "host"
     static let PortKey = "port"
@@ -28,37 +28,37 @@ public final class SMTPServer: NSObject, Identifiable {
     // MARK: - Properties
 
     @objc
-    public var isEnabled: Bool
+    public var isEnabled = false
 
     @objc
-    public var host: String
+    public var host = ""
 
     @objc
-    public var port: UInt
+    public var port: UInt = 0
 
     @objc
-    public var timeout: UInt
+    public var timeout: UInt = 0
 
     @objc
-    public var isAuthorizationRequired: Bool
+    public var isAuthorizationRequired = false
 
     @objc
-    public var username: String
+    public var username = ""
 
     @objc
-    public var password: String
+    public var password = ""
 
     @objc
-    public var isSSLEnabled: Bool
+    public var isSSLEnabled = false
 
     @objc
-    public var isTLSEnabled: Bool
+    public var isTLSEnabled = false
 
     @objc
-    public var sendFromName: String
+    public var sendFromName = ""
 
     @objc
-    public var sendFromEmail: String
+    public var sendFromEmail = ""
 
     public override var description: String {
         let baseDescription = "[\(String(describing: type(of: self)))]"
@@ -86,6 +86,17 @@ public final class SMTPServer: NSObject, Identifiable {
         sendFromEmail = json[SMTPServer.SendFromEmailKey] as? String ?? ""
     }
 
+    public init?(host: String, port: UInt) {
+        guard !host.isEmpty, port > 0 else {
+            return nil
+        }
+
+        self.host = host
+        self.port = port
+
+        super.init()
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
@@ -104,5 +115,30 @@ public final class SMTPServer: NSObject, Identifiable {
         json[SMTPServer.SendFromEmailKey] = sendFromEmail
 
         return json
+    }
+}
+
+// MARK: - Readable
+
+extension SMTPServer: Readable {
+    public static func readAllRequest() -> URLRequest? {
+        return nil
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return nil
+    }
+
+    public func readRequest() -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self)
+    }
+}
+
+// MARK: - Updatable
+
+extension SMTPServer: Updatable {
+
+    public func updateRequest() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self)
     }
 }

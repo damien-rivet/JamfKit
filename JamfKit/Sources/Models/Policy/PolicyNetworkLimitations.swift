@@ -2,13 +2,12 @@
 //  PolicyNetworkLimitations.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
 @objc(JMFKPolicyNetworkLimitations)
-public final class PolicyNetworkLimitations: NSObject, Identifiable {
+public final class PolicyNetworkLimitations: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -18,16 +17,20 @@ public final class PolicyNetworkLimitations: NSObject, Identifiable {
     // MARK: - Properties
 
     @objc
-    public var minimumNetworkConnection: String
+    public var minimumNetworkConnection = ""
 
     @objc
-    public var anyIpAddress: Bool
+    public var anyIpAddress = false
 
     // MARK: - Initialization
 
     public init?(json: [String: Any], node: String = "") {
         minimumNetworkConnection = json[PolicyNetworkLimitations.MinimumNetworkConnectionKey] as? String ?? ""
         anyIpAddress = json[PolicyNetworkLimitations.AnyIpAddressKey] as? Bool ?? false
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

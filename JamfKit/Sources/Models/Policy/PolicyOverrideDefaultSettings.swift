@@ -2,13 +2,12 @@
 //  PolicyOverrideDefaultSettings.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
 @objc(JMFKPolicyOverrideDefaultSettings)
-public final class PolicyOverrideDefaultSettings: NSObject, Identifiable {
+public final class PolicyOverrideDefaultSettings: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -21,19 +20,19 @@ public final class PolicyOverrideDefaultSettings: NSObject, Identifiable {
     // MARK: - Properties
 
     @objc
-    public var targetDrive: String
+    public var targetDrive = ""
 
     @objc
-    public var distributionPoint: String
+    public var distributionPoint = ""
 
     @objc
-    public var shouldForceAfpSmb: Bool
+    public var shouldForceAfpSmb = false
 
     @objc
-    public var sus: String
+    public var sus = ""
 
     @objc
-    public var netbootServer: String
+    public var netbootServer = ""
 
     // MARK: - Initialization
 
@@ -43,6 +42,10 @@ public final class PolicyOverrideDefaultSettings: NSObject, Identifiable {
         shouldForceAfpSmb = json[PolicyOverrideDefaultSettings.ForceAfpSmbKey] as? Bool ?? false
         sus = json[PolicyOverrideDefaultSettings.SusKey] as? String ?? ""
         netbootServer = json[PolicyOverrideDefaultSettings.NetbootServerKey] as? String ?? ""
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

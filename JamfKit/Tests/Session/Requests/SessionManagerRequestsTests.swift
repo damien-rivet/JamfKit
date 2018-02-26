@@ -2,7 +2,8 @@
 //  JamfKitSessionManagerRequestsTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -22,6 +23,10 @@ class SessionManagerRequestsTests: XCTestCase {
 
     override func setUp() {
         try? SessionManager.instance.configure(for: defaultHost, username: defaultUsername, password: defaultPassword)
+    }
+
+    override func tearDown() {
+        SessionManager.instance.clearConfiguration()
     }
 
     // MARK: - Tests
@@ -52,45 +57,5 @@ class SessionManagerRequestsTests: XCTestCase {
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue.value(forHTTPHeaderField: HttpHeader.authorization.rawValue), defaultAuthorizationHeader)
-    }
-
-    func testShouldReturnAuthentifiedCreateRequest() {
-        let defaultURL = URL(string: defaultHost)!
-
-        let actualValue = SessionManager.instance.createRequest(for: defaultURL)
-
-        XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue.value(forHTTPHeaderField: HttpHeader.authorization.rawValue), defaultAuthorizationHeader)
-        XCTAssertEqual(actualValue.httpMethod, HttpMethod.post.rawValue)
-    }
-
-    func testShouldReturnAuthentifiedReadRequest() {
-        let defaultURL = URL(string: defaultHost)!
-
-        let actualValue = SessionManager.instance.readRequest(for: defaultURL)
-
-        XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue.value(forHTTPHeaderField: HttpHeader.authorization.rawValue), defaultAuthorizationHeader)
-        XCTAssertEqual(actualValue.httpMethod, HttpMethod.get.rawValue)
-    }
-
-    func testShouldReturnAuthentifiedUpdateRequest() {
-        let defaultURL = URL(string: defaultHost)!
-
-        let actualValue = SessionManager.instance.updateRequest(for: defaultURL)
-
-        XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue.value(forHTTPHeaderField: HttpHeader.authorization.rawValue), defaultAuthorizationHeader)
-        XCTAssertEqual(actualValue.httpMethod, HttpMethod.put.rawValue)
-    }
-
-    func testShouldReturnAuthentifiedDeleteRequest() {
-        let defaultURL = URL(string: defaultHost)!
-
-        let actualValue = SessionManager.instance.deleteRequest(for: defaultURL)
-
-        XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue.value(forHTTPHeaderField: HttpHeader.authorization.rawValue), defaultAuthorizationHeader)
-        XCTAssertEqual(actualValue.httpMethod, HttpMethod.delete.rawValue)
     }
 }

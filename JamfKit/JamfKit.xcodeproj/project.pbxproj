@@ -37,12 +37,12 @@
 		ED1B70E41FEA973A00005658 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E21FEA973A00005658 /* Department.swift */; };
 		ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E51FEA981800005658 /* DepartmentTests.swift */; };
 		ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E51FEA981800005658 /* DepartmentTests.swift */; };
-		ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
 		ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
-		ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930A1FA20FAB005589F5 /* Identifiable.swift */; };
 		ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
 		ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
 		ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
+		ED21F25C2020D89600E4F852 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21F25B2020D89600E4F852 /* Requestable.swift */; };
+		ED21F25D2020D89600E4F852 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21F25B2020D89600E4F852 /* Requestable.swift */; };
 		ED2DF2A72000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */; };
 		ED2DF2A82000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */; };
 		ED2DF2AA2000213500FD0A30 /* HardwareGroupCriterionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A92000213500FD0A30 /* HardwareGroupCriterionTests.swift */; };
@@ -55,12 +55,50 @@
 		ED326B8B1FFD2AAA00809793 /* MobileDeviceGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B891FFD2AAA00809793 /* MobileDeviceGeneralTests.swift */; };
 		ED326B8D1FFD2AB500809793 /* MobileDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B8C1FFD2AB500809793 /* MobileDeviceTests.swift */; };
 		ED326B8E1FFD2AB500809793 /* MobileDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B8C1FFD2AB500809793 /* MobileDeviceTests.swift */; };
+		ED34418A2036E5210078450E /* Creatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441892036E5210078450E /* Creatable.swift */; };
+		ED34418B2036E5210078450E /* Creatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441892036E5210078450E /* Creatable.swift */; };
+		ED34418D2036E5470078450E /* Deletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34418C2036E5470078450E /* Deletable.swift */; };
+		ED34418E2036E5470078450E /* Deletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34418C2036E5470078450E /* Deletable.swift */; };
+		ED3441902036E5520078450E /* Readable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34418F2036E5520078450E /* Readable.swift */; };
+		ED3441912036E5520078450E /* Readable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34418F2036E5520078450E /* Readable.swift */; };
+		ED3441932036E55C0078450E /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441922036E55C0078450E /* Updatable.swift */; };
+		ED3441942036E55C0078450E /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441922036E55C0078450E /* Updatable.swift */; };
+		ED3441972036E73E0078450E /* BuildingRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441962036E73E0078450E /* BuildingRequestsTests.swift */; };
+		ED3441982036E73E0078450E /* BuildingRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441962036E73E0078450E /* BuildingRequestsTests.swift */; };
+		ED34419A2036E9AB0078450E /* DepartmentRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441992036E9AB0078450E /* DepartmentRequestsTests.swift */; };
+		ED34419B2036E9AB0078450E /* DepartmentRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441992036E9AB0078450E /* DepartmentRequestsTests.swift */; };
+		ED34419E2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34419D2036EA340078450E /* ComputerCommandRequestsTests.swift */; };
+		ED34419F2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34419D2036EA340078450E /* ComputerCommandRequestsTests.swift */; };
+		ED3441A22036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A12036EE310078450E /* ComputerGroupRequestsTests.swift */; };
+		ED3441A32036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A12036EE310078450E /* ComputerGroupRequestsTests.swift */; };
+		ED3441A62036EF0C0078450E /* ComputerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A52036EF0C0078450E /* ComputerRequestsTests.swift */; };
+		ED3441A72036EF0C0078450E /* ComputerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A52036EF0C0078450E /* ComputerRequestsTests.swift */; };
+		ED3441AA2036EFD30078450E /* ComputerConfigurationRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A92036EFD30078450E /* ComputerConfigurationRequestsTests.swift */; };
+		ED3441AB2036EFD30078450E /* ComputerConfigurationRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A92036EFD30078450E /* ComputerConfigurationRequestsTests.swift */; };
+		ED3441AD20370A820078450E /* PrinterRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441AC20370A820078450E /* PrinterRequestsTests.swift */; };
+		ED3441AE20370A820078450E /* PrinterRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441AC20370A820078450E /* PrinterRequestsTests.swift */; };
+		ED3441B020370B3F0078450E /* ScriptRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441AF20370B3F0078450E /* ScriptRequestsTests.swift */; };
+		ED3441B120370B3F0078450E /* ScriptRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441AF20370B3F0078450E /* ScriptRequestsTests.swift */; };
+		ED3441B320370BA30078450E /* SiteRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441B220370BA30078450E /* SiteRequestsTests.swift */; };
+		ED3441B420370BA30078450E /* SiteRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441B220370BA30078450E /* SiteRequestsTests.swift */; };
+		ED3441B620370C280078450E /* UserRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441B520370C280078450E /* UserRequestsTests.swift */; };
+		ED3441B720370C280078450E /* UserRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441B520370C280078450E /* UserRequestsTests.swift */; };
+		ED3441BB20370CE20078450E /* MobileDeviceRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441BA20370CE20078450E /* MobileDeviceRequestsTests.swift */; };
+		ED3441BC20370CE20078450E /* MobileDeviceRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441BA20370CE20078450E /* MobileDeviceRequestsTests.swift */; };
+		ED3441BF20370D930078450E /* MobileDeviceGroupRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441BE20370D930078450E /* MobileDeviceGroupRequestsTests.swift */; };
+		ED3441C020370D930078450E /* MobileDeviceGroupRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441BE20370D930078450E /* MobileDeviceGroupRequestsTests.swift */; };
+		ED3441C2203714490078450E /* NetbootServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441C1203714490078450E /* NetbootServerRequestsTests.swift */; };
+		ED3441C3203714490078450E /* NetbootServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441C1203714490078450E /* NetbootServerRequestsTests.swift */; };
+		ED3441C5203714C60078450E /* DirectoryBindingRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441C4203714C60078450E /* DirectoryBindingRequestsTests.swift */; };
+		ED3441C6203714C60078450E /* DirectoryBindingRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441C4203714C60078450E /* DirectoryBindingRequestsTests.swift */; };
 		ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3597821FAA11B6006E3B66 /* JSONHelper.swift */; };
 		ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3597821FAA11B6006E3B66 /* JSONHelper.swift */; };
 		ED3E04801FFCCA58001600CA /* NetworkSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */; };
 		ED3E04811FFCCA58001600CA /* NetworkSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */; };
 		ED3E04831FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */; };
 		ED3E04841FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */; };
+		ED406202203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */; };
+		ED406203203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */; };
 		ED47ED1220206B3A00AF1BF6 /* SessionManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */; };
 		ED47ED1320206B3A00AF1BF6 /* SessionManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */; };
 		ED47ED1520206FBC00AF1BF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1420206FBC00AF1BF6 /* Constants.swift */; };
@@ -107,6 +145,10 @@
 		ED91011B200516AA000935E8 /* ComputerCommandGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */; };
 		ED91011E200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */; };
 		ED91011F200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */; };
+		ED96A6AA203A1EE000C711D5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6A9203A1EE000C711D5 /* StringExtension.swift */; };
+		ED96A6AB203A1EE000C711D5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6A9203A1EE000C711D5 /* StringExtension.swift */; };
+		ED96A6AE203A1FB700C711D5 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */; };
+		ED96A6AF203A1FB700C711D5 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */; };
 		ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
 		ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
@@ -115,6 +157,10 @@
 		EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */; };
 		EDA3CFD51FFC195100B22D36 /* SMTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */; };
 		EDA3CFD61FFC195100B22D36 /* SMTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */; };
+		EDB3318F2036D0B500F43D31 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3318E2036D0B500F43D31 /* Identifiable.swift */; };
+		EDB331902036D0B500F43D31 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3318E2036D0B500F43D31 /* Identifiable.swift */; };
+		EDB331922036D1DF00F43D31 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB331912036D1DF00F43D31 /* Endpoint.swift */; };
+		EDB331932036D1DF00F43D31 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB331912036D1DF00F43D31 /* Endpoint.swift */; };
 		EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */; };
 		EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */; };
 		EDB698FE1FECF20800C021E6 /* NetbootServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */; };
@@ -161,6 +207,12 @@
 		EDC96DB62004C73000262530 /* ComputerGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC96DB42004C73000262530 /* ComputerGroupTests.swift */; };
 		EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
 		EDCE84B11FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
+		EDE3AA1F203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */; };
+		EDE3AA20203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */; };
+		EDE3AA23203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */; };
+		EDE3AA24203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */; };
+		EDE3AA26203C863F00ABB163 /* Subset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA25203C863F00ABB163 /* Subset.swift */; };
+		EDE3AA27203C863F00ABB163 /* Subset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA25203C863F00ABB163 /* Subset.swift */; };
 		EDF70B6920075944006B5DFF /* SessionManagerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */; };
 		EDF70B6A20075944006B5DFF /* SessionManagerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */; };
 		EDF70B6D20076067006B5DFF /* SessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6C20076067006B5DFF /* SessionManagerTests.swift */; };
@@ -212,17 +264,36 @@
 		ED1B70E21FEA973A00005658 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		ED1B70E51FEA981800005658 /* DepartmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTests.swift; sourceTree = "<group>"; };
 		ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObjectTests.swift; sourceTree = "<group>"; };
-		ED1D930A1FA20FAB005589F5 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		ED1D930C1FA20FB0005589F5 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		ED21F25B2020D89600E4F852 /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceGroupTests.swift; sourceTree = "<group>"; };
 		ED2DF2A92000213500FD0A30 /* HardwareGroupCriterionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareGroupCriterionTests.swift; sourceTree = "<group>"; };
 		ED326B811FFD1B3900809793 /* MobileDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDevice.swift; sourceTree = "<group>"; };
 		ED326B851FFD1D6200809793 /* MobileDeviceGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MobileDeviceGeneral.swift; path = ../../../../JamfKit/Sources/Models/MobileDevice/MobileDeviceGeneral.swift; sourceTree = "<group>"; };
 		ED326B891FFD2AAA00809793 /* MobileDeviceGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MobileDeviceGeneralTests.swift; path = ../../../../JamfKit/Tests/Models/MobileDevice/MobileDeviceGeneralTests.swift; sourceTree = "<group>"; };
 		ED326B8C1FFD2AB500809793 /* MobileDeviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceTests.swift; sourceTree = "<group>"; };
+		ED3441892036E5210078450E /* Creatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatable.swift; sourceTree = "<group>"; };
+		ED34418C2036E5470078450E /* Deletable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deletable.swift; sourceTree = "<group>"; };
+		ED34418F2036E5520078450E /* Readable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readable.swift; sourceTree = "<group>"; };
+		ED3441922036E55C0078450E /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		ED3441962036E73E0078450E /* BuildingRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441992036E9AB0078450E /* DepartmentRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentRequestsTests.swift; sourceTree = "<group>"; };
+		ED34419D2036EA340078450E /* ComputerCommandRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441A12036EE310078450E /* ComputerGroupRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGroupRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441A52036EF0C0078450E /* ComputerRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441A92036EFD30078450E /* ComputerConfigurationRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerConfigurationRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441AC20370A820078450E /* PrinterRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441AF20370B3F0078450E /* ScriptRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441B220370BA30078450E /* SiteRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441B520370C280078450E /* UserRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441BA20370CE20078450E /* MobileDeviceRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441BE20370D930078450E /* MobileDeviceGroupRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceGroupRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441C1203714490078450E /* NetbootServerRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServerRequestsTests.swift; sourceTree = "<group>"; };
+		ED3441C4203714C60078450E /* DirectoryBindingRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryBindingRequestsTests.swift; sourceTree = "<group>"; };
 		ED3597821FAA11B6006E3B66 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkSegment.swift; path = ../../../JamfKit/Sources/Models/NetworkSegment.swift; sourceTree = "<group>"; };
 		ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSegmentTests.swift; sourceTree = "<group>"; };
+		ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareGroupTests.swift; sourceTree = "<group>"; };
 		ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerError.swift; sourceTree = "<group>"; };
 		ED47ED1420206FBC00AF1BF6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED4C59051FFE3CCE00E84A25 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -246,10 +317,14 @@
 		ED9100C220050B4C000935E8 /* JamfKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JamfKit.h; sourceTree = "<group>"; };
 		ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandGeneral.swift; sourceTree = "<group>"; };
 		ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerCommandGeneralTests.swift; sourceTree = "<group>"; };
+		ED96A6A9203A1EE000C711D5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		ED9826F41FEAB14300DD5411 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterTests.swift; sourceTree = "<group>"; };
 		EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServer.swift; path = ../../../JamfKit/Sources/Models/SMTPServer.swift; sourceTree = "<group>"; };
 		EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServerTests.swift; path = ../../../JamfKit/Tests/Models/SMTPServerTests.swift; sourceTree = "<group>"; };
+		EDB3318E2036D0B500F43D31 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		EDB331912036D1DF00F43D31 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServer.swift; sourceTree = "<group>"; };
 		EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServerTests.swift; sourceTree = "<group>"; };
 		EDB9B93D1FFF712400287739 /* ComputerCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerCommand.swift; sourceTree = "<group>"; };
@@ -266,6 +341,7 @@
 		EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyGeneralTests.swift; sourceTree = "<group>"; };
 		EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyNetworkLimitationsTests.swift; sourceTree = "<group>"; };
 		EDB9B9671FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyOverrideDefaultSettingsTests.swift; sourceTree = "<group>"; };
+		EDBED6C12020E53000DF308F /* Examples.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Examples.playground; sourceTree = "<group>"; };
 		EDC6644F1FFFC87C00504DDB /* Partition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partition.swift; sourceTree = "<group>"; };
 		EDC664521FFFCA7600504DDB /* PartitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartitionTests.swift; sourceTree = "<group>"; };
 		EDC96DA82004C52F00262530 /* HardwareGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareGroup.swift; sourceTree = "<group>"; };
@@ -273,6 +349,9 @@
 		EDC96DAF2004C5F400262530 /* ComputerGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGroup.swift; sourceTree = "<group>"; };
 		EDC96DB42004C73000262530 /* ComputerGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGroupTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPurchasing.swift; sourceTree = "<group>"; };
+		EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPServerRequestsTests.swift; sourceTree = "<group>"; };
+		EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyRequestsTests.swift; sourceTree = "<group>"; };
+		EDE3AA25203C863F00ABB163 /* Subset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subset.swift; sourceTree = "<group>"; };
 		EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerRequests.swift; sourceTree = "<group>"; };
 		EDF70B6C20076067006B5DFF /* SessionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerTests.swift; sourceTree = "<group>"; };
 		EDF70B6F20076079006B5DFF /* SessionManagerRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerRequestsTests.swift; sourceTree = "<group>"; };
@@ -318,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				52D6D99C1BEFF38C002C0205 /* Configs */,
+				ED21F25E2020DD5900E4F852 /* Playgrounds */,
 				52D6D97D1BEFF229002C0205 /* Products */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
@@ -347,11 +427,12 @@
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				ED47ED1420206FBC00AF1BF6 /* Constants.swift */,
+				ED96A6A8203A1EC900C711D5 /* Extensions */,
 				ED9100C220050B4C000935E8 /* JamfKit.h */,
 				ED1D93051FA20F43005589F5 /* Models */,
 				ED1D93061FA20F49005589F5 /* Protocols */,
 				ED0D101820066ED700E0001A /* Session */,
-				ED47ED1420206FBC00AF1BF6 /* Constants.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -359,6 +440,7 @@
 		8933C7831EB5B7EB000D00A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ED96A6AC203A1F9F00C711D5 /* Extensions */,
 				ED3597811FAA1182006E3B66 /* Helpers */,
 				ED1D93071FA20F86005589F5 /* Models */,
 				ED71F2B31FA9ED720056790C /* Resources */,
@@ -398,8 +480,8 @@
 		ED0D101820066ED700E0001A /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				ED21F25A2020D84500E4F852 /* Requests */,
 				ED0D101920066FC000E0001A /* SessionManager.swift */,
-				EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */,
 				ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */,
 			);
 			path = Session;
@@ -437,7 +519,11 @@
 		ED1D93061FA20F49005589F5 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				ED1D930A1FA20FAB005589F5 /* Identifiable.swift */,
+				EDB331912036D1DF00F43D31 /* Endpoint.swift */,
+				EDB3318E2036D0B500F43D31 /* Identifiable.swift */,
+				ED21F25B2020D89600E4F852 /* Requestable.swift */,
+				ED3441882036E50E0078450E /* Requests */,
+				EDE3AA25203C863F00ABB163 /* Subset.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -445,10 +531,10 @@
 		ED1D93071FA20F86005589F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ED91011C200516D0000935E8 /* ComputerCommand */,
 				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
 				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
 				ED071F501FB33386003FAB0E /* Computer */,
+				ED91011C200516D0000935E8 /* ComputerCommand */,
 				ED680AFB2003C10600F80EDB /* ComputerConfiguration */,
 				EDC96DB32004C6DF00262530 /* ComputerGroup */,
 				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
@@ -469,6 +555,22 @@
 				ED7383A21FAB7D5A006259FC /* UserTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ED21F25A2020D84500E4F852 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		ED21F25E2020DD5900E4F852 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				EDBED6C12020E53000DF308F /* Examples.playground */,
+			);
+			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 		ED2DF2A52000204D00FD0A30 /* MobileDeviceGroup */ = {
@@ -493,6 +595,89 @@
 			children = (
 				ED326B891FFD2AAA00809793 /* MobileDeviceGeneralTests.swift */,
 				ED326B8C1FFD2AB500809793 /* MobileDeviceTests.swift */,
+			);
+			path = MobileDevice;
+			sourceTree = "<group>";
+		};
+		ED3441882036E50E0078450E /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441892036E5210078450E /* Creatable.swift */,
+				ED34418C2036E5470078450E /* Deletable.swift */,
+				ED34418F2036E5520078450E /* Readable.swift */,
+				ED3441922036E55C0078450E /* Updatable.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		ED3441952036E71E0078450E /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441962036E73E0078450E /* BuildingRequestsTests.swift */,
+				ED3441A42036EEFC0078450E /* Computer */,
+				ED34419C2036EA170078450E /* ComputerCommand */,
+				ED3441A82036EFBF0078450E /* ComputerConfiguration */,
+				ED3441A02036EE1B0078450E /* ComputerGroup */,
+				ED3441992036E9AB0078450E /* DepartmentRequestsTests.swift */,
+				ED3441C4203714C60078450E /* DirectoryBindingRequestsTests.swift */,
+				ED3441B920370CCE0078450E /* MobileDevice */,
+				ED3441B820370CC50078450E /* MobileDeviceGroup */,
+				ED3441C1203714490078450E /* NetbootServerRequestsTests.swift */,
+				EDE3AA21203C7BA500ABB163 /* Policy */,
+				ED3441AC20370A820078450E /* PrinterRequestsTests.swift */,
+				ED3441AF20370B3F0078450E /* ScriptRequestsTests.swift */,
+				EDF70B6F20076079006B5DFF /* SessionManagerRequestsTests.swift */,
+				ED3441B220370BA30078450E /* SiteRequestsTests.swift */,
+				EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */,
+				ED3441B520370C280078450E /* UserRequestsTests.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		ED34419C2036EA170078450E /* ComputerCommand */ = {
+			isa = PBXGroup;
+			children = (
+				ED34419D2036EA340078450E /* ComputerCommandRequestsTests.swift */,
+			);
+			path = ComputerCommand;
+			sourceTree = "<group>";
+		};
+		ED3441A02036EE1B0078450E /* ComputerGroup */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441A12036EE310078450E /* ComputerGroupRequestsTests.swift */,
+			);
+			path = ComputerGroup;
+			sourceTree = "<group>";
+		};
+		ED3441A42036EEFC0078450E /* Computer */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441A52036EF0C0078450E /* ComputerRequestsTests.swift */,
+			);
+			path = Computer;
+			sourceTree = "<group>";
+		};
+		ED3441A82036EFBF0078450E /* ComputerConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441A92036EFD30078450E /* ComputerConfigurationRequestsTests.swift */,
+			);
+			path = ComputerConfiguration;
+			sourceTree = "<group>";
+		};
+		ED3441B820370CC50078450E /* MobileDeviceGroup */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441BE20370D930078450E /* MobileDeviceGroupRequestsTests.swift */,
+			);
+			path = MobileDeviceGroup;
+			sourceTree = "<group>";
+		};
+		ED3441B920370CCE0078450E /* MobileDevice */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441BA20370CE20078450E /* MobileDeviceRequestsTests.swift */,
 			);
 			path = MobileDevice;
 			sourceTree = "<group>";
@@ -571,6 +756,22 @@
 			path = ComputerCommand;
 			sourceTree = "<group>";
 		};
+		ED96A6A8203A1EC900C711D5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED96A6A9203A1EE000C711D5 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ED96A6AC203A1F9F00C711D5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EDB9B9441FFF836500287739 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,6 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				ED2DF2A92000213500FD0A30 /* HardwareGroupCriterionTests.swift */,
+				ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */,
 			);
 			path = HardwareGroup;
 			sourceTree = "<group>";
@@ -630,10 +832,18 @@
 			path = ComputerGroup;
 			sourceTree = "<group>";
 		};
+		EDE3AA21203C7BA500ABB163 /* Policy */ = {
+			isa = PBXGroup;
+			children = (
+				EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */,
+			);
+			path = Policy;
+			sourceTree = "<group>";
+		};
 		EDF70B6B20076048006B5DFF /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				EDF70B6F20076079006B5DFF /* SessionManagerRequestsTests.swift */,
+				ED3441952036E71E0078450E /* Requests */,
 				EDF70B6C20076067006B5DFF /* SessionManagerTests.swift */,
 			);
 			path = Session;
@@ -858,17 +1068,22 @@
 				ED071F5B1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED7383A11FAB75CE006259FC /* User.swift in Sources */,
 				EDB9B94F1FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */,
+				EDE3AA26203C863F00ABB163 /* Subset.swift in Sources */,
 				EDC96DAC2004C54000262530 /* HardwareGroupCriterion.swift in Sources */,
-				ED1D930B1FA20FAB005589F5 /* Identifiable.swift in Sources */,
 				ED4C59061FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */,
 				EDB9B94C1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
 				EDF70B6920075944006B5DFF /* SessionManagerRequests.swift in Sources */,
+				ED3441932036E55C0078450E /* Updatable.swift in Sources */,
 				EDB9B93E1FFF712400287739 /* ComputerCommand.swift in Sources */,
+				ED34418A2036E5210078450E /* Creatable.swift in Sources */,
 				ED72A2BE2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */,
+				ED21F25C2020D89600E4F852 /* Requestable.swift in Sources */,
+				EDB3318F2036D0B500F43D31 /* Identifiable.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
 				ED56BB7F1FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
+				ED96A6AA203A1EE000C711D5 /* StringExtension.swift in Sources */,
 				ED071F611FB34222003FAB0E /* PreciseDate.swift in Sources */,
 				EDB9B9491FFF838A00287739 /* PolicyGeneral.swift in Sources */,
 				EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */,
@@ -878,10 +1093,12 @@
 				ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */,
 				ED47ED1520206FBC00AF1BF6 /* Constants.swift in Sources */,
 				ED680AF92003B05E00F80EDB /* ComputerConfigurationManagement.swift in Sources */,
+				ED34418D2036E5470078450E /* Deletable.swift in Sources */,
 				ED169F221FFE5F2F00DD7B61 /* DirectoryBinding.swift in Sources */,
 				ED3E04801FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDC664501FFFC87C00504DDB /* Partition.swift in Sources */,
 				ED680B032003C56C00F80EDB /* ComputerConfigurationGeneral.swift in Sources */,
+				ED3441902036E5520078450E /* Readable.swift in Sources */,
 				EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDC96DA92004C52F00262530 /* HardwareGroup.swift in Sources */,
 				EDA3CFD21FFC100500B22D36 /* SMTPServer.swift in Sources */,
@@ -892,6 +1109,7 @@
 				ED0D101A20066FC000E0001A /* SessionManager.swift in Sources */,
 				ED47ED1220206B3A00AF1BF6 /* SessionManagerError.swift in Sources */,
 				ED7BF1051FFCD9C100F47566 /* Computer.swift in Sources */,
+				EDB331922036D1DF00F43D31 /* Endpoint.swift in Sources */,
 				ED1B70E31FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -903,8 +1121,10 @@
 				ED7BF1081FFCDA9100F47566 /* ComputerTests.swift in Sources */,
 				ED3E04831FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */,
 				EDB698FE1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
+				ED3441BF20370D930078450E /* MobileDeviceGroupRequestsTests.swift in Sources */,
 				ED071F5E1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
 				EDB9B9401FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
+				ED3441AD20370A820078450E /* PrinterRequestsTests.swift in Sources */,
 				ED91011E200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */,
 				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F241FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
@@ -915,29 +1135,45 @@
 				ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */,
 				EDC96DB52004C73000262530 /* ComputerGroupTests.swift in Sources */,
 				ED2DF2A72000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */,
+				ED3441B620370C280078450E /* UserRequestsTests.swift in Sources */,
 				EDB9B95F1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
+				ED3441B320370BA30078450E /* SiteRequestsTests.swift in Sources */,
 				ED9EF3F11FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
+				ED3441C5203714C60078450E /* DirectoryBindingRequestsTests.swift in Sources */,
 				EDF70B6D20076067006B5DFF /* SessionManagerTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
+				ED34419A2036E9AB0078450E /* DepartmentRequestsTests.swift in Sources */,
 				ED326B8A1FFD2AAA00809793 /* MobileDeviceGeneralTests.swift in Sources */,
 				ED7BF10B1FFCE03400F47566 /* ComputerPurchasingTests.swift in Sources */,
 				ED680B002003C12E00F80EDB /* ComputerConfigurationManagementTests.swift in Sources */,
 				ED73839E1FAB5B09006259FC /* SiteTests.swift in Sources */,
+				ED3441972036E73E0078450E /* BuildingRequestsTests.swift in Sources */,
 				ED680B062003C61200F80EDB /* ComputerConfigurationGeneralTest.swift in Sources */,
 				ED071F581FB333AF003FAB0E /* ComputerLocationTests.swift in Sources */,
+				EDE3AA1F203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */,
+				ED34419E2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */,
 				ED169F2B1FFE742300DD7B61 /* ScriptTests.swift in Sources */,
+				ED3441AA2036EFD30078450E /* ComputerConfigurationRequestsTests.swift in Sources */,
 				ED326B8D1FFD2AB500809793 /* MobileDeviceTests.swift in Sources */,
 				EDC664531FFFCA7600504DDB /* PartitionTests.swift in Sources */,
 				EDA3CFD51FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93111FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
+				ED3441BB20370CE20078450E /* MobileDeviceRequestsTests.swift in Sources */,
+				ED406202203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */,
+				ED3441A62036EF0C0078450E /* ComputerRequestsTests.swift in Sources */,
 				EDB9B9621FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */,
 				EDF70B7020076079006B5DFF /* SessionManagerRequestsTests.swift in Sources */,
 				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80711FEA773600169C39 /* BuildingTests.swift in Sources */,
+				ED3441B020370B3F0078450E /* ScriptRequestsTests.swift in Sources */,
+				EDE3AA23203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */,
+				ED3441C2203714490078450E /* NetbootServerRequestsTests.swift in Sources */,
 				EDB9B95C1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1C1FFE504000DD7B61 /* PackageTests.swift in Sources */,
 				EDB9B9591FFF9B8B00287739 /* PolicyTests.swift in Sources */,
+				ED3441A22036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */,
 				ED2DF2AA2000213500FD0A30 /* HardwareGroupCriterionTests.swift in Sources */,
+				ED96A6AE203A1FB700C711D5 /* StringExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,16 +1187,22 @@
 				ED071F5C1FB33D11003FAB0E /* ComputerRemoteManagement.swift in Sources */,
 				ED6C4AE31FAC61DF007B7026 /* User.swift in Sources */,
 				EDB9B9501FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */,
+				EDE3AA27203C863F00ABB163 /* Subset.swift in Sources */,
 				EDC96DAD2004C54000262530 /* HardwareGroupCriterion.swift in Sources */,
 				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
 				ED4C59071FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806F1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */,
 				EDB9B94D1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
+				ED3441942036E55C0078450E /* Updatable.swift in Sources */,
 				EDF70B6A20075944006B5DFF /* SessionManagerRequests.swift in Sources */,
+				ED34418B2036E5210078450E /* Creatable.swift in Sources */,
 				EDB9B9421FFF7B6400287739 /* ComputerCommand.swift in Sources */,
 				ED72A2BF2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */,
+				EDB331902036D0B500F43D31 /* Identifiable.swift in Sources */,
+				ED21F25D2020D89600E4F852 /* Requestable.swift in Sources */,
 				ED73839C1FAB5AD9006259FC /* Site.swift in Sources */,
+				ED96A6AB203A1EE000C711D5 /* StringExtension.swift in Sources */,
 				ED56BB801FB1B24B00416C1A /* ComputerLocation.swift in Sources */,
 				ED071F621FB34222003FAB0E /* PreciseDate.swift in Sources */,
 				EDB9B94A1FFF838A00287739 /* PolicyGeneral.swift in Sources */,
@@ -968,13 +1210,14 @@
 				EDB9B9471FFF837B00287739 /* Policy.swift in Sources */,
 				ED071F4F1FB33275003FAB0E /* ComputerGeneral.swift in Sources */,
 				EDB9B9531FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */,
-				ED1D930E1FA20FB3005589F5 /* Identifiable.swift in Sources */,
 				ED47ED1620206FBC00AF1BF6 /* Constants.swift in Sources */,
 				ED680AFA2003B05E00F80EDB /* ComputerConfigurationManagement.swift in Sources */,
+				ED34418E2036E5470078450E /* Deletable.swift in Sources */,
 				ED169F291FFE6D8F00DD7B61 /* DirectoryBinding.swift in Sources */,
 				ED3E04811FFCCA58001600CA /* NetworkSegment.swift in Sources */,
 				EDC664511FFFC87C00504DDB /* Partition.swift in Sources */,
 				ED680B042003C56C00F80EDB /* ComputerConfigurationGeneral.swift in Sources */,
+				ED3441912036E5520078450E /* Readable.swift in Sources */,
 				EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
 				EDC96DAA2004C52F00262530 /* HardwareGroup.swift in Sources */,
 				EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */,
@@ -985,6 +1228,7 @@
 				ED0D101B20066FC000E0001A /* SessionManager.swift in Sources */,
 				ED47ED1320206B3A00AF1BF6 /* SessionManagerError.swift in Sources */,
 				ED7BF1061FFCD9C100F47566 /* Computer.swift in Sources */,
+				EDB331932036D1DF00F43D31 /* Endpoint.swift in Sources */,
 				ED1B70E41FEA973A00005658 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -996,8 +1240,10 @@
 				ED7BF1091FFCDA9100F47566 /* ComputerTests.swift in Sources */,
 				ED3E04841FFCCDAD001600CA /* NetworkSegmentTests.swift in Sources */,
 				EDB698FF1FECF20800C021E6 /* NetbootServerTests.swift in Sources */,
+				ED3441C020370D930078450E /* MobileDeviceGroupRequestsTests.swift in Sources */,
 				ED071F5F1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
 				EDB9B9411FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
+				ED3441AE20370A820078450E /* PrinterRequestsTests.swift in Sources */,
 				ED91011F200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */,
 				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F251FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
@@ -1008,29 +1254,45 @@
 				ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */,
 				EDC96DB62004C73000262530 /* ComputerGroupTests.swift in Sources */,
 				ED2DF2A82000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */,
+				ED3441B720370C280078450E /* UserRequestsTests.swift in Sources */,
 				EDB9B9601FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
+				ED3441B420370BA30078450E /* SiteRequestsTests.swift in Sources */,
 				ED9EF3F21FEABC7E00676AB3 /* PrinterTests.swift in Sources */,
+				ED3441C6203714C60078450E /* DirectoryBindingRequestsTests.swift in Sources */,
 				EDF70B6E20076067006B5DFF /* SessionManagerTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
+				ED34419B2036E9AB0078450E /* DepartmentRequestsTests.swift in Sources */,
 				ED326B8B1FFD2AAA00809793 /* MobileDeviceGeneralTests.swift in Sources */,
 				ED7BF10C1FFCE03400F47566 /* ComputerPurchasingTests.swift in Sources */,
 				ED680B012003C12E00F80EDB /* ComputerConfigurationManagementTests.swift in Sources */,
 				ED73839F1FAB5B09006259FC /* SiteTests.swift in Sources */,
+				ED3441982036E73E0078450E /* BuildingRequestsTests.swift in Sources */,
 				ED680B072003C61200F80EDB /* ComputerConfigurationGeneralTest.swift in Sources */,
 				ED071F591FB333AF003FAB0E /* ComputerLocationTests.swift in Sources */,
+				EDE3AA20203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */,
+				ED34419F2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */,
 				ED169F2C1FFE742300DD7B61 /* ScriptTests.swift in Sources */,
+				ED3441AB2036EFD30078450E /* ComputerConfigurationRequestsTests.swift in Sources */,
 				ED326B8E1FFD2AB500809793 /* MobileDeviceTests.swift in Sources */,
 				EDC664541FFFCA7600504DDB /* PartitionTests.swift in Sources */,
 				EDA3CFD61FFC195100B22D36 /* SMTPServerTests.swift in Sources */,
 				ED1D93101FA20FB9005589F5 /* BaseObjectTests.swift in Sources */,
+				ED3441BC20370CE20078450E /* MobileDeviceRequestsTests.swift in Sources */,
+				ED406203203D81BA008B4B6A /* HardwareGroupTests.swift in Sources */,
+				ED3441A72036EF0C0078450E /* ComputerRequestsTests.swift in Sources */,
 				EDB9B9631FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */,
 				EDF70B7120076079006B5DFF /* SessionManagerRequestsTests.swift in Sources */,
 				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80721FEA773600169C39 /* BuildingTests.swift in Sources */,
+				ED3441B120370B3F0078450E /* ScriptRequestsTests.swift in Sources */,
+				EDE3AA24203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */,
+				ED3441C3203714490078450E /* NetbootServerRequestsTests.swift in Sources */,
 				EDB9B95D1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
 				ED169F1D1FFE504000DD7B61 /* PackageTests.swift in Sources */,
 				EDB9B95A1FFF9B8B00287739 /* PolicyTests.swift in Sources */,
+				ED3441A32036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */,
 				ED2DF2AB2000213500FD0A30 /* HardwareGroupCriterionTests.swift in Sources */,
+				ED96A6AF203A1FB700C711D5 /* StringExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
