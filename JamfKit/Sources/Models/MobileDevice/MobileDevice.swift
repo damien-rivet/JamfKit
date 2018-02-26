@@ -12,7 +12,7 @@ public final class MobileDevice: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "mobiledevices"
+    public static let Endpoint = "mobiledevices"
     static let GeneralKey = "general"
 
     // MARK: - Properties

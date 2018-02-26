@@ -1,24 +1,23 @@
 //
-//  Policy.swift
+//  ComputerConfigurationProfile.swift
 //  JamfKit
 //
 //  Copyright © 2017-present JamfKit. All rights reserved.
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-/// Reprents as logical policy that can be applied to any hardware element managed by Jamf.
-@objc(JMFKPolicy)
-public final class Policy: NSObject, Requestable, Endpoint, Subset {
+/// Represents a logical configuration profile that can be applied to any computer managed by Jamf.
+@objc(JMFKComputerConfigurationProfile)
+public final class ComputerConfigurationProfile: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
-    public static let Endpoint = "policies"
+    public static let Endpoint = "osxconfigurationprofiles"
     static let GeneralKey = "general"
 
     // MARK: - Properties
 
-    @objc
-    public var general: PolicyGeneral
+    public var general: ComputerConfigurationProfileGeneral
 
     public override var description: String {
         return "[\(String(describing: type(of: self)))][\(general.identifier) - \(general.name)]"
@@ -28,8 +27,8 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
 
     public init?(json: [String: Any], node: String = "") {
         guard
-            let generalNode = json[Policy.GeneralKey] as? [String: Any],
-            let general = PolicyGeneral(json: generalNode)
+            let generalNode = json[ComputerConfigurationProfile.GeneralKey] as? [String: Any],
+            let general = ComputerConfigurationProfileGeneral(json: generalNode)
             else {
                 return nil
         }
@@ -38,13 +37,11 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
     }
 
     public init?(identifier: UInt, name: String) {
-        guard let general = PolicyGeneral(identifier: identifier, name: name) else {
+        guard let general = ComputerConfigurationProfileGeneral(identifier: identifier, name: name) else {
             return nil
         }
 
         self.general = general
-
-        super.init()
     }
 
     // MARK: - Functions
@@ -52,7 +49,7 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[Policy.GeneralKey] = general.toJSON()
+        json[ComputerConfigurationProfile.GeneralKey] = general.toJSON()
 
         return json
     }
@@ -60,7 +57,7 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
 
 // MARK: - Creatable
 
-extension Policy: Creatable {
+extension ComputerConfigurationProfile: Creatable {
 
     public func createRequest() -> URLRequest? {
         return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
@@ -69,7 +66,7 @@ extension Policy: Creatable {
 
 // MARK: - Readable
 
-extension Policy: Readable {
+extension ComputerConfigurationProfile: Readable {
 
     public static func readAllRequest() -> URLRequest? {
         return getReadAllRequest()
@@ -80,7 +77,7 @@ extension Policy: Readable {
     }
 
     public func readRequest() -> URLRequest? {
-        return Policy.readRequest(identifier: String(general.identifier))
+        return ComputerConfigurationProfile.readRequest(identifier: String(general.identifier))
     }
 
     public func readRequestWithName() -> URLRequest? {
@@ -90,7 +87,7 @@ extension Policy: Readable {
 
 // MARK: - Updatable
 
-extension Policy: Updatable {
+extension ComputerConfigurationProfile: Updatable {
 
     public func updateRequest() -> URLRequest? {
         return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
@@ -104,14 +101,14 @@ extension Policy: Updatable {
 
 // MARK: - Deletable
 
-extension Policy: Deletable {
+extension ComputerConfigurationProfile: Deletable {
 
     public static func deleteRequest(identifier: String) -> URLRequest? {
         return getDeleteRequest(identifier: identifier)
     }
 
     public func deleteRequest() -> URLRequest? {
-        return Policy.deleteRequest(identifier: String(general.identifier))
+        return ComputerConfigurationProfile.deleteRequest(identifier: String(general.identifier))
     }
 
     /// Returns a DELETE **URLRequest** based on the supplied name.
@@ -121,6 +118,6 @@ extension Policy: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the name.
     public func deleteRequestWithName() -> URLRequest? {
-        return Policy.deleteRequest(name: general.name)
+        return ComputerConfigurationProfile.deleteRequest(name: general.name)
     }
 }

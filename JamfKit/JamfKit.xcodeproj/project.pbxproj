@@ -157,6 +157,16 @@
 		EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */; };
 		EDA3CFD51FFC195100B22D36 /* SMTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */; };
 		EDA3CFD61FFC195100B22D36 /* SMTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */; };
+		EDABBA4E2044765200697048 /* MobileDeviceConfigurationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA4D2044765200697048 /* MobileDeviceConfigurationProfile.swift */; };
+		EDABBA4F2044765200697048 /* MobileDeviceConfigurationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA4D2044765200697048 /* MobileDeviceConfigurationProfile.swift */; };
+		EDABBA512044766000697048 /* ComputerConfigurationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA502044766000697048 /* ComputerConfigurationProfile.swift */; };
+		EDABBA522044766000697048 /* ComputerConfigurationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA502044766000697048 /* ComputerConfigurationProfile.swift */; };
+		EDABBA5520447AB700697048 /* ConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5420447AB700697048 /* ConfigurationProfileGeneral.swift */; };
+		EDABBA5620447AB700697048 /* ConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5420447AB700697048 /* ConfigurationProfileGeneral.swift */; };
+		EDABBA5820447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5720447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift */; };
+		EDABBA5920447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5720447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift */; };
+		EDABBA5B20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5A20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift */; };
+		EDABBA5C20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5A20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift */; };
 		EDB3318F2036D0B500F43D31 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3318E2036D0B500F43D31 /* Identifiable.swift */; };
 		EDB331902036D0B500F43D31 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3318E2036D0B500F43D31 /* Identifiable.swift */; };
 		EDB331922036D1DF00F43D31 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB331912036D1DF00F43D31 /* Endpoint.swift */; };
@@ -179,12 +189,12 @@
 		EDB9B9501FFF83C000287739 /* PolicyNetworkLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */; };
 		EDB9B9521FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */; };
 		EDB9B9531FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */; };
-		EDB9B9551FFF879F00287739 /* PolicyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9541FFF879F00287739 /* PolicyCategory.swift */; };
-		EDB9B9561FFF879F00287739 /* PolicyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9541FFF879F00287739 /* PolicyCategory.swift */; };
+		EDB9B9551FFF879F00287739 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9541FFF879F00287739 /* Category.swift */; };
+		EDB9B9561FFF879F00287739 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9541FFF879F00287739 /* Category.swift */; };
 		EDB9B9591FFF9B8B00287739 /* PolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */; };
 		EDB9B95A1FFF9B8B00287739 /* PolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */; };
-		EDB9B95C1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */; };
-		EDB9B95D1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */; };
+		EDB9B95C1FFF9BA100287739 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95B1FFF9BA100287739 /* CategoryTests.swift */; };
+		EDB9B95D1FFF9BA100287739 /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95B1FFF9BA100287739 /* CategoryTests.swift */; };
 		EDB9B95F1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */; };
 		EDB9B9601FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */; };
 		EDB9B9621FFF9BB500287739 /* PolicyGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */; };
@@ -207,6 +217,20 @@
 		EDC96DB62004C73000262530 /* ComputerGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC96DB42004C73000262530 /* ComputerGroupTests.swift */; };
 		EDCE84B01FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
 		EDCE84B11FC3152E0066AA75 /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
+		EDD2B94120454B78001E138F /* ConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94020454B78001E138F /* ConfigurationProfileGeneralTests.swift */; };
+		EDD2B94220454B78001E138F /* ConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94020454B78001E138F /* ConfigurationProfileGeneralTests.swift */; };
+		EDD2B94920454BAE001E138F /* ComputerConfigurationProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94820454BAE001E138F /* ComputerConfigurationProfileTests.swift */; };
+		EDD2B94A20454BAE001E138F /* ComputerConfigurationProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94820454BAE001E138F /* ComputerConfigurationProfileTests.swift */; };
+		EDD2B94C20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94B20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift */; };
+		EDD2B94D20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94B20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift */; };
+		EDD2B94F20454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94E20454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift */; };
+		EDD2B95020454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94E20454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift */; };
+		EDD2B95220454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B95120454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift */; };
+		EDD2B95320454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B95120454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift */; };
+		EDD2B956204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B955204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift */; };
+		EDD2B957204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B955204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift */; };
+		EDD2B95920456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B95820456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift */; };
+		EDD2B95A20456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B95820456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift */; };
 		EDE3AA1F203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */; };
 		EDE3AA20203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */; };
 		EDE3AA23203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */; };
@@ -323,6 +347,11 @@
 		ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterTests.swift; sourceTree = "<group>"; };
 		EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServer.swift; path = ../../../JamfKit/Sources/Models/SMTPServer.swift; sourceTree = "<group>"; };
 		EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SMTPServerTests.swift; path = ../../../JamfKit/Tests/Models/SMTPServerTests.swift; sourceTree = "<group>"; };
+		EDABBA4D2044765200697048 /* MobileDeviceConfigurationProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceConfigurationProfile.swift; sourceTree = "<group>"; };
+		EDABBA502044766000697048 /* ComputerConfigurationProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerConfigurationProfile.swift; sourceTree = "<group>"; };
+		EDABBA5420447AB700697048 /* ConfigurationProfileGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProfileGeneral.swift; sourceTree = "<group>"; };
+		EDABBA5720447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceConfigurationProfileGeneral.swift; sourceTree = "<group>"; };
+		EDABBA5A20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerConfigurationProfileGeneral.swift; sourceTree = "<group>"; };
 		EDB3318E2036D0B500F43D31 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		EDB331912036D1DF00F43D31 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetbootServer.swift; sourceTree = "<group>"; };
@@ -334,9 +363,9 @@
 		EDB9B94B1FFF83AF00287739 /* PolicyDateTimeLimitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyDateTimeLimitations.swift; sourceTree = "<group>"; };
 		EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyNetworkLimitations.swift; sourceTree = "<group>"; };
 		EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyOverrideDefaultSettings.swift; sourceTree = "<group>"; };
-		EDB9B9541FFF879F00287739 /* PolicyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyCategory.swift; sourceTree = "<group>"; };
+		EDB9B9541FFF879F00287739 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PolicyTests.swift; path = ../../../../JamfKit/Tests/Models/Policy/PolicyTests.swift; sourceTree = "<group>"; };
-		EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyCategoryTests.swift; sourceTree = "<group>"; };
+		EDB9B95B1FFF9BA100287739 /* CategoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTests.swift; sourceTree = "<group>"; };
 		EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyDateTimeLimitationsTests.swift; sourceTree = "<group>"; };
 		EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyGeneralTests.swift; sourceTree = "<group>"; };
 		EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyNetworkLimitationsTests.swift; sourceTree = "<group>"; };
@@ -349,6 +378,13 @@
 		EDC96DAF2004C5F400262530 /* ComputerGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGroup.swift; sourceTree = "<group>"; };
 		EDC96DB42004C73000262530 /* ComputerGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGroupTests.swift; sourceTree = "<group>"; };
 		EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPurchasing.swift; sourceTree = "<group>"; };
+		EDD2B94020454B78001E138F /* ConfigurationProfileGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationProfileGeneralTests.swift; sourceTree = "<group>"; };
+		EDD2B94820454BAE001E138F /* ComputerConfigurationProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerConfigurationProfileTests.swift; sourceTree = "<group>"; };
+		EDD2B94B20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerConfigurationProfileGeneralTests.swift; sourceTree = "<group>"; };
+		EDD2B94E20454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceConfigurationProfileTests.swift; sourceTree = "<group>"; };
+		EDD2B95120454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceConfigurationProfileGeneralTests.swift; sourceTree = "<group>"; };
+		EDD2B955204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerConfigurationProfileRequestsTests.swift; sourceTree = "<group>"; };
+		EDD2B95820456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDeviceConfigurationProfileRequestTests.swift; sourceTree = "<group>"; };
 		EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTPServerRequestsTests.swift; sourceTree = "<group>"; };
 		EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyRequestsTests.swift; sourceTree = "<group>"; };
 		EDE3AA25203C863F00ABB163 /* Subset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subset.swift; sourceTree = "<group>"; };
@@ -492,15 +528,15 @@
 			children = (
 				ED1D930C1FA20FB0005589F5 /* BaseObject.swift */,
 				EDFE806D1FEA76EA00169C39 /* Building.swift */,
+				EDB9B9541FFF879F00287739 /* Category.swift */,
 				ED56BB7A1FB1B14400416C1A /* Computer */,
 				ED91011820051692000935E8 /* ComputerCommand */,
 				ED680AF42003B02600F80EDB /* ComputerConfiguration */,
-				EDC96DAE2004C5D500262530 /* ComputerGroup */,
+				EDABBA492044733800697048 /* ConfigurationProfile */,
 				ED1B70E21FEA973A00005658 /* Department.swift */,
 				ED169F211FFE5F2F00DD7B61 /* DirectoryBinding.swift */,
 				EDC96DA72004C51700262530 /* HardwareGroup */,
 				ED326B841FFD1CA800809793 /* MobileDevice */,
-				ED72A2BC200012420047E0B7 /* MobileDeviceGroup */,
 				EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */,
 				ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */,
 				ED4C59051FFE3CCE00E84A25 /* Package.swift */,
@@ -531,17 +567,17 @@
 		ED1D93071FA20F86005589F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EDD2B93F20454B65001E138F /* ConfigurationProfile */,
 				ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */,
 				EDFE80701FEA773600169C39 /* BuildingTests.swift */,
+				EDB9B95B1FFF9BA100287739 /* CategoryTests.swift */,
 				ED071F501FB33386003FAB0E /* Computer */,
 				ED91011C200516D0000935E8 /* ComputerCommand */,
 				ED680AFB2003C10600F80EDB /* ComputerConfiguration */,
-				EDC96DB32004C6DF00262530 /* ComputerGroup */,
 				ED1B70E51FEA981800005658 /* DepartmentTests.swift */,
 				ED169F231FFE613900DD7B61 /* DirectoryBindingTests.swift */,
 				EDC96DB22004C6D800262530 /* HardwareGroup */,
 				ED326B881FFD2A9700809793 /* MobileDevice */,
-				ED2DF2A52000204D00FD0A30 /* MobileDeviceGroup */,
 				EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */,
 				ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */,
 				ED169F1B1FFE504000DD7B61 /* PackageTests.swift */,
@@ -571,14 +607,6 @@
 				EDBED6C12020E53000DF308F /* Examples.playground */,
 			);
 			path = Playgrounds;
-			sourceTree = "<group>";
-		};
-		ED2DF2A52000204D00FD0A30 /* MobileDeviceGroup */ = {
-			isa = PBXGroup;
-			children = (
-				ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */,
-			);
-			path = MobileDeviceGroup;
 			sourceTree = "<group>";
 		};
 		ED326B841FFD1CA800809793 /* MobileDevice */ = {
@@ -617,13 +645,13 @@
 				ED3441A42036EEFC0078450E /* Computer */,
 				ED34419C2036EA170078450E /* ComputerCommand */,
 				ED3441A82036EFBF0078450E /* ComputerConfiguration */,
-				ED3441A02036EE1B0078450E /* ComputerGroup */,
+				EDD2B954204562DE001E138F /* ConfigurationProfile */,
 				ED3441992036E9AB0078450E /* DepartmentRequestsTests.swift */,
 				ED3441C4203714C60078450E /* DirectoryBindingRequestsTests.swift */,
+				EDABBA53204476DB00697048 /* HardwareGroup */,
 				ED3441B920370CCE0078450E /* MobileDevice */,
-				ED3441B820370CC50078450E /* MobileDeviceGroup */,
 				ED3441C1203714490078450E /* NetbootServerRequestsTests.swift */,
-				EDE3AA21203C7BA500ABB163 /* Policy */,
+				EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */,
 				ED3441AC20370A820078450E /* PrinterRequestsTests.swift */,
 				ED3441AF20370B3F0078450E /* ScriptRequestsTests.swift */,
 				EDF70B6F20076079006B5DFF /* SessionManagerRequestsTests.swift */,
@@ -642,14 +670,6 @@
 			path = ComputerCommand;
 			sourceTree = "<group>";
 		};
-		ED3441A02036EE1B0078450E /* ComputerGroup */ = {
-			isa = PBXGroup;
-			children = (
-				ED3441A12036EE310078450E /* ComputerGroupRequestsTests.swift */,
-			);
-			path = ComputerGroup;
-			sourceTree = "<group>";
-		};
 		ED3441A42036EEFC0078450E /* Computer */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,14 +684,6 @@
 				ED3441A92036EFD30078450E /* ComputerConfigurationRequestsTests.swift */,
 			);
 			path = ComputerConfiguration;
-			sourceTree = "<group>";
-		};
-		ED3441B820370CC50078450E /* MobileDeviceGroup */ = {
-			isa = PBXGroup;
-			children = (
-				ED3441BE20370D930078450E /* MobileDeviceGroupRequestsTests.swift */,
-			);
-			path = MobileDeviceGroup;
 			sourceTree = "<group>";
 		};
 		ED3441B920370CCE0078450E /* MobileDevice */ = {
@@ -730,14 +742,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		ED72A2BC200012420047E0B7 /* MobileDeviceGroup */ = {
-			isa = PBXGroup;
-			children = (
-				ED72A2BD2000125D0047E0B7 /* MobileDeviceGroup.swift */,
-			);
-			path = MobileDeviceGroup;
-			sourceTree = "<group>";
-		};
 		ED91011820051692000935E8 /* ComputerCommand */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,11 +776,29 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EDABBA492044733800697048 /* ConfigurationProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EDD2B93D20453C2F001E138F /* ComputerConfigurationProfile */,
+				EDABBA5420447AB700697048 /* ConfigurationProfileGeneral.swift */,
+				EDD2B93E20453C3C001E138F /* MobileDeviceConfigurationProfile */,
+			);
+			path = ConfigurationProfile;
+			sourceTree = "<group>";
+		};
+		EDABBA53204476DB00697048 /* HardwareGroup */ = {
+			isa = PBXGroup;
+			children = (
+				ED3441A12036EE310078450E /* ComputerGroupRequestsTests.swift */,
+				ED3441BE20370D930078450E /* MobileDeviceGroupRequestsTests.swift */,
+			);
+			path = HardwareGroup;
+			sourceTree = "<group>";
+		};
 		EDB9B9441FFF836500287739 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
 				EDB9B9451FFF837B00287739 /* Policy.swift */,
-				EDB9B9541FFF879F00287739 /* PolicyCategory.swift */,
 				EDB9B94B1FFF83AF00287739 /* PolicyDateTimeLimitations.swift */,
 				EDB9B9481FFF838A00287739 /* PolicyGeneral.swift */,
 				EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */,
@@ -788,7 +810,6 @@
 		EDB9B9571FFF9B7900287739 /* Policy */ = {
 			isa = PBXGroup;
 			children = (
-				EDB9B95B1FFF9BA100287739 /* PolicyCategoryTests.swift */,
 				EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */,
 				EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */,
 				EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */,
@@ -801,43 +822,78 @@
 		EDC96DA72004C51700262530 /* HardwareGroup */ = {
 			isa = PBXGroup;
 			children = (
+				EDC96DAF2004C5F400262530 /* ComputerGroup.swift */,
 				EDC96DA82004C52F00262530 /* HardwareGroup.swift */,
 				EDC96DAB2004C54000262530 /* HardwareGroupCriterion.swift */,
+				ED72A2BD2000125D0047E0B7 /* MobileDeviceGroup.swift */,
 			);
 			path = HardwareGroup;
-			sourceTree = "<group>";
-		};
-		EDC96DAE2004C5D500262530 /* ComputerGroup */ = {
-			isa = PBXGroup;
-			children = (
-				EDC96DAF2004C5F400262530 /* ComputerGroup.swift */,
-			);
-			path = ComputerGroup;
 			sourceTree = "<group>";
 		};
 		EDC96DB22004C6D800262530 /* HardwareGroup */ = {
 			isa = PBXGroup;
 			children = (
+				EDC96DB42004C73000262530 /* ComputerGroupTests.swift */,
 				ED2DF2A92000213500FD0A30 /* HardwareGroupCriterionTests.swift */,
 				ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */,
+				ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */,
 			);
 			path = HardwareGroup;
 			sourceTree = "<group>";
 		};
-		EDC96DB32004C6DF00262530 /* ComputerGroup */ = {
+		EDD2B93D20453C2F001E138F /* ComputerConfigurationProfile */ = {
 			isa = PBXGroup;
 			children = (
-				EDC96DB42004C73000262530 /* ComputerGroupTests.swift */,
+				EDABBA502044766000697048 /* ComputerConfigurationProfile.swift */,
+				EDABBA5A20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift */,
 			);
-			path = ComputerGroup;
+			path = ComputerConfigurationProfile;
 			sourceTree = "<group>";
 		};
-		EDE3AA21203C7BA500ABB163 /* Policy */ = {
+		EDD2B93E20453C3C001E138F /* MobileDeviceConfigurationProfile */ = {
 			isa = PBXGroup;
 			children = (
-				EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */,
+				EDABBA4D2044765200697048 /* MobileDeviceConfigurationProfile.swift */,
+				EDABBA5720447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift */,
 			);
-			path = Policy;
+			path = MobileDeviceConfigurationProfile;
+			sourceTree = "<group>";
+		};
+		EDD2B93F20454B65001E138F /* ConfigurationProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EDD2B94620454B88001E138F /* ComputerConfigurationProfile */,
+				EDD2B94020454B78001E138F /* ConfigurationProfileGeneralTests.swift */,
+				EDD2B94720454B96001E138F /* MobileDeviceConfigurationProfile */,
+			);
+			path = ConfigurationProfile;
+			sourceTree = "<group>";
+		};
+		EDD2B94620454B88001E138F /* ComputerConfigurationProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EDD2B94B20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift */,
+				EDD2B94820454BAE001E138F /* ComputerConfigurationProfileTests.swift */,
+			);
+			path = ComputerConfigurationProfile;
+			sourceTree = "<group>";
+		};
+		EDD2B94720454B96001E138F /* MobileDeviceConfigurationProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EDD2B95120454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift */,
+				EDD2B94E20454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift */,
+			);
+			path = MobileDeviceConfigurationProfile;
+			sourceTree = "<group>";
+		};
+		EDD2B954204562DE001E138F /* ConfigurationProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EDD2B955204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift */,
+				EDD2B95820456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift */,
+			);
+			path = ConfigurationProfile;
 			sourceTree = "<group>";
 		};
 		EDF70B6B20076048006B5DFF /* Session */ = {
@@ -1072,13 +1128,16 @@
 				EDC96DAC2004C54000262530 /* HardwareGroupCriterion.swift in Sources */,
 				ED4C59061FFE3CCE00E84A25 /* Package.swift in Sources */,
 				EDFE806E1FEA76EA00169C39 /* Building.swift in Sources */,
+				EDABBA4E2044765200697048 /* MobileDeviceConfigurationProfile.swift in Sources */,
 				ED9826F51FEAB14300DD5411 /* Printer.swift in Sources */,
 				EDB9B94C1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
 				EDF70B6920075944006B5DFF /* SessionManagerRequests.swift in Sources */,
 				ED3441932036E55C0078450E /* Updatable.swift in Sources */,
 				EDB9B93E1FFF712400287739 /* ComputerCommand.swift in Sources */,
+				EDABBA5820447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift in Sources */,
 				ED34418A2036E5210078450E /* Creatable.swift in Sources */,
 				ED72A2BE2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */,
+				EDABBA5520447AB700697048 /* ConfigurationProfileGeneral.swift in Sources */,
 				ED21F25C2020D89600E4F852 /* Requestable.swift in Sources */,
 				EDB3318F2036D0B500F43D31 /* Identifiable.swift in Sources */,
 				ED73839B1FAB5AD9006259FC /* Site.swift in Sources */,
@@ -1091,6 +1150,7 @@
 				ED071F4E1FB33275003FAB0E /* ComputerGeneral.swift in Sources */,
 				EDB9B9521FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */,
 				ED1D930D1FA20FB0005589F5 /* BaseObject.swift in Sources */,
+				EDABBA512044766000697048 /* ComputerConfigurationProfile.swift in Sources */,
 				ED47ED1520206FBC00AF1BF6 /* Constants.swift in Sources */,
 				ED680AF92003B05E00F80EDB /* ComputerConfigurationManagement.swift in Sources */,
 				ED34418D2036E5470078450E /* Deletable.swift in Sources */,
@@ -1100,11 +1160,12 @@
 				ED680B032003C56C00F80EDB /* ComputerConfigurationGeneral.swift in Sources */,
 				ED3441902036E5520078450E /* Readable.swift in Sources */,
 				EDB698FB1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
+				EDABBA5B20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift in Sources */,
 				EDC96DA92004C52F00262530 /* HardwareGroup.swift in Sources */,
 				EDA3CFD21FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				EDC96DB02004C5F400262530 /* ComputerGroup.swift in Sources */,
 				ED326B821FFD1B3900809793 /* MobileDevice.swift in Sources */,
-				EDB9B9551FFF879F00287739 /* PolicyCategory.swift in Sources */,
+				EDB9B9551FFF879F00287739 /* Category.swift in Sources */,
 				ED680AF62003B03C00F80EDB /* ComputerConfiguration.swift in Sources */,
 				ED0D101A20066FC000E0001A /* SessionManager.swift in Sources */,
 				ED47ED1220206B3A00AF1BF6 /* SessionManagerError.swift in Sources */,
@@ -1125,6 +1186,7 @@
 				ED071F5E1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
 				EDB9B9401FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
 				ED3441AD20370A820078450E /* PrinterRequestsTests.swift in Sources */,
+				EDD2B95920456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift in Sources */,
 				ED91011E200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */,
 				ED5B01471FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F241FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
@@ -1135,6 +1197,7 @@
 				ED1B70E61FEA981800005658 /* DepartmentTests.swift in Sources */,
 				EDC96DB52004C73000262530 /* ComputerGroupTests.swift in Sources */,
 				ED2DF2A72000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */,
+				EDD2B94120454B78001E138F /* ConfigurationProfileGeneralTests.swift in Sources */,
 				ED3441B620370C280078450E /* UserRequestsTests.swift in Sources */,
 				EDB9B95F1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
 				ED3441B320370BA30078450E /* SiteRequestsTests.swift in Sources */,
@@ -1142,6 +1205,7 @@
 				ED3441C5203714C60078450E /* DirectoryBindingRequestsTests.swift in Sources */,
 				EDF70B6D20076067006B5DFF /* SessionManagerTests.swift in Sources */,
 				ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */,
+				EDD2B95220454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift in Sources */,
 				ED34419A2036E9AB0078450E /* DepartmentRequestsTests.swift in Sources */,
 				ED326B8A1FFD2AAA00809793 /* MobileDeviceGeneralTests.swift in Sources */,
 				ED7BF10B1FFCE03400F47566 /* ComputerPurchasingTests.swift in Sources */,
@@ -1150,6 +1214,7 @@
 				ED3441972036E73E0078450E /* BuildingRequestsTests.swift in Sources */,
 				ED680B062003C61200F80EDB /* ComputerConfigurationGeneralTest.swift in Sources */,
 				ED071F581FB333AF003FAB0E /* ComputerLocationTests.swift in Sources */,
+				EDD2B94F20454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift in Sources */,
 				EDE3AA1F203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */,
 				ED34419E2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */,
 				ED169F2B1FFE742300DD7B61 /* ScriptTests.swift in Sources */,
@@ -1166,10 +1231,13 @@
 				ED3597831FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80711FEA773600169C39 /* BuildingTests.swift in Sources */,
 				ED3441B020370B3F0078450E /* ScriptRequestsTests.swift in Sources */,
+				EDD2B94C20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift in Sources */,
 				EDE3AA23203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */,
 				ED3441C2203714490078450E /* NetbootServerRequestsTests.swift in Sources */,
-				EDB9B95C1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
+				EDD2B94920454BAE001E138F /* ComputerConfigurationProfileTests.swift in Sources */,
+				EDB9B95C1FFF9BA100287739 /* CategoryTests.swift in Sources */,
 				ED169F1C1FFE504000DD7B61 /* PackageTests.swift in Sources */,
+				EDD2B956204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift in Sources */,
 				EDB9B9591FFF9B8B00287739 /* PolicyTests.swift in Sources */,
 				ED3441A22036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */,
 				ED2DF2AA2000213500FD0A30 /* HardwareGroupCriterionTests.swift in Sources */,
@@ -1191,13 +1259,16 @@
 				EDC96DAD2004C54000262530 /* HardwareGroupCriterion.swift in Sources */,
 				ED1D930F1FA20FB6005589F5 /* BaseObject.swift in Sources */,
 				ED4C59071FFE3CCE00E84A25 /* Package.swift in Sources */,
+				EDABBA4F2044765200697048 /* MobileDeviceConfigurationProfile.swift in Sources */,
 				EDFE806F1FEA76EA00169C39 /* Building.swift in Sources */,
 				ED9826F61FEAB14300DD5411 /* Printer.swift in Sources */,
 				EDB9B94D1FFF83AF00287739 /* PolicyDateTimeLimitations.swift in Sources */,
 				ED3441942036E55C0078450E /* Updatable.swift in Sources */,
 				EDF70B6A20075944006B5DFF /* SessionManagerRequests.swift in Sources */,
+				EDABBA5920447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift in Sources */,
 				ED34418B2036E5210078450E /* Creatable.swift in Sources */,
 				EDB9B9421FFF7B6400287739 /* ComputerCommand.swift in Sources */,
+				EDABBA5620447AB700697048 /* ConfigurationProfileGeneral.swift in Sources */,
 				ED72A2BF2000125D0047E0B7 /* MobileDeviceGroup.swift in Sources */,
 				EDB331902036D0B500F43D31 /* Identifiable.swift in Sources */,
 				ED21F25D2020D89600E4F852 /* Requestable.swift in Sources */,
@@ -1210,6 +1281,7 @@
 				EDB9B9471FFF837B00287739 /* Policy.swift in Sources */,
 				ED071F4F1FB33275003FAB0E /* ComputerGeneral.swift in Sources */,
 				EDB9B9531FFF83D600287739 /* PolicyOverrideDefaultSettings.swift in Sources */,
+				EDABBA522044766000697048 /* ComputerConfigurationProfile.swift in Sources */,
 				ED47ED1620206FBC00AF1BF6 /* Constants.swift in Sources */,
 				ED680AFA2003B05E00F80EDB /* ComputerConfigurationManagement.swift in Sources */,
 				ED34418E2036E5470078450E /* Deletable.swift in Sources */,
@@ -1219,11 +1291,12 @@
 				ED680B042003C56C00F80EDB /* ComputerConfigurationGeneral.swift in Sources */,
 				ED3441912036E5520078450E /* Readable.swift in Sources */,
 				EDB698FC1FECEF6000C021E6 /* NetbootServer.swift in Sources */,
+				EDABBA5C20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift in Sources */,
 				EDC96DAA2004C52F00262530 /* HardwareGroup.swift in Sources */,
 				EDA3CFD31FFC100500B22D36 /* SMTPServer.swift in Sources */,
 				EDC96DB12004C5F400262530 /* ComputerGroup.swift in Sources */,
 				ED326B831FFD1B3900809793 /* MobileDevice.swift in Sources */,
-				EDB9B9561FFF879F00287739 /* PolicyCategory.swift in Sources */,
+				EDB9B9561FFF879F00287739 /* Category.swift in Sources */,
 				ED680AF72003B03C00F80EDB /* ComputerConfiguration.swift in Sources */,
 				ED0D101B20066FC000E0001A /* SessionManager.swift in Sources */,
 				ED47ED1320206B3A00AF1BF6 /* SessionManagerError.swift in Sources */,
@@ -1244,6 +1317,7 @@
 				ED071F5F1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift in Sources */,
 				EDB9B9411FFF73A700287739 /* ComputerCommandTests.swift in Sources */,
 				ED3441AE20370A820078450E /* PrinterRequestsTests.swift in Sources */,
+				EDD2B95A20456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift in Sources */,
 				ED91011F200516E7000935E8 /* ComputerCommandGeneralTests.swift in Sources */,
 				ED5B01481FB357F8005F0C47 /* PreciseDateTests.swift in Sources */,
 				ED169F251FFE613900DD7B61 /* DirectoryBindingTests.swift in Sources */,
@@ -1254,6 +1328,7 @@
 				ED1B70E71FEA981800005658 /* DepartmentTests.swift in Sources */,
 				EDC96DB62004C73000262530 /* ComputerGroupTests.swift in Sources */,
 				ED2DF2A82000206300FD0A30 /* MobileDeviceGroupTests.swift in Sources */,
+				EDD2B94220454B78001E138F /* ConfigurationProfileGeneralTests.swift in Sources */,
 				ED3441B720370C280078450E /* UserRequestsTests.swift in Sources */,
 				EDB9B9601FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift in Sources */,
 				ED3441B420370BA30078450E /* SiteRequestsTests.swift in Sources */,
@@ -1261,6 +1336,7 @@
 				ED3441C6203714C60078450E /* DirectoryBindingRequestsTests.swift in Sources */,
 				EDF70B6E20076067006B5DFF /* SessionManagerTests.swift in Sources */,
 				ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */,
+				EDD2B95320454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift in Sources */,
 				ED34419B2036E9AB0078450E /* DepartmentRequestsTests.swift in Sources */,
 				ED326B8B1FFD2AAA00809793 /* MobileDeviceGeneralTests.swift in Sources */,
 				ED7BF10C1FFCE03400F47566 /* ComputerPurchasingTests.swift in Sources */,
@@ -1269,6 +1345,7 @@
 				ED3441982036E73E0078450E /* BuildingRequestsTests.swift in Sources */,
 				ED680B072003C61200F80EDB /* ComputerConfigurationGeneralTest.swift in Sources */,
 				ED071F591FB333AF003FAB0E /* ComputerLocationTests.swift in Sources */,
+				EDD2B95020454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift in Sources */,
 				EDE3AA20203C5F0E00ABB163 /* SMTPServerRequestsTests.swift in Sources */,
 				ED34419F2036EA340078450E /* ComputerCommandRequestsTests.swift in Sources */,
 				ED169F2C1FFE742300DD7B61 /* ScriptTests.swift in Sources */,
@@ -1285,10 +1362,13 @@
 				ED3597841FAA11B6006E3B66 /* JSONHelper.swift in Sources */,
 				EDFE80721FEA773600169C39 /* BuildingTests.swift in Sources */,
 				ED3441B120370B3F0078450E /* ScriptRequestsTests.swift in Sources */,
+				EDD2B94D20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift in Sources */,
 				EDE3AA24203C7BDB00ABB163 /* PolicyRequestsTests.swift in Sources */,
 				ED3441C3203714490078450E /* NetbootServerRequestsTests.swift in Sources */,
-				EDB9B95D1FFF9BA100287739 /* PolicyCategoryTests.swift in Sources */,
+				EDD2B94A20454BAE001E138F /* ComputerConfigurationProfileTests.swift in Sources */,
+				EDB9B95D1FFF9BA100287739 /* CategoryTests.swift in Sources */,
 				ED169F1D1FFE504000DD7B61 /* PackageTests.swift in Sources */,
+				EDD2B957204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift in Sources */,
 				EDB9B95A1FFF9B8B00287739 /* PolicyTests.swift in Sources */,
 				ED3441A32036EE310078450E /* ComputerGroupRequestsTests.swift in Sources */,
 				ED2DF2AB2000213500FD0A30 /* HardwareGroupCriterionTests.swift in Sources */,

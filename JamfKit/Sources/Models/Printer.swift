@@ -12,7 +12,7 @@ public final class Printer: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "printers"
+    public static let Endpoint = "printers"
     static let CategoryKey = "category"
     static let UriKey = "uri"
     static let CupsNameKey = "CUPS_name"

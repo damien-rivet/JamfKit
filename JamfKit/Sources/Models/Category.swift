@@ -6,8 +6,8 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-@objc(JMFKPolicyCategory)
-public final class PolicyCategory: BaseObject {
+@objc(JMFKCategory)
+public final class Category: BaseObject {
 
     // MARK: - Constants
 
@@ -21,7 +21,7 @@ public final class PolicyCategory: BaseObject {
     // MARK: - Initialization
 
     public required init?(json: [String: Any], node: String = "") {
-        guard let priority = json[PolicyCategory.PriorityKey] as? UInt else {
+        guard let priority = json[Category.PriorityKey] as? UInt else {
             return nil
         }
 
@@ -39,7 +39,7 @@ public final class PolicyCategory: BaseObject {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[PolicyCategory.PriorityKey] = priority
+        json[Category.PriorityKey] = priority
 
         return json
     }

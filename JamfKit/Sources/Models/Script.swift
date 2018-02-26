@@ -12,7 +12,7 @@ public final class Script: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "scripts"
+    public static let Endpoint = "scripts"
     static let CategoryKey = "category"
     static let FilenameKey = "filename"
     static let InfoKey = "info"

@@ -73,7 +73,7 @@ public final class PolicyGeneral: BaseObject {
     public var offline = false
 
     @objc
-    public var category: PolicyCategory?
+    public var category: Category?
 
     @objc
     public var dateTimeLimitations: PolicyDateTimeLimitations?
@@ -108,7 +108,7 @@ public final class PolicyGeneral: BaseObject {
         offline = json[PolicyGeneral.OfflineKey] as? Bool ?? false
 
         if let categoryNode = json[PolicyGeneral.CategoryKey] as? [String: Any] {
-            category = PolicyCategory(json: categoryNode)
+            category = Category(json: categoryNode)
         }
 
         if let dataLimitationsNode = json[PolicyGeneral.DateTimeLimitationsKey] as? [String: Any] {

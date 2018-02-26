@@ -1,0 +1,18 @@
+{
+    "id": 12345,
+    "description": "Description",
+    "site": {
+        "id": 12345,
+        "name": "Site"
+    },
+    "category": {
+        "id": 12345,
+        "name": "Category",
+        "priority": 0
+    },
+    "uuid": "55900BDC-347C-58B1-D249-F32244B11D30",
+    "deployment_method": "Install Automatically",
+    "redeploy_on_update": "Newly Assigned",
+    "redeploy_Dayss_before_certificate_expires": 0,
+    "payloads": "Payloads"
+}

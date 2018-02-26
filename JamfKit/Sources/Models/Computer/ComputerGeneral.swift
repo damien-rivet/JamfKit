@@ -125,7 +125,11 @@ public final class ComputerGeneral: BaseObject {
         barcode1 = json[ComputerGeneral.Barcode1Key] as? String ?? ""
         barcode2 = json[ComputerGeneral.Barcode2Key] as? String ?? ""
         assetTag = json[ComputerGeneral.AssetTagKey] as? String ?? ""
-        remoteManagement = ComputerGeneral.parseRemoteManagement(from: json)
+
+        if let remoteManagementNode = json[ComputerGeneral.RemoteManagementKey] as? [String: Any] {
+            remoteManagement = ComputerRemoteManagement(json: remoteManagementNode)
+        }
+
         isMdmCapable = json[ComputerGeneral.MdmCapableKey] as? Bool ?? false
         mdmCapableUsers = ComputerGeneral.parseMdmCapableUsers(from: json)
         reportDate = PreciseDate(json: json, node: ComputerGeneral.ReportDateKey)
@@ -136,7 +140,11 @@ public final class ComputerGeneral: BaseObject {
         distributionPoint = json[ComputerGeneral.DistributionPointKey] as? String ?? ""
         sus = json[ComputerGeneral.SusKey] as? String ?? ""
         netbootServer = json[ComputerGeneral.NetbootServerKey] as? String ?? ""
-        site = ComputerGeneral.parseSite(from: json)
+
+        if let siteNode = json[ComputerGeneral.SiteKey] as? [String: Any] {
+            site = Site(json: siteNode)
+        }
+
         isITunesStoreAcccountActivated = json[ComputerGeneral.ItunesStoreAccountIsActiveKey] as? Bool ?? false
 
         super.init(json: json)
@@ -203,32 +211,11 @@ public final class ComputerGeneral: BaseObject {
 
     // MARK: - Helpers
 
-    private static func parseRemoteManagement(from json: [String: Any]) -> ComputerRemoteManagement? {
-        guard
-            let remoteManagementContainer = json[ComputerGeneral.RemoteManagementKey] as? [String: Any],
-            let remoteManagement = ComputerRemoteManagement(json: remoteManagementContainer)
-            else {
-                return nil
-        }
-
-        return remoteManagement
-    }
-
     private static func parseMdmCapableUsers(from json: [String: Any]) -> [String] {
         guard let rawMdmCapableUsers = json[ComputerGeneral.MdmCapableUsersKey] as? [String: String] else {
             return [String]()
         }
 
         return rawMdmCapableUsers.map { $1 }
-    }
-
-    private static func parseSite(from json: [String: Any]) -> Site? {
-        guard
-            let rawSite = json[ComputerGeneral.SiteKey] as? [String: Any],
-            let site = Site(json: rawSite) else {
-                return nil
-        }
-
-        return site
     }
 }

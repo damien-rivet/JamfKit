@@ -97,9 +97,11 @@ Then run the following command:
 |`Building`|Represents a physical building.|
 |`Computer`|Represents a computer managed by Jamf, contains the general / location / purchasing information about the hardware.|
 |`ComputerCommand`|Represents a logical command that can be executed on any hardware element manageg by Jamf.|
+|`ComputerConfigurationProfile`|Represents a logical configuration profile that can be applied to any computer managed by Jamf.|
 |`ComputerGroup`|Represents a group of computers managed by Jamf, contains grouping information.|
 |`Department`|Represents a physical department.|
 |`DirectoryBinding`|Represents a logical binding between a computer and an active directory user.|
+|`MobileDeviceConfigurationProfile`|Represents a logical configuration profile that can be applied to any mobile device managed by Jamf.|
 |`MobileDevice`|Represents a mobile device managed by Jamf, contains the general information about the device.|
 |`MobileDeviceGroup`|Represents a group of mobile devices managed by Jamf, contains grouping information.|
 |`NetbootServer`|Represents a physical netboot server, contains information about the server and it's configuration.|

@@ -12,7 +12,7 @@ public final class SMTPServer: NSObject, Requestable, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "smtpserver"
+    public static let Endpoint = "smtpserver"
     static let EnabledKey = "enabled"
     static let HostKey = "host"
     static let PortKey = "port"

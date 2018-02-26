@@ -10,11 +10,11 @@ import XCTest
 
 @testable import JamfKit
 
-class PolicyCategoryTests: XCTestCase {
+class CategoryTests: XCTestCase {
 
     // MARK: - Constants
 
-    let subfolder = "Policy/"
+    let subfolder = "Category/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "category"
     let defaultPriority: UInt = 10
@@ -22,7 +22,7 @@ class PolicyCategoryTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldInstantiate() {
-        let actualValue = PolicyCategory(identifier: defaultIdentifier, name: defaultName)
+        let actualValue = Category(identifier: defaultIdentifier, name: defaultName)
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
@@ -30,15 +30,15 @@ class PolicyCategoryTests: XCTestCase {
     }
 
     func testShouldNotInstantiateWithInvalidParameters() {
-        let actualValue = PolicyCategory(identifier: defaultIdentifier, name: "")
+        let actualValue = Category(identifier: defaultIdentifier, name: "")
 
         XCTAssertNil(actualValue)
     }
 
     func testShouldInitializeFromJSON() {
-        let payload = self.payload(for: "policy_category_valid", subfolder: subfolder)!
+        let payload = self.payload(for: "category_valid", subfolder: subfolder)!
 
-        let actualValue = PolicyCategory(json: payload)
+        let actualValue = Category(json: payload)
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
@@ -47,17 +47,17 @@ class PolicyCategoryTests: XCTestCase {
     }
 
     func testNotShouldInitializeFromInvalidJSON() {
-        let payload = self.payload(for: "policy_category_invalid", subfolder: subfolder)!
+        let payload = self.payload(for: "category_invalid", subfolder: subfolder)!
 
-        let actualValue = PolicyCategory(json: payload)
+        let actualValue = Category(json: payload)
 
         XCTAssertNil(actualValue)
     }
 
     func testShouldEncodeToJSON() {
-        let payload = self.payload(for: "policy_category_valid", subfolder: subfolder)!
+        let payload = self.payload(for: "category_valid", subfolder: subfolder)!
 
-        let actualValue = PolicyCategory(json: payload)
+        let actualValue = Category(json: payload)
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
@@ -65,6 +65,6 @@ class PolicyCategoryTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
         XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[PolicyCategory.PriorityKey])
+        XCTAssertNotNil(encodedObject?[Category.PriorityKey])
     }
 }

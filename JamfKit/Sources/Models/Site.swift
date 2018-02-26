@@ -12,7 +12,7 @@ public final class Site: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "sites"
+    public static let Endpoint = "sites"
 }
 
 // MARK: - Creatable

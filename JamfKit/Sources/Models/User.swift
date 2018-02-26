@@ -12,7 +12,7 @@ public final class User: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "users"
+    public static let Endpoint = "users"
     static let FullNameKey = "full_name"
     static let EmailKey = "email"
     static let EmailAddressKey = "email_address"
