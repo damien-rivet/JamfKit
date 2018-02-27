@@ -2,13 +2,12 @@
 //  Location.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
 @objc(JMFKComputerLocation)
-public final class ComputerLocation: NSObject, Identifiable {
+public final class ComputerLocation: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -24,28 +23,28 @@ public final class ComputerLocation: NSObject, Identifiable {
     // MARK: - Properties
 
     @objc
-    public var username: String
+    public var username = ""
 
     @objc
-    public var realName: String
+    public var realName = ""
 
     @objc
-    public var emailAddress: String
+    public var emailAddress = ""
 
     @objc
-    public var position: String
+    public var position = ""
 
     @objc
-    public var phoneNumber: String
+    public var phoneNumber = ""
 
     @objc
-    public var department: String
+    public var department = ""
 
     @objc
-    public var building: String
+    public var building = ""
 
     @objc
-    public var room: UInt
+    public var room: UInt = 0
 
     // MARK: - Initialization
 
@@ -58,6 +57,10 @@ public final class ComputerLocation: NSObject, Identifiable {
         department = json[ComputerLocation.DepartementKey] as? String ?? ""
         building = json[ComputerLocation.BuildingKey] as? String ?? ""
         room = json[ComputerLocation.RoomKey] as? UInt ?? 0
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

@@ -2,7 +2,8 @@
 //  DirectoryBindingTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -24,6 +25,20 @@ class DirectoryBindingTests: XCTestCase {
     let defaultType = "Active Directory"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = DirectoryBinding(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = DirectoryBinding(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "directory_binding_valid", subfolder: subfolder)!
@@ -76,8 +91,8 @@ class DirectoryBindingTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 8)
 
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[DirectoryBinding.PriorityKey])
         XCTAssertNotNil(encodedObject?[DirectoryBinding.DomainKey])
         XCTAssertNotNil(encodedObject?[DirectoryBinding.UsernameKey])

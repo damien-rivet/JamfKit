@@ -2,7 +2,8 @@
 //  NetworkSegmentTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -29,6 +30,20 @@ class NetworkSegmentTests: XCTestCase {
     let defaultOverridesDepartments = false
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = NetworkSegment(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = NetworkSegment(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "network_segment_valid", subfolder: subfolder)!
@@ -77,8 +92,8 @@ class NetworkSegmentTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 13)
-        XCTAssertNotNil(encodedObject?[NetworkSegment.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[NetworkSegment.StartingAddressKey])
         XCTAssertNotNil(encodedObject?[NetworkSegment.EndingAddressKey])
         XCTAssertNotNil(encodedObject?[NetworkSegment.DistributionServerKey])

@@ -1,5 +1,3 @@
-# {Issue} OR {New feature} #
-
 :warning:
 
 New issue checklist:
@@ -13,11 +11,11 @@ New issue checklist:
 
 :warning:
 
-*Please change the section title with the right issue type.*
-
-## Short description ##
+# Short description #
 
 *Please fill this section with a short description of your issue / new feature.*
+
+-----
 
 **If the ticket is about an issue, use the following sections to give more details about the issue you're facing.**
 
@@ -27,7 +25,9 @@ New issue checklist:
 
 ### Actual outcome ###
 
-*Please fill this section with a description of what is actually happening. Please add as much information as you can (how easy it is to reproduce, steps, etc.).*
+*Please fill the following section with a description of what is actually happening. Please add as much information as you can (how easy it is to reproduce, steps, etc.).*
+
+-----
 
 **If the ticket is about a new feature, use the following sections to give more details about the changes you ask for / want to implement.**
 

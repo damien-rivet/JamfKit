@@ -2,17 +2,17 @@
 //  ComputerCommand.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a logical command that can be executed on any hardware element manageg by Jamf.
 @objc(JMFKComputerCommand)
-public final class ComputerCommand: NSObject, Identifiable {
+public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
+    public static let Endpoint = "computercommands"
     static let GeneralKey = "general"
     static let ComputersKey = "computers"
 
@@ -22,7 +22,7 @@ public final class ComputerCommand: NSObject, Identifiable {
     public var general: ComputerCommandGeneral
 
     @objc
-    public var computers: [UInt]
+    public var computers = [UInt]()
 
     public override var description: String {
         return "[\(String(describing: type(of: self)))][\(general.command)]"
@@ -47,6 +47,14 @@ public final class ComputerCommand: NSObject, Identifiable {
         }
     }
 
+    public init?(command: String, passcode: UInt) {
+        guard let general = ComputerCommandGeneral(command: command, passcode: passcode) else {
+            return nil
+        }
+
+        self.general = general
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
@@ -67,5 +75,31 @@ public final class ComputerCommand: NSObject, Identifiable {
         }
 
         return json
+    }
+}
+
+// MARK: - Creatable
+
+extension ComputerCommand: Creatable {
+
+    public func createRequest() -> URLRequest? {
+        return SessionManager.instance.createRequest(for: self, key: ComputerCommandGeneral.CommandKey, value: general.command)
+    }
+}
+
+// MARK: - Readable
+
+extension ComputerCommand: Readable {
+
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return nil
+    }
+
+    public func readRequest() -> URLRequest? {
+        return nil
     }
 }

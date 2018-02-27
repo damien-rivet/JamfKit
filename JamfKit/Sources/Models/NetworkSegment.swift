@@ -2,10 +2,9 @@
 //  NetworkSegment.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a physical network segment, contains information about the segment and it's configuration.
 @objc(JMFKNetworkSegment)
@@ -28,37 +27,37 @@ public final class NetworkSegment: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var startingAddress: String
+    public var startingAddress = ""
 
     @objc
-    public var endingAddress: String
+    public var endingAddress = ""
 
     @objc
-    public var distributionServer: String
+    public var distributionServer = ""
 
     @objc
-    public var distributionPoint: String
+    public var distributionPoint = ""
 
     @objc
-    public var url: String
+    public var url = ""
 
     @objc
-    public var netbootServer: String
+    public var netbootServer = ""
 
     @objc
-    public var swuServer: String
+    public var swuServer = ""
 
     @objc
-    public var building: String
+    public var building = ""
 
     @objc
-    public var department: String
+    public var department = ""
 
     @objc
-    public var overridesBuildings: Bool
+    public var overridesBuildings = false
 
     @objc
-    public var overridesDepartments: Bool
+    public var overridesDepartments = false
 
     // MARK: - Initialization
 
@@ -76,6 +75,10 @@ public final class NetworkSegment: BaseObject {
         overridesDepartments = json[NetworkSegment.OverrideDepartmentsKey] as? Bool ?? false
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

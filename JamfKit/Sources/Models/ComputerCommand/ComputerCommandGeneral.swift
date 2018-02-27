@@ -2,13 +2,12 @@
 //  ComputerCommandGeneral.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
 @objc(JMFKComputerCommandGeneral)
-public final class ComputerCommandGeneral: NSObject, Identifiable {
+public final class ComputerCommandGeneral: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -18,10 +17,10 @@ public final class ComputerCommandGeneral: NSObject, Identifiable {
     // MARK: - Properties
 
     @objc
-    public var command: String
+    public var command = ""
 
     @objc
-    public var passcode: UInt
+    public var passcode: UInt = 0
 
     // MARK: - Initialization
 
@@ -31,6 +30,15 @@ public final class ComputerCommandGeneral: NSObject, Identifiable {
             let passcode = json[ComputerCommandGeneral.PasscodeKey] as? UInt
             else {
                 return nil
+        }
+
+        self.command = command
+        self.passcode = passcode
+    }
+
+    public init?(command: String, passcode: UInt) {
+        guard !command.isEmpty, passcode > 0 else {
+            return nil
         }
 
         self.command = command

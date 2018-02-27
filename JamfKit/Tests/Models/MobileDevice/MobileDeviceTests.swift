@@ -2,7 +2,8 @@
 //  MobileDeviceTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -14,8 +15,24 @@ class MobileDeviceTests: XCTestCase {
     // MARK: - Constants
 
     let subfolder = "MobileDevice/"
+    let defaultIdentifier: UInt = 12345
+    let defaultName = "computer"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = MobileDevice(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.general.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.general.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = MobileDevice(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "mobile_device", subfolder: subfolder)!

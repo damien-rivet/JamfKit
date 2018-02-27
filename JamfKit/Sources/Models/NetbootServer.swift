@@ -2,17 +2,17 @@
 //  NetbootServer.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a physical netboot server, contains information about the server and it's configuration.
 @objc(JMFKNetbootServer)
-public final class NetbootServer: BaseObject {
+public final class NetbootServer: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint = "netbootservers"
     static let IpAddressKey = "ip_address"
     static let DefaultImageKey = "default_image"
     static let SpecificImageKey = "specific_image"
@@ -29,40 +29,40 @@ public final class NetbootServer: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var ipAddress: String
+    public var ipAddress = ""
 
     @objc
-    public var isDefaultImage: Bool
+    public var isDefaultImage = false
 
     @objc
-    public var isSpecificImage: Bool
+    public var isSpecificImage = false
 
     @objc
-    public var targetPlatform: String
+    public var targetPlatform = ""
 
     @objc
-    public var sharePoint: String
+    public var sharePoint = ""
 
     @objc
-    public var set: String
+    public var set = ""
 
     @objc
-    public var image: String
+    public var image = ""
 
     @objc
-    public var filesystemProtocol: String
+    public var filesystemProtocol = ""
 
     @objc
-    public var configureManually: Bool
+    public var configureManually = false
 
     @objc
-    public var bootArguments: String
+    public var bootArguments = ""
 
     @objc
-    public var bootFile: String
+    public var bootFile = ""
 
     @objc
-    public var bootDevice: String
+    public var bootDevice = ""
 
     public override var description: String {
         return "[\(String(describing: NetbootServer.self))][\(identifier) - \(self.ipAddress)]"
@@ -87,6 +87,10 @@ public final class NetbootServer: BaseObject {
         super.init(json: json)
     }
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     // MARK: - Functions
 
     public override func toJSON() -> [String: Any] {
@@ -106,5 +110,78 @@ public final class NetbootServer: BaseObject {
         json[NetbootServer.BootDeviceKey] = bootDevice
 
         return json
+    }
+}
+
+// MARK: - Creatable
+
+extension NetbootServer: Creatable {
+
+    public func createRequest() -> URLRequest? {
+        return getCreateRequest()
+    }
+}
+
+// MARK: - Readable
+
+extension NetbootServer: Readable {
+
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return getReadRequest()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied name.
+    public static func readRequest(name: String) -> URLRequest? {
+        return getReadRequest(name: name)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithName() -> URLRequest? {
+        return getReadRequestWithName()
+    }
+}
+
+// MARK: - Updatable
+
+extension NetbootServer: Updatable {
+
+    public func updateRequest() -> URLRequest? {
+        return getUpdateRequest()
+    }
+
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
+        return getUpdateRequestWithName()
+    }
+}
+
+// MARK: - Deletable
+
+extension NetbootServer: Deletable {
+
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
+    }
+
+    public func deleteRequest() -> URLRequest? {
+        return getDeleteRequest()
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return getDeleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return getDeleteRequestWithName()
     }
 }

@@ -2,7 +2,8 @@
 //  PrinterTests.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -30,6 +31,20 @@ class PrinterTests: XCTestCase {
     let defaultPpdContents = "string"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = Printer(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = Printer(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "printer_valid", subfolder: subfolder)!
@@ -94,8 +109,8 @@ class PrinterTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 14)
 
-        XCTAssertNotNil(encodedObject?[Printer.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[Printer.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[Printer.CategoryKey])
         XCTAssertNotNil(encodedObject?[Printer.UriKey])
         XCTAssertNotNil(encodedObject?[Printer.CupsNameKey])

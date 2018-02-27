@@ -1,9 +1,9 @@
-
 //
 //  PolicyGeneralTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -16,7 +16,7 @@ class PolicyGeneralTests: XCTestCase {
 
     let subfolder = "Policy/"
     let defaultIdentifier: UInt = 12345
-    let defaultName = "policy"
+    let defaultName = "Policy"
     let defaultEnabled = true
     let defaultTrigger = "trigger"
     let defaultTriggerCheckin = false
@@ -33,6 +33,20 @@ class PolicyGeneralTests: XCTestCase {
     let defaultNetworkRequirements = "Any"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = PolicyGeneral(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = PolicyGeneral(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "policy_general_valid", subfolder: subfolder)!
@@ -109,8 +123,8 @@ class PolicyGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 21)
 
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.NameKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[PolicyGeneral.EnabledKey])
         XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerKey])
         XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerCheckinKey])

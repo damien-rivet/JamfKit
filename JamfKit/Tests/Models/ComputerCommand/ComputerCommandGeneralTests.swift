@@ -2,7 +2,8 @@
 //  ComputerCommandGeneralTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -18,6 +19,20 @@ class ComputerCommandGeneralTests: XCTestCase {
     let defaultPasscode: UInt = 123456
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = ComputerCommandGeneral(command: defaultCommand, passcode: defaultPasscode)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.command, defaultCommand)
+        XCTAssertEqual(actualValue?.passcode, defaultPasscode)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = ComputerCommandGeneral(command: "", passcode: defaultPasscode)
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer_command_general_valid", subfolder: subfolder)!

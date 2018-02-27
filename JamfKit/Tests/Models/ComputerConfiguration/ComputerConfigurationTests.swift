@@ -2,7 +2,8 @@
 //  ComputerConfigurationTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -14,8 +15,24 @@ class ComputerConfigurationTests: XCTestCase {
     // MARK: - Constants
 
     let subfolder = "ComputerConfiguration/"
+    let defaultIdentifier: UInt = 12345
+    let defaultName = "High Sierra Base OS"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = ComputerConfiguration(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.general.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.general.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = ComputerConfiguration(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "computer_configuration", subfolder: subfolder)!

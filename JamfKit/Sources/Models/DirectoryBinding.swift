@@ -2,17 +2,17 @@
 //  DirectoryBinding.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a logical binding between a computer and an active directory user.
 @objc(JMFKDirectoryBinding)
-public final class DirectoryBinding: BaseObject {
+public final class DirectoryBinding: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint = "directorybindings"
     static let PriorityKey = "priority"
     static let DomainKey = "domain"
     static let UsernameKey = "username"
@@ -23,22 +23,22 @@ public final class DirectoryBinding: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var priority: UInt
+    public var priority: UInt = 0
 
     @objc
-    public var domain: String
+    public var domain = ""
 
     @objc
-    public var username: String
+    public var username = ""
 
     @objc
-    public var password: String
+    public var password = ""
 
     @objc
-    public var computerOrganisationalUnit: String
+    public var computerOrganisationalUnit = ""
 
     @objc
-    public var type: String
+    public var type = ""
 
     // MARK: - Initialization
 
@@ -51,6 +51,10 @@ public final class DirectoryBinding: BaseObject {
         type = json[DirectoryBinding.TypeKey] as? String ?? ""
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions
@@ -66,5 +70,78 @@ public final class DirectoryBinding: BaseObject {
         json[DirectoryBinding.TypeKey] = type
 
         return json
+    }
+}
+
+// MARK: - Creatable
+
+extension DirectoryBinding: Creatable {
+
+    public func createRequest() -> URLRequest? {
+        return getCreateRequest()
+    }
+}
+
+// MARK: - Readable
+
+extension DirectoryBinding: Readable {
+
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return getReadRequest()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied name.
+    public static func readRequest(name: String) -> URLRequest? {
+        return getReadRequest(name: name)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithName() -> URLRequest? {
+        return getReadRequestWithName()
+    }
+}
+
+// MARK: - Updatable
+
+extension DirectoryBinding: Updatable {
+
+    public func updateRequest() -> URLRequest? {
+        return getUpdateRequest()
+    }
+
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
+        return getUpdateRequestWithName()
+    }
+}
+
+// MARK: - Deletable
+
+extension DirectoryBinding: Deletable {
+
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
+    }
+
+    public func deleteRequest() -> URLRequest? {
+        return getDeleteRequest()
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return getDeleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return getDeleteRequestWithName()
     }
 }

@@ -2,10 +2,9 @@
 //  Package.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a logical application package, contains information about the application requirements and capabilities.
 @objc(JMFKPackage)
@@ -34,55 +33,55 @@ public final class Package: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var category: String
+    public var category = ""
 
     @objc
-    public var filename: String
+    public var filename = ""
 
     @objc
-    public var information: String
+    public var information = ""
 
     @objc
-    public var notes: String
+    public var notes = ""
 
     @objc
-    public var priority: UInt
+    public var priority: UInt = 0
 
     @objc
-    public var isRebootRequired: Bool
+    public var isRebootRequired = false
 
     @objc
-    public var shouldFillUserTemplate: Bool
+    public var shouldFillUserTemplate = false
 
     @objc
-    public var shouldFillExistingUsers: Bool
+    public var shouldFillExistingUsers = false
 
     @objc
-    public var isBootVolumeRequired: Bool
+    public var isBootVolumeRequired = false
 
     @objc
-    public var allowsUninstallation: Bool
+    public var allowsUninstallation = false
 
     @objc
-    public var osRequirements: String
+    public var osRequirements = ""
 
     @objc
-    public var requiredProcessor: String
+    public var requiredProcessor = ""
 
     @objc
-    public var switchWithPackage: String
+    public var switchWithPackage = ""
 
     @objc
-    public var shouldInstallIfReportedAvailable: Bool
+    public var shouldInstallIfReportedAvailable = false
 
     @objc
-    public var reinstallOption: String
+    public var reinstallOption = ""
 
     @objc
-    public var triggeringFiles: String
+    public var triggeringFiles = ""
 
     @objc
-    public var shouldSendNotificaton: Bool
+    public var shouldSendNotificaton = false
 
     // MARK: - Initialization
 
@@ -106,6 +105,10 @@ public final class Package: BaseObject {
         shouldSendNotificaton = json[Package.SendNotificationKey] as? Bool ?? false
 
         super.init(json: json)
+    }
+
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions

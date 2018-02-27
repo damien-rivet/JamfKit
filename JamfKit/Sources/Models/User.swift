@@ -2,17 +2,17 @@
 //  User.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 /// Represents a Jamf user and contains the identification properties that are required to contact the actual user and identify the hardware devices assigned to him / her.
 @objc(JMFKUser)
-public final class User: BaseObject {
+public final class User: BaseObject, Endpoint {
 
     // MARK: - Constants
 
+    public static let Endpoint = "users"
     static let FullNameKey = "full_name"
     static let EmailKey = "email"
     static let EmailAddressKey = "email_address"
@@ -25,31 +25,37 @@ public final class User: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var fullName: String
+    public var fullName = ""
 
     @objc
-    public var email: String
+    public var email = ""
 
     @objc
-    public var emailAddress: String
+    public var emailAddress = ""
 
     @objc
-    public var phoneNumber: String
+    public var phoneNumber = ""
 
     @objc
-    public var position: String
+    public var position = ""
 
     @objc
-    public var enableCustomPhotoURL: Bool
+    public var enableCustomPhotoURL = false
 
     @objc
-    public var customPhotoURL: String
+    public var customPhotoURL = ""
 
     @objc
-    public var sites: [Site]
+    public var sites = [Site]()
 
     public override var description: String {
-        return "[\(String(describing: type(of: self)))][\(identifier) - \(self.fullName)]"
+        let baseDescription = super.description
+
+        if !fullName.isEmpty {
+            return "\(baseDescription)[\(self.fullName)]"
+        }
+
+        return baseDescription
     }
 
     // MARK: - Initialization
@@ -77,6 +83,10 @@ public final class User: BaseObject {
         super.init(json: json)
     }
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
@@ -95,5 +105,103 @@ public final class User: BaseObject {
         }
 
         return json
+    }
+}
+
+// MARK: - Creatable
+
+extension User: Creatable {
+
+    public func createRequest() -> URLRequest? {
+        return getCreateRequest()
+    }
+}
+
+// MARK: - Readable
+
+extension User: Readable {
+
+    public static func readAllRequest() -> URLRequest? {
+        return getReadAllRequest()
+    }
+
+    public static func readRequest(identifier: String) -> URLRequest? {
+        return getReadRequest(identifier: identifier)
+    }
+
+    public func readRequest() -> URLRequest? {
+        return getReadRequest()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied name.
+    public static func readRequest(name: String) -> URLRequest? {
+        return getReadRequest(name: name)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithName() -> URLRequest? {
+        return getReadRequestWithName()
+    }
+
+    /// Returns a GET **URLRequest** based on the supplied email.
+    public static func readRequest(email: String) -> URLRequest? {
+        return SessionManager.instance.readRequest(for: self, key: User.EmailKey, value: email)
+    }
+
+    /// Returns a GET **URLRequest** based on the email.
+    public func readRequestWithEmail() -> URLRequest? {
+        return User.readRequest(email: email)
+    }
+}
+
+// MARK: - Updatable
+
+extension User: Updatable {
+
+    public func updateRequest() -> URLRequest? {
+        return getUpdateRequest()
+    }
+
+    /// Returns a PUT **URLRequest** based on the name.
+    public func updateRequestWithName() -> URLRequest? {
+        return getUpdateRequestWithName()
+    }
+
+    /// Returns a PUT **URLRequest** based on the email.
+    public func updateRequestWithEmail() -> URLRequest? {
+        return SessionManager.instance.updateRequest(for: self, key: User.EmailKey, value: email)
+    }
+}
+
+// MARK: - Deletable
+
+extension User: Deletable {
+
+    public static func deleteRequest(identifier: String) -> URLRequest? {
+        return getDeleteRequest(identifier: identifier)
+    }
+
+    public func deleteRequest() -> URLRequest? {
+        return getDeleteRequest()
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied name.
+    public static func deleteRequest(name: String) -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the name.
+    public func deleteRequestWithName() -> URLRequest? {
+        return User.deleteRequest(name: name)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the supplied email.
+    public static func deleteRequest(email: String) -> URLRequest? {
+        return SessionManager.instance.deleteRequest(for: self, key: User.EmailKey, value: email)
+    }
+
+    /// Returns a DELETE **URLRequest** based on the email.
+    public func deleteRequestWithEmail() -> URLRequest? {
+        return User.deleteRequest(email: email)
     }
 }

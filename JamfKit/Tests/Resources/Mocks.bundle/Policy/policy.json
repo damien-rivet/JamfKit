@@ -1,7 +1,7 @@
 {
     "general": {
         "id": 12345,
-        "name": "policy",
+        "name": "Policy",
         "enabled": true,
         "trigger": "string",
         "trigger_checkin": false,

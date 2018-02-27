@@ -2,13 +2,13 @@
 //  HardwareGroup.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
-
-import Foundation
 
 @objc(JMFKHardwareGroup)
 public class HardwareGroup: BaseObject {
+
     // MARK: - Constants
 
     static let IsSmartKey = "is_smart"
@@ -18,10 +18,10 @@ public class HardwareGroup: BaseObject {
     // MARK: - Properties
 
     @objc
-    public var isSmart: Bool
+    public var isSmart = false
 
     @objc
-    public var criteria: [HardwareGroupCriterion]
+    public var criteria = [HardwareGroupCriterion]()
 
     @objc
     public var site: Site?
@@ -31,9 +31,16 @@ public class HardwareGroup: BaseObject {
     public required init?(json: [String: Any], node: String = "") {
         isSmart = json[HardwareGroup.IsSmartKey] as? Bool ?? false
         criteria = HardwareGroup.parseCriteria(json: json)
-        site = HardwareGroup.parseSite(from: json)
+
+        if let siteNode = json[HardwareGroup.SiteKey] as? [String: Any] {
+            site = Site(json: siteNode)
+        }
 
         super.init(json: json)
+    }
+
+    override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
     }
 
     // MARK: - Functions
@@ -60,15 +67,5 @@ public class HardwareGroup: BaseObject {
 
     private static func parseCriteria(json: [String: Any]) -> [HardwareGroupCriterion] {
         return BaseObject.parseElements(from: json, nodeKey: MobileDeviceGroup.CriteriaKey, singleNodeKey: "criterion")
-    }
-
-    private static func parseSite(from json: [String: Any]) -> Site? {
-        guard
-            let rawSite = json[MobileDeviceGroup.SiteKey] as? [String: Any],
-            let site = Site(json: rawSite) else {
-                return nil
-        }
-
-        return site
     }
 }

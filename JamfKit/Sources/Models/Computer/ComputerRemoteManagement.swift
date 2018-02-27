@@ -2,13 +2,12 @@
 //  ComputerRemoteManagement.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
 @objc(JMFKComputerRemoteManagement)
-public final class ComputerRemoteManagement: NSObject, Identifiable {
+public final class ComputerRemoteManagement: NSObject, Requestable {
 
     // MARK: - Constants
 
@@ -18,16 +17,20 @@ public final class ComputerRemoteManagement: NSObject, Identifiable {
     // MARK: - Properties
 
     @objc
-    public var isManaged: Bool
+    public var isManaged = false
 
     @objc
-    public var managementUsername: String
+    public var managementUsername = ""
 
     // MARK: - Initialization
 
     public init?(json: [String: Any], node: String = "") {
         isManaged = json[ComputerRemoteManagement.ManagedKey] as? Bool ?? false
         managementUsername = json[ComputerRemoteManagement.ManagementUsernameKey] as? String ?? ""
+    }
+
+    public override init() {
+        super.init()
     }
 
     // MARK: - Functions

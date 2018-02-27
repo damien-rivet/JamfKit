@@ -2,7 +2,8 @@
 //  SMTPServerTests.swift
 //  JamfKit
 //
-//  Copyright © 2018 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -27,6 +28,20 @@ class SMTPServerTests: XCTestCase {
     let defaultSendFromEmail = "smtp@jamfkit.com"
 
     // MARK: - Tests
+
+    func testShouldInstantiate() {
+        let actualValue = SMTPServer(host: defaultHost, port: defaultPort)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.host, defaultHost)
+        XCTAssertEqual(actualValue?.port, defaultPort)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = SMTPServer(host: "", port: defaultPort)
+
+        XCTAssertNil(actualValue)
+    }
 
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "smtp_server", subfolder: subfolder)!

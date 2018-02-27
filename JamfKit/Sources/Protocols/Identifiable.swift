@@ -2,21 +2,19 @@
 //  Identifiable.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-import Foundation
-
+/// Represents any JSS object that can be identified (either by ID or by name).
 @objc(JMFKIdentifiable)
 public protocol Identifiable {
 
-    // MARK: - Initialization
+    // MARK: - Properties
 
     @objc
-    init?(json: [String: Any], node: String)
-
-    // MARK: - Functions
+    var identifier: UInt { get }
 
     @objc
-    func toJSON() -> [String: Any]
+    var name: String { get }
 }

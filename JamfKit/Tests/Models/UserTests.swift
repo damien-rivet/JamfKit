@@ -2,7 +2,8 @@
 //  UserTests.swift
 //  JamfKit
 //
-//  Copyright © 2017 JamfKit. All rights reserved.
+//  Copyright © 2017-present JamfKit. All rights reserved.
+//  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -26,6 +27,20 @@ class UserTests: XCTestCase {
 
     // MARK: - Tests
 
+    func testShouldInstantiate() {
+        let actualValue = User(identifier: defaultIdentifier, name: defaultName)
+
+        XCTAssertNotNil(actualValue)
+        XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
+        XCTAssertEqual(actualValue?.name, defaultName)
+    }
+
+    func testShouldNotInstantiateWithInvalidParameters() {
+        let actualValue = User(identifier: defaultIdentifier, name: "")
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "user_valid", subfolder: subfolder)!
 
@@ -34,7 +49,7 @@ class UserTests: XCTestCase {
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
-        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier) - \(defaultFullName)]")
+        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier) - \(defaultName)][\(defaultFullName)]")
         XCTAssertEqual(actualValue?.fullName, defaultFullName)
         XCTAssertEqual(actualValue?.email, defaultEmail)
         XCTAssertEqual(actualValue?.emailAddress, defaultEmailAddress)
@@ -53,7 +68,7 @@ class UserTests: XCTestCase {
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
-        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier) - ]")
+        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier) - \(defaultName)]")
         XCTAssertEqual(actualValue?.fullName, "")
         XCTAssertEqual(actualValue?.email, "")
         XCTAssertEqual(actualValue?.emailAddress, "")
@@ -72,7 +87,7 @@ class UserTests: XCTestCase {
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
-        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier) - \(defaultFullName)]")
+        XCTAssertEqual(actualValue?.description, "[User][\(defaultIdentifier) - \(defaultName)][\(defaultFullName)]")
         XCTAssertEqual(actualValue?.fullName, defaultFullName)
         XCTAssertEqual(actualValue?.email, defaultEmail)
         XCTAssertEqual(actualValue?.emailAddress, defaultEmailAddress)
@@ -99,8 +114,9 @@ class UserTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 10)
-        XCTAssertNotNil(encodedObject?[User.IdentifierKey])
-        XCTAssertNotNil(encodedObject?[User.NameKey])
+
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
         XCTAssertNotNil(encodedObject?[User.FullNameKey])
         XCTAssertNotNil(encodedObject?[User.EmailKey])
         XCTAssertNotNil(encodedObject?[User.EmailAddressKey])
