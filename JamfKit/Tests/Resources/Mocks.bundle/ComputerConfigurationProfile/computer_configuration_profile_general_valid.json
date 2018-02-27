@@ -1,0 +1,20 @@
+{
+    "id": 12345,
+    "name": "Corporate Wireless",
+    "description": "Description",
+    "site": {
+        "id": 12345,
+        "name": "Site"
+    },
+    "category": {
+        "id": 12345,
+        "name": "Category",
+        "priority": 0
+    },
+    "distribution_method": "Install Automatically",
+    "user_removable": true,
+    "level": "computer",
+    "uuid": "88F8C1DB-D92A-4D10-95FB-CE7EDE82B93E",
+    "redeploy_on_update": "Newly Assigned",
+    "payloads": "Payloads"
+}

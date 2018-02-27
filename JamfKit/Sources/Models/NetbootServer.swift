@@ -12,7 +12,7 @@ public final class NetbootServer: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "netbootservers"
+    public static let Endpoint = "netbootservers"
     static let IpAddressKey = "ip_address"
     static let DefaultImageKey = "default_image"
     static let SpecificImageKey = "specific_image"

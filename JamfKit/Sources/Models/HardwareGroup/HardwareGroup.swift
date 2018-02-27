@@ -31,7 +31,10 @@ public class HardwareGroup: BaseObject {
     public required init?(json: [String: Any], node: String = "") {
         isSmart = json[HardwareGroup.IsSmartKey] as? Bool ?? false
         criteria = HardwareGroup.parseCriteria(json: json)
-        site = HardwareGroup.parseSite(from: json)
+
+        if let siteNode = json[HardwareGroup.SiteKey] as? [String: Any] {
+            site = Site(json: siteNode)
+        }
 
         super.init(json: json)
     }
@@ -64,15 +67,5 @@ public class HardwareGroup: BaseObject {
 
     private static func parseCriteria(json: [String: Any]) -> [HardwareGroupCriterion] {
         return BaseObject.parseElements(from: json, nodeKey: MobileDeviceGroup.CriteriaKey, singleNodeKey: "criterion")
-    }
-
-    private static func parseSite(from json: [String: Any]) -> Site? {
-        guard
-            let rawSite = json[MobileDeviceGroup.SiteKey] as? [String: Any],
-            let site = Site(json: rawSite) else {
-                return nil
-        }
-
-        return site
     }
 }

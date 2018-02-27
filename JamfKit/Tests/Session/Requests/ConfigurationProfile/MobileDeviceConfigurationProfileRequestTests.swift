@@ -1,5 +1,5 @@
 //
-//  PolicyRequestsTests.swift
+//  MobileDeviceConfigurationProfileRequestTests.swift
 //  JamfKit
 //
 //  Copyright © 2017-present JamfKit. All rights reserved.
@@ -10,21 +10,21 @@ import XCTest
 
 @testable import JamfKit
 
-class PolicyRequestsTests: XCTestCase {
+class MobileDeviceConfigurationProfileRequestTests: XCTestCase {
 
     // MARK: - Constants
 
-    let subfolder = "Policy/"
+    let subfolder = "MobileDeviceConfigurationProfile/"
     let defaultHost = "http://localhost"
-    var element: Policy!
+    var element: MobileDeviceConfigurationProfile!
 
     // MARK: - Lifecycle
 
     override func setUp() {
         try? SessionManager.instance.configure(for: defaultHost, username: "username", password: "password")
 
-        let payload = self.payload(for: "policy", subfolder: subfolder)!
-        element = Policy(json: payload)!
+        let payload = self.payload(for: "mobile_device_configuration_profile_valid", subfolder: subfolder)!
+        element = MobileDeviceConfigurationProfile(json: payload)!
     }
 
     override func tearDown() {
@@ -34,11 +34,11 @@ class PolicyRequestsTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnReadAllRequest() {
-        let actualValue = Policy.readAllRequest()
+        let actualValue = MobileDeviceConfigurationProfile.readAllRequest()
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Policy.Endpoint)")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(MobileDeviceConfigurationProfile.Endpoint)")
         XCTAssertNil(actualValue?.httpBody)
     }
 
@@ -52,11 +52,11 @@ class PolicyRequestsTests: XCTestCase {
     }
 
     func testShouldReturnStaticReadRequestWithIdentifier() {
-        let actualValue = Policy.readRequest(identifier: "12345")
+        let actualValue = MobileDeviceConfigurationProfile.readRequest(identifier: "12345")
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(Policy.Endpoint)/id/12345")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(MobileDeviceConfigurationProfile.Endpoint)/id/12345")
         XCTAssertNil(actualValue?.httpBody)
     }
 
@@ -71,10 +71,11 @@ class PolicyRequestsTests: XCTestCase {
 
     func testShouldReturnReadRequestWithName() {
         let actualValue = element.readRequestWithName()
+        let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.get.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.general.name)")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
         XCTAssertNil(actualValue?.httpBody)
     }
 
@@ -89,10 +90,11 @@ class PolicyRequestsTests: XCTestCase {
 
     func testShouldReturnUpdateRequestWithName() {
         let actualValue = element.updateRequestWithName()
+        let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.put.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.general.name)")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
         XCTAssertNotNil(actualValue?.httpBody)
     }
 
@@ -107,10 +109,11 @@ class PolicyRequestsTests: XCTestCase {
 
     func testShouldReturnDeleteRequestWithName() {
         let actualValue = element.deleteRequestWithName()
+        let encodedName = element.general.name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 
         XCTAssertNotNil(actualValue)
         XCTAssertEqual(actualValue?.httpMethod, HttpMethod.delete.rawValue)
-        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(element.general.name)")
+        XCTAssertEqual(actualValue?.url?.absoluteString, "\(defaultHost)/\(element.endpoint)/name/\(encodedName)")
         XCTAssertNil(actualValue?.httpBody)
     }
 }

@@ -12,7 +12,7 @@ public final class Computer: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "computers"
+    public static let Endpoint = "computers"
     static let GeneralKey = "general"
     static let LocationKey = "location"
     static let PurchasingKey = "purchasing"

@@ -12,7 +12,7 @@ public final class DirectoryBinding: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "directorybindings"
+    public static let Endpoint = "directorybindings"
     static let PriorityKey = "priority"
     static let DomainKey = "domain"
     static let UsernameKey = "username"

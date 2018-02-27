@@ -12,7 +12,7 @@ public final class Department: BaseObject, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "departments"
+    public static let Endpoint = "departments"
 }
 
 // MARK: - Creatable

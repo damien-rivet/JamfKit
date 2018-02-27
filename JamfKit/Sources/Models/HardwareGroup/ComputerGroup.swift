@@ -1,29 +1,29 @@
 //
-//  MobileDeviceGroup.swift
+//  ComputerGroup.swift
 //  JamfKit
 //
 //  Copyright © 2017-present JamfKit. All rights reserved.
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
-/// Represents a group of mobile devices managed by Jamf, contains grouping information.
-@objc(JMFKMobileDeviceGroup)
-public final class MobileDeviceGroup: HardwareGroup, Endpoint {
+/// Represents a group of computers managed by Jamf, contains grouping information.
+@objc(JMFKComputerGroup)
+public final class ComputerGroup: HardwareGroup, Endpoint {
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "mobiledevicegroups"
-    static let MobileDevicesKey = "mobile_devices"
+    public static let Endpoint = "computergroups"
+    static let ComputersKey = "computers"
 
     // MARK: - Properties
 
     @objc
-    public var mobileDevices = [MobileDeviceGeneral]()
+    public var computers = [ComputerGeneral]()
 
     // MARK: - Initialization
 
     public required init?(json: [String: Any], node: String = "") {
-        mobileDevices = MobileDeviceGroup.parseMobileDevices(json: json)
+        computers = ComputerGroup.parseComputers(json: json)
 
         super.init(json: json)
     }
@@ -37,23 +37,23 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        if !mobileDevices.isEmpty {
-            json[MobileDeviceGroup.MobileDevicesKey] = mobileDevices.map { mobileDevice -> [String: [String: Any]] in
-                return ["mobile_device": mobileDevice.toJSON()]
+        if !computers.isEmpty {
+            json[ComputerGroup.ComputersKey] = computers.map { computer -> [String: [String: Any]] in
+                return ["computer": computer.toJSON()]
             }
         }
 
         return json
     }
 
-    private static func parseMobileDevices(json: [String: Any]) -> [MobileDeviceGeneral] {
-        return BaseObject.parseElements(from: json, nodeKey: MobileDeviceGroup.MobileDevicesKey, singleNodeKey: "mobile_device")
+    private static func parseComputers(json: [String: Any]) -> [ComputerGeneral] {
+        return BaseObject.parseElements(from: json, nodeKey: ComputerGroup.ComputersKey, singleNodeKey: "computer")
     }
 }
 
 // MARK: - Creatable
 
-extension MobileDeviceGroup: Creatable {
+extension ComputerGroup: Creatable {
 
     public func createRequest() -> URLRequest? {
         return getCreateRequest()
@@ -62,7 +62,7 @@ extension MobileDeviceGroup: Creatable {
 
 // MARK: - Readable
 
-extension MobileDeviceGroup: Readable {
+extension ComputerGroup: Readable {
 
     public static func readAllRequest() -> URLRequest? {
         return getReadAllRequest()
@@ -89,7 +89,7 @@ extension MobileDeviceGroup: Readable {
 
 // MARK: - Updatable
 
-extension MobileDeviceGroup: Updatable {
+extension ComputerGroup: Updatable {
 
     public func updateRequest() -> URLRequest? {
         return getUpdateRequest()
@@ -103,7 +103,7 @@ extension MobileDeviceGroup: Updatable {
 
 // MARK: - Deletable
 
-extension MobileDeviceGroup: Deletable {
+extension ComputerGroup: Deletable {
 
     public static func deleteRequest(identifier: String) -> URLRequest? {
         return getDeleteRequest(identifier: identifier)

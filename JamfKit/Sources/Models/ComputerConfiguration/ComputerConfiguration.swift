@@ -12,7 +12,7 @@ public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subse
 
     // MARK: - Constants
 
-    public static let Endpoint: String = "computerconfigurations"
+    public static let Endpoint = "computerconfigurations"
     static let GeneralKey = "general"
 
     // MARK: - Properties

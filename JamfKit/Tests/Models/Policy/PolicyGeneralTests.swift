@@ -16,7 +16,7 @@ class PolicyGeneralTests: XCTestCase {
 
     let subfolder = "Policy/"
     let defaultIdentifier: UInt = 12345
-    let defaultName = "policy"
+    let defaultName = "Policy"
     let defaultEnabled = true
     let defaultTrigger = "trigger"
     let defaultTriggerCheckin = false

@@ -16,7 +16,7 @@ class PolicyTests: XCTestCase {
 
     let subfolder = "Policy/"
     let defaultIdentifier: UInt = 12345
-    let defaultName = "policy"
+    let defaultName = "Policy"
 
     // MARK: - Tests
 
@@ -40,7 +40,7 @@ class PolicyTests: XCTestCase {
         let actualValue = Policy(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[Policy][12345 - policy]")
+        XCTAssertEqual(actualValue?.description, "[Policy][\(defaultIdentifier) - \(defaultName)]")
         XCTAssertNotNil(actualValue?.general)
     }
 
@@ -50,7 +50,7 @@ class PolicyTests: XCTestCase {
         let actualValue = Policy(json: payload)
 
         XCTAssertNotNil(actualValue)
-        XCTAssertEqual(actualValue?.description, "[Policy][12345 - policy]")
+        XCTAssertEqual(actualValue?.description, "[Policy][\(defaultIdentifier) - \(defaultName)]")
         XCTAssertNotNil(actualValue?.general)
     }
 
