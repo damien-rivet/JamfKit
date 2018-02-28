@@ -11,8 +11,10 @@ public final class MobileDeviceConfigurationProfileGeneral: ConfigurationProfile
 
     // MARK: - Constants
 
-    static let DeploymentMethodKey = "deployment_method"
-    static let RedeployDaysBeforeCertificateExpiresKey = "redeploy_Dayss_before_certificate_expires"
+    enum CodingKeys: String, CodingKey {
+        case deploymentMethod = "deployment_method"
+        case redeployDaysBeforeCertificateExpires = "redeploy_Dayss_before_certificate_expires"
+    }
 
     // MARK: - Properties
 
@@ -24,15 +26,24 @@ public final class MobileDeviceConfigurationProfileGeneral: ConfigurationProfile
 
     // MARK: - Initialization
 
+    override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        deploymentMethod = json[MobileDeviceConfigurationProfileGeneral.DeploymentMethodKey] as? String ?? ""
-        redeployDaysBeforeCertificateExpires = json[MobileDeviceConfigurationProfileGeneral.RedeployDaysBeforeCertificateExpiresKey] as? UInt ?? 0
+        deploymentMethod = json[CodingKeys.deploymentMethod.rawValue] as? String ?? ""
+        redeployDaysBeforeCertificateExpires = json[CodingKeys.redeployDaysBeforeCertificateExpires.rawValue] as? UInt ?? 0
 
         super.init(json: json)
     }
 
-    override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        deploymentMethod = try container.decode(String.self, forKey: .deploymentMethod)
+        redeployDaysBeforeCertificateExpires = try container.decode(UInt.self, forKey: .redeployDaysBeforeCertificateExpires)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -40,9 +51,18 @@ public final class MobileDeviceConfigurationProfileGeneral: ConfigurationProfile
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[MobileDeviceConfigurationProfileGeneral.DeploymentMethodKey] = deploymentMethod
-        json[MobileDeviceConfigurationProfileGeneral.RedeployDaysBeforeCertificateExpiresKey] = redeployDaysBeforeCertificateExpires
+        json[CodingKeys.deploymentMethod.rawValue] = deploymentMethod
+        json[CodingKeys.redeployDaysBeforeCertificateExpires.rawValue] = redeployDaysBeforeCertificateExpires
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(deploymentMethod, forKey: .deploymentMethod)
+        try container.encode(redeployDaysBeforeCertificateExpires, forKey: .redeployDaysBeforeCertificateExpires)
+
+        try super.encode(to: encoder)
     }
 }

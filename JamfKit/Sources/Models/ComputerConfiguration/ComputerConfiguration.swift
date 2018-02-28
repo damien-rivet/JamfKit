@@ -8,12 +8,15 @@
 
 /// Represents a logical configuration that can be applied to any hardware element managed by Jamf.
 @objc(JMFKComputerConfiguration)
-public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subset {
+public final class ComputerConfiguration: NSObject, Codable, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
     public static let Endpoint = "computerconfigurations"
-    static let GeneralKey = "general"
+
+    enum CodingKeys: String, CodingKey {
+        case general
+    }
 
     // MARK: - Properties
 
@@ -26,17 +29,6 @@ public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subse
 
     // MARK: - Initialization
 
-    public required init?(json: [String: Any], node: String = "") {
-        guard
-            let generalNode = json[ComputerConfiguration.GeneralKey] as? [String: Any],
-            let general = ComputerConfigurationGeneral(json: generalNode)
-            else {
-                return nil
-        }
-
-        self.general = general
-    }
-
     public init?(identifier: UInt, name: String) {
         guard let general = ComputerConfigurationGeneral(identifier: identifier, name: name) else {
             return nil
@@ -45,14 +37,37 @@ public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subse
         self.general = general
     }
 
+    public required init?(json: [String: Any], node: String = "") {
+        guard
+            let generalNode = json[CodingKeys.general.rawValue] as? [String: Any],
+            let general = ComputerConfigurationGeneral(json: generalNode)
+            else {
+                return nil
+        }
+
+        self.general = general
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        general = try container.decode(ComputerConfigurationGeneral.self, forKey: .general)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[ComputerConfiguration.GeneralKey] = general.toJSON()
+        json[CodingKeys.general.rawValue] = general.toJSON()
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(general, forKey: .general)
     }
 }
 
@@ -61,7 +76,7 @@ public final class ComputerConfiguration: NSObject, Requestable, Endpoint, Subse
 extension ComputerConfiguration: Creatable {
 
     public func createRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 }
 
@@ -78,11 +93,11 @@ extension ComputerConfiguration: Readable {
     }
 
     public func readRequest() -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 
     public func readRequestWithName() -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 
@@ -91,12 +106,12 @@ extension ComputerConfiguration: Readable {
 extension ComputerConfiguration: Updatable {
 
     public func updateRequest() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 
     /// Returns a PUT **URLRequest** based on the name.
     public func updateRequestWithName() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 

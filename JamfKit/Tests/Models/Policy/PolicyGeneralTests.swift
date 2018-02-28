@@ -123,26 +123,73 @@ class PolicyGeneralTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 21)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.EnabledKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerCheckinKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerEnrollmentCompleteKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerLoginKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerLogoutKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerNetworkStateChangedKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerStartupKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TriggerOtherKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.FrequencyKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.LocationUserOnlyKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.TargetDriveKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.OfflineKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.CategoryKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.DateTimeLimitationsKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.NetworkLimitationsKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.OverrideDefaultSettingsKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.NetworkRequirementsKey])
-        XCTAssertNotNil(encodedObject?[PolicyGeneral.SiteKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.enabled.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.trigger.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.triggerCheckin.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.triggerEnrollmentComplete.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.triggerLogin.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.triggerLogout.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.triggerNetworkStateChanged.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.triggerStartup.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.triggerOther.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.frequency.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.locationUserOnly.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.targetDrive.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.offline.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.category.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.dateTimeLimitations.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.networkLimitations.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.overrideDefaultSettings.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.networkRequirements.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyGeneral.CodingKeys.site.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "policy_general_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(PolicyGeneral.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.isEnabled, false)
+            XCTAssertEqual(actualValue.trigger, "")
+            XCTAssertEqual(actualValue.triggerCheckin, false)
+            XCTAssertEqual(actualValue.triggerEnrollmentComplete, false)
+            XCTAssertEqual(actualValue.triggerLogin, false)
+            XCTAssertEqual(actualValue.triggerLogout, false)
+            XCTAssertEqual(actualValue.triggerNetworkStateChanged, false)
+            XCTAssertEqual(actualValue.triggerStartup, false)
+            XCTAssertEqual(actualValue.triggerOther, "")
+            XCTAssertEqual(actualValue.frequency, "")
+            XCTAssertEqual(actualValue.locationUserOnly, false)
+            XCTAssertEqual(actualValue.targetDrive, "")
+            XCTAssertEqual(actualValue.offline, false)
+            XCTAssertEqual(actualValue.networkRequirements, "")
+            XCTAssertNil(actualValue.category)
+            XCTAssertNil(actualValue.dateTimeLimitations)
+            XCTAssertNil(actualValue.networkLimitations)
+            XCTAssertNil(actualValue.overrideDefaultSettings)
+            XCTAssertNil(actualValue.site)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "policy_general_valid", subfolder: subfolder)!
+
+        let actualValue = PolicyGeneral(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

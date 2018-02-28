@@ -62,4 +62,33 @@ class SiteTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
     }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "site_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Site.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[Site][\(defaultIdentifier) - \(defaultName)]")
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "site_valid", subfolder: subfolder)!
+
+        let actualValue = Site(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
+    }
 }

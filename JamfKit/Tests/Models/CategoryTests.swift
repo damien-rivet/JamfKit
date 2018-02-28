@@ -54,6 +54,14 @@ class CategoryTests: XCTestCase {
         XCTAssertNil(actualValue)
     }
 
+    func testNotShouldInitializeFromInvalidPriority() {
+        let payload = self.payload(for: "category_invalid_priority", subfolder: subfolder)!
+
+        let actualValue = Category(json: payload)
+
+        XCTAssertNil(actualValue)
+    }
+
     func testShouldEncodeToJSON() {
         let payload = self.payload(for: "category_valid", subfolder: subfolder)!
 
@@ -63,8 +71,37 @@ class CategoryTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 3)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[Category.PriorityKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[Category.CodingKeys.priority.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "category_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Category.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.priority, defaultPriority)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "category_valid", subfolder: subfolder)!
+
+        let actualValue = Category(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

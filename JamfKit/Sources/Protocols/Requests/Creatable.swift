@@ -21,6 +21,6 @@ public protocol Creatable {
 extension Creatable where Self: Endpoint & Identifiable & Requestable {
 
     func getCreateRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.IdentifierKey, value: String(identifier))
     }
 }

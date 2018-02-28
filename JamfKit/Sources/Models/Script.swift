@@ -13,15 +13,18 @@ public final class Script: BaseObject, Endpoint {
     // MARK: - Constants
 
     public static let Endpoint = "scripts"
-    static let CategoryKey = "category"
-    static let FilenameKey = "filename"
-    static let InfoKey = "info"
-    static let NotesKey = "notes"
-    static let PriorityKey = "priority"
-    static let ParametersKey = "parameters"
-    static let OSRequirementsKey = "os_requirements"
-    static let ScriptContentsKey = "script_contents"
-    static let ScriptContentsEncodedKey = "script_contents_encoded"
+
+    enum CodingKeys: String, CodingKey {
+        case category = "category"
+        case filename = "filename"
+        case info = "info"
+        case notes = "notes"
+        case priority = "priority"
+        case parameters = "parameters"
+        case osRequirements = "os_requirements"
+        case scriptContents = "script_contents"
+        case scriptContentsEncoded = "script_contents_encoded"
+    }
 
     // MARK: - Properties
 
@@ -50,26 +53,42 @@ public final class Script: BaseObject, Endpoint {
     public var scriptContents = ""
 
     @objc
-    public var scriptEncodedContents = ""
+    public var scriptContentsEncoded = ""
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        category = json[Script.CategoryKey] as? String ?? ""
-        filename = json[Script.FilenameKey] as? String ?? ""
-        information = json[Script.InfoKey] as? String ?? ""
-        notes = json[Script.NotesKey] as? String ?? ""
-        priority = json[Script.PriorityKey] as? String ?? ""
+        category = json[CodingKeys.category.rawValue] as? String ?? ""
+        filename = json[CodingKeys.filename.rawValue] as? String ?? ""
+        information = json[CodingKeys.info.rawValue] as? String ?? ""
+        notes = json[CodingKeys.notes.rawValue] as? String ?? ""
+        priority = json[CodingKeys.priority.rawValue] as? String ?? ""
         parameters = Script.parseParameters(from: json)
-        osRequirements = json[Script.OSRequirementsKey] as? String ?? ""
-        scriptContents = json[Script.ScriptContentsKey] as? String ?? ""
-        scriptEncodedContents = json[Script.ScriptContentsEncodedKey] as? String ?? ""
+        osRequirements = json[CodingKeys.osRequirements.rawValue] as? String ?? ""
+        scriptContents = json[CodingKeys.scriptContents.rawValue] as? String ?? ""
+        scriptContentsEncoded = json[CodingKeys.scriptContentsEncoded.rawValue] as? String ?? ""
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        category = try container.decode(String.self, forKey: .category)
+        filename = try container.decode(String.self, forKey: .filename)
+        information = try container.decode(String.self, forKey: .info)
+        notes = try container.decode(String.self, forKey: .notes)
+        priority = try container.decode(String.self, forKey: .priority)
+        parameters = try container.decode([String: String].self, forKey: .parameters)
+        osRequirements = try container.decode(String.self, forKey: .osRequirements)
+        scriptContents = try container.decode(String.self, forKey: .scriptContents)
+        scriptContentsEncoded = try container.decode(String.self, forKey: .scriptContentsEncoded)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -77,21 +96,37 @@ public final class Script: BaseObject, Endpoint {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[Script.CategoryKey] = category
-        json[Script.FilenameKey] = filename
-        json[Script.InfoKey] = information
-        json[Script.NotesKey] = notes
-        json[Script.PriorityKey] = priority
-        json[Script.ParametersKey] = parameters
-        json[Script.OSRequirementsKey] = osRequirements
-        json[Script.ScriptContentsKey] = scriptContents
-        json[Script.ScriptContentsEncodedKey] = scriptEncodedContents
+        json[CodingKeys.category.rawValue] = category
+        json[CodingKeys.filename.rawValue] = filename
+        json[CodingKeys.info.rawValue] = information
+        json[CodingKeys.notes.rawValue] = notes
+        json[CodingKeys.priority.rawValue] = priority
+        json[CodingKeys.parameters.rawValue] = parameters
+        json[CodingKeys.osRequirements.rawValue] = osRequirements
+        json[CodingKeys.scriptContents.rawValue] = scriptContents
+        json[CodingKeys.scriptContentsEncoded.rawValue] = scriptContentsEncoded
 
         return json
     }
 
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(category, forKey: .category)
+        try container.encode(filename, forKey: .filename)
+        try container.encode(information, forKey: .info)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(priority, forKey: .priority)
+        try container.encode(parameters, forKey: .parameters)
+        try container.encode(osRequirements, forKey: .osRequirements)
+        try container.encode(scriptContents, forKey: .scriptContents)
+        try container.encode(scriptContentsEncoded, forKey: .scriptContentsEncoded)
+
+        try super.encode(to: encoder)
+    }
+
     private static func parseParameters(from json: [String: Any]) -> [String: String] {
-        guard let rawParameters = json[Script.ParametersKey] as? [String: String] else {
+        guard let rawParameters = json[CodingKeys.parameters.rawValue] as? [String: String] else {
             return [String: String]()
         }
 

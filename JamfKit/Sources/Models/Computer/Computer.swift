@@ -8,14 +8,17 @@
 
 /// Represents a Jamf managed computer, contains the general / location / purchasing information about the hardware.
 @objc(JMFKComputer)
-public final class Computer: NSObject, Requestable, Endpoint, Subset {
+public final class Computer: NSObject, Codable, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
     public static let Endpoint = "computers"
-    static let GeneralKey = "general"
-    static let LocationKey = "location"
-    static let PurchasingKey = "purchasing"
+
+    enum CodingKeys: String, CodingKey {
+        case general
+        case location
+        case purchasing
+    }
 
     // MARK: - Properties
 
@@ -34,25 +37,6 @@ public final class Computer: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Initialization
 
-    public required init?(json: [String: Any], node: String = "") {
-        guard
-            let generalNode = json[Computer.GeneralKey] as? [String: Any],
-            let general = ComputerGeneral(json: generalNode)
-            else {
-                return nil
-        }
-
-        self.general = general
-
-        if let locationNode = json[Computer.LocationKey] as? [String: Any] {
-            location = ComputerLocation(json: locationNode)
-        }
-
-        if let purchasingNode = json[Computer.PurchasingKey] as? [String: Any] {
-            purchasing = ComputerPurchasing(json: purchasingNode)
-        }
-    }
-
     public init?(identifier: UInt, name: String) {
         guard let general = ComputerGeneral(identifier: identifier, name: name) else {
             return nil
@@ -65,17 +49,52 @@ public final class Computer: NSObject, Requestable, Endpoint, Subset {
         super.init()
     }
 
+    public required init?(json: [String: Any], node: String = "") {
+        guard
+            let generalNode = json[CodingKeys.general.rawValue] as? [String: Any],
+            let general = ComputerGeneral(json: generalNode)
+            else {
+                return nil
+        }
+
+        self.general = general
+
+        if let locationNode = json[CodingKeys.location.rawValue] as? [String: Any] {
+            location = ComputerLocation(json: locationNode)
+        }
+
+        if let purchasingNode = json[CodingKeys.purchasing.rawValue] as? [String: Any] {
+            purchasing = ComputerPurchasing(json: purchasingNode)
+        }
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        general = try container.decode(ComputerGeneral.self, forKey: .general)
+        location = try container.decode(ComputerLocation.self, forKey: .location)
+        purchasing = try container.decode(ComputerPurchasing.self, forKey: .purchasing)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[Computer.GeneralKey] = general.toJSON()
+        json[CodingKeys.general.rawValue] = general.toJSON()
 
-        if let location = location { json[Computer.LocationKey] = location.toJSON() }
-        if let purchasing = purchasing { json[Computer.PurchasingKey] = purchasing.toJSON() }
+        if let location = location { json[CodingKeys.location.rawValue] = location.toJSON() }
+        if let purchasing = purchasing { json[CodingKeys.purchasing.rawValue] = purchasing.toJSON() }
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(general, forKey: .general)
+        try container.encode(location, forKey: .location)
+        try container.encode(purchasing, forKey: .purchasing)
     }
 }
 
@@ -84,7 +103,7 @@ public final class Computer: NSObject, Requestable, Endpoint, Subset {
 extension Computer: Creatable {
 
     public func createRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 }
 
@@ -106,7 +125,7 @@ extension Computer: Readable {
 
     /// Returns a GET **URLRequest** based on the supplied name.
     public static func readRequest(name: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 
     /// Returns a GET **URLRequest** based on the email.
@@ -116,7 +135,7 @@ extension Computer: Readable {
 
     /// Returns a GET **URLRequest** based on the supplied udid.
     public static func readRequest(udid: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.UDIDKey, value: udid)
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.CodingKeys.udid.rawValue, value: udid)
     }
 
     /// Returns a GET **URLRequest** based on the supplied udid.
@@ -126,7 +145,7 @@ extension Computer: Readable {
 
     /// Returns a GET **URLRequest** based on the supplied udid.
     public static func readRequest(serialNumber: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: serialNumber)
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.CodingKeys.serialNumber.rawValue, value: serialNumber)
     }
 
     /// Returns a GET **URLRequest** based on the supplied serial number.
@@ -136,7 +155,7 @@ extension Computer: Readable {
 
     /// Returns a GET **URLRequest** based on the supplied udid.
     public static func readRequest(macAddress: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.MacAddressKey, value: macAddress)
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.CodingKeys.macAddress.rawValue, value: macAddress)
     }
 
     /// Returns a GET **URLRequest** based on the supplied mac address.
@@ -150,27 +169,27 @@ extension Computer: Readable {
 extension Computer: Updatable {
 
     public func updateRequest() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 
     /// Returns a PUT **URLRequest** based on the name.
     public func updateRequestWithName() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 
     /// Returns a PUT **URLRequest** based on the udid.
     public func updateRequestWithUdid() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.UDIDKey, value: general.udid)
+        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.CodingKeys.udid.rawValue, value: general.udid)
     }
 
     /// Returns a PUT **URLRequest** based on the serial number.
     public func updateRequestWithSerialNumber() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: general.serialNumber)
+        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.CodingKeys.serialNumber.rawValue, value: general.serialNumber)
     }
 
     /// Returns a PUT **URLRequest** based on the mac address.
     public func updateRequestWithMacAddress() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.MacAddressKey, value: general.macAddress)
+        return SessionManager.instance.updateRequest(for: self, key: ComputerGeneral.CodingKeys.macAddress.rawValue, value: general.macAddress)
     }
 }
 
@@ -188,7 +207,7 @@ extension Computer: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the supplied name.
     public static func deleteRequest(name: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 
     /// Returns a DELETE **URLRequest** based on the name.
@@ -198,7 +217,7 @@ extension Computer: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the supplied udid.
     public static func deleteRequest(udid: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.UDIDKey, value: udid)
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.CodingKeys.udid.rawValue, value: udid)
     }
 
     /// Returns a DELETE **URLRequest** based on the udid.
@@ -208,7 +227,7 @@ extension Computer: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the supplied serial number.
     public static func deleteRequest(serialNumber: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: serialNumber)
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.CodingKeys.serialNumber.rawValue, value: serialNumber)
     }
 
     /// Returns a DELETE **URLRequest** based on the serial number.
@@ -218,7 +237,7 @@ extension Computer: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the supplied mac address.
     public static func deleteRequest(macAddress: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.MacAddressKey, value: macAddress)
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.CodingKeys.macAddress.rawValue, value: macAddress)
     }
 
     /// Returns a DELETE **URLRequest** based on the mac address.

@@ -77,13 +77,47 @@ class PartitionTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 8)
-        XCTAssertNotNil(encodedObject?[Partition.NameKey])
-        XCTAssertNotNil(encodedObject?[Partition.SizeGigabytesKey])
-        XCTAssertNotNil(encodedObject?[Partition.MaximumPercentageKey])
-        XCTAssertNotNil(encodedObject?[Partition.FormatKey])
-        XCTAssertNotNil(encodedObject?[Partition.IsRestorePartitionKey])
-        XCTAssertNotNil(encodedObject?[Partition.ComputerConfigurationKey])
-        XCTAssertNotNil(encodedObject?[Partition.ReimageKey])
-        XCTAssertNotNil(encodedObject?[Partition.AppendToNameKey])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.name.rawValue])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.sizeGigabytes.rawValue])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.maximumPercentage.rawValue])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.format.rawValue])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.isRestorePartition.rawValue])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.computerConfiguration.rawValue])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.reimage.rawValue])
+        XCTAssertNotNil(encodedObject?[Partition.CodingKeys.appendToName.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "partition", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Partition.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.sizeInGigabytes, defaultSizeInGigabytes)
+            XCTAssertEqual(actualValue.maximumPercentage, defaultMaximumPercentage)
+            XCTAssertEqual(actualValue.format, defaultFormat)
+            XCTAssertEqual(actualValue.isRestorePartition, defaultIsRestorePartition)
+            XCTAssertEqual(actualValue.computerConfiguration, defaultComputerConfiguration)
+            XCTAssertEqual(actualValue.reimage, defaultReimage)
+            XCTAssertEqual(actualValue.appendToName, defaultAppendToName)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "partition", subfolder: subfolder)!
+
+        let actualValue = Partition(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

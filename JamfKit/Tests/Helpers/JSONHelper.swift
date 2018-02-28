@@ -24,4 +24,15 @@ extension XCTestCase {
 
         return [String: AnyObject]()
     }
+
+    func payloadData(for jsonFile: String, subfolder: String = "") -> Data? {
+        let bundle = Bundle(for: type(of: self)).url(forResource: "Mocks", withExtension: "bundle")!
+        let urlBundle = Bundle(url: bundle)!
+
+        if let data = try? Data(contentsOf: urlBundle.url(forResource: subfolder + jsonFile, withExtension: "json")!) {
+            return data
+        }
+
+        return nil
+    }
 }

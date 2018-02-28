@@ -78,13 +78,45 @@ class ConfigurationProfileGeneralTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 8)
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
         XCTAssertNotNil(encodedObject?[ConfigurationProfileGeneral.DescriptionKey])
         XCTAssertNotNil(encodedObject?[ConfigurationProfileGeneral.SiteKey])
         XCTAssertNotNil(encodedObject?[ConfigurationProfileGeneral.CategoryKey])
         XCTAssertNotNil(encodedObject?[ConfigurationProfileGeneral.UuidKey])
         XCTAssertNotNil(encodedObject?[ConfigurationProfileGeneral.RedeployOnUpdateKey])
         XCTAssertNotNil(encodedObject?[ConfigurationProfileGeneral.PayloadsKey])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "configuration_profile_general_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ConfigurationProfileGeneral.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.desc, defaultDescription)
+            XCTAssertNotNil(actualValue.site)
+            XCTAssertNotNil(actualValue.category)
+            XCTAssertEqual(actualValue.uuid, defaultUuid)
+            XCTAssertEqual(actualValue.redeployOnUpdate, defaultRedeployOnUpdate)
+            XCTAssertEqual(actualValue.payloads, defaultPayloads)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "configuration_profile_general_valid", subfolder: subfolder)!
+
+        let actualValue = ConfigurationProfileGeneral(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

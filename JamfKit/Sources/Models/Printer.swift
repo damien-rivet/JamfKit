@@ -13,18 +13,21 @@ public final class Printer: BaseObject, Endpoint {
     // MARK: - Constants
 
     public static let Endpoint = "printers"
-    static let CategoryKey = "category"
-    static let UriKey = "uri"
-    static let CupsNameKey = "CUPS_name"
-    static let LocationKey = "location"
-    static let ModelKey = "model"
-    static let InformationKey = "info"
-    static let NotesKey = "notes"
-    static let MakeDefaultKey = "make_default"
-    static let UseGenericKey = "use_generic"
-    static let PpdKey = "ppd"
-    static let PpdPathKey = "ppd_path"
-    static let PpdContentsKey = "ppd_contents"
+
+    enum CodingKeys: String, CodingKey {
+        case category = "category"
+        case uri = "uri"
+        case cupsName = "CUPS_name"
+        case location = "location"
+        case model = "model"
+        case information = "info"
+        case notes = "notes"
+        case makeDefault = "make_default"
+        case useGeneric = "use_generic"
+        case ppd = "ppd"
+        case ppdPath = "ppd_path"
+        case ppdContents = "ppd_contents"
+    }
 
     // MARK: - Properties
 
@@ -76,25 +79,44 @@ public final class Printer: BaseObject, Endpoint {
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        category = json[Printer.CategoryKey] as? String ?? ""
-        uri = json[Printer.UriKey] as? String ?? ""
-        cupsName = json[Printer.CupsNameKey] as? String ?? ""
-        location = json[Printer.LocationKey] as? String ?? ""
-        model = json[Printer.ModelKey] as? String ?? ""
-        information = json[Printer.InformationKey] as? String ?? ""
-        notes = json[Printer.NotesKey] as? String ?? ""
-        makeDefault = json[Printer.MakeDefaultKey] as? Bool ?? false
-        useGeneric = json[Printer.UseGenericKey] as? Bool ?? false
-        ppd = json[Printer.PpdKey] as? String ?? ""
-        ppdPath = json[Printer.PpdPathKey] as? String ?? ""
-        ppdContents = json[Printer.PpdContentsKey] as? String ?? ""
+        category = json[CodingKeys.category.rawValue] as? String ?? ""
+        uri = json[CodingKeys.uri.rawValue] as? String ?? ""
+        cupsName = json[CodingKeys.cupsName.rawValue] as? String ?? ""
+        location = json[CodingKeys.location.rawValue] as? String ?? ""
+        model = json[CodingKeys.model.rawValue] as? String ?? ""
+        information = json[CodingKeys.information.rawValue] as? String ?? ""
+        notes = json[CodingKeys.notes.rawValue] as? String ?? ""
+        makeDefault = json[CodingKeys.makeDefault.rawValue] as? Bool ?? false
+        useGeneric = json[CodingKeys.useGeneric.rawValue] as? Bool ?? false
+        ppd = json[CodingKeys.ppd.rawValue] as? String ?? ""
+        ppdPath = json[CodingKeys.ppdPath.rawValue] as? String ?? ""
+        ppdContents = json[CodingKeys.ppdContents.rawValue] as? String ?? ""
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        category = try container.decode(String.self, forKey: .category)
+        uri = try container.decode(String.self, forKey: .uri)
+        cupsName = try container.decode(String.self, forKey: .cupsName)
+        location = try container.decode(String.self, forKey: .location)
+        model = try container.decode(String.self, forKey: .model)
+        information = try container.decode(String.self, forKey: .information)
+        notes = try container.decode(String.self, forKey: .notes)
+        makeDefault = try container.decode(Bool.self, forKey: .makeDefault)
+        useGeneric = try container.decode(Bool.self, forKey: .useGeneric)
+        ppd = try container.decode(String.self, forKey: .ppd)
+        ppdPath = try container.decode(String.self, forKey: .ppdPath)
+        ppdContents = try container.decode(String.self, forKey: .ppdContents)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -102,20 +124,39 @@ public final class Printer: BaseObject, Endpoint {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[Printer.CategoryKey] = category
-        json[Printer.UriKey] = uri
-        json[Printer.CupsNameKey] = cupsName
-        json[Printer.LocationKey] = location
-        json[Printer.ModelKey] = model
-        json[Printer.InformationKey] = information
-        json[Printer.NotesKey] = notes
-        json[Printer.MakeDefaultKey] = makeDefault
-        json[Printer.UseGenericKey] = useGeneric
-        json[Printer.PpdKey] = ppd
-        json[Printer.PpdPathKey] = ppdPath
-        json[Printer.PpdContentsKey] = ppdContents
+        json[CodingKeys.category.rawValue] = category
+        json[CodingKeys.uri.rawValue] = uri
+        json[CodingKeys.cupsName.rawValue] = cupsName
+        json[CodingKeys.location.rawValue] = location
+        json[CodingKeys.model.rawValue] = model
+        json[CodingKeys.information.rawValue] = information
+        json[CodingKeys.notes.rawValue] = notes
+        json[CodingKeys.makeDefault.rawValue] = makeDefault
+        json[CodingKeys.useGeneric.rawValue] = useGeneric
+        json[CodingKeys.ppd.rawValue] = ppd
+        json[CodingKeys.ppdPath.rawValue] = ppdPath
+        json[CodingKeys.ppdContents.rawValue] = ppdContents
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(category, forKey: .category)
+        try container.encode(uri, forKey: .uri)
+        try container.encode(cupsName, forKey: .cupsName)
+        try container.encode(location, forKey: .location)
+        try container.encode(model, forKey: .model)
+        try container.encode(information, forKey: .information)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(makeDefault, forKey: .makeDefault)
+        try container.encode(useGeneric, forKey: .useGeneric)
+        try container.encode(ppd, forKey: .ppd)
+        try container.encode(ppdPath, forKey: .ppdPath)
+        try container.encode(ppdContents, forKey: .ppdContents)
+
+        try super.encode(to: encoder)
     }
 }
 

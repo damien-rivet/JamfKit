@@ -7,15 +7,17 @@
 //
 
 @objc(JMFKPolicyDateTimeLimitations)
-public final class PolicyDateTimeLimitations: NSObject, Requestable {
+public final class PolicyDateTimeLimitations: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let ActivationDateKey = "activation_date"
-    static let ExpirationDateKey = "expiration_date"
-    static let NoExecuteOnKey = "no_execute_on"
-    static let NoExecuteStartKey = "no_execute_start"
-    static let NoExecuteEndKey = "no_execute_end"
+    enum CodingKeys: String, CodingKey {
+        case activationDate = "activation_date"
+        case expirationDate = "expiration_date"
+        case noExecuteOn = "no_execute_on"
+        case noExecuteStart = "no_execute_start"
+        case noExecuteEnd = "no_execute_end"
+    }
 
     // MARK: - Properties
 
@@ -36,16 +38,26 @@ public final class PolicyDateTimeLimitations: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        activationDate = PreciseDate(json: json, node: PolicyDateTimeLimitations.ActivationDateKey)
-        expirationDate = PreciseDate(json: json, node: PolicyDateTimeLimitations.ExpirationDateKey)
-        noExecutionOn = json[PolicyDateTimeLimitations.NoExecuteOnKey] as? [String: String] ?? [String: String]()
-        noExecutionStart = json[PolicyDateTimeLimitations.NoExecuteStartKey] as? String ?? ""
-        noExecutionEnd = json[PolicyDateTimeLimitations.NoExecuteEndKey] as? String ?? ""
-    }
-
     public override init() {
         super.init()
+    }
+
+    public init?(json: [String: Any], node: String = "") {
+        activationDate = PreciseDate(json: json, node: CodingKeys.activationDate.rawValue)
+        expirationDate = PreciseDate(json: json, node: CodingKeys.expirationDate.rawValue)
+        noExecutionOn = json[CodingKeys.noExecuteOn.rawValue] as? [String: String] ?? [String: String]()
+        noExecutionStart = json[CodingKeys.noExecuteStart.rawValue] as? String ?? ""
+        noExecutionEnd = json[CodingKeys.noExecuteEnd.rawValue] as? String ?? ""
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        activationDate = try container.decode(PreciseDate.self, forKey: .activationDate)
+        expirationDate = try container.decode(PreciseDate.self, forKey: .expirationDate)
+        noExecutionOn = try container.decode([String: String].self, forKey: .noExecuteOn)
+        noExecutionStart = try container.decode(String.self, forKey: .noExecuteStart)
+        noExecutionEnd = try container.decode(String.self, forKey: .noExecuteEnd)
     }
 
     // MARK: - Functions
@@ -62,12 +74,22 @@ public final class PolicyDateTimeLimitations: NSObject, Requestable {
         }
 
         if !noExecutionOn.isEmpty {
-            json[PolicyDateTimeLimitations.NoExecuteOnKey] = noExecutionOn
+            json[CodingKeys.noExecuteOn.rawValue] = noExecutionOn
         }
 
-        json[PolicyDateTimeLimitations.NoExecuteStartKey] = noExecutionStart
-        json[PolicyDateTimeLimitations.NoExecuteEndKey] = noExecutionEnd
+        json[CodingKeys.noExecuteStart.rawValue] = noExecutionStart
+        json[CodingKeys.noExecuteEnd.rawValue] = noExecutionEnd
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(activationDate, forKey: .activationDate)
+        try container.encode(expirationDate, forKey: .expirationDate)
+        try container.encode(noExecutionOn, forKey: .noExecuteOn)
+        try container.encode(noExecutionStart, forKey: .noExecuteStart)
+        try container.encode(noExecutionEnd, forKey: .noExecuteEnd)
     }
 }

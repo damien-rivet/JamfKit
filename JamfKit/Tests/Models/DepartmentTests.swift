@@ -62,4 +62,33 @@ class DepartmentTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
     }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "department_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Department.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[Department][\(defaultIdentifier) - \(defaultName)]")
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "department_valid", subfolder: subfolder)!
+
+        let actualValue = Department(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
+    }
 }

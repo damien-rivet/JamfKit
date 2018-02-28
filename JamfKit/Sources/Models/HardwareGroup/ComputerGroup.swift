@@ -13,7 +13,10 @@ public final class ComputerGroup: HardwareGroup, Endpoint {
     // MARK: - Constants
 
     public static let Endpoint = "computergroups"
-    static let ComputersKey = "computers"
+
+    enum CodingKeys: String, CodingKey {
+        case computers
+    }
 
     // MARK: - Properties
 
@@ -22,14 +25,22 @@ public final class ComputerGroup: HardwareGroup, Endpoint {
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
         computers = ComputerGroup.parseComputers(json: json)
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        computers = try container.decode([ComputerGeneral].self, forKey: .computers)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -38,7 +49,7 @@ public final class ComputerGroup: HardwareGroup, Endpoint {
         var json = super.toJSON()
 
         if !computers.isEmpty {
-            json[ComputerGroup.ComputersKey] = computers.map { computer -> [String: [String: Any]] in
+            json[CodingKeys.computers.rawValue] = computers.map { computer -> [String: [String: Any]] in
                 return ["computer": computer.toJSON()]
             }
         }
@@ -46,8 +57,16 @@ public final class ComputerGroup: HardwareGroup, Endpoint {
         return json
     }
 
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(computers, forKey: .computers)
+
+        try super.encode(to: encoder)
+    }
+
     private static func parseComputers(json: [String: Any]) -> [ComputerGeneral] {
-        return BaseObject.parseElements(from: json, nodeKey: ComputerGroup.ComputersKey, singleNodeKey: "computer")
+        return BaseObject.parseElements(from: json, nodeKey: CodingKeys.computers.rawValue, singleNodeKey: "computer")
     }
 }
 

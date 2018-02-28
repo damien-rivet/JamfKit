@@ -11,46 +11,51 @@ public final class MobileDeviceGeneral: BaseObject {
 
     // MARK: - Constants
 
-    static let DisplayNameKey = "display_name"
-    static let DeviceNameKey = "device_name"
-    static let AssetTagNameKey = "asset_tag"
-    static let LastInventoryUpdateKey = "last_inventory_update"
-    static let CapacityKey = "capacity"
-    static let CapacityMbKey = "capacity_mb"
-    static let AvailableKey = "available"
-    static let AvailableMbKey = "available_mb"
-    static let PercentageUsedKey = "percentage_used"
-    static let OSTypeKey = "os_type"
-    static let OSVersionKey = "os_version"
-    static let OSBuildKey = "os_build"
-    static let SerialNumberKey = "serial_number"
-    static let UDIDKey = "udid"
-    static let InitialEntryDateKey = "initial_entry_date"
-    static let PhoneNumberKey = "phone_number"
-    static let IPAddressKey = "ip_address"
-    static let WifiMacAddressKey = "wifi_mac_address"
-    static let BluetoothMacAddressKey = "bluetooth_mac_address"
-    static let ModemFirmwareKey = "modem_firmware"
-    static let ModelKey = "model"
-    static let ModelIdentifierKey = "model_identifier"
-    static let ModelNumberKey = "model_number"
-    static let ModelDisplayKey = "model_display"
-    static let DeviceOwnershipLevelKey = "device_ownership_level"
-    static let LastEnrollmentKey = "last_enrollment"
-    static let ManagedKey = "managed"
-    static let SupervisedKey = "supervised"
-    static let ExchangeActiveSyncDeviceIdentifierKey = "exchange_activesync_device_identifier"
-    static let SharedKey = "shared"
-    static let TetheredKey = "tethered"
-    static let BatteryLevelKey = "battery_level"
-    static let BluetoothCapableKey = "ble_capable"
-    static let DeviceLocatorServiceEnabledKey = "device_locator_service_enabled"
-    static let DoNotDisturbEnabledKey = "do_not_disturb_enabled"
-    static let CloudBackupEnabledKey = "cloud_backup_enabled"
-    static let LastCloudBackupDateKey = "last_cloud_backup_date"
-    static let LocationServicesEnabledKey = "location_services_enabled"
-    static let ITunesStoreAccountIsActiveKey = "itunes_store_account_is_active"
-    static let LastBackupTimeKey = "last_backup_time"
+    enum CodingKeys: String, CodingKey {
+        case displayName = "display_name"
+        case deviceName = "device_name"
+        case assetTag = "asset_tag"
+        case lastInventoryUpdate = "last_inventory_update"
+        case capacity = "capacity"
+        case capacityMb = "capacity_mb"
+        case available = "available"
+        case availableMb = "available_mb"
+        case percentageUsed = "percentage_used"
+        case osType = "os_type"
+        case osVersion = "os_version"
+        case osBuild = "os_build"
+        case serialNumber = "serial_number"
+        case udid = "udid"
+        case initialEntryDate = "initial_entry_date"
+        case phoneNumber = "phone_number"
+        case ipAddress = "ip_address"
+        case wifiMacAddress = "wifi_mac_address"
+        case bluetoothMacAddress = "bluetooth_mac_address"
+        case modemFirmware = "modem_firmware"
+        case model = "model"
+        case modelIdentifier = "model_identifier"
+        case modelNumber = "model_number"
+        case modelDisplay = "model_display"
+        case deviceOwnershipLevel = "device_ownership_level"
+        case lastEnrollment = "last_enrollment"
+        case managed = "managed"
+        case supervised = "supervised"
+        case exchangeActiveSyncDeviceIdentifier = "exchange_activesync_device_identifier"
+        case shared = "shared"
+        case tethered = "tethered"
+        case batteryLevel = "battery_level"
+        case bluetoothCapable = "ble_capable"
+        case deviceLocatorServiceEnabled = "device_locator_service_enabled"
+        case doNotDisturbEnabled = "do_not_disturb_enabled"
+        case cloudBackupEnabled = "cloud_backup_enabled"
+        case lastCloudBackupDate = "last_cloud_backup_date"
+        case locationServicesEnabled = "location_services_enabled"
+        case iTunesStoreAccountIsActive = "itunes_store_account_is_active"
+        case lastBackupTime = "last_backup_time"
+    }
+
+    public static let UDIDKey = CodingKeys.udid.rawValue
+    public static let SerialNumberKey = CodingKeys.serialNumber.rawValue
 
     // MARK: - Properties
 
@@ -176,53 +181,100 @@ public final class MobileDeviceGeneral: BaseObject {
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        displayName = json[MobileDeviceGeneral.DisplayNameKey] as? String ?? ""
-        deviceName = json[MobileDeviceGeneral.DeviceNameKey] as? String ?? ""
-        assetTag = json[MobileDeviceGeneral.AssetTagNameKey] as? String ?? ""
-        lastInventoryUpdate = PreciseDate(json: json, node: MobileDeviceGeneral.LastInventoryUpdateKey)
-        capacity = json[MobileDeviceGeneral.CapacityKey] as? UInt ?? 0
-        capacityMb = json[MobileDeviceGeneral.CapacityMbKey] as? UInt ?? 0
-        available = json[MobileDeviceGeneral.AvailableKey] as? UInt ?? 0
-        availableMb = json[MobileDeviceGeneral.AvailableMbKey] as? UInt ?? 0
-        percentageUsed = json[MobileDeviceGeneral.PercentageUsedKey] as? UInt ?? 0
-        osType = json[MobileDeviceGeneral.OSTypeKey] as? String ?? ""
-        osVersion = json[MobileDeviceGeneral.OSVersionKey] as? String ?? ""
-        osBuild = json[MobileDeviceGeneral.OSBuildKey] as? String ?? ""
-        serialNumber = json[MobileDeviceGeneral.SerialNumberKey] as? String ?? ""
-        udid = json[MobileDeviceGeneral.UDIDKey] as? String ?? ""
-        initialEntryDate = PreciseDate(json: json, node: MobileDeviceGeneral.InitialEntryDateKey)
-        phoneNumber = json[MobileDeviceGeneral.PhoneNumberKey] as? String ?? ""
-        ipAddress = json[MobileDeviceGeneral.IPAddressKey] as? String ?? ""
-        wifiMacAddress = json[MobileDeviceGeneral.WifiMacAddressKey] as? String ?? ""
-        bluetoothMacAddress = json[MobileDeviceGeneral.BluetoothMacAddressKey] as? String ?? ""
-        modemFirmware = json[MobileDeviceGeneral.ModemFirmwareKey] as? String ?? ""
-        model = json[MobileDeviceGeneral.ModelKey] as? String ?? ""
-        modelIdentifier = json[MobileDeviceGeneral.ModelIdentifierKey] as? String ?? ""
-        modelNumber = json[MobileDeviceGeneral.ModelNumberKey] as? String ?? ""
-        modelDisplay = json[MobileDeviceGeneral.ModelDisplayKey] as? String ?? ""
-        deviceOwnershipLevel = json[MobileDeviceGeneral.DeviceOwnershipLevelKey] as? String ?? ""
-        lastEnrollment = PreciseDate(json: json, node: MobileDeviceGeneral.LastEnrollmentKey)
-        isManaged = json[MobileDeviceGeneral.ManagedKey] as? Bool ?? false
-        isSupervised = json[MobileDeviceGeneral.SupervisedKey] as? Bool ?? false
-        exchangeActiveSyncDeviceIdentifier = json[MobileDeviceGeneral.ExchangeActiveSyncDeviceIdentifierKey] as? String ?? ""
-        shared = json[MobileDeviceGeneral.SharedKey] as? String ?? ""
-        tethered = json[MobileDeviceGeneral.TetheredKey] as? String ?? ""
-        batteryLevel = json[MobileDeviceGeneral.BatteryLevelKey] as? UInt ?? 0
-        isBluetoothCapable = json[MobileDeviceGeneral.BluetoothCapableKey] as? Bool ?? false
-        isDeviceLocatorServiceEnabled = json[MobileDeviceGeneral.DeviceLocatorServiceEnabledKey] as? Bool ?? false
-        isDoNotDisturbEnabled = json[MobileDeviceGeneral.DoNotDisturbEnabledKey] as? Bool ?? false
-        isCloudBackupEnabled = json[MobileDeviceGeneral.CloudBackupEnabledKey] as? Bool ?? false
-        lastCloudBackupDate = PreciseDate(json: json, node: MobileDeviceGeneral.LastCloudBackupDateKey)
-        isLocationServicesEnabled = json[MobileDeviceGeneral.LocationServicesEnabledKey] as? Bool ?? false
-        isITunesStoreAccountActive = json[MobileDeviceGeneral.ITunesStoreAccountIsActiveKey] as? Bool ?? false
-        lastBackupTime = PreciseDate(json: json, node: MobileDeviceGeneral.LastBackupTimeKey)
+        displayName = json[CodingKeys.displayName.rawValue] as? String ?? ""
+        deviceName = json[CodingKeys.deviceName.rawValue] as? String ?? ""
+        assetTag = json[CodingKeys.assetTag.rawValue] as? String ?? ""
+        lastInventoryUpdate = PreciseDate(json: json, node: CodingKeys.lastInventoryUpdate.rawValue)
+        capacity = json[CodingKeys.capacity.rawValue] as? UInt ?? 0
+        capacityMb = json[CodingKeys.capacityMb.rawValue] as? UInt ?? 0
+        available = json[CodingKeys.available.rawValue] as? UInt ?? 0
+        availableMb = json[CodingKeys.availableMb.rawValue] as? UInt ?? 0
+        percentageUsed = json[CodingKeys.percentageUsed.rawValue] as? UInt ?? 0
+        osType = json[CodingKeys.osType.rawValue] as? String ?? ""
+        osVersion = json[CodingKeys.osVersion.rawValue] as? String ?? ""
+        osBuild = json[CodingKeys.osBuild.rawValue] as? String ?? ""
+        serialNumber = json[CodingKeys.serialNumber.rawValue] as? String ?? ""
+        udid = json[CodingKeys.udid.rawValue] as? String ?? ""
+        initialEntryDate = PreciseDate(json: json, node: CodingKeys.initialEntryDate.rawValue)
+        phoneNumber = json[CodingKeys.phoneNumber.rawValue] as? String ?? ""
+        ipAddress = json[CodingKeys.ipAddress.rawValue] as? String ?? ""
+        wifiMacAddress = json[CodingKeys.wifiMacAddress.rawValue] as? String ?? ""
+        bluetoothMacAddress = json[CodingKeys.bluetoothMacAddress.rawValue] as? String ?? ""
+        modemFirmware = json[CodingKeys.modemFirmware.rawValue] as? String ?? ""
+        model = json[CodingKeys.model.rawValue] as? String ?? ""
+        modelIdentifier = json[CodingKeys.modelIdentifier.rawValue] as? String ?? ""
+        modelNumber = json[CodingKeys.modelNumber.rawValue] as? String ?? ""
+        modelDisplay = json[CodingKeys.modelDisplay.rawValue] as? String ?? ""
+        deviceOwnershipLevel = json[CodingKeys.deviceOwnershipLevel.rawValue] as? String ?? ""
+        lastEnrollment = PreciseDate(json: json, node: CodingKeys.lastEnrollment.rawValue)
+        isManaged = json[CodingKeys.managed.rawValue] as? Bool ?? false
+        isSupervised = json[CodingKeys.supervised.rawValue] as? Bool ?? false
+        exchangeActiveSyncDeviceIdentifier = json[CodingKeys.exchangeActiveSyncDeviceIdentifier.rawValue] as? String ?? ""
+        shared = json[CodingKeys.shared.rawValue] as? String ?? ""
+        tethered = json[CodingKeys.tethered.rawValue] as? String ?? ""
+        batteryLevel = json[CodingKeys.batteryLevel.rawValue] as? UInt ?? 0
+        isBluetoothCapable = json[CodingKeys.bluetoothCapable.rawValue] as? Bool ?? false
+        isDeviceLocatorServiceEnabled = json[CodingKeys.deviceLocatorServiceEnabled.rawValue] as? Bool ?? false
+        isDoNotDisturbEnabled = json[CodingKeys.doNotDisturbEnabled.rawValue] as? Bool ?? false
+        isCloudBackupEnabled = json[CodingKeys.cloudBackupEnabled.rawValue] as? Bool ?? false
+        lastCloudBackupDate = PreciseDate(json: json, node: CodingKeys.lastCloudBackupDate.rawValue)
+        isLocationServicesEnabled = json[CodingKeys.locationServicesEnabled.rawValue] as? Bool ?? false
+        isITunesStoreAccountActive = json[CodingKeys.iTunesStoreAccountIsActive.rawValue] as? Bool ?? false
+        lastBackupTime = PreciseDate(json: json, node: CodingKeys.lastBackupTime.rawValue)
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        displayName = try container.decode(String.self, forKey: .displayName)
+        deviceName = try container.decode(String.self, forKey: .deviceName)
+        assetTag = try container.decode(String.self, forKey: .assetTag)
+        lastInventoryUpdate = try container.decode(PreciseDate.self, forKey: .lastInventoryUpdate)
+        capacity = try container.decode(UInt.self, forKey: .capacity)
+        capacityMb = try container.decode(UInt.self, forKey: .capacityMb)
+        available = try container.decode(UInt.self, forKey: .available)
+        availableMb = try container.decode(UInt.self, forKey: .availableMb)
+        percentageUsed = try container.decode(UInt.self, forKey: .percentageUsed)
+        osType = try container.decode(String.self, forKey: .osType)
+        osVersion = try container.decode(String.self, forKey: .osVersion)
+        osBuild = try container.decode(String.self, forKey: .osBuild)
+        serialNumber = try container.decode(String.self, forKey: .serialNumber)
+        udid = try container.decode(String.self, forKey: .udid)
+        initialEntryDate = try container.decode(PreciseDate.self, forKey: .initialEntryDate)
+        phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        ipAddress = try container.decode(String.self, forKey: .ipAddress)
+        wifiMacAddress = try container.decode(String.self, forKey: .wifiMacAddress)
+        bluetoothMacAddress = try container.decode(String.self, forKey: .bluetoothMacAddress)
+        modemFirmware = try container.decode(String.self, forKey: .modemFirmware)
+        model = try container.decode(String.self, forKey: .model)
+        modelIdentifier = try container.decode(String.self, forKey: .modelIdentifier)
+        modelNumber = try container.decode(String.self, forKey: .modelNumber)
+        modelDisplay = try container.decode(String.self, forKey: .modelDisplay)
+        deviceOwnershipLevel = try container.decode(String.self, forKey: .deviceOwnershipLevel)
+        lastEnrollment = try container.decode(PreciseDate.self, forKey: .lastEnrollment)
+        isManaged = try container.decode(Bool.self, forKey: .managed)
+        isSupervised = try container.decode(Bool.self, forKey: .supervised)
+        exchangeActiveSyncDeviceIdentifier = try container.decode(String.self, forKey: .exchangeActiveSyncDeviceIdentifier)
+        shared = try container.decode(String.self, forKey: .shared)
+        tethered = try container.decode(String.self, forKey: .tethered)
+        batteryLevel = try container.decode(UInt.self, forKey: .batteryLevel)
+        isBluetoothCapable = try container.decode(Bool.self, forKey: .bluetoothCapable)
+        isDeviceLocatorServiceEnabled = try container.decode(Bool.self, forKey: .deviceLocatorServiceEnabled)
+        isDoNotDisturbEnabled = try container.decode(Bool.self, forKey: .doNotDisturbEnabled)
+        isCloudBackupEnabled = try container.decode(Bool.self, forKey: .cloudBackupEnabled)
+        lastCloudBackupDate = try container.decode(PreciseDate.self, forKey: .lastCloudBackupDate)
+        isLocationServicesEnabled = try container.decode(Bool.self, forKey: .locationServicesEnabled)
+        isITunesStoreAccountActive = try container.decode(Bool.self, forKey: .iTunesStoreAccountIsActive)
+        lastBackupTime = try container.decode(PreciseDate.self, forKey: .lastBackupTime)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -230,66 +282,113 @@ public final class MobileDeviceGeneral: BaseObject {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[MobileDeviceGeneral.DisplayNameKey] = displayName
-        json[MobileDeviceGeneral.DeviceNameKey] = deviceName
-        json[MobileDeviceGeneral.AssetTagNameKey] = assetTag
+        json[CodingKeys.displayName.rawValue] = displayName
+        json[CodingKeys.deviceName.rawValue] = deviceName
+        json[CodingKeys.assetTag.rawValue] = assetTag
 
         if let lastInventoryUpdate = lastInventoryUpdate {
             json.merge(lastInventoryUpdate.toJSON()) { (_, new) in new }
         }
 
-        json[MobileDeviceGeneral.CapacityKey] = capacity
-        json[MobileDeviceGeneral.CapacityMbKey] = capacityMb
-        json[MobileDeviceGeneral.AvailableKey] = available
-        json[MobileDeviceGeneral.AvailableMbKey] = availableMb
-        json[MobileDeviceGeneral.PercentageUsedKey] = percentageUsed
-        json[MobileDeviceGeneral.OSTypeKey] = osType
-        json[MobileDeviceGeneral.OSVersionKey] = osVersion
-        json[MobileDeviceGeneral.OSBuildKey] = osBuild
-        json[MobileDeviceGeneral.SerialNumberKey] = serialNumber
-        json[MobileDeviceGeneral.UDIDKey] = udid
+        json[CodingKeys.capacity.rawValue] = capacity
+        json[CodingKeys.capacityMb.rawValue] = capacityMb
+        json[CodingKeys.available.rawValue] = available
+        json[CodingKeys.availableMb.rawValue] = availableMb
+        json[CodingKeys.percentageUsed.rawValue] = percentageUsed
+        json[CodingKeys.osType.rawValue] = osType
+        json[CodingKeys.osVersion.rawValue] = osVersion
+        json[CodingKeys.osBuild.rawValue] = osBuild
+        json[CodingKeys.serialNumber.rawValue] = serialNumber
+        json[CodingKeys.udid.rawValue] = udid
 
         if let initialEntryDate = initialEntryDate {
             json.merge(initialEntryDate.toJSON()) { (_, new) in new }
         }
 
-        json[MobileDeviceGeneral.PhoneNumberKey] = phoneNumber
-        json[MobileDeviceGeneral.IPAddressKey] = ipAddress
-        json[MobileDeviceGeneral.WifiMacAddressKey] = wifiMacAddress
-        json[MobileDeviceGeneral.BluetoothMacAddressKey] = bluetoothMacAddress
-        json[MobileDeviceGeneral.ModemFirmwareKey] = modemFirmware
-        json[MobileDeviceGeneral.ModelKey] = model
-        json[MobileDeviceGeneral.ModelIdentifierKey] = modelIdentifier
-        json[MobileDeviceGeneral.ModelNumberKey] = modelNumber
-        json[MobileDeviceGeneral.ModelDisplayKey] = modelDisplay
-        json[MobileDeviceGeneral.DeviceOwnershipLevelKey] = deviceOwnershipLevel
+        json[CodingKeys.phoneNumber.rawValue] = phoneNumber
+        json[CodingKeys.ipAddress.rawValue] = ipAddress
+        json[CodingKeys.wifiMacAddress.rawValue] = wifiMacAddress
+        json[CodingKeys.bluetoothMacAddress.rawValue] = bluetoothMacAddress
+        json[CodingKeys.modemFirmware.rawValue] = modemFirmware
+        json[CodingKeys.model.rawValue] = model
+        json[CodingKeys.modelIdentifier.rawValue] = modelIdentifier
+        json[CodingKeys.modelNumber.rawValue] = modelNumber
+        json[CodingKeys.modelDisplay.rawValue] = modelDisplay
+        json[CodingKeys.deviceOwnershipLevel.rawValue] = deviceOwnershipLevel
 
         if let lastEnrollment = lastEnrollment {
             json.merge(lastEnrollment.toJSON()) { (_, new) in new }
         }
 
-        json[MobileDeviceGeneral.ManagedKey] = isManaged
-        json[MobileDeviceGeneral.SupervisedKey] = isSupervised
-        json[MobileDeviceGeneral.ExchangeActiveSyncDeviceIdentifierKey] = exchangeActiveSyncDeviceIdentifier
-        json[MobileDeviceGeneral.SharedKey] = shared
-        json[MobileDeviceGeneral.TetheredKey] = tethered
-        json[MobileDeviceGeneral.BatteryLevelKey] = batteryLevel
-        json[MobileDeviceGeneral.BluetoothCapableKey] = isBluetoothCapable
-        json[MobileDeviceGeneral.DeviceLocatorServiceEnabledKey] = isDeviceLocatorServiceEnabled
-        json[MobileDeviceGeneral.DoNotDisturbEnabledKey] = isDoNotDisturbEnabled
-        json[MobileDeviceGeneral.CloudBackupEnabledKey] = isCloudBackupEnabled
+        json[CodingKeys.managed.rawValue] = isManaged
+        json[CodingKeys.supervised.rawValue] = isSupervised
+        json[CodingKeys.exchangeActiveSyncDeviceIdentifier.rawValue] = exchangeActiveSyncDeviceIdentifier
+        json[CodingKeys.shared.rawValue] = shared
+        json[CodingKeys.tethered.rawValue] = tethered
+        json[CodingKeys.batteryLevel.rawValue] = batteryLevel
+        json[CodingKeys.bluetoothCapable.rawValue] = isBluetoothCapable
+        json[CodingKeys.deviceLocatorServiceEnabled.rawValue] = isDeviceLocatorServiceEnabled
+        json[CodingKeys.doNotDisturbEnabled.rawValue] = isDoNotDisturbEnabled
+        json[CodingKeys.cloudBackupEnabled.rawValue] = isCloudBackupEnabled
 
         if let lastCloudBackupDate = lastCloudBackupDate {
             json.merge(lastCloudBackupDate.toJSON()) { (_, new) in new }
         }
 
-        json[MobileDeviceGeneral.LocationServicesEnabledKey] = isLocationServicesEnabled
-        json[MobileDeviceGeneral.ITunesStoreAccountIsActiveKey] = isITunesStoreAccountActive
+        json[CodingKeys.locationServicesEnabled.rawValue] = isLocationServicesEnabled
+        json[CodingKeys.iTunesStoreAccountIsActive.rawValue] = isITunesStoreAccountActive
 
         if let lastBackupTime = lastBackupTime {
             json.merge(lastBackupTime.toJSON()) { (_, new) in new }
         }
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(displayName, forKey: .displayName)
+        try container.encode(deviceName, forKey: .deviceName)
+        try container.encode(assetTag, forKey: .assetTag)
+        try container.encode(lastInventoryUpdate, forKey: .lastInventoryUpdate)
+        try container.encode(capacity, forKey: .capacity)
+        try container.encode(capacityMb, forKey: .capacityMb)
+        try container.encode(available, forKey: .available)
+        try container.encode(availableMb, forKey: .availableMb)
+        try container.encode(percentageUsed, forKey: .percentageUsed)
+        try container.encode(osType, forKey: .osType)
+        try container.encode(osVersion, forKey: .osVersion)
+        try container.encode(osBuild, forKey: .osBuild)
+        try container.encode(serialNumber, forKey: .serialNumber)
+        try container.encode(udid, forKey: .udid)
+        try container.encode(initialEntryDate, forKey: .initialEntryDate)
+        try container.encode(phoneNumber, forKey: .phoneNumber)
+        try container.encode(ipAddress, forKey: .ipAddress)
+        try container.encode(wifiMacAddress, forKey: .wifiMacAddress)
+        try container.encode(bluetoothMacAddress, forKey: .bluetoothMacAddress)
+        try container.encode(modemFirmware, forKey: .modemFirmware)
+        try container.encode(model, forKey: .model)
+        try container.encode(modelIdentifier, forKey: .modelIdentifier)
+        try container.encode(modelNumber, forKey: .modelNumber)
+        try container.encode(modelDisplay, forKey: .modelDisplay)
+        try container.encode(deviceOwnershipLevel, forKey: .deviceOwnershipLevel)
+        try container.encode(lastEnrollment, forKey: .lastEnrollment)
+        try container.encode(isManaged, forKey: .managed)
+        try container.encode(isSupervised, forKey: .supervised)
+        try container.encode(exchangeActiveSyncDeviceIdentifier, forKey: .exchangeActiveSyncDeviceIdentifier)
+        try container.encode(shared, forKey: .shared)
+        try container.encode(tethered, forKey: .tethered)
+        try container.encode(batteryLevel, forKey: .batteryLevel)
+        try container.encode(isBluetoothCapable, forKey: .bluetoothCapable)
+        try container.encode(isDeviceLocatorServiceEnabled, forKey: .deviceLocatorServiceEnabled)
+        try container.encode(isDoNotDisturbEnabled, forKey: .doNotDisturbEnabled)
+        try container.encode(isCloudBackupEnabled, forKey: .cloudBackupEnabled)
+        try container.encode(lastCloudBackupDate, forKey: .lastCloudBackupDate)
+        try container.encode(isLocationServicesEnabled, forKey: .locationServicesEnabled)
+        try container.encode(isITunesStoreAccountActive, forKey: .iTunesStoreAccountIsActive)
+        try container.encode(lastBackupTime, forKey: .lastBackupTime)
+
+        try super.encode(to: encoder)
     }
 }

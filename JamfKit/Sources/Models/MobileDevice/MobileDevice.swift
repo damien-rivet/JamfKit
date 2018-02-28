@@ -8,12 +8,15 @@
 
 /// Represents a Jamf managed mobile device, contains the general information about the device.
 @objc(JMFKMobileDevice)
-public final class MobileDevice: NSObject, Requestable, Endpoint, Subset {
+public final class MobileDevice: NSObject, Codable, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
     public static let Endpoint = "mobiledevices"
-    static let GeneralKey = "general"
+
+    enum CodingKeys: String, CodingKey {
+        case general
+    }
 
     // MARK: - Properties
 
@@ -26,17 +29,6 @@ public final class MobileDevice: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Initialization
 
-    public required init?(json: [String: Any], node: String = "") {
-        guard
-            let generalNode = json[MobileDevice.GeneralKey] as? [String: Any],
-            let general = MobileDeviceGeneral(json: generalNode)
-            else {
-                return nil
-        }
-
-        self.general = general
-    }
-
     public init?(identifier: UInt, name: String) {
         guard let general = MobileDeviceGeneral(identifier: identifier, name: name) else {
             return nil
@@ -45,14 +37,37 @@ public final class MobileDevice: NSObject, Requestable, Endpoint, Subset {
         self.general = general
     }
 
+    public required init?(json: [String: Any], node: String = "") {
+        guard
+            let generalNode = json[CodingKeys.general.rawValue] as? [String: Any],
+            let general = MobileDeviceGeneral(json: generalNode)
+            else {
+                return nil
+        }
+
+        self.general = general
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        general = try container.decode(MobileDeviceGeneral.self, forKey: .general)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[MobileDevice.GeneralKey] = general.toJSON()
+        json[CodingKeys.general.rawValue] = general.toJSON()
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(general, forKey: .general)
     }
 }
 
@@ -61,7 +76,7 @@ public final class MobileDevice: NSObject, Requestable, Endpoint, Subset {
 extension MobileDevice: Creatable {
 
     public func createRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 }
 
@@ -83,7 +98,7 @@ extension MobileDevice: Readable {
 
     /// Returns a GET **URLRequest** based on the supplied name.
     public static func readRequest(name: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 
     /// Returns a GET **URLRequest** based on the email.
@@ -93,7 +108,7 @@ extension MobileDevice: Readable {
 
     /// Returns a GET **URLRequest** based on the supplied udid.
     public static func readRequest(udid: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.UDIDKey, value: udid)
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.CodingKeys.udid.rawValue, value: udid)
     }
 
     /// Returns a GET **URLRequest** based on the supplied udid.
@@ -103,7 +118,7 @@ extension MobileDevice: Readable {
 
     /// Returns a GET **URLRequest** based on the supplied udid.
     public static func readRequest(serialNumber: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: serialNumber)
+        return SessionManager.instance.readRequest(for: self, key: ComputerGeneral.CodingKeys.serialNumber.rawValue, value: serialNumber)
     }
 
     /// Returns a GET **URLRequest** based on the supplied serial number.
@@ -117,12 +132,12 @@ extension MobileDevice: Readable {
 extension MobileDevice: Updatable {
 
     public func updateRequest() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 
     /// Returns a PUT **URLRequest** based on the name.
     public func updateRequestWithName() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 
     /// Returns a PUT **URLRequest** based on the udid.
@@ -150,7 +165,7 @@ extension MobileDevice: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the supplied name.
     public static func deleteRequest(name: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 
     /// Returns a DELETE **URLRequest** based on the name.
@@ -160,7 +175,7 @@ extension MobileDevice: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the supplied udid.
     public static func deleteRequest(udid: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.UDIDKey, value: udid)
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.CodingKeys.udid.rawValue, value: udid)
     }
 
     /// Returns a DELETE **URLRequest** based on the udid.
@@ -170,7 +185,7 @@ extension MobileDevice: Deletable {
 
     /// Returns a DELETE **URLRequest** based on the supplied serial number.
     public static func deleteRequest(serialNumber: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.SerialNumberKey, value: serialNumber)
+        return SessionManager.instance.deleteRequest(for: self, key: ComputerGeneral.CodingKeys.serialNumber.rawValue, value: serialNumber)
     }
 
     /// Returns a DELETE **URLRequest** based on the serial number.

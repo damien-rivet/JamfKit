@@ -75,17 +75,49 @@ class ComputerConfigurationGeneralTest: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 12)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.DescriptionKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.TypeKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.ParentKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.PackagesKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.ScriptsKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.PrintersKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.DirectoryBindingsKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.ManagementKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.HomepageKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.PartitionsKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.description.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.type.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.parent.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.packages.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.scripts.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.printers.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.directoryBindings.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.management.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.homepage.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationGeneral.CodingKeys.partitions.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_configuration_general_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerConfigurationGeneral.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.desc, defaultDesc)
+            XCTAssertEqual(actualValue.type, defaultType)
+            XCTAssertEqual(actualValue.parent, defaultParent)
+            XCTAssertEqual(actualValue.homepage, defaultHomepage)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_configuration_general_valid", subfolder: subfolder)!
+
+        let actualValue = ComputerConfigurationGeneral(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

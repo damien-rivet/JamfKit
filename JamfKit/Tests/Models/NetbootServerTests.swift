@@ -109,19 +109,60 @@ class NetbootServerTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 14)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[NetbootServer.IpAddressKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.DefaultImageKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.SpecificImageKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.TargetPlatformKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.SharePointKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.SetKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.ImageKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.ProtocolKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.ConfigureManuallyKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.BootArgumentsKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.BootFileKey])
-        XCTAssertNotNil(encodedObject?[NetbootServer.BootDeviceKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.ipAddress.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.defaultImage.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.specificImage.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.targetPlatform.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.sharePoint.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.set.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.image.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.filesystemProtocol.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.configureManually.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.bootArguments.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.bootFile.rawValue])
+        XCTAssertNotNil(encodedObject?[NetbootServer.CodingKeys.bootDevice.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "netboot_server_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(NetbootServer.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[NetbootServer][\(defaultIdentifier) - \(defaultIpAddress)]")
+            XCTAssertEqual(actualValue.ipAddress, defaultIpAddress)
+            XCTAssertEqual(actualValue.isDefaultImage, defaultIsDefaultImage)
+            XCTAssertEqual(actualValue.isSpecificImage, defaultIsSpecificImage)
+            XCTAssertEqual(actualValue.targetPlatform, defaultTargetPlatform)
+            XCTAssertEqual(actualValue.sharePoint, defaultSharePoint)
+            XCTAssertEqual(actualValue.set, defaultSet)
+            XCTAssertEqual(actualValue.image, defaultImage)
+            XCTAssertEqual(actualValue.filesystemProtocol, defaultFilesystemProtocol)
+            XCTAssertEqual(actualValue.configureManually, defaultConfigureManually)
+            XCTAssertEqual(actualValue.bootArguments, defaultBootArguments)
+            XCTAssertEqual(actualValue.bootFile, defaultBootFile)
+            XCTAssertEqual(actualValue.bootDevice, defaultBootDevice)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "netboot_server_valid", subfolder: subfolder)!
+
+        let actualValue = NetbootServer(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

@@ -11,9 +11,11 @@ public final class ComputerConfigurationProfileGeneral: ConfigurationProfileGene
 
     // MARK: - Constants
 
-    static let DistributionMethodKey = "distribution_method"
-    static let UserRemovableKey = "user_removable"
-    static let LevelKey = "level"
+    enum CodingKeys: String, CodingKey {
+        case distributionMethod = "distribution_method"
+        case userRemovable = "user_removable"
+        case level = "level"
+    }
 
     // MARK: - Properties
 
@@ -28,16 +30,26 @@ public final class ComputerConfigurationProfileGeneral: ConfigurationProfileGene
 
     // MARK: - Initialization
 
+    override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        distributionMethod = json[ComputerConfigurationProfileGeneral.DistributionMethodKey] as? String ?? ""
-        isUserRemovable = json[ComputerConfigurationProfileGeneral.UserRemovableKey] as? Bool ?? false
-        level = json[ComputerConfigurationProfileGeneral.LevelKey] as? String ?? ""
+        distributionMethod = json[CodingKeys.distributionMethod.rawValue] as? String ?? ""
+        isUserRemovable = json[CodingKeys.userRemovable.rawValue] as? Bool ?? false
+        level = json[CodingKeys.level.rawValue] as? String ?? ""
 
         super.init(json: json)
     }
 
-    override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        distributionMethod = try container.decode(String.self, forKey: .distributionMethod)
+        isUserRemovable = try container.decode(Bool.self, forKey: .userRemovable)
+        level = try container.decode(String.self, forKey: .level)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -45,10 +57,20 @@ public final class ComputerConfigurationProfileGeneral: ConfigurationProfileGene
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[ComputerConfigurationProfileGeneral.DistributionMethodKey] = distributionMethod
-        json[ComputerConfigurationProfileGeneral.UserRemovableKey] = isUserRemovable
-        json[ComputerConfigurationProfileGeneral.LevelKey] = level
+        json[CodingKeys.distributionMethod.rawValue] = distributionMethod
+        json[CodingKeys.userRemovable.rawValue] = isUserRemovable
+        json[CodingKeys.level.rawValue] = level
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(distributionMethod, forKey: .distributionMethod)
+        try container.encode(isUserRemovable, forKey: .userRemovable)
+        try container.encode(level, forKey: .level)
+
+        try super.encode(to: encoder)
     }
 }

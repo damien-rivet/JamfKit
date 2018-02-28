@@ -92,18 +92,58 @@ class NetworkSegmentTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 13)
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.StartingAddressKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.EndingAddressKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.DistributionServerKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.DistributionPointKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.UrlKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.NetbootServerKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.SwuServerKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.BuildingKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.DepartmentKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.OverrideBuildingsKey])
-        XCTAssertNotNil(encodedObject?[NetworkSegment.OverrideDepartmentsKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.startingAddress.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.endingAddress.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.distributionServer.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.distributionPoint.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.url.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.netbootServer.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.swuServer.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.building.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.department.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.building.rawValue])
+        XCTAssertNotNil(encodedObject?[NetworkSegment.CodingKeys.overrideDepartments.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "network_segment_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(NetworkSegment.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[NetworkSegment][\(defaultIdentifier) - \(defaultName)]")
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.startingAddress, defaultStartingAddress)
+            XCTAssertEqual(actualValue.endingAddress, defaultEndingAddress)
+            XCTAssertEqual(actualValue.distributionServer, defaultDistributionServer)
+            XCTAssertEqual(actualValue.distributionPoint, defaultDistributionPoint)
+            XCTAssertEqual(actualValue.url, defaultUrl)
+            XCTAssertEqual(actualValue.netbootServer, defaultNetbootServer)
+            XCTAssertEqual(actualValue.swuServer, defaultSwuServer)
+            XCTAssertEqual(actualValue.building, defaultBuilding)
+            XCTAssertEqual(actualValue.department, defaultDepartment)
+            XCTAssertEqual(actualValue.overridesBuildings, defaultOverridesBuildings)
+            XCTAssertEqual(actualValue.overridesDepartments, defaultOverridesDepartments)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "network_segment_valid", subfolder: subfolder)!
+
+        let actualValue = NetworkSegment(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

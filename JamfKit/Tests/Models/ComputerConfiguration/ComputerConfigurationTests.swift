@@ -58,6 +58,34 @@ class ComputerConfigurationTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 1)
-        XCTAssertNotNil(encodedObject?[ComputerConfiguration.GeneralKey])
+        XCTAssertNotNil(encodedObject?[ComputerConfiguration.CodingKeys.general.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_configuration", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerConfiguration.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[ComputerConfiguration][12345. High Sierra Base OS]")
+            XCTAssertNotNil(actualValue.general)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_configuration", subfolder: subfolder)!
+
+        let actualValue = ComputerConfiguration(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

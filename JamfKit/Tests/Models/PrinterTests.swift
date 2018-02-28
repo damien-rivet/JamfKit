@@ -109,19 +109,60 @@ class PrinterTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 14)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[Printer.CategoryKey])
-        XCTAssertNotNil(encodedObject?[Printer.UriKey])
-        XCTAssertNotNil(encodedObject?[Printer.CupsNameKey])
-        XCTAssertNotNil(encodedObject?[Printer.LocationKey])
-        XCTAssertNotNil(encodedObject?[Printer.ModelKey])
-        XCTAssertNotNil(encodedObject?[Printer.InformationKey])
-        XCTAssertNotNil(encodedObject?[Printer.NotesKey])
-        XCTAssertNotNil(encodedObject?[Printer.MakeDefaultKey])
-        XCTAssertNotNil(encodedObject?[Printer.UseGenericKey])
-        XCTAssertNotNil(encodedObject?[Printer.PpdKey])
-        XCTAssertNotNil(encodedObject?[Printer.PpdPathKey])
-        XCTAssertNotNil(encodedObject?[Printer.PpdContentsKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.category.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.uri.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.cupsName.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.location.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.model.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.information.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.notes.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.makeDefault.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.useGeneric.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.ppd.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.ppdPath.rawValue])
+        XCTAssertNotNil(encodedObject?[Printer.CodingKeys.ppdContents.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "printer_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Printer.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[Printer][\(defaultIdentifier) - \(defaultName)][\(defaultUri) \(defaultLocation)]")
+            XCTAssertEqual(actualValue.category, defaultCategory)
+            XCTAssertEqual(actualValue.uri, defaultUri)
+            XCTAssertEqual(actualValue.cupsName, defaultCupsName)
+            XCTAssertEqual(actualValue.location, defaultLocation)
+            XCTAssertEqual(actualValue.model, defaultModel)
+            XCTAssertEqual(actualValue.information, defaultInformation)
+            XCTAssertEqual(actualValue.notes, defaultNotes)
+            XCTAssertEqual(actualValue.makeDefault, defaultMakeDefault)
+            XCTAssertEqual(actualValue.useGeneric, defaultUseGeneric)
+            XCTAssertEqual(actualValue.ppd, defaultPpd)
+            XCTAssertEqual(actualValue.ppdPath, defaultPpdPath)
+            XCTAssertEqual(actualValue.ppdContents, defaultPpdContents)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "printer_valid", subfolder: subfolder)!
+
+        let actualValue = Printer(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

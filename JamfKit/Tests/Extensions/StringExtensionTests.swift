@@ -15,8 +15,8 @@ class StringExtensionTests: XCTestCase {
     // MARK: - Tests
 
     func testShouldReturnCleanedUpKey() {
-        let actualValue = ComputerGeneral.SerialNumberKey.asCleanedKey()
+        let actualValue = ComputerGeneral.CodingKeys.serialNumber.rawValue.asCleanedKey()
 
-        XCTAssertEqual(actualValue, ComputerGeneral.SerialNumberKey.replacingOccurrences(of: "_", with: ""))
+        XCTAssertEqual(actualValue, ComputerGeneral.CodingKeys.serialNumber.rawValue.replacingOccurrences(of: "_", with: ""))
     }
 }

@@ -7,12 +7,14 @@
 //
 
 @objc(JMFKComputerRemoteManagement)
-public final class ComputerRemoteManagement: NSObject, Requestable {
+public final class ComputerRemoteManagement: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let ManagedKey = "managed"
-    static let ManagementUsernameKey = "management_username"
+    enum CodingKeys: String, CodingKey {
+        case managed = "managed"
+        case managementUsername = "management_username"
+    }
 
     // MARK: - Properties
 
@@ -24,13 +26,20 @@ public final class ComputerRemoteManagement: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        isManaged = json[ComputerRemoteManagement.ManagedKey] as? Bool ?? false
-        managementUsername = json[ComputerRemoteManagement.ManagementUsernameKey] as? String ?? ""
-    }
-
     public override init() {
         super.init()
+    }
+
+    public init?(json: [String: Any], node: String = "") {
+        isManaged = json[CodingKeys.managed.rawValue] as? Bool ?? false
+        managementUsername = json[CodingKeys.managementUsername.rawValue] as? String ?? ""
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        isManaged = try container.decode(Bool.self, forKey: .managed)
+        managementUsername = try container.decode(String.self, forKey: .managementUsername)
     }
 
     // MARK: - Functions
@@ -38,9 +47,16 @@ public final class ComputerRemoteManagement: NSObject, Requestable {
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[ComputerRemoteManagement.ManagedKey] = isManaged
-        json[ComputerRemoteManagement.ManagementUsernameKey] = managementUsername
+        json[CodingKeys.managed.rawValue] = isManaged
+        json[CodingKeys.managementUsername.rawValue] = managementUsername
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(isManaged, forKey: .managed)
+        try container.encode(managementUsername, forKey: .managementUsername)
     }
 }

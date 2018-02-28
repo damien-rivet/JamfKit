@@ -74,15 +74,45 @@ class ComputerCommandTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
-        XCTAssertNotNil(encodedObject?[ComputerCommand.GeneralKey])
-        XCTAssertNotNil(encodedObject?[ComputerCommand.ComputersKey])
+        XCTAssertNotNil(encodedObject?[ComputerCommand.CodingKeys.general.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerCommand.CodingKeys.computers.rawValue])
 
-        let generalNode = encodedObject?[ComputerCommand.GeneralKey] as! [String: Any]
-        XCTAssertNotNil(generalNode[ComputerCommandGeneral.CommandKey])
-        XCTAssertNotNil(generalNode[ComputerCommandGeneral.PasscodeKey])
+        let generalNode = encodedObject?[ComputerCommand.CodingKeys.general.rawValue] as! [String: Any]
+        XCTAssertNotNil(generalNode[ComputerCommandGeneral.CodingKeys.command.rawValue])
+        XCTAssertNotNil(generalNode[ComputerCommandGeneral.CodingKeys.passcode.rawValue])
 
-        let computersNode = encodedObject?[ComputerCommand.ComputersKey] as! [[String: [String: UInt]]]
+        let computersNode = encodedObject?[ComputerCommand.CodingKeys.computers.rawValue] as! [[String: [String: UInt]]]
         XCTAssertEqual(computersNode.count, 1)
         XCTAssertEqual(computersNode[0]["computer"]!["id"], 1)
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_command", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerCommand.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[ComputerCommand][\(defaultCommand)]")
+            XCTAssertEqual(actualValue.general.command, defaultCommand)
+            XCTAssertEqual(actualValue.general.passcode, defaultPasscode)
+            XCTAssertEqual(actualValue.computers.count, 1)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_command", subfolder: subfolder)!
+
+        let actualValue = ComputerCommand(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

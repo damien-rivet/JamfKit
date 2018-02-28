@@ -8,13 +8,16 @@
 
 /// Represents a logical command that can be executed on any hardware element manageg by Jamf.
 @objc(JMFKComputerCommand)
-public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
+public final class ComputerCommand: NSObject, Codable, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
     public static let Endpoint = "computercommands"
-    static let GeneralKey = "general"
-    static let ComputersKey = "computers"
+
+    enum CodingKeys: String, CodingKey {
+        case general
+        case computers
+    }
 
     // MARK: - Properties
 
@@ -30,23 +33,6 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        guard
-            let generalNode = json[ComputerCommand.GeneralKey] as? [String: Any],
-            let general = ComputerCommandGeneral(json: generalNode)
-            else {
-                return nil
-        }
-
-        self.general = general
-
-        if let computersNode = json[ComputerCommand.ComputersKey] as? [String: [String: UInt]] {
-            computers = computersNode.flatMap { $0.value }.flatMap { $1 }
-        } else {
-            computers = [UInt]()
-        }
-    }
-
     public init?(command: String, passcode: UInt) {
         guard let general = ComputerCommandGeneral(command: command, passcode: passcode) else {
             return nil
@@ -55,12 +41,36 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
         self.general = general
     }
 
+    public init?(json: [String: Any], node: String = "") {
+        guard
+            let generalNode = json[CodingKeys.general.rawValue] as? [String: Any],
+            let general = ComputerCommandGeneral(json: generalNode)
+            else {
+                return nil
+        }
+
+        self.general = general
+
+        if let computersNode = json[CodingKeys.computers.rawValue] as? [String: [String: UInt]] {
+            computers = computersNode.flatMap { $0.value }.flatMap { $1 }
+        } else {
+            computers = [UInt]()
+        }
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        general = try container.decode(ComputerCommandGeneral.self, forKey: .general)
+        computers = try container.decode([UInt].self, forKey: .computers)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[ComputerCommand.GeneralKey] = general.toJSON()
+        json[CodingKeys.general.rawValue] = general.toJSON()
 
         if !computers.isEmpty {
             let rawComputers = computers.map { computerIdentifier -> [String: [String: UInt]] in
@@ -71,10 +81,17 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
                 ]
             }
 
-            json[ComputerCommand.ComputersKey] = rawComputers
+            json[CodingKeys.computers.rawValue] = rawComputers
         }
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(general, forKey: .general)
+        try container.encode(computers, forKey: .computers)
     }
 }
 
@@ -83,7 +100,7 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
 extension ComputerCommand: Creatable {
 
     public func createRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: ComputerCommandGeneral.CommandKey, value: general.command)
+        return SessionManager.instance.createRequest(for: self, key: ComputerCommandGeneral.CodingKeys.command.rawValue, value: general.command)
     }
 }
 

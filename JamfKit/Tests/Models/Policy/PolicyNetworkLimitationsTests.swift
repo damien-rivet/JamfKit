@@ -46,7 +46,35 @@ class PolicyNetworkLimitationsTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
-        XCTAssertNotNil(encodedObject?[PolicyNetworkLimitations.MinimumNetworkConnectionKey])
-        XCTAssertNotNil(encodedObject?[PolicyNetworkLimitations.AnyIpAddressKey])
+        XCTAssertNotNil(encodedObject?[PolicyNetworkLimitations.CodingKeys.minimumNetworkConnection.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyNetworkLimitations.CodingKeys.anyIpAddress.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "policy_network_limitations", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(PolicyNetworkLimitations.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.minimumNetworkConnection, defaultMinimumNetworkConnection)
+            XCTAssertEqual(actualValue.anyIpAddress, defaultAnyIpAddress)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "policy_network_limitations", subfolder: subfolder)!
+
+        let actualValue = PolicyNetworkLimitations(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

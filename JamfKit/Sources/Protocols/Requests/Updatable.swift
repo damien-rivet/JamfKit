@@ -21,10 +21,10 @@ public protocol Updatable {
 extension Updatable where Self: Endpoint & Identifiable & Requestable {
 
     func getUpdateRequest() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.IdentifierKey, value: String(identifier))
     }
 
     func getUpdateRequestWithName() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 }

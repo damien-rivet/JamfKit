@@ -115,15 +115,75 @@ class UserTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 10)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[User.FullNameKey])
-        XCTAssertNotNil(encodedObject?[User.EmailKey])
-        XCTAssertNotNil(encodedObject?[User.EmailAddressKey])
-        XCTAssertNotNil(encodedObject?[User.PhoneNumberKey])
-        XCTAssertNotNil(encodedObject?[User.PositionKey])
-        XCTAssertNotNil(encodedObject?[User.EnableCustomPhotoURLKey])
-        XCTAssertNotNil(encodedObject?[User.CustomPhotoURLKey])
-        XCTAssertNotNil(encodedObject?[User.SitesKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.fullName.rawValue])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.email.rawValue])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.emailAddress.rawValue])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.phoneNumber.rawValue])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.position.rawValue])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.enableCustomPhotoURL.rawValue])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.customPhotoURL.rawValue])
+        XCTAssertNotNil(encodedObject?[User.CodingKeys.sites.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "user_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(User.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[User][\(defaultIdentifier) - \(defaultName)][\(defaultFullName)]")
+            XCTAssertEqual(actualValue.fullName, defaultFullName)
+            XCTAssertEqual(actualValue.email, defaultEmail)
+            XCTAssertEqual(actualValue.emailAddress, defaultEmailAddress)
+            XCTAssertEqual(actualValue.phoneNumber, defaultPhoneNumber)
+            XCTAssertEqual(actualValue.position, defaultPosition)
+            XCTAssertEqual(actualValue.enableCustomPhotoURL, defaultEnableCustomPhotoURL)
+            XCTAssertEqual(actualValue.customPhotoURL, defaultCustomPhotoURL)
+            XCTAssertEqual(actualValue.sites.count, 1)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldInitializeFromDataMultipleSites() {
+        let payload = self.payloadData(for: "user_multiple", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(User.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[User][\(defaultIdentifier) - \(defaultName)][\(defaultFullName)]")
+            XCTAssertEqual(actualValue.fullName, defaultFullName)
+            XCTAssertEqual(actualValue.email, defaultEmail)
+            XCTAssertEqual(actualValue.emailAddress, defaultEmailAddress)
+            XCTAssertEqual(actualValue.phoneNumber, defaultPhoneNumber)
+            XCTAssertEqual(actualValue.position, defaultPosition)
+            XCTAssertEqual(actualValue.enableCustomPhotoURL, defaultEnableCustomPhotoURL)
+            XCTAssertEqual(actualValue.customPhotoURL, defaultCustomPhotoURL)
+            XCTAssertEqual(actualValue.sites.count, 2)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "user_valid", subfolder: subfolder)!
+
+        let actualValue = User(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

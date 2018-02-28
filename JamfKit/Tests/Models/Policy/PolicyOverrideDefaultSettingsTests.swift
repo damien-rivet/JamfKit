@@ -55,10 +55,41 @@ class PolicyOverrideDefaultSettingsTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 5)
-        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.TargetDriveKey])
-        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.DistributionPointKey])
-        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.ForceAfpSmbKey])
-        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.SusKey])
-        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.NetbootServerKey])
+        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.CodingKeys.targetDrive.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.CodingKeys.distributionPoint.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.CodingKeys.forceAfpSmb.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.CodingKeys.sus.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyOverrideDefaultSettings.CodingKeys.netbootServer.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "policy_override_default_settings", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(PolicyOverrideDefaultSettings.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.targetDrive, defaultTargetDrive)
+            XCTAssertEqual(actualValue.distributionPoint, defaultDistributionPoint)
+            XCTAssertEqual(actualValue.shouldForceAfpSmb, defaultForceAfpSmb)
+            XCTAssertEqual(actualValue.sus, defaultSus)
+            XCTAssertEqual(actualValue.netbootServer, defaultNetbootServer)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "policy_override_default_settings", subfolder: subfolder)!
+
+        let actualValue = PolicyOverrideDefaultSettings(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

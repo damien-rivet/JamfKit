@@ -7,15 +7,17 @@
 //
 
 @objc(JMFKPolicyOverrideDefaultSettings)
-public final class PolicyOverrideDefaultSettings: NSObject, Requestable {
+public final class PolicyOverrideDefaultSettings: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let TargetDriveKey = "target_drive"
-    static let DistributionPointKey = "distribution_point"
-    static let ForceAfpSmbKey = "force_afp_smb"
-    static let SusKey = "sus"
-    static let NetbootServerKey = "netboot_server"
+    enum CodingKeys: String, CodingKey {
+        case targetDrive = "target_drive"
+        case distributionPoint = "distribution_point"
+        case forceAfpSmb = "force_afp_smb"
+        case sus = "sus"
+        case netbootServer = "netboot_server"
+    }
 
     // MARK: - Properties
 
@@ -36,16 +38,26 @@ public final class PolicyOverrideDefaultSettings: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        targetDrive = json[PolicyOverrideDefaultSettings.TargetDriveKey] as? String ?? ""
-        distributionPoint = json[PolicyOverrideDefaultSettings.DistributionPointKey] as? String ?? ""
-        shouldForceAfpSmb = json[PolicyOverrideDefaultSettings.ForceAfpSmbKey] as? Bool ?? false
-        sus = json[PolicyOverrideDefaultSettings.SusKey] as? String ?? ""
-        netbootServer = json[PolicyOverrideDefaultSettings.NetbootServerKey] as? String ?? ""
-    }
-
     public override init() {
         super.init()
+    }
+
+    public init?(json: [String: Any], node: String = "") {
+        targetDrive = json[CodingKeys.targetDrive.rawValue] as? String ?? ""
+        distributionPoint = json[CodingKeys.distributionPoint.rawValue] as? String ?? ""
+        shouldForceAfpSmb = json[CodingKeys.forceAfpSmb.rawValue] as? Bool ?? false
+        sus = json[CodingKeys.sus.rawValue] as? String ?? ""
+        netbootServer = json[CodingKeys.netbootServer.rawValue] as? String ?? ""
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        targetDrive = try container.decode(String.self, forKey: .targetDrive)
+        distributionPoint = try container.decode(String.self, forKey: .distributionPoint)
+        shouldForceAfpSmb = try container.decode(Bool.self, forKey: .forceAfpSmb)
+        sus = try container.decode(String.self, forKey: .sus)
+        netbootServer = try container.decode(String.self, forKey: .netbootServer)
     }
 
     // MARK: - Functions
@@ -53,12 +65,22 @@ public final class PolicyOverrideDefaultSettings: NSObject, Requestable {
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[PolicyOverrideDefaultSettings.TargetDriveKey] = targetDrive
-        json[PolicyOverrideDefaultSettings.DistributionPointKey] = distributionPoint
-        json[PolicyOverrideDefaultSettings.ForceAfpSmbKey] = shouldForceAfpSmb
-        json[PolicyOverrideDefaultSettings.SusKey] = sus
-        json[PolicyOverrideDefaultSettings.NetbootServerKey] = netbootServer
+        json[CodingKeys.targetDrive.rawValue] = targetDrive
+        json[CodingKeys.distributionPoint.rawValue] = distributionPoint
+        json[CodingKeys.forceAfpSmb.rawValue] = shouldForceAfpSmb
+        json[CodingKeys.sus.rawValue] = sus
+        json[CodingKeys.netbootServer.rawValue] = netbootServer
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(targetDrive, forKey: .targetDrive)
+        try container.encode(distributionPoint, forKey: .distributionPoint)
+        try container.encode(shouldForceAfpSmb, forKey: .forceAfpSmb)
+        try container.encode(sus, forKey: .sus)
+        try container.encode(netbootServer, forKey: .netbootServer)
     }
 }

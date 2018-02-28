@@ -8,12 +8,15 @@
 
 /// Represents a logical configuration profile that can be applied to any computer managed by Jamf.
 @objc(JMFKComputerConfigurationProfile)
-public final class ComputerConfigurationProfile: NSObject, Requestable, Endpoint, Subset {
+public final class ComputerConfigurationProfile: NSObject, Codable, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
     public static let Endpoint = "osxconfigurationprofiles"
-    static let GeneralKey = "general"
+
+    enum CodingKeys: String, CodingKey {
+        case general
+    }
 
     // MARK: - Properties
 
@@ -27,7 +30,7 @@ public final class ComputerConfigurationProfile: NSObject, Requestable, Endpoint
 
     public init?(json: [String: Any], node: String = "") {
         guard
-            let generalNode = json[ComputerConfigurationProfile.GeneralKey] as? [String: Any],
+            let generalNode = json[CodingKeys.general.rawValue] as? [String: Any],
             let general = ComputerConfigurationProfileGeneral(json: generalNode)
             else {
                 return nil
@@ -44,14 +47,26 @@ public final class ComputerConfigurationProfile: NSObject, Requestable, Endpoint
         self.general = general
     }
 
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        general = try container.decode(ComputerConfigurationProfileGeneral.self, forKey: .general)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[ComputerConfigurationProfile.GeneralKey] = general.toJSON()
+        json[CodingKeys.general.rawValue] = general.toJSON()
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(general, forKey: .general)
     }
 }
 
@@ -60,7 +75,7 @@ public final class ComputerConfigurationProfile: NSObject, Requestable, Endpoint
 extension ComputerConfigurationProfile: Creatable {
 
     public func createRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 }
 
@@ -81,7 +96,7 @@ extension ComputerConfigurationProfile: Readable {
     }
 
     public func readRequestWithName() -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 
@@ -90,12 +105,12 @@ extension ComputerConfigurationProfile: Readable {
 extension ComputerConfigurationProfile: Updatable {
 
     public func updateRequest() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 
     /// Returns a PUT **URLRequest** based on the name.
     public func updateRequestWithName() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 

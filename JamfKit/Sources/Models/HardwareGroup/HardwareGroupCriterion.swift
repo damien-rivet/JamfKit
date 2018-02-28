@@ -7,17 +7,19 @@
 //
 
 @objc(JMFKHardwareGroupCriterion)
-public final class HardwareGroupCriterion: NSObject, Requestable {
+public final class HardwareGroupCriterion: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let NameKey = "name"
-    static let PriorityKey = "priority"
-    static let AndOrKey = "and_or"
-    static let SearchTypeKey = "search_type"
-    static let ValueKey = "value"
-    static let OpeningParenKey = "opening_paren"
-    static let ClosingParenKey = "closing_paren"
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case priority = "priority"
+        case andOr = "and_or"
+        case searchType = "search_type"
+        case value = "value"
+        case openingParen = "opening_paren"
+        case closingParen = "closing_paren"
+    }
 
     // MARK: - Properties
 
@@ -44,16 +46,6 @@ public final class HardwareGroupCriterion: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        name = json[HardwareGroupCriterion.NameKey] as? String ?? ""
-        priority = json[HardwareGroupCriterion.PriorityKey] as? UInt ?? 0
-        andOr = json[HardwareGroupCriterion.AndOrKey] as? String ?? ""
-        searchType = json[HardwareGroupCriterion.SearchTypeKey] as? String ?? ""
-        value = json[HardwareGroupCriterion.ValueKey] as? UInt ?? 0
-        openingParen = json[HardwareGroupCriterion.OpeningParenKey] as? Bool ?? false
-        closingParen = json[HardwareGroupCriterion.ClosingParenKey] as? Bool ?? false
-    }
-
     public init?(name: String) {
         guard !name.isEmpty else {
             return nil
@@ -64,19 +56,53 @@ public final class HardwareGroupCriterion: NSObject, Requestable {
         super.init()
     }
 
+    public init?(json: [String: Any], node: String = "") {
+        name = json[CodingKeys.name.rawValue] as? String ?? ""
+        priority = json[CodingKeys.priority.rawValue] as? UInt ?? 0
+        andOr = json[CodingKeys.andOr.rawValue] as? String ?? ""
+        searchType = json[CodingKeys.searchType.rawValue] as? String ?? ""
+        value = json[CodingKeys.value.rawValue] as? UInt ?? 0
+        openingParen = json[CodingKeys.openingParen.rawValue] as? Bool ?? false
+        closingParen = json[CodingKeys.closingParen.rawValue] as? Bool ?? false
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        name = try container.decode(String.self, forKey: .name)
+        priority = try container.decode(UInt.self, forKey: .priority)
+        andOr = try container.decode(String.self, forKey: .andOr)
+        searchType = try container.decode(String.self, forKey: .searchType)
+        value = try container.decode(UInt.self, forKey: .value)
+        openingParen = try container.decode(Bool.self, forKey: .openingParen)
+        closingParen = try container.decode(Bool.self, forKey: .closingParen)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[HardwareGroupCriterion.NameKey] = name
-        json[HardwareGroupCriterion.PriorityKey] = priority
-        json[HardwareGroupCriterion.AndOrKey] = andOr
-        json[HardwareGroupCriterion.SearchTypeKey] = searchType
-        json[HardwareGroupCriterion.ValueKey] = value
-        json[HardwareGroupCriterion.OpeningParenKey] = openingParen
-        json[HardwareGroupCriterion.ClosingParenKey] = closingParen
+        json[CodingKeys.name.rawValue] = name
+        json[CodingKeys.priority.rawValue] = priority
+        json[CodingKeys.andOr.rawValue] = andOr
+        json[CodingKeys.searchType.rawValue] = searchType
+        json[CodingKeys.value.rawValue] = value
+        json[CodingKeys.openingParen.rawValue] = openingParen
+        json[CodingKeys.closingParen.rawValue] = closingParen
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(name, forKey: .name)
+        try container.encode(priority, forKey: .priority)
+        try container.encode(andOr, forKey: .andOr)
+        try container.encode(searchType, forKey: .searchType)
+        try container.encode(value, forKey: .value)
+        try container.encode(openingParen, forKey: .openingParen)
+        try container.encode(closingParen, forKey: .closingParen)
     }
 }

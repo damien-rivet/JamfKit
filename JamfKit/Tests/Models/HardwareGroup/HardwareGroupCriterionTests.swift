@@ -74,12 +74,45 @@ class HardwareGroupCriterionTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 7)
-        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.NameKey])
-        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.PriorityKey])
-        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.AndOrKey])
-        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.SearchTypeKey])
-        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.ValueKey])
-        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.OpeningParenKey])
-        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.ClosingParenKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.CodingKeys.name.rawValue])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.CodingKeys.priority.rawValue])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.CodingKeys.andOr.rawValue])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.CodingKeys.searchType.rawValue])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.CodingKeys.value.rawValue])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.CodingKeys.openingParen.rawValue])
+        XCTAssertNotNil(encodedObject?[HardwareGroupCriterion.CodingKeys.closingParen.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "hardware_group_criterion", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(HardwareGroupCriterion.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.priority, defaultPriority)
+            XCTAssertEqual(actualValue.andOr, defaultAndOr)
+            XCTAssertEqual(actualValue.searchType, defaultSearchType)
+            XCTAssertEqual(actualValue.value, defaultValue)
+            XCTAssertEqual(actualValue.openingParen, defaultOpeningParen)
+            XCTAssertEqual(actualValue.closingParen, defaultClosingParen)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "hardware_group_criterion", subfolder: subfolder)!
+
+        let actualValue = HardwareGroupCriterion(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }
