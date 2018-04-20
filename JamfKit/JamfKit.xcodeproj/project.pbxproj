@@ -133,6 +133,125 @@
 		ED7383A11FAB75CE006259FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A01FAB75CE006259FC /* User.swift */; };
 		ED7383A31FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
 		ED7383A41FAB7D5A006259FC /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
+		ED76B3F0204B0F7E0085C14C /* JamfKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76B3E7204B0F7E0085C14C /* JamfKit.framework */; };
+		ED76B3FE204B10E40085C14C /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6AD203A1FB700C711D5 /* StringExtensionTests.swift */; };
+		ED76B3FF204B10E70085C14C /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3597821FAA11B6006E3B66 /* JSONHelper.swift */; };
+		ED76B401204B10FC0085C14C /* ComputerConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94B20454BBA001E138F /* ComputerConfigurationProfileGeneralTests.swift */; };
+		ED76B402204B10FC0085C14C /* ComputerConfigurationProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94820454BAE001E138F /* ComputerConfigurationProfileTests.swift */; };
+		ED76B403204B10FC0085C14C /* ConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94020454B78001E138F /* ConfigurationProfileGeneralTests.swift */; };
+		ED76B404204B11050085C14C /* MobileDeviceConfigurationProfileGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B95120454BD2001E138F /* MobileDeviceConfigurationProfileGeneralTests.swift */; };
+		ED76B405204B11050085C14C /* MobileDeviceConfigurationProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B94E20454BCA001E138F /* MobileDeviceConfigurationProfileTests.swift */; };
+		ED76B406204B11050085C14C /* BaseObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D93081FA20F86005589F5 /* BaseObjectTests.swift */; };
+		ED76B407204B11050085C14C /* BuildingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE80701FEA773600169C39 /* BuildingTests.swift */; };
+		ED76B408204B11050085C14C /* CategoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95B1FFF9BA100287739 /* CategoryTests.swift */; };
+		ED76B409204B11080085C14C /* ComputerGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F541FB333A6003FAB0E /* ComputerGeneralTests.swift */; };
+		ED76B40A204B11080085C14C /* ComputerLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F571FB333AF003FAB0E /* ComputerLocationTests.swift */; };
+		ED76B40B204B11080085C14C /* ComputerPurchasingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF10A1FFCE03400F47566 /* ComputerPurchasingTests.swift */; };
+		ED76B40C204B11080085C14C /* ComputerRemoteManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F5D1FB33DF9003FAB0E /* ComputerRemoteManagementTests.swift */; };
+		ED76B40D204B11080085C14C /* ComputerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */; };
+		ED76B40E204B110B0085C14C /* ComputerCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93F1FFF73A700287739 /* ComputerCommandTests.swift */; };
+		ED76B40F204B110B0085C14C /* ComputerCommandGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED91011D200516E7000935E8 /* ComputerCommandGeneralTests.swift */; };
+		ED76B410204B110E0085C14C /* ComputerConfigurationGeneralTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED680B052003C61200F80EDB /* ComputerConfigurationGeneralTest.swift */; };
+		ED76B411204B110E0085C14C /* ComputerConfigurationManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED680AFF2003C12E00F80EDB /* ComputerConfigurationManagementTests.swift */; };
+		ED76B412204B110E0085C14C /* ComputerConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED680AFC2003C12000F80EDB /* ComputerConfigurationTests.swift */; };
+		ED76B413204B110E0085C14C /* DepartmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E51FEA981800005658 /* DepartmentTests.swift */; };
+		ED76B414204B110E0085C14C /* DirectoryBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED169F231FFE613900DD7B61 /* DirectoryBindingTests.swift */; };
+		ED76B415204B11110085C14C /* ComputerGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC96DB42004C73000262530 /* ComputerGroupTests.swift */; };
+		ED76B416204B11110085C14C /* HardwareGroupCriterionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A92000213500FD0A30 /* HardwareGroupCriterionTests.swift */; };
+		ED76B417204B11110085C14C /* HardwareGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED406201203D81BA008B4B6A /* HardwareGroupTests.swift */; };
+		ED76B418204B11110085C14C /* MobileDeviceGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DF2A62000206300FD0A30 /* MobileDeviceGroupTests.swift */; };
+		ED76B419204B11150085C14C /* MobileDeviceGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B891FFD2AAA00809793 /* MobileDeviceGeneralTests.swift */; };
+		ED76B41A204B11150085C14C /* MobileDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B8C1FFD2AB500809793 /* MobileDeviceTests.swift */; };
+		ED76B41B204B11150085C14C /* NetbootServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FD1FECF20800C021E6 /* NetbootServerTests.swift */; };
+		ED76B41C204B11150085C14C /* NetworkSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E04821FFCCDAD001600CA /* NetworkSegmentTests.swift */; };
+		ED76B41D204B11150085C14C /* PackageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED169F1B1FFE504000DD7B61 /* PackageTests.swift */; };
+		ED76B41E204B11150085C14C /* PartitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC664521FFFCA7600504DDB /* PartitionTests.swift */; };
+		ED76B41F204B111A0085C14C /* PolicyDateTimeLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B95E1FFF9BAD00287739 /* PolicyDateTimeLimitationsTests.swift */; };
+		ED76B420204B111A0085C14C /* PolicyGeneralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9611FFF9BB500287739 /* PolicyGeneralTests.swift */; };
+		ED76B421204B111A0085C14C /* PolicyNetworkLimitationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9641FFF9BC000287739 /* PolicyNetworkLimitationsTests.swift */; };
+		ED76B422204B111A0085C14C /* PolicyOverrideDefaultSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9671FFF9BCD00287739 /* PolicyOverrideDefaultSettingsTests.swift */; };
+		ED76B423204B111A0085C14C /* PolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9581FFF9B8B00287739 /* PolicyTests.swift */; };
+		ED76B424204B111A0085C14C /* PreciseDateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B01461FB357F8005F0C47 /* PreciseDateTests.swift */; };
+		ED76B425204B111A0085C14C /* PrinterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EF3F01FEABC7E00676AB3 /* PrinterTests.swift */; };
+		ED76B426204B111A0085C14C /* ScriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED169F2A1FFE742300DD7B61 /* ScriptTests.swift */; };
+		ED76B427204B111A0085C14C /* SiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED73839D1FAB5B09006259FC /* SiteTests.swift */; };
+		ED76B428204B111A0085C14C /* SMTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD41FFC195100B22D36 /* SMTPServerTests.swift */; };
+		ED76B429204B111A0085C14C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A21FAB7D5A006259FC /* UserTests.swift */; };
+		ED76B42A204B11250085C14C /* BuildingRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441962036E73E0078450E /* BuildingRequestsTests.swift */; };
+		ED76B42B204B11250085C14C /* ComputerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A52036EF0C0078450E /* ComputerRequestsTests.swift */; };
+		ED76B42C204B11250085C14C /* ComputerCommandRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34419D2036EA340078450E /* ComputerCommandRequestsTests.swift */; };
+		ED76B42D204B11250085C14C /* ComputerConfigurationRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A92036EFD30078450E /* ComputerConfigurationRequestsTests.swift */; };
+		ED76B42E204B11250085C14C /* ComputerConfigurationProfileRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B955204562FE001E138F /* ComputerConfigurationProfileRequestsTests.swift */; };
+		ED76B42F204B11250085C14C /* MobileDeviceConfigurationProfileRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2B95820456311001E138F /* MobileDeviceConfigurationProfileRequestTests.swift */; };
+		ED76B430204B11250085C14C /* DepartmentRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441992036E9AB0078450E /* DepartmentRequestsTests.swift */; };
+		ED76B431204B11250085C14C /* DirectoryBindingRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441C4203714C60078450E /* DirectoryBindingRequestsTests.swift */; };
+		ED76B432204B11250085C14C /* ComputerGroupRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441A12036EE310078450E /* ComputerGroupRequestsTests.swift */; };
+		ED76B433204B11250085C14C /* MobileDeviceGroupRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441BE20370D930078450E /* MobileDeviceGroupRequestsTests.swift */; };
+		ED76B43D204B11290085C14C /* MobileDeviceRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441BA20370CE20078450E /* MobileDeviceRequestsTests.swift */; };
+		ED76B43E204B11290085C14C /* NetbootServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441C1203714490078450E /* NetbootServerRequestsTests.swift */; };
+		ED76B43F204B11290085C14C /* PolicyRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA22203C7BDB00ABB163 /* PolicyRequestsTests.swift */; };
+		ED76B440204B11290085C14C /* PrinterRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441AC20370A820078450E /* PrinterRequestsTests.swift */; };
+		ED76B441204B11290085C14C /* ScriptRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441AF20370B3F0078450E /* ScriptRequestsTests.swift */; };
+		ED76B442204B11290085C14C /* SessionManagerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6F20076079006B5DFF /* SessionManagerRequestsTests.swift */; };
+		ED76B443204B11290085C14C /* SiteRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441B220370BA30078450E /* SiteRequestsTests.swift */; };
+		ED76B444204B11290085C14C /* SMTPServerRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA1E203C5F0E00ABB163 /* SMTPServerRequestsTests.swift */; };
+		ED76B445204B11290085C14C /* UserRequestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441B520370C280078450E /* UserRequestsTests.swift */; };
+		ED76B446204B11290085C14C /* SessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6C20076067006B5DFF /* SessionManagerTests.swift */; };
+		ED76B447204B11670085C14C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1420206FBC00AF1BF6 /* Constants.swift */; };
+		ED76B448204B11690085C14C /* JamfKit.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9100C220050B4C000935E8 /* JamfKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED76B449204B11700085C14C /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D101920066FC000E0001A /* SessionManager.swift */; };
+		ED76B44A204B11700085C14C /* SessionManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47ED1120206B3A00AF1BF6 /* SessionManagerError.swift */; };
+		ED76B44B204B11730085C14C /* SessionManagerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF70B6820075944006B5DFF /* SessionManagerRequests.swift */; };
+		ED76B44C204B11780085C14C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB331912036D1DF00F43D31 /* Endpoint.swift */; };
+		ED76B44D204B11780085C14C /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3318E2036D0B500F43D31 /* Identifiable.swift */; };
+		ED76B44E204B11780085C14C /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED21F25B2020D89600E4F852 /* Requestable.swift */; };
+		ED76B44F204B11780085C14C /* Subset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3AA25203C863F00ABB163 /* Subset.swift */; };
+		ED76B450204B117C0085C14C /* Creatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441892036E5210078450E /* Creatable.swift */; };
+		ED76B451204B117C0085C14C /* Deletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34418C2036E5470078450E /* Deletable.swift */; };
+		ED76B452204B117C0085C14C /* Readable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED34418F2036E5520078450E /* Readable.swift */; };
+		ED76B453204B117C0085C14C /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3441922036E55C0078450E /* Updatable.swift */; };
+		ED76B454204B11870085C14C /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D930C1FA20FB0005589F5 /* BaseObject.swift */; };
+		ED76B455204B11870085C14C /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE806D1FEA76EA00169C39 /* Building.swift */; };
+		ED76B456204B11870085C14C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9541FFF879F00287739 /* Category.swift */; };
+		ED76B457204B11870085C14C /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B70E21FEA973A00005658 /* Department.swift */; };
+		ED76B458204B11870085C14C /* DirectoryBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED169F211FFE5F2F00DD7B61 /* DirectoryBinding.swift */; };
+		ED76B459204B11870085C14C /* NetbootServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB698FA1FECEF6000C021E6 /* NetbootServer.swift */; };
+		ED76B45A204B11870085C14C /* NetworkSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3E047F1FFCCA58001600CA /* NetworkSegment.swift */; };
+		ED76B45B204B11870085C14C /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4C59051FFE3CCE00E84A25 /* Package.swift */; };
+		ED76B45C204B11870085C14C /* Partition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6644F1FFFC87C00504DDB /* Partition.swift */; };
+		ED76B45D204B11870085C14C /* PreciseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F601FB34222003FAB0E /* PreciseDate.swift */; };
+		ED76B45E204B11870085C14C /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9826F41FEAB14300DD5411 /* Printer.swift */; };
+		ED76B45F204B11870085C14C /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED169F2D1FFE743200DD7B61 /* Script.swift */; };
+		ED76B460204B11870085C14C /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED73839A1FAB5AD9006259FC /* Site.swift */; };
+		ED76B461204B11870085C14C /* SMTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA3CFD11FFC100500B22D36 /* SMTPServer.swift */; };
+		ED76B462204B11870085C14C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7383A01FAB75CE006259FC /* User.swift */; };
+		ED76B463204B118B0085C14C /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9451FFF837B00287739 /* Policy.swift */; };
+		ED76B464204B118B0085C14C /* PolicyDateTimeLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B94B1FFF83AF00287739 /* PolicyDateTimeLimitations.swift */; };
+		ED76B465204B118B0085C14C /* PolicyGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9481FFF838A00287739 /* PolicyGeneral.swift */; };
+		ED76B466204B118B0085C14C /* PolicyNetworkLimitations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B94E1FFF83C000287739 /* PolicyNetworkLimitations.swift */; };
+		ED76B467204B118B0085C14C /* PolicyOverrideDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B9511FFF83D600287739 /* PolicyOverrideDefaultSettings.swift */; };
+		ED76B468204B118F0085C14C /* MobileDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B811FFD1B3900809793 /* MobileDevice.swift */; };
+		ED76B469204B118F0085C14C /* MobileDeviceGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED326B851FFD1D6200809793 /* MobileDeviceGeneral.swift */; };
+		ED76B46A204B11930085C14C /* ComputerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC96DAF2004C5F400262530 /* ComputerGroup.swift */; };
+		ED76B46B204B11930085C14C /* HardwareGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC96DA82004C52F00262530 /* HardwareGroup.swift */; };
+		ED76B46C204B11930085C14C /* HardwareGroupCriterion.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC96DAB2004C54000262530 /* HardwareGroupCriterion.swift */; };
+		ED76B46D204B11930085C14C /* MobileDeviceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72A2BD2000125D0047E0B7 /* MobileDeviceGroup.swift */; };
+		ED76B46E204B11960085C14C /* ConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5420447AB700697048 /* ConfigurationProfileGeneral.swift */; };
+		ED76B46F204B119C0085C14C /* ComputerConfigurationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA502044766000697048 /* ComputerConfigurationProfile.swift */; };
+		ED76B470204B119C0085C14C /* ComputerConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5A20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift */; };
+		ED76B471204B119C0085C14C /* MobileDeviceConfigurationProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA4D2044765200697048 /* MobileDeviceConfigurationProfile.swift */; };
+		ED76B472204B119C0085C14C /* MobileDeviceConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5720447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift */; };
+		ED76B473204B11A00085C14C /* ComputerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED680AF52003B03C00F80EDB /* ComputerConfiguration.swift */; };
+		ED76B474204B11A00085C14C /* ComputerConfigurationGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED680B022003C56C00F80EDB /* ComputerConfigurationGeneral.swift */; };
+		ED76B475204B11A00085C14C /* ComputerConfigurationManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED680AF82003B05E00F80EDB /* ComputerConfigurationManagement.swift */; };
+		ED76B476204B11A30085C14C /* ComputerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB9B93D1FFF712400287739 /* ComputerCommand.swift */; };
+		ED76B477204B11A30085C14C /* ComputerCommandGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED910119200516AA000935E8 /* ComputerCommandGeneral.swift */; };
+		ED76B478204B11A70085C14C /* Computer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1041FFCD9C100F47566 /* Computer.swift */; };
+		ED76B479204B11A70085C14C /* ComputerGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F4D1FB33275003FAB0E /* ComputerGeneral.swift */; };
+		ED76B47A204B11A70085C14C /* ComputerLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56BB7E1FB1B24B00416C1A /* ComputerLocation.swift */; };
+		ED76B47B204B11A70085C14C /* ComputerPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE84AF1FC3152E0066AA75 /* ComputerPurchasing.swift */; };
+		ED76B47C204B11A70085C14C /* ComputerRemoteManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071F5A1FB33D11003FAB0E /* ComputerRemoteManagement.swift */; };
+		ED76B47D204B11BF0085C14C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A6A9203A1EE000C711D5 /* StringExtension.swift */; };
 		ED7BF1051FFCD9C100F47566 /* Computer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1041FFCD9C100F47566 /* Computer.swift */; };
 		ED7BF1061FFCD9C100F47566 /* Computer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1041FFCD9C100F47566 /* Computer.swift */; };
 		ED7BF1081FFCDA9100F47566 /* ComputerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */; };
@@ -167,6 +286,7 @@
 		EDABBA5920447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5720447BB800697048 /* MobileDeviceConfigurationProfileGeneral.swift */; };
 		EDABBA5B20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5A20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift */; };
 		EDABBA5C20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDABBA5A20447BDA00697048 /* ComputerConfigurationProfileGeneral.swift */; };
+		EDB2693A204B153D00397FD2 /* Mocks.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED71F2B41FA9ED890056790C /* Mocks.bundle */; };
 		EDB3318F2036D0B500F43D31 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3318E2036D0B500F43D31 /* Identifiable.swift */; };
 		EDB331902036D0B500F43D31 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3318E2036D0B500F43D31 /* Identifiable.swift */; };
 		EDB331922036D1DF00F43D31 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB331912036D1DF00F43D31 /* Endpoint.swift */; };
@@ -264,6 +384,13 @@
 			remoteGlobalIDString = 52D6DA0E1BF000BD002C0205;
 			remoteInfo = "JamfKit-macOS";
 		};
+		ED76B3F1204B0F7E0085C14C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52D6D9731BEFF229002C0205 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED76B3E6204B0F7E0085C14C;
+			remoteInfo = "JamfKit-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -335,6 +462,8 @@
 		ED73839D1FAB5B09006259FC /* SiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTests.swift; sourceTree = "<group>"; };
 		ED7383A01FAB75CE006259FC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED7383A21FAB7D5A006259FC /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		ED76B3E7204B0F7E0085C14C /* JamfKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JamfKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED76B3EF204B0F7E0085C14C /* JamfKit-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JamfKit-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED7BF1041FFCD9C100F47566 /* Computer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computer.swift; sourceTree = "<group>"; };
 		ED7BF1071FFCDA9100F47566 /* ComputerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerTests.swift; sourceTree = "<group>"; };
 		ED7BF10A1FFCE03400F47566 /* ComputerPurchasingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPurchasingTests.swift; sourceTree = "<group>"; };
@@ -426,6 +555,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED76B3E3204B0F7E0085C14C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED76B3EC204B0F7E0085C14C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED76B3F0204B0F7E0085C14C /* JamfKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -447,6 +591,8 @@
 				52D6D9861BEFF229002C0205 /* JamfKit-iOS Tests.xctest */,
 				52D6DA0F1BF000BD002C0205 /* JamfKit.framework */,
 				DD75027A1C68FCFC006590AF /* JamfKit-macOS Tests.xctest */,
+				ED76B3E7204B0F7E0085C14C /* JamfKit.framework */,
+				ED76B3EF204B0F7E0085C14C /* JamfKit-tvOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -924,6 +1070,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED76B3E4204B0F7E0085C14C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED76B448204B11690085C14C /* JamfKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1001,13 +1155,50 @@
 			productReference = DD75027A1C68FCFC006590AF /* JamfKit-macOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		ED76B3E6204B0F7E0085C14C /* JamfKit-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED76B3FC204B0F7E0085C14C /* Build configuration list for PBXNativeTarget "JamfKit-tvOS" */;
+			buildPhases = (
+				ED76B3E2204B0F7E0085C14C /* Sources */,
+				ED76B3E3204B0F7E0085C14C /* Frameworks */,
+				ED76B3E4204B0F7E0085C14C /* Headers */,
+				ED76B3E5204B0F7E0085C14C /* Resources */,
+				ED76B47E204B12530085C14C /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JamfKit-tvOS";
+			productName = "JamfKit-tvOS";
+			productReference = ED76B3E7204B0F7E0085C14C /* JamfKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ED76B3EE204B0F7E0085C14C /* JamfKit-tvOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED76B3FD204B0F7E0085C14C /* Build configuration list for PBXNativeTarget "JamfKit-tvOS Tests" */;
+			buildPhases = (
+				ED76B3EB204B0F7E0085C14C /* Sources */,
+				ED76B3EC204B0F7E0085C14C /* Frameworks */,
+				ED76B3ED204B0F7E0085C14C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED76B3F2204B0F7E0085C14C /* PBXTargetDependency */,
+			);
+			name = "JamfKit-tvOS Tests";
+			productName = "JamfKit-tvOSTests";
+			productReference = ED76B3EF204B0F7E0085C14C /* JamfKit-tvOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		52D6D9731BEFF229002C0205 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = JamfKit;
 				TargetAttributes = {
@@ -1027,6 +1218,12 @@
 						CreatedOnToolsVersion = 7.2.1;
 						LastSwiftMigration = 0800;
 					};
+					ED76B3E6204B0F7E0085C14C = {
+						CreatedOnToolsVersion = 9.2;
+					};
+					ED76B3EE204B0F7E0085C14C = {
+						CreatedOnToolsVersion = 9.2;
+					};
 				};
 			};
 			buildConfigurationList = 52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "JamfKit" */;
@@ -1043,8 +1240,10 @@
 			targets = (
 				52D6D97B1BEFF229002C0205 /* JamfKit-iOS */,
 				52D6DA0E1BF000BD002C0205 /* JamfKit-macOS */,
+				ED76B3E6204B0F7E0085C14C /* JamfKit-tvOS */,
 				52D6D9851BEFF229002C0205 /* JamfKit-iOS Tests */,
 				DD7502791C68FCFC006590AF /* JamfKit-macOS Tests */,
+				ED76B3EE204B0F7E0085C14C /* JamfKit-tvOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1080,6 +1279,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED76B3E5204B0F7E0085C14C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED76B3ED204B0F7E0085C14C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB2693A204B153D00397FD2 /* Mocks.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1098,6 +1312,20 @@
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		ED1D93131FA20FE9005589F5 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		ED76B47E204B12530085C14C /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1376,6 +1604,137 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED76B3E2204B0F7E0085C14C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED76B46E204B11960085C14C /* ConfigurationProfileGeneral.swift in Sources */,
+				ED76B453204B117C0085C14C /* Updatable.swift in Sources */,
+				ED76B47B204B11A70085C14C /* ComputerPurchasing.swift in Sources */,
+				ED76B449204B11700085C14C /* SessionManager.swift in Sources */,
+				ED76B477204B11A30085C14C /* ComputerCommandGeneral.swift in Sources */,
+				ED76B474204B11A00085C14C /* ComputerConfigurationGeneral.swift in Sources */,
+				ED76B452204B117C0085C14C /* Readable.swift in Sources */,
+				ED76B468204B118F0085C14C /* MobileDevice.swift in Sources */,
+				ED76B47A204B11A70085C14C /* ComputerLocation.swift in Sources */,
+				ED76B45D204B11870085C14C /* PreciseDate.swift in Sources */,
+				ED76B46B204B11930085C14C /* HardwareGroup.swift in Sources */,
+				ED76B467204B118B0085C14C /* PolicyOverrideDefaultSettings.swift in Sources */,
+				ED76B45F204B11870085C14C /* Script.swift in Sources */,
+				ED76B462204B11870085C14C /* User.swift in Sources */,
+				ED76B46D204B11930085C14C /* MobileDeviceGroup.swift in Sources */,
+				ED76B466204B118B0085C14C /* PolicyNetworkLimitations.swift in Sources */,
+				ED76B44E204B11780085C14C /* Requestable.swift in Sources */,
+				ED76B479204B11A70085C14C /* ComputerGeneral.swift in Sources */,
+				ED76B476204B11A30085C14C /* ComputerCommand.swift in Sources */,
+				ED76B478204B11A70085C14C /* Computer.swift in Sources */,
+				ED76B469204B118F0085C14C /* MobileDeviceGeneral.swift in Sources */,
+				ED76B464204B118B0085C14C /* PolicyDateTimeLimitations.swift in Sources */,
+				ED76B44D204B11780085C14C /* Identifiable.swift in Sources */,
+				ED76B447204B11670085C14C /* Constants.swift in Sources */,
+				ED76B454204B11870085C14C /* BaseObject.swift in Sources */,
+				ED76B451204B117C0085C14C /* Deletable.swift in Sources */,
+				ED76B463204B118B0085C14C /* Policy.swift in Sources */,
+				ED76B46C204B11930085C14C /* HardwareGroupCriterion.swift in Sources */,
+				ED76B45C204B11870085C14C /* Partition.swift in Sources */,
+				ED76B450204B117C0085C14C /* Creatable.swift in Sources */,
+				ED76B44B204B11730085C14C /* SessionManagerRequests.swift in Sources */,
+				ED76B45E204B11870085C14C /* Printer.swift in Sources */,
+				ED76B47D204B11BF0085C14C /* StringExtension.swift in Sources */,
+				ED76B470204B119C0085C14C /* ComputerConfigurationProfileGeneral.swift in Sources */,
+				ED76B47C204B11A70085C14C /* ComputerRemoteManagement.swift in Sources */,
+				ED76B46F204B119C0085C14C /* ComputerConfigurationProfile.swift in Sources */,
+				ED76B46A204B11930085C14C /* ComputerGroup.swift in Sources */,
+				ED76B44F204B11780085C14C /* Subset.swift in Sources */,
+				ED76B465204B118B0085C14C /* PolicyGeneral.swift in Sources */,
+				ED76B456204B11870085C14C /* Category.swift in Sources */,
+				ED76B45A204B11870085C14C /* NetworkSegment.swift in Sources */,
+				ED76B459204B11870085C14C /* NetbootServer.swift in Sources */,
+				ED76B473204B11A00085C14C /* ComputerConfiguration.swift in Sources */,
+				ED76B461204B11870085C14C /* SMTPServer.swift in Sources */,
+				ED76B471204B119C0085C14C /* MobileDeviceConfigurationProfile.swift in Sources */,
+				ED76B44A204B11700085C14C /* SessionManagerError.swift in Sources */,
+				ED76B475204B11A00085C14C /* ComputerConfigurationManagement.swift in Sources */,
+				ED76B44C204B11780085C14C /* Endpoint.swift in Sources */,
+				ED76B45B204B11870085C14C /* Package.swift in Sources */,
+				ED76B472204B119C0085C14C /* MobileDeviceConfigurationProfileGeneral.swift in Sources */,
+				ED76B460204B11870085C14C /* Site.swift in Sources */,
+				ED76B455204B11870085C14C /* Building.swift in Sources */,
+				ED76B457204B11870085C14C /* Department.swift in Sources */,
+				ED76B458204B11870085C14C /* DirectoryBinding.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED76B3EB204B0F7E0085C14C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED76B411204B110E0085C14C /* ComputerConfigurationManagementTests.swift in Sources */,
+				ED76B416204B11110085C14C /* HardwareGroupCriterionTests.swift in Sources */,
+				ED76B419204B11150085C14C /* MobileDeviceGeneralTests.swift in Sources */,
+				ED76B414204B110E0085C14C /* DirectoryBindingTests.swift in Sources */,
+				ED76B43F204B11290085C14C /* PolicyRequestsTests.swift in Sources */,
+				ED76B420204B111A0085C14C /* PolicyGeneralTests.swift in Sources */,
+				ED76B41C204B11150085C14C /* NetworkSegmentTests.swift in Sources */,
+				ED76B407204B11050085C14C /* BuildingTests.swift in Sources */,
+				ED76B427204B111A0085C14C /* SiteTests.swift in Sources */,
+				ED76B43E204B11290085C14C /* NetbootServerRequestsTests.swift in Sources */,
+				ED76B440204B11290085C14C /* PrinterRequestsTests.swift in Sources */,
+				ED76B425204B111A0085C14C /* PrinterTests.swift in Sources */,
+				ED76B42D204B11250085C14C /* ComputerConfigurationRequestsTests.swift in Sources */,
+				ED76B40C204B11080085C14C /* ComputerRemoteManagementTests.swift in Sources */,
+				ED76B401204B10FC0085C14C /* ComputerConfigurationProfileGeneralTests.swift in Sources */,
+				ED76B41A204B11150085C14C /* MobileDeviceTests.swift in Sources */,
+				ED76B41F204B111A0085C14C /* PolicyDateTimeLimitationsTests.swift in Sources */,
+				ED76B3FF204B10E70085C14C /* JSONHelper.swift in Sources */,
+				ED76B40E204B110B0085C14C /* ComputerCommandTests.swift in Sources */,
+				ED76B426204B111A0085C14C /* ScriptTests.swift in Sources */,
+				ED76B441204B11290085C14C /* ScriptRequestsTests.swift in Sources */,
+				ED76B412204B110E0085C14C /* ComputerConfigurationTests.swift in Sources */,
+				ED76B433204B11250085C14C /* MobileDeviceGroupRequestsTests.swift in Sources */,
+				ED76B41E204B11150085C14C /* PartitionTests.swift in Sources */,
+				ED76B42C204B11250085C14C /* ComputerCommandRequestsTests.swift in Sources */,
+				ED76B431204B11250085C14C /* DirectoryBindingRequestsTests.swift in Sources */,
+				ED76B442204B11290085C14C /* SessionManagerRequestsTests.swift in Sources */,
+				ED76B421204B111A0085C14C /* PolicyNetworkLimitationsTests.swift in Sources */,
+				ED76B41B204B11150085C14C /* NetbootServerTests.swift in Sources */,
+				ED76B408204B11050085C14C /* CategoryTests.swift in Sources */,
+				ED76B413204B110E0085C14C /* DepartmentTests.swift in Sources */,
+				ED76B428204B111A0085C14C /* SMTPServerTests.swift in Sources */,
+				ED76B3FE204B10E40085C14C /* StringExtensionTests.swift in Sources */,
+				ED76B40A204B11080085C14C /* ComputerLocationTests.swift in Sources */,
+				ED76B424204B111A0085C14C /* PreciseDateTests.swift in Sources */,
+				ED76B443204B11290085C14C /* SiteRequestsTests.swift in Sources */,
+				ED76B409204B11080085C14C /* ComputerGeneralTests.swift in Sources */,
+				ED76B422204B111A0085C14C /* PolicyOverrideDefaultSettingsTests.swift in Sources */,
+				ED76B446204B11290085C14C /* SessionManagerTests.swift in Sources */,
+				ED76B41D204B11150085C14C /* PackageTests.swift in Sources */,
+				ED76B42B204B11250085C14C /* ComputerRequestsTests.swift in Sources */,
+				ED76B403204B10FC0085C14C /* ConfigurationProfileGeneralTests.swift in Sources */,
+				ED76B423204B111A0085C14C /* PolicyTests.swift in Sources */,
+				ED76B42F204B11250085C14C /* MobileDeviceConfigurationProfileRequestTests.swift in Sources */,
+				ED76B417204B11110085C14C /* HardwareGroupTests.swift in Sources */,
+				ED76B410204B110E0085C14C /* ComputerConfigurationGeneralTest.swift in Sources */,
+				ED76B402204B10FC0085C14C /* ComputerConfigurationProfileTests.swift in Sources */,
+				ED76B40D204B11080085C14C /* ComputerTests.swift in Sources */,
+				ED76B406204B11050085C14C /* BaseObjectTests.swift in Sources */,
+				ED76B40B204B11080085C14C /* ComputerPurchasingTests.swift in Sources */,
+				ED76B444204B11290085C14C /* SMTPServerRequestsTests.swift in Sources */,
+				ED76B430204B11250085C14C /* DepartmentRequestsTests.swift in Sources */,
+				ED76B418204B11110085C14C /* MobileDeviceGroupTests.swift in Sources */,
+				ED76B40F204B110B0085C14C /* ComputerCommandGeneralTests.swift in Sources */,
+				ED76B415204B11110085C14C /* ComputerGroupTests.swift in Sources */,
+				ED76B429204B111A0085C14C /* UserTests.swift in Sources */,
+				ED76B42A204B11250085C14C /* BuildingRequestsTests.swift in Sources */,
+				ED76B43D204B11290085C14C /* MobileDeviceRequestsTests.swift in Sources */,
+				ED76B405204B11050085C14C /* MobileDeviceConfigurationProfileTests.swift in Sources */,
+				ED76B404204B11050085C14C /* MobileDeviceConfigurationProfileGeneralTests.swift in Sources */,
+				ED76B432204B11250085C14C /* ComputerGroupRequestsTests.swift in Sources */,
+				ED76B445204B11290085C14C /* UserRequestsTests.swift in Sources */,
+				ED76B42E204B11250085C14C /* ComputerConfigurationProfileRequestsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1388,6 +1747,11 @@
 			isa = PBXTargetDependency;
 			target = 52D6DA0E1BF000BD002C0205 /* JamfKit-macOS */;
 			targetProxy = DD7502801C68FCFC006590AF /* PBXContainerItemProxy */;
+		};
+		ED76B3F2204B0F7E0085C14C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED76B3E6204B0F7E0085C14C /* JamfKit-tvOS */;
+			targetProxy = ED76B3F1204B0F7E0085C14C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1419,7 +1783,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 0.3.0;
+				CURRENT_PROJECT_VERSION = 0.3.1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1477,7 +1841,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 0.3.0;
+				CURRENT_PROJECT_VERSION = 0.3.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1583,7 +1947,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Configs/JamfKit.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -1605,7 +1968,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Configs/JamfKit.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -1621,6 +1983,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/JamfKit.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -1635,6 +1998,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/JamfKit.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -1643,6 +2007,80 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		ED76B3F8204B0F7E0085C14C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Configs/JamfKit.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ethenyl.JamfKit;
+				PRODUCT_NAME = JamfKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		ED76B3F9204B0F7E0085C14C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Configs/JamfKit.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ethenyl.JamfKit;
+				PRODUCT_NAME = JamfKit;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		ED76B3FA204B0F7E0085C14C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				INFOPLIST_FILE = Configs/JamfKit.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ethenyl.JamfKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		ED76B3FB204B0F7E0085C14C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				INFOPLIST_FILE = Configs/JamfKit.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ethenyl.JamfKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -1690,6 +2128,24 @@
 			buildConfigurations = (
 				DD7502831C68FCFC006590AF /* Debug */,
 				DD7502841C68FCFC006590AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED76B3FC204B0F7E0085C14C /* Build configuration list for PBXNativeTarget "JamfKit-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED76B3F8204B0F7E0085C14C /* Debug */,
+				ED76B3F9204B0F7E0085C14C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED76B3FD204B0F7E0085C14C /* Build configuration list for PBXNativeTarget "JamfKit-tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED76B3FA204B0F7E0085C14C /* Debug */,
+				ED76B3FB204B0F7E0085C14C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

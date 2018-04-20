@@ -8,6 +8,7 @@ env:
   matrix:
     - PLATFORM="macOS" SCHEME="JamfKit macOS" DESTINATION="arch=x86_64" 
     - PLATFORM="iOS" SCHEME="JamfKit iOS" DESTINATION='platform=iOS Simulator,name=iPhone 8'
+    - PLATFORM="tvOS" SCHEME="JamfKit tvOS" DESTINATION='platform=tvOS Simulator,name=Apple TV 4K'
 
 before_install:
   - gem install xcpretty
