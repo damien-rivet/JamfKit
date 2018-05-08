@@ -8,18 +8,20 @@
 
 /// Represents a logical partition for an hard drive installed inside an hardware element managed by Jamf.
 @objc(JMFKPartition)
-public final class Partition: NSObject, Requestable {
+public final class Partition: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let NameKey = "name"
-    static let SizeGigabytesKey = "size_gb"
-    static let MaximumPercentageKey = "maximum_percentage"
-    static let FormatKey = "format"
-    static let IsRestorePartitionKey = "is_restore_partition"
-    static let ComputerConfigurationKey = "computer_configuration"
-    static let ReimageKey = "reimage"
-    static let AppendToNameKey = "append_to_name"
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case sizeGigabytes = "size_gb"
+        case maximumPercentage = "maximum_percentage"
+        case format = "format"
+        case isRestorePartition = "is_restore_partition"
+        case computerConfiguration = "computer_configuration"
+        case reimage = "reimage"
+        case appendToName = "append_to_name"
+    }
 
     // MARK: - Properties
 
@@ -54,17 +56,6 @@ public final class Partition: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        name = json[Partition.NameKey] as? String ?? ""
-        sizeInGigabytes = json[Partition.SizeGigabytesKey] as? UInt ?? 0
-        maximumPercentage = json[Partition.MaximumPercentageKey] as? UInt ?? 0
-        format = json[Partition.FormatKey] as? String ?? ""
-        isRestorePartition = json[Partition.IsRestorePartitionKey] as? Bool ?? false
-        computerConfiguration = json[Partition.ComputerConfigurationKey] as? String ?? ""
-        reimage = json[Partition.ReimageKey] as? Bool ?? false
-        appendToName = json[Partition.AppendToNameKey] as? String ?? ""
-    }
-
     public init?(name: String) {
         guard !name.isEmpty else {
             return nil
@@ -75,20 +66,56 @@ public final class Partition: NSObject, Requestable {
         super.init()
     }
 
+    public init?(json: [String: Any], node: String = "") {
+        name = json[CodingKeys.name.rawValue] as? String ?? ""
+        sizeInGigabytes = json[CodingKeys.sizeGigabytes.rawValue] as? UInt ?? 0
+        maximumPercentage = json[CodingKeys.maximumPercentage.rawValue] as? UInt ?? 0
+        format = json[CodingKeys.format.rawValue] as? String ?? ""
+        isRestorePartition = json[CodingKeys.isRestorePartition.rawValue] as? Bool ?? false
+        computerConfiguration = json[CodingKeys.computerConfiguration.rawValue] as? String ?? ""
+        reimage = json[CodingKeys.reimage.rawValue] as? Bool ?? false
+        appendToName = json[CodingKeys.appendToName.rawValue] as? String ?? ""
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        name = try container.decode(String.self, forKey: .name)
+        sizeInGigabytes = try container.decode(UInt.self, forKey: .sizeGigabytes)
+        maximumPercentage = try container.decode(UInt.self, forKey: .maximumPercentage)
+        format = try container.decode(String.self, forKey: .format)
+        isRestorePartition = try container.decode(Bool.self, forKey: .isRestorePartition)
+        computerConfiguration = try container.decode(String.self, forKey: .computerConfiguration)
+        reimage = try container.decode(Bool.self, forKey: .reimage)
+        appendToName = try container.decode(String.self, forKey: .appendToName)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[Partition.NameKey] = name
-        json[Partition.SizeGigabytesKey] = sizeInGigabytes
-        json[Partition.MaximumPercentageKey] = maximumPercentage
-        json[Partition.FormatKey] = format
-        json[Partition.IsRestorePartitionKey] = isRestorePartition
-        json[Partition.ComputerConfigurationKey] = computerConfiguration
-        json[Partition.ReimageKey] = reimage
-        json[Partition.AppendToNameKey] = appendToName
+        json[CodingKeys.name.rawValue] = name
+        json[CodingKeys.sizeGigabytes.rawValue] = sizeInGigabytes
+        json[CodingKeys.maximumPercentage.rawValue] = maximumPercentage
+        json[CodingKeys.format.rawValue] = format
+        json[CodingKeys.isRestorePartition.rawValue] = isRestorePartition
+        json[CodingKeys.computerConfiguration.rawValue] = computerConfiguration
+        json[CodingKeys.reimage.rawValue] = reimage
+        json[CodingKeys.appendToName.rawValue] = appendToName
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(name, forKey: .name)
+        try container.encode(sizeInGigabytes, forKey: .sizeGigabytes)
+        try container.encode(format, forKey: .format)
+        try container.encode(isRestorePartition, forKey: .isRestorePartition)
+        try container.encode(computerConfiguration, forKey: .computerConfiguration)
+        try container.encode(reimage, forKey: .reimage)
+        try container.encode(appendToName, forKey: .appendToName)
     }
 }

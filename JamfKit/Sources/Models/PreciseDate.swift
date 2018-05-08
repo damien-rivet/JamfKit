@@ -6,11 +6,24 @@
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
 
+@objc(JMFKPreciseDateError)
+public enum PreciseDateError: Int, Error {
+    case missingNodeName
+}
+
 /// Represents a logical date within JSS api, contains 3 properties, the date itself, an epoch version of the date and an UTC version of the date.
 @objc(JMFKPreciseDate)
-public final class PreciseDate: NSObject, Requestable {
+public final class PreciseDate: NSObject, Codable, Requestable {
 
     // MARK: - Constants
+
+    enum CodingKeys: String, CodingKey {
+        case date
+        case epoch
+        case utc
+    }
+
+    public static let NodeUserInfoKey = CodingUserInfoKey(rawValue: "node")!
 
     static let EpochKey = "_epoch"
     static let UTCKey = "_utc"
@@ -53,6 +66,30 @@ public final class PreciseDate: NSObject, Requestable {
         }
     }
 
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: PreciseDateKey.self)
+
+        if let nodeName = decoder.userInfo[PreciseDate.NodeUserInfoKey] as? String {
+            self.node = nodeName
+
+            if let dateKey = PreciseDateKey(stringValue: nodeName), let date = try? container.decodeIfPresent(Date.self, forKey: dateKey) {
+                self.date = date
+            }
+
+            if let epochKey = PreciseDateKey(stringValue: nodeName + PreciseDate.EpochKey), let epoch = try? container.decodeIfPresent(UInt.self, forKey: epochKey) {
+                self.epoch = epoch
+            }
+
+            if let dateUtcKey = PreciseDateKey(stringValue: nodeName + PreciseDate.UTCKey), let dateUtc = try? container.decodeIfPresent(Date.self, forKey: dateUtcKey) {
+                self.dateUTC = dateUtc
+            }
+        } else {
+            throw PreciseDateError.missingNodeName
+        }
+    }
+
+    // MARK: - Functions
+
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
@@ -69,7 +106,21 @@ public final class PreciseDate: NSObject, Requestable {
         return json
     }
 
-    // MARK: - Helpers
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: PreciseDateKey.self)
+
+        if let date = self.date, let dateKey = PreciseDateKey(stringValue: node) {
+            try container.encode(date, forKey: dateKey)
+        }
+
+        if let epoch = self.epoch, let epochKey = PreciseDateKey(stringValue: node + PreciseDate.EpochKey) {
+            try container.encode(epoch, forKey: epochKey)
+        }
+
+        if let dateUtc = self.dateUTC, let dateUtcKey = PreciseDateKey(stringValue: node + PreciseDate.UTCKey) {
+            try container.encode(dateUtc, forKey: dateUtcKey)
+        }
+    }
 
     private static func getDateFormatter() -> DateFormatter {
         let dateFormatter = DateFormatter()
@@ -86,4 +137,16 @@ public final class PreciseDate: NSObject, Requestable {
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return dateFormatter
     }
+}
+
+struct PreciseDateKey: CodingKey {
+    var stringValue: String
+
+    init?(stringValue: String) {
+        self.stringValue = stringValue
+    }
+
+    var intValue: Int? { return nil }
+
+    init?(intValue: Int) { return nil }
 }

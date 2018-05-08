@@ -8,22 +8,25 @@
 
 /// Represents a physical SMTP server, contains information about the server and it's configuration.
 @objc(JMFKSMTPServer)
-public final class SMTPServer: NSObject, Requestable, Endpoint {
+public final class SMTPServer: NSObject, Codable, Requestable, Endpoint {
 
     // MARK: - Constants
 
     public static let Endpoint = "smtpserver"
-    static let EnabledKey = "enabled"
-    static let HostKey = "host"
-    static let PortKey = "port"
-    static let TimeoutKey = "timeout"
-    static let AuthorizationRequiredKey = "authorization_required"
-    static let UsernameKey = "username"
-    static let PasswordKey = "password"
-    static let SslKey = "ssl"
-    static let TlsKey = "tls"
-    static let SendFromNameKey = "send_from_name"
-    static let SendFromEmailKey = "send_from_email"
+
+    enum CodingKeys: String, CodingKey {
+        case enabled = "enabled"
+        case host = "host"
+        case port = "port"
+        case timeout = "timeout"
+        case authorizationRequired = "authorization_required"
+        case username = "username"
+        case password = "password"
+        case ssl = "ssl"
+        case tls = "tls"
+        case sendFromName = "send_from_name"
+        case sendFromEmail = "send_from_email"
+    }
 
     // MARK: - Properties
 
@@ -72,20 +75,6 @@ public final class SMTPServer: NSObject, Requestable, Endpoint {
 
     // MARK: - Initialization
 
-    public required init?(json: [String: Any], node: String = "") {
-        isEnabled = json[SMTPServer.EnabledKey] as? Bool ?? false
-        host = json[SMTPServer.HostKey] as? String ?? ""
-        port = json[SMTPServer.PortKey] as? UInt ?? 0
-        timeout = json[SMTPServer.TimeoutKey] as? UInt ?? 0
-        isAuthorizationRequired = json[SMTPServer.AuthorizationRequiredKey] as? Bool ?? false
-        username = json[SMTPServer.UsernameKey] as? String ?? ""
-        password = json[SMTPServer.PasswordKey] as? String ?? ""
-        isSSLEnabled = json[SMTPServer.SslKey] as? Bool ?? false
-        isTLSEnabled = json[SMTPServer.TlsKey] as? Bool ?? false
-        sendFromName = json[SMTPServer.SendFromNameKey] as? String ?? ""
-        sendFromEmail = json[SMTPServer.SendFromEmailKey] as? String ?? ""
-    }
-
     public init?(host: String, port: UInt) {
         guard !host.isEmpty, port > 0 else {
             return nil
@@ -97,24 +86,70 @@ public final class SMTPServer: NSObject, Requestable, Endpoint {
         super.init()
     }
 
+    public required init?(json: [String: Any], node: String = "") {
+        isEnabled = json[CodingKeys.enabled.rawValue] as? Bool ?? false
+        host = json[CodingKeys.host.rawValue] as? String ?? ""
+        port = json[CodingKeys.port.rawValue] as? UInt ?? 0
+        timeout = json[CodingKeys.timeout.rawValue] as? UInt ?? 0
+        isAuthorizationRequired = json[CodingKeys.authorizationRequired.rawValue] as? Bool ?? false
+        username = json[CodingKeys.username.rawValue] as? String ?? ""
+        password = json[CodingKeys.password.rawValue] as? String ?? ""
+        isSSLEnabled = json[CodingKeys.ssl.rawValue] as? Bool ?? false
+        isTLSEnabled = json[CodingKeys.tls.rawValue] as? Bool ?? false
+        sendFromName = json[CodingKeys.sendFromName.rawValue] as? String ?? ""
+        sendFromEmail = json[CodingKeys.sendFromEmail.rawValue] as? String ?? ""
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        isEnabled = try container.decode(Bool.self, forKey: .enabled)
+        host = try container.decode(String.self, forKey: .host)
+        port = try container.decode(UInt.self, forKey: .port)
+        timeout = try container.decode(UInt.self, forKey: .timeout)
+        isAuthorizationRequired = try container.decode(Bool.self, forKey: .authorizationRequired)
+        username = try container.decode(String.self, forKey: .username)
+        password = try container.decode(String.self, forKey: .password)
+        isSSLEnabled = try container.decode(Bool.self, forKey: .ssl)
+        isTLSEnabled = try container.decode(Bool.self, forKey: .tls)
+        sendFromName = try container.decode(String.self, forKey: .sendFromName)
+        sendFromEmail = try container.decode(String.self, forKey: .sendFromEmail)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[SMTPServer.EnabledKey] = isEnabled
-        json[SMTPServer.HostKey] = host
-        json[SMTPServer.PortKey] = port
-        json[SMTPServer.TimeoutKey] = timeout
-        json[SMTPServer.AuthorizationRequiredKey] = isAuthorizationRequired
-        json[SMTPServer.UsernameKey] = username
-        json[SMTPServer.PasswordKey] = password
-        json[SMTPServer.SslKey] = isSSLEnabled
-        json[SMTPServer.TlsKey] = isTLSEnabled
-        json[SMTPServer.SendFromNameKey] = sendFromName
-        json[SMTPServer.SendFromEmailKey] = sendFromEmail
+        json[CodingKeys.enabled.rawValue] = isEnabled
+        json[CodingKeys.host.rawValue] = host
+        json[CodingKeys.port.rawValue] = port
+        json[CodingKeys.timeout.rawValue] = timeout
+        json[CodingKeys.authorizationRequired.rawValue] = isAuthorizationRequired
+        json[CodingKeys.username.rawValue] = username
+        json[CodingKeys.password.rawValue] = password
+        json[CodingKeys.ssl.rawValue] = isSSLEnabled
+        json[CodingKeys.tls.rawValue] = isTLSEnabled
+        json[CodingKeys.sendFromName.rawValue] = sendFromName
+        json[CodingKeys.sendFromEmail.rawValue] = sendFromEmail
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(isEnabled, forKey: .enabled)
+        try container.encode(host, forKey: .host)
+        try container.encode(port, forKey: .port)
+        try container.encode(timeout, forKey: .timeout)
+        try container.encode(isAuthorizationRequired, forKey: .authorizationRequired)
+        try container.encode(username, forKey: .username)
+        try container.encode(password, forKey: .password)
+        try container.encode(isSSLEnabled, forKey: .ssl)
+        try container.encode(isTLSEnabled, forKey: .tls)
+        try container.encode(sendFromName, forKey: .sendFromName)
+        try container.encode(sendFromEmail, forKey: .sendFromEmail)
     }
 }
 

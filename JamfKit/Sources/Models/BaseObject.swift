@@ -8,14 +8,17 @@
 
 /// Represents the common denominator between all the JSS objects which must contains at least an `identifier` and a `name` properties.
 @objc
-public class BaseObject: NSObject, Requestable, Identifiable {
+public class BaseObject: NSObject, Codable, Requestable, Identifiable {
 
     // MARK: - Constants
 
-    enum CodingKeys: String {
+    private enum CodingKeys: String, CodingKey {
         case identifier = "id"
         case name = "name"
     }
+
+    static let IdentifierKey = "id"
+    static let NameKey = "name"
 
     // MARK: - Properties
 
@@ -32,19 +35,6 @@ public class BaseObject: NSObject, Requestable, Identifiable {
     // MARK: - Initialization
 
     @objc
-    public required init?(json: [String: Any], node: String = "") {
-        guard
-            let identifier = json[BaseObject.CodingKeys.identifier.rawValue] as? UInt,
-            let name = json[BaseObject.CodingKeys.name.rawValue] as? String
-            else {
-                return nil
-        }
-
-        self.identifier = identifier
-        self.name = name
-    }
-
-    @objc
     public init?(identifier: UInt, name: String) {
         guard !name.isEmpty else {
             return nil
@@ -56,16 +46,43 @@ public class BaseObject: NSObject, Requestable, Identifiable {
         super.init()
     }
 
+    @objc
+    public required init?(json: [String: Any], node: String = "") {
+        guard
+            let identifier = json[CodingKeys.identifier.rawValue] as? UInt,
+            let name = json[CodingKeys.name.rawValue] as? String
+            else {
+                return nil
+        }
+
+        self.identifier = identifier
+        self.name = name
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        identifier = try container.decode(UInt.self, forKey: .identifier)
+        name = try container.decode(String.self, forKey: .name)
+    }
+
     // MARK: - Functions
 
     @objc
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[BaseObject.CodingKeys.identifier.rawValue] = identifier
-        json[BaseObject.CodingKeys.name.rawValue] = name
+        json[CodingKeys.identifier.rawValue] = identifier
+        json[CodingKeys.name.rawValue] = name
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(identifier, forKey: .identifier)
+        try container.encode(name, forKey: .name)
     }
 
     /**

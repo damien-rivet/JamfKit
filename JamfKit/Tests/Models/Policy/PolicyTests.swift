@@ -76,6 +76,34 @@ class PolicyTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 1)
-        XCTAssertNotNil(encodedObject?[Policy.GeneralKey])
+        XCTAssertNotNil(encodedObject?[Policy.CodingKeys.general.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "policy", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Policy.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[Policy][\(defaultIdentifier) - \(defaultName)]")
+            XCTAssertNotNil(actualValue.general)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "policy", subfolder: subfolder)!
+
+        let actualValue = Policy(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

@@ -91,13 +91,48 @@ class DirectoryBindingTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 8)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.PriorityKey])
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.DomainKey])
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.UsernameKey])
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.PasswordKey])
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.ComputerOrganisationalUnitKey])
-        XCTAssertNotNil(encodedObject?[DirectoryBinding.TypeKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[DirectoryBinding.CodingKeys.priority.rawValue])
+        XCTAssertNotNil(encodedObject?[DirectoryBinding.CodingKeys.domain.rawValue])
+        XCTAssertNotNil(encodedObject?[DirectoryBinding.CodingKeys.username.rawValue])
+        XCTAssertNotNil(encodedObject?[DirectoryBinding.CodingKeys.password.rawValue])
+        XCTAssertNotNil(encodedObject?[DirectoryBinding.CodingKeys.computerOrganisationalUnit.rawValue])
+        XCTAssertNotNil(encodedObject?[DirectoryBinding.CodingKeys.type.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "directory_binding_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(DirectoryBinding.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[DirectoryBinding][\(defaultIdentifier) - \(defaultName)]")
+            XCTAssertEqual(actualValue.priority, defaultPriority)
+            XCTAssertEqual(actualValue.domain, defaultDomain)
+            XCTAssertEqual(actualValue.username, defaultUsername)
+            XCTAssertEqual(actualValue.password, defaultPassword)
+            XCTAssertEqual(actualValue.computerOrganisationalUnit, defaultComputerOrganisationalUnit)
+            XCTAssertEqual(actualValue.type, defaultType)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "directory_binding_valid", subfolder: subfolder)!
+
+        let actualValue = DirectoryBinding(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

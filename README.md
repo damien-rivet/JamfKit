@@ -34,9 +34,9 @@
 
 ## Features ##
 
-- [x] Includes JSON encoding / decoding support for most of the JSS objects
+- [x] Includes JSON encoding / decoding support
+- [x] Includes Swift 4 `Codable` support
 - [x] Includes Objective-C support
-- [x] Includes Swift 4+ support
 - [x] Includes ready-for-consumption CRUD `URLRequest` for JSS endpoints
 - [x] Includes demonstration playgrounds for class handling or request generation
 

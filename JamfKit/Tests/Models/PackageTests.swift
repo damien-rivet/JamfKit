@@ -124,24 +124,70 @@ class PackageTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 19)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[Package.CategoryKey])
-        XCTAssertNotNil(encodedObject?[Package.FilenameKey])
-        XCTAssertNotNil(encodedObject?[Package.InformationKey])
-        XCTAssertNotNil(encodedObject?[Package.NotesKey])
-        XCTAssertNotNil(encodedObject?[Package.PriorityKey])
-        XCTAssertNotNil(encodedObject?[Package.RebootRequiredKey])
-        XCTAssertNotNil(encodedObject?[Package.FillUserTemplateKey])
-        XCTAssertNotNil(encodedObject?[Package.FillExistingUsersKey])
-        XCTAssertNotNil(encodedObject?[Package.BootVolumeRequiredKey])
-        XCTAssertNotNil(encodedObject?[Package.AllowUninstalledKey])
-        XCTAssertNotNil(encodedObject?[Package.OsRequirementsKey])
-        XCTAssertNotNil(encodedObject?[Package.RequiredProcessorKey])
-        XCTAssertNotNil(encodedObject?[Package.SwitchWithPackageKey])
-        XCTAssertNotNil(encodedObject?[Package.InstallIfReportedAvailableKey])
-        XCTAssertNotNil(encodedObject?[Package.ReinstallOptionKey])
-        XCTAssertNotNil(encodedObject?[Package.TriggeringFilesKey])
-        XCTAssertNotNil(encodedObject?[Package.SendNotificationKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.category.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.filename.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.information.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.notes.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.priority.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.rebootRequired.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.fillUserTemplate.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.fillExistingUsers.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.bootVolumeRequired.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.allowUninstalled.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.osRequirements.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.requiredProcessor.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.switchWithPackage.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.installIfReportedUnavailable.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.reinstallOption.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.triggeringFiles.rawValue])
+        XCTAssertNotNil(encodedObject?[Package.CodingKeys.sendNotification.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "package_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Package.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[Package][\(defaultIdentifier) - \(defaultName)]")
+            XCTAssertEqual(actualValue.category, defaultCategory)
+            XCTAssertEqual(actualValue.filename, defaultFilename)
+            XCTAssertEqual(actualValue.information, defaultInformation)
+            XCTAssertEqual(actualValue.notes, defaultNotes)
+            XCTAssertEqual(actualValue.priority, defaultPriority)
+            XCTAssertEqual(actualValue.isRebootRequired, defaultIsRebootRequired)
+            XCTAssertEqual(actualValue.shouldFillUserTemplate, defaultShouldFillUserTemplate)
+            XCTAssertEqual(actualValue.shouldFillExistingUsers, defaultShouldFillExistingUsers)
+            XCTAssertEqual(actualValue.isBootVolumeRequired, defaultIsBootVolumeRequired)
+            XCTAssertEqual(actualValue.allowsUninstallation, defaultAllowsUninstallation)
+            XCTAssertEqual(actualValue.osRequirements, defaultOsRequirements)
+            XCTAssertEqual(actualValue.requiredProcessor, defaultRequiredProcessor)
+            XCTAssertEqual(actualValue.switchWithPackage, defaultSwitchWithPackage)
+            XCTAssertEqual(actualValue.shouldInstallIfReportedAvailable, defaultShouldInstallIfReportedAvailable)
+            XCTAssertEqual(actualValue.reinstallOption, defaultReinstallOption)
+            XCTAssertEqual(actualValue.triggeringFiles, defaultTriggeringFiles)
+            XCTAssertEqual(actualValue.shouldSendNotificaton, defaultShouldSendNotificaton)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "package_valid", subfolder: subfolder)!
+
+        let actualValue = Package(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

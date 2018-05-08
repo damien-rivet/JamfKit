@@ -12,17 +12,19 @@ public final class NetworkSegment: BaseObject {
 
     // MARK: - Constants
 
-    static let StartingAddressKey = "starting_address"
-    static let EndingAddressKey = "ending_address"
-    static let DistributionServerKey = "distribution_server"
-    static let DistributionPointKey = "distribution_point"
-    static let UrlKey = "url"
-    static let NetbootServerKey = "netboot_server"
-    static let SwuServerKey = "swu_server"
-    static let BuildingKey = "building"
-    static let DepartmentKey = "department"
-    static let OverrideBuildingsKey = "override_buildings"
-    static let OverrideDepartmentsKey = "override_departments"
+    enum CodingKeys: String, CodingKey {
+        case startingAddress = "starting_address"
+        case endingAddress = "ending_address"
+        case distributionServer = "distribution_server"
+        case distributionPoint = "distribution_point"
+        case url = "url"
+        case netbootServer = "netboot_server"
+        case swuServer = "swu_server"
+        case building = "building"
+        case department = "department"
+        case overrideBuildings = "override_buildings"
+        case overrideDepartments = "override_departments"
+    }
 
     // MARK: - Properties
 
@@ -61,24 +63,42 @@ public final class NetworkSegment: BaseObject {
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        startingAddress = json[NetworkSegment.StartingAddressKey] as? String ?? ""
-        endingAddress = json[NetworkSegment.EndingAddressKey] as? String ?? ""
-        distributionServer = json[NetworkSegment.DistributionServerKey] as? String ?? ""
-        distributionPoint = json[NetworkSegment.DistributionPointKey] as? String ?? ""
-        url = json[NetworkSegment.UrlKey] as? String ?? ""
-        netbootServer = json[NetworkSegment.NetbootServerKey] as? String ?? ""
-        swuServer = json[NetworkSegment.SwuServerKey] as? String ?? ""
-        building = json[NetworkSegment.BuildingKey] as? String ?? ""
-        department = json[NetworkSegment.DepartmentKey] as? String ?? ""
-        overridesBuildings = json[NetworkSegment.OverrideBuildingsKey] as? Bool ?? false
-        overridesDepartments = json[NetworkSegment.OverrideDepartmentsKey] as? Bool ?? false
+        startingAddress = json[CodingKeys.startingAddress.rawValue] as? String ?? ""
+        endingAddress = json[CodingKeys.endingAddress.rawValue] as? String ?? ""
+        distributionServer = json[CodingKeys.distributionServer.rawValue] as? String ?? ""
+        distributionPoint = json[CodingKeys.distributionPoint.rawValue] as? String ?? ""
+        url = json[CodingKeys.url.rawValue] as? String ?? ""
+        netbootServer = json[CodingKeys.netbootServer.rawValue] as? String ?? ""
+        swuServer = json[CodingKeys.swuServer.rawValue] as? String ?? ""
+        building = json[CodingKeys.building.rawValue] as? String ?? ""
+        department = json[CodingKeys.department.rawValue] as? String ?? ""
+        overridesBuildings = json[CodingKeys.overrideBuildings.rawValue] as? Bool ?? false
+        overridesDepartments = json[CodingKeys.overrideDepartments.rawValue] as? Bool ?? false
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        startingAddress = try container.decode(String.self, forKey: .startingAddress)
+        endingAddress = try container.decode(String.self, forKey: .endingAddress)
+        distributionServer = try container.decode(String.self, forKey: .distributionServer)
+        distributionPoint = try container.decode(String.self, forKey: .distributionPoint)
+        url = try container.decode(String.self, forKey: .url)
+        netbootServer = try container.decode(String.self, forKey: .netbootServer)
+        swuServer = try container.decode(String.self, forKey: .swuServer)
+        building = try container.decode(String.self, forKey: .building)
+        department = try container.decode(String.self, forKey: .department)
+        overridesBuildings = try container.decode(Bool.self, forKey: .overrideBuildings)
+        overridesDepartments = try container.decode(Bool.self, forKey: .overrideDepartments)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -86,18 +106,36 @@ public final class NetworkSegment: BaseObject {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[NetworkSegment.StartingAddressKey] = startingAddress
-        json[NetworkSegment.EndingAddressKey] = endingAddress
-        json[NetworkSegment.DistributionServerKey] = distributionServer
-        json[NetworkSegment.DistributionPointKey] = distributionPoint
-        json[NetworkSegment.UrlKey] = url
-        json[NetworkSegment.NetbootServerKey] = netbootServer
-        json[NetworkSegment.SwuServerKey] = swuServer
-        json[NetworkSegment.BuildingKey] = building
-        json[NetworkSegment.DepartmentKey] = department
-        json[NetworkSegment.OverrideBuildingsKey] = overridesBuildings
-        json[NetworkSegment.OverrideDepartmentsKey] = overridesDepartments
+        json[CodingKeys.startingAddress.rawValue] = startingAddress
+        json[CodingKeys.endingAddress.rawValue] = endingAddress
+        json[CodingKeys.distributionServer.rawValue] = distributionServer
+        json[CodingKeys.distributionPoint.rawValue] = distributionPoint
+        json[CodingKeys.url.rawValue] = url
+        json[CodingKeys.netbootServer.rawValue] = netbootServer
+        json[CodingKeys.swuServer.rawValue] = swuServer
+        json[CodingKeys.building.rawValue] = building
+        json[CodingKeys.department.rawValue] = department
+        json[CodingKeys.overrideBuildings.rawValue] = overridesBuildings
+        json[CodingKeys.overrideDepartments.rawValue] = overridesDepartments
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(startingAddress, forKey: .startingAddress)
+        try container.encode(endingAddress, forKey: .endingAddress)
+        try container.encode(distributionServer, forKey: .distributionServer)
+        try container.encode(distributionPoint, forKey: .distributionPoint)
+        try container.encode(url, forKey: .url)
+        try container.encode(netbootServer, forKey: .netbootServer)
+        try container.encode(swuServer, forKey: .swuServer)
+        try container.encode(building, forKey: .building)
+        try container.encode(department, forKey: .department)
+        try container.encode(overridesBuildings, forKey: .overrideBuildings)
+        try container.encode(overridesDepartments, forKey: .overrideDepartments)
+
+        try super.encode(to: encoder)
     }
 }

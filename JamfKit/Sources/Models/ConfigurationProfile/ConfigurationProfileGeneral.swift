@@ -11,12 +11,21 @@ public class ConfigurationProfileGeneral: BaseObject {
 
     // MARK: - Constants
 
-    static let DescriptionKey = "description"
-    static let SiteKey = "site"
-    static let CategoryKey = "category"
-    static let UuidKey = "uuid"
-    static let RedeployOnUpdateKey = "redeploy_on_update"
-    static let PayloadsKey = "payloads"
+    private enum CodingKeys: String, CodingKey {
+        case description = "description"
+        case site = "site"
+        case category = "category"
+        case uuid = "uuid"
+        case redeployOnUpdate = "redeploy_on_update"
+        case payloads = "payloads"
+    }
+
+    public static let DescriptionKey = CodingKeys.description.rawValue
+    public static let SiteKey = CodingKeys.site.rawValue
+    public static let CategoryKey = CodingKeys.category.rawValue
+    public static let UuidKey = CodingKeys.uuid.rawValue
+    public static let RedeployOnUpdateKey = CodingKeys.redeployOnUpdate.rawValue
+    public static let PayloadsKey = CodingKeys.payloads.rawValue
 
     // MARK: - Properties
 
@@ -40,26 +49,39 @@ public class ConfigurationProfileGeneral: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String: Any], node: String = "") {
-        desc = json[ConfigurationProfileGeneral.DescriptionKey] as? String ?? ""
+    override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
 
-        if let siteNode = json[ConfigurationProfileGeneral.SiteKey] as? [String: Any] {
+    public required init?(json: [String: Any], node: String = "") {
+        desc = json[CodingKeys.description.rawValue] as? String ?? ""
+
+        if let siteNode = json[CodingKeys.site.rawValue] as? [String: Any] {
             site = Site(json: siteNode)
         }
 
-        if let categoryNode = json[ConfigurationProfileGeneral.CategoryKey] as? [String: Any] {
+        if let categoryNode = json[CodingKeys.category.rawValue] as? [String: Any] {
             category = Category(json: categoryNode)
         }
 
-        uuid = json[ConfigurationProfileGeneral.UuidKey] as? String ?? ""
-        redeployOnUpdate = json[ConfigurationProfileGeneral.RedeployOnUpdateKey] as? String ?? ""
-        payloads = json[ConfigurationProfileGeneral.PayloadsKey] as? String ?? ""
+        uuid = json[CodingKeys.uuid.rawValue] as? String ?? ""
+        redeployOnUpdate = json[CodingKeys.redeployOnUpdate.rawValue] as? String ?? ""
+        payloads = json[CodingKeys.payloads.rawValue] as? String ?? ""
 
         super.init(json: json)
     }
 
-    override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        desc = try container.decode(String.self, forKey: .description)
+        site = try container.decode(Site.self, forKey: .site)
+        category = try container.decode(Category.self, forKey: .category)
+        uuid = try container.decode(String.self, forKey: .uuid)
+        redeployOnUpdate = try container.decode(String.self, forKey: .redeployOnUpdate)
+        payloads = try container.decode(String.self, forKey: .payloads)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -67,20 +89,33 @@ public class ConfigurationProfileGeneral: BaseObject {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[ConfigurationProfileGeneral.DescriptionKey] = desc
+        json[CodingKeys.description.rawValue] = desc
 
         if let site = site {
-            json[ConfigurationProfileGeneral.SiteKey] = site.toJSON()
+            json[CodingKeys.site.rawValue] = site.toJSON()
         }
 
         if let category = category {
-            json[ConfigurationProfileGeneral.CategoryKey] = category.toJSON()
+            json[CodingKeys.category.rawValue] = category.toJSON()
         }
 
-        json[ConfigurationProfileGeneral.UuidKey] = uuid
-        json[ConfigurationProfileGeneral.RedeployOnUpdateKey] = redeployOnUpdate
-        json[ConfigurationProfileGeneral.PayloadsKey] = payloads
+        json[CodingKeys.uuid.rawValue] = uuid
+        json[CodingKeys.redeployOnUpdate.rawValue] = redeployOnUpdate
+        json[CodingKeys.payloads.rawValue] = payloads
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(desc, forKey: .description)
+        try container.encode(site, forKey: .site)
+        try container.encode(category, forKey: .category)
+        try container.encode(uuid, forKey: .uuid)
+        try container.encode(redeployOnUpdate, forKey: .redeployOnUpdate)
+        try container.encode(payloads, forKey: .payloads)
+
+        try super.encode(to: encoder)
     }
 }

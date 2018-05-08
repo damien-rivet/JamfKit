@@ -64,13 +64,47 @@ class ComputerLocationTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 8)
-        XCTAssertNotNil(encodedObject?[ComputerLocation.UsernameKey])
-        XCTAssertNotNil(encodedObject?[ComputerLocation.RealNameKey])
-        XCTAssertNotNil(encodedObject?[ComputerLocation.EmailAddressKey])
-        XCTAssertNotNil(encodedObject?[ComputerLocation.PositionKey])
-        XCTAssertNotNil(encodedObject?[ComputerLocation.PhoneNumberKey])
-        XCTAssertNotNil(encodedObject?[ComputerLocation.DepartementKey])
-        XCTAssertNotNil(encodedObject?[ComputerLocation.BuildingKey])
-        XCTAssertNotNil(encodedObject?[ComputerLocation.RoomKey])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.username.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.realName.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.emailAddress.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.position.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.phoneNumber.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.department.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.building.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerLocation.CodingKeys.room.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_location", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerLocation.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.username, defaultUsername)
+            XCTAssertEqual(actualValue.realName, defaultRealName)
+            XCTAssertEqual(actualValue.emailAddress, defaultEmailAddress)
+            XCTAssertEqual(actualValue.position, defaultPosition)
+            XCTAssertEqual(actualValue.phoneNumber, defaultPhoneNumber)
+            XCTAssertEqual(actualValue.department, defaultDepartment)
+            XCTAssertEqual(actualValue.building, defaultBuilding)
+            XCTAssertEqual(actualValue.room, defaultRoom)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_location", subfolder: subfolder)!
+
+        let actualValue = ComputerLocation(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

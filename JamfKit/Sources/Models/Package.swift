@@ -12,23 +12,25 @@ public final class Package: BaseObject {
 
     // MARK: - Constants
 
-    static let CategoryKey = "category"
-    static let FilenameKey = "filename"
-    static let InformationKey = "info"
-    static let NotesKey = "notes"
-    static let PriorityKey = "priority"
-    static let RebootRequiredKey = "reboot_required"
-    static let FillUserTemplateKey = "fill_user_template"
-    static let FillExistingUsersKey = "fill_existing_users"
-    static let BootVolumeRequiredKey = "boot_volume_required"
-    static let AllowUninstalledKey = "allow_uninstalled"
-    static let OsRequirementsKey = "os_requirements"
-    static let RequiredProcessorKey = "required_processor"
-    static let SwitchWithPackageKey = "switch_with_package"
-    static let InstallIfReportedAvailableKey = "install_if_reported_available"
-    static let ReinstallOptionKey = "reinstall_option"
-    static let TriggeringFilesKey = "triggering_files"
-    static let SendNotificationKey = "send_notification"
+    enum CodingKeys: String, CodingKey {
+        case category = "category"
+        case filename = "filename"
+        case information = "info"
+        case notes = "notes"
+        case priority = "priority"
+        case rebootRequired = "reboot_required"
+        case fillUserTemplate = "fill_user_template"
+        case fillExistingUsers = "fill_existing_users"
+        case bootVolumeRequired = "boot_volume_required"
+        case allowUninstalled = "allow_uninstalled"
+        case osRequirements = "os_requirements"
+        case requiredProcessor = "required_processor"
+        case switchWithPackage = "switch_with_package"
+        case installIfReportedUnavailable = "install_if_reported_available"
+        case reinstallOption = "reinstall_option"
+        case triggeringFiles = "triggering_files"
+        case sendNotification = "send_notification"
+    }
 
     // MARK: - Properties
 
@@ -85,30 +87,54 @@ public final class Package: BaseObject {
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        category = json[Package.CategoryKey] as? String ?? ""
-        filename = json[Package.FilenameKey] as? String ?? ""
-        information = json[Package.InformationKey] as? String ?? ""
-        notes = json[Package.NotesKey] as? String ?? ""
-        priority = json[Package.PriorityKey] as? UInt ?? 0
-        isRebootRequired = json[Package.RebootRequiredKey] as? Bool ?? false
-        shouldFillUserTemplate = json[Package.FillUserTemplateKey] as? Bool ?? false
-        shouldFillExistingUsers = json[Package.FillExistingUsersKey] as? Bool ?? false
-        isBootVolumeRequired = json[Package.BootVolumeRequiredKey] as? Bool ?? false
-        allowsUninstallation = json[Package.AllowUninstalledKey] as? Bool ?? false
-        osRequirements = json[Package.OsRequirementsKey] as? String ?? ""
-        requiredProcessor = json[Package.RequiredProcessorKey] as? String ?? ""
-        switchWithPackage = json[Package.SwitchWithPackageKey] as? String ?? ""
-        shouldInstallIfReportedAvailable = json[Package.InstallIfReportedAvailableKey] as? Bool ?? false
-        reinstallOption = json[Package.ReinstallOptionKey] as? String ?? ""
-        triggeringFiles = json[Package.TriggeringFilesKey] as? String ?? ""
-        shouldSendNotificaton = json[Package.SendNotificationKey] as? Bool ?? false
+        category = json[CodingKeys.category.rawValue] as? String ?? ""
+        filename = json[CodingKeys.filename.rawValue] as? String ?? ""
+        information = json[CodingKeys.information.rawValue] as? String ?? ""
+        notes = json[CodingKeys.notes.rawValue] as? String ?? ""
+        priority = json[CodingKeys.priority.rawValue] as? UInt ?? 0
+        isRebootRequired = json[CodingKeys.rebootRequired.rawValue] as? Bool ?? false
+        shouldFillUserTemplate = json[CodingKeys.fillUserTemplate.rawValue] as? Bool ?? false
+        shouldFillExistingUsers = json[CodingKeys.fillExistingUsers.rawValue] as? Bool ?? false
+        isBootVolumeRequired = json[CodingKeys.bootVolumeRequired.rawValue] as? Bool ?? false
+        allowsUninstallation = json[CodingKeys.allowUninstalled.rawValue] as? Bool ?? false
+        osRequirements = json[CodingKeys.osRequirements.rawValue] as? String ?? ""
+        requiredProcessor = json[CodingKeys.requiredProcessor.rawValue] as? String ?? ""
+        switchWithPackage = json[CodingKeys.switchWithPackage.rawValue] as? String ?? ""
+        shouldInstallIfReportedAvailable = json[CodingKeys.installIfReportedUnavailable.rawValue] as? Bool ?? false
+        reinstallOption = json[CodingKeys.reinstallOption.rawValue] as? String ?? ""
+        triggeringFiles = json[CodingKeys.triggeringFiles.rawValue] as? String ?? ""
+        shouldSendNotificaton = json[CodingKeys.sendNotification.rawValue] as? Bool ?? false
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        category = try container.decode(String.self, forKey: .category)
+        filename = try container.decode(String.self, forKey: .filename)
+        information = try container.decode(String.self, forKey: .information)
+        notes = try container.decode(String.self, forKey: .notes)
+        priority = try container.decode(UInt.self, forKey: .priority)
+        isRebootRequired = try container.decode(Bool.self, forKey: .rebootRequired)
+        shouldFillUserTemplate = try container.decode(Bool.self, forKey: .fillUserTemplate)
+        shouldFillExistingUsers = try container.decode(Bool.self, forKey: .fillExistingUsers)
+        isBootVolumeRequired = try container.decode(Bool.self, forKey: .bootVolumeRequired)
+        allowsUninstallation = try container.decode(Bool.self, forKey: .allowUninstalled)
+        osRequirements = try container.decode(String.self, forKey: .osRequirements)
+        requiredProcessor = try container.decode(String.self, forKey: .requiredProcessor)
+        switchWithPackage = try container.decode(String.self, forKey: .switchWithPackage)
+        shouldInstallIfReportedAvailable = try container.decode(Bool.self, forKey: .installIfReportedUnavailable)
+        reinstallOption = try container.decode(String.self, forKey: .reinstallOption)
+        triggeringFiles = try container.decode(String.self, forKey: .triggeringFiles)
+        shouldSendNotificaton = try container.decode(Bool.self, forKey: .sendNotification)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -116,24 +142,48 @@ public final class Package: BaseObject {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[Package.CategoryKey] = category
-        json[Package.FilenameKey] = filename
-        json[Package.InformationKey] = information
-        json[Package.NotesKey] = notes
-        json[Package.PriorityKey] = priority
-        json[Package.RebootRequiredKey] = isRebootRequired
-        json[Package.FillUserTemplateKey] = shouldFillUserTemplate
-        json[Package.FillExistingUsersKey] = shouldFillExistingUsers
-        json[Package.BootVolumeRequiredKey] = isBootVolumeRequired
-        json[Package.AllowUninstalledKey] = allowsUninstallation
-        json[Package.OsRequirementsKey] = osRequirements
-        json[Package.RequiredProcessorKey] = requiredProcessor
-        json[Package.SwitchWithPackageKey] = switchWithPackage
-        json[Package.InstallIfReportedAvailableKey] = shouldInstallIfReportedAvailable
-        json[Package.ReinstallOptionKey] = reinstallOption
-        json[Package.TriggeringFilesKey] = triggeringFiles
-        json[Package.SendNotificationKey] = shouldSendNotificaton
+        json[CodingKeys.category.rawValue] = category
+        json[CodingKeys.filename.rawValue] = filename
+        json[CodingKeys.information.rawValue] = information
+        json[CodingKeys.notes.rawValue] = notes
+        json[CodingKeys.priority.rawValue] = priority
+        json[CodingKeys.rebootRequired.rawValue] = isRebootRequired
+        json[CodingKeys.fillUserTemplate.rawValue] = shouldFillUserTemplate
+        json[CodingKeys.fillExistingUsers.rawValue] = shouldFillExistingUsers
+        json[CodingKeys.bootVolumeRequired.rawValue] = isBootVolumeRequired
+        json[CodingKeys.allowUninstalled.rawValue] = allowsUninstallation
+        json[CodingKeys.osRequirements.rawValue] = osRequirements
+        json[CodingKeys.requiredProcessor.rawValue] = requiredProcessor
+        json[CodingKeys.switchWithPackage.rawValue] = switchWithPackage
+        json[CodingKeys.installIfReportedUnavailable.rawValue] = shouldInstallIfReportedAvailable
+        json[CodingKeys.reinstallOption.rawValue] = reinstallOption
+        json[CodingKeys.triggeringFiles.rawValue] = triggeringFiles
+        json[CodingKeys.sendNotification.rawValue] = shouldSendNotificaton
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(category, forKey: .category)
+        try container.encode(filename, forKey: .filename)
+        try container.encode(information, forKey: .information)
+        try container.encode(notes, forKey: .notes)
+        try container.encode(priority, forKey: .priority)
+        try container.encode(isRebootRequired, forKey: .rebootRequired)
+        try container.encode(shouldFillUserTemplate, forKey: .fillUserTemplate)
+        try container.encode(shouldFillExistingUsers, forKey: .fillExistingUsers)
+        try container.encode(isBootVolumeRequired, forKey: .bootVolumeRequired)
+        try container.encode(allowsUninstallation, forKey: .allowUninstalled)
+        try container.encode(osRequirements, forKey: .osRequirements)
+        try container.encode(requiredProcessor, forKey: .requiredProcessor)
+        try container.encode(switchWithPackage, forKey: .switchWithPackage)
+        try container.encode(shouldInstallIfReportedAvailable, forKey: .installIfReportedUnavailable)
+        try container.encode(reinstallOption, forKey: .reinstallOption)
+        try container.encode(triggeringFiles, forKey: .triggeringFiles)
+        try container.encode(shouldSendNotificaton, forKey: .sendNotification)
+
+        try super.encode(to: encoder)
     }
 }

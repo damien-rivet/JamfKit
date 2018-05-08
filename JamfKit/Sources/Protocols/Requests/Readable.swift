@@ -33,19 +33,19 @@ extension Readable where Self: Endpoint & Identifiable & Requestable {
     }
 
     static func getReadRequest(identifier: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.IdentifierKey, value: identifier)
     }
 
     func getReadRequest() -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.IdentifierKey, value: String(identifier))
     }
 
     static func getReadRequest(name: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 
     func getReadRequestWithName() -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 }
 
@@ -56,6 +56,6 @@ extension Readable where Self: Endpoint & Requestable & Subset {
     }
 
     static func getReadRequest(identifier: String) -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.IdentifierKey, value: identifier)
     }
 }

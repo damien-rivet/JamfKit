@@ -78,16 +78,54 @@ class SMTPServerTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 11)
-        XCTAssertNotNil(encodedObject?[SMTPServer.EnabledKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.HostKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.PortKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.TimeoutKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.AuthorizationRequiredKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.UsernameKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.PasswordKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.SslKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.TlsKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.SendFromNameKey])
-        XCTAssertNotNil(encodedObject?[SMTPServer.SendFromEmailKey])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.enabled.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.host.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.port.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.timeout.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.authorizationRequired.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.username.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.password.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.ssl.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.tls.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.sendFromName.rawValue])
+        XCTAssertNotNil(encodedObject?[SMTPServer.CodingKeys.sendFromEmail.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "smtp_server", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(SMTPServer.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[SMTPServer][\(defaultHost):\(defaultPort)]")
+            XCTAssertEqual(actualValue.isEnabled, defaultIsEnabled)
+            XCTAssertEqual(actualValue.host, defaultHost)
+            XCTAssertEqual(actualValue.port, defaultPort)
+            XCTAssertEqual(actualValue.timeout, defaultTimeout)
+            XCTAssertEqual(actualValue.isAuthorizationRequired, defaultIsAuthorizationRequired)
+            XCTAssertEqual(actualValue.username, defaultUsername)
+            XCTAssertEqual(actualValue.password, defaultPassword)
+            XCTAssertEqual(actualValue.isSSLEnabled, defaultIsSSLEnabled)
+            XCTAssertEqual(actualValue.isTLSEnabled, defaultIsTLSEnabled)
+            XCTAssertEqual(actualValue.sendFromName, defaultSendFromName)
+            XCTAssertEqual(actualValue.sendFromEmail, defaultSendFromEmail)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "smtp_server", subfolder: subfolder)!
+
+        let actualValue = SMTPServer(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

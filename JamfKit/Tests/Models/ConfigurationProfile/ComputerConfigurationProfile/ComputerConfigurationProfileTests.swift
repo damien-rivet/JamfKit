@@ -61,10 +61,39 @@ class ComputerConfigurationProfileTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 1)
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationProfile.GeneralKey])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationProfile.CodingKeys.general.rawValue])
 
-        let generalNode = encodedObject?[ComputerConfigurationProfile.GeneralKey] as! [String: Any]
-        XCTAssertNotNil(generalNode[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(generalNode[BaseObject.CodingKeys.name.rawValue])
+        let generalNode = encodedObject?[ComputerConfigurationProfile.CodingKeys.general.rawValue] as! [String: Any]
+        XCTAssertNotNil(generalNode[BaseObject.IdentifierKey])
+        XCTAssertNotNil(generalNode[BaseObject.NameKey])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_configuration_profile_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerConfigurationProfile.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[ComputerConfigurationProfile][\(defaultIdentifier) - \(defaultName)]")
+            XCTAssertEqual(actualValue.general.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.general.name, defaultName)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_configuration_profile_valid", subfolder: subfolder)!
+
+        let actualValue = ComputerConfigurationProfile(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

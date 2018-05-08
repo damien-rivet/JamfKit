@@ -7,22 +7,24 @@
 //
 
 @objc(JMFKComputerPurchasing)
-public final class ComputerPurchasing: NSObject, Requestable {
+public final class ComputerPurchasing: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let IsPurchasedKey = "is_purchased"
-    static let IsLeasedKey = "is_leased"
-    static let PoNumberKey = "po_number"
-    static let VendorKey = "vendor"
-    static let AppleCareIdentifierKey = "applecare_id"
-    static let PurchasePriceKey = "purchase_price"
-    static let PurchasingAccountKey = "purchasing_account"
-    static let PurchasingContactKey = "purchasing_contact"
-    static let PoDateKey = "po_date"
-    static let WarrantyExpiresKey = "warranty_expires"
-    static let LeaseExpiresKey = "lease_expires"
-    static let LifeExpectancyKey = "life_expectancy"
+    enum CodingKeys: String, CodingKey {
+        case isPurchased = "is_purchased"
+        case isLeased = "is_leased"
+        case poNumber = "po_number"
+        case vendor = "vendor"
+        case appleCareIdentifier = "applecare_id"
+        case purchasePrice = "purchase_price"
+        case purchasingAccount = "purchasing_account"
+        case purchasingContact = "purchasing_contact"
+        case poDate = "po_date"
+        case warrantyExpires = "warranty_expires"
+        case leaseExpires = "lease_expires"
+        case lifeExpectancy = "life_expectancy"
+    }
 
     // MARK: - Properties
 
@@ -64,23 +66,40 @@ public final class ComputerPurchasing: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        isPurchased = json[ComputerPurchasing.IsPurchasedKey] as? Bool ?? false
-        isLeased = json[ComputerPurchasing.IsLeasedKey] as? Bool ?? false
-        poNumber = json[ComputerPurchasing.PoNumberKey] as? String ?? ""
-        vendor = json[ComputerPurchasing.VendorKey] as? String ?? ""
-        appleCareIdentifier = json[ComputerPurchasing.AppleCareIdentifierKey] as? String ?? ""
-        purchasePrice = json[ComputerPurchasing.PurchasePriceKey] as? String ?? ""
-        purchasingAccount = json[ComputerPurchasing.PurchasingAccountKey] as? String ?? ""
-        purchasingContact = json[ComputerPurchasing.PurchasingContactKey] as? String ?? ""
-        poDate = PreciseDate(json: json, node: ComputerPurchasing.PoDateKey)
-        warrantyExpires = PreciseDate(json: json, node: ComputerPurchasing.WarrantyExpiresKey)
-        leaseExpires = PreciseDate(json: json, node: ComputerPurchasing.LeaseExpiresKey)
-        lifeExpectancy = json[ComputerPurchasing.LifeExpectancyKey] as? UInt ?? 0
-    }
-
     public override init() {
         super.init()
+    }
+
+    public init?(json: [String: Any], node: String = "") {
+        isPurchased = json[CodingKeys.isPurchased.rawValue] as? Bool ?? false
+        isLeased = json[CodingKeys.isLeased.rawValue] as? Bool ?? false
+        poNumber = json[CodingKeys.poNumber.rawValue] as? String ?? ""
+        vendor = json[CodingKeys.vendor.rawValue] as? String ?? ""
+        appleCareIdentifier = json[CodingKeys.appleCareIdentifier.rawValue] as? String ?? ""
+        purchasePrice = json[CodingKeys.purchasePrice.rawValue] as? String ?? ""
+        purchasingAccount = json[CodingKeys.purchasingAccount.rawValue] as? String ?? ""
+        purchasingContact = json[CodingKeys.purchasingContact.rawValue] as? String ?? ""
+        poDate = PreciseDate(json: json, node: CodingKeys.poDate.rawValue)
+        warrantyExpires = PreciseDate(json: json, node: CodingKeys.warrantyExpires.rawValue)
+        leaseExpires = PreciseDate(json: json, node: CodingKeys.leaseExpires.rawValue)
+        lifeExpectancy = json[CodingKeys.lifeExpectancy.rawValue] as? UInt ?? 0
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        isPurchased = try container.decode(Bool.self, forKey: .isPurchased)
+        isLeased = try container.decode(Bool.self, forKey: .isLeased)
+        poNumber = try container.decode(String.self, forKey: .poNumber)
+        vendor = try container.decode(String.self, forKey: .vendor)
+        appleCareIdentifier = try container.decode(String.self, forKey: .appleCareIdentifier)
+        purchasePrice = try container.decode(String.self, forKey: .purchasePrice)
+        purchasingAccount = try container.decode(String.self, forKey: .purchasingAccount)
+        purchasingContact = try container.decode(String.self, forKey: .purchasingContact)
+        poDate = try container.decode(PreciseDate.self, forKey: .poDate)
+        warrantyExpires = try container.decode(PreciseDate.self, forKey: .warrantyExpires)
+        leaseExpires = try container.decode(PreciseDate.self, forKey: .leaseExpires)
+        lifeExpectancy = try container.decode(UInt.self, forKey: .lifeExpectancy)
     }
 
     // MARK: - Functions
@@ -88,14 +107,14 @@ public final class ComputerPurchasing: NSObject, Requestable {
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[ComputerPurchasing.IsPurchasedKey] = isPurchased
-        json[ComputerPurchasing.IsLeasedKey] = isLeased
-        json[ComputerPurchasing.PoNumberKey] = poNumber
-        json[ComputerPurchasing.VendorKey] = vendor
-        json[ComputerPurchasing.AppleCareIdentifierKey] = appleCareIdentifier
-        json[ComputerPurchasing.PurchasePriceKey] = purchasePrice
-        json[ComputerPurchasing.PurchasingAccountKey] = purchasingAccount
-        json[ComputerPurchasing.PurchasingContactKey] = purchasingContact
+        json[CodingKeys.isPurchased.rawValue] = isPurchased
+        json[CodingKeys.isLeased.rawValue] = isLeased
+        json[CodingKeys.poNumber.rawValue] = poNumber
+        json[CodingKeys.vendor.rawValue] = vendor
+        json[CodingKeys.appleCareIdentifier.rawValue] = appleCareIdentifier
+        json[CodingKeys.purchasePrice.rawValue] = purchasePrice
+        json[CodingKeys.purchasingAccount.rawValue] = purchasingAccount
+        json[CodingKeys.purchasingContact.rawValue] = purchasingContact
 
         if let poDate = poDate {
             json.merge(poDate.toJSON()) { (_, new) in new }
@@ -109,8 +128,25 @@ public final class ComputerPurchasing: NSObject, Requestable {
             json.merge(leaseExpires.toJSON()) { (_, new) in new }
         }
 
-        json[ComputerPurchasing.LifeExpectancyKey] = lifeExpectancy
+        json[CodingKeys.lifeExpectancy.rawValue] = lifeExpectancy
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(isPurchased, forKey: .isPurchased)
+        try container.encode(isLeased, forKey: .isLeased)
+        try container.encode(poNumber, forKey: .poNumber)
+        try container.encode(vendor, forKey: .vendor)
+        try container.encode(appleCareIdentifier, forKey: .appleCareIdentifier)
+        try container.encode(purchasePrice, forKey: .purchasePrice)
+        try container.encode(purchasingAccount, forKey: .purchasingAccount)
+        try container.encode(purchasingContact, forKey: .purchasingContact)
+        try container.encode(poDate, forKey: .poDate)
+        try container.encode(warrantyExpires, forKey: .warrantyExpires)
+        try container.encode(leaseExpires, forKey: .leaseExpires)
+        try container.encode(lifeExpectancy, forKey: .lifeExpectancy)
     }
 }

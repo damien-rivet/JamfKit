@@ -8,12 +8,15 @@
 
 /// Reprents as logical policy that can be applied to any hardware element managed by Jamf.
 @objc(JMFKPolicy)
-public final class Policy: NSObject, Requestable, Endpoint, Subset {
+public final class Policy: NSObject, Codable, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
     public static let Endpoint = "policies"
-    static let GeneralKey = "general"
+
+    enum CodingKeys: String, CodingKey {
+        case general
+    }
 
     // MARK: - Properties
 
@@ -26,17 +29,6 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        guard
-            let generalNode = json[Policy.GeneralKey] as? [String: Any],
-            let general = PolicyGeneral(json: generalNode)
-            else {
-                return nil
-        }
-
-        self.general = general
-    }
-
     public init?(identifier: UInt, name: String) {
         guard let general = PolicyGeneral(identifier: identifier, name: name) else {
             return nil
@@ -47,14 +39,37 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
         super.init()
     }
 
+    public init?(json: [String: Any], node: String = "") {
+        guard
+            let generalNode = json[CodingKeys.general.rawValue] as? [String: Any],
+            let general = PolicyGeneral(json: generalNode)
+            else {
+                return nil
+        }
+
+        self.general = general
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        general = try container.decode(PolicyGeneral.self, forKey: .general)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[Policy.GeneralKey] = general.toJSON()
+        json[CodingKeys.general.rawValue] = general.toJSON()
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(general, forKey: .general)
     }
 }
 
@@ -63,7 +78,7 @@ public final class Policy: NSObject, Requestable, Endpoint, Subset {
 extension Policy: Creatable {
 
     public func createRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 }
 
@@ -84,7 +99,7 @@ extension Policy: Readable {
     }
 
     public func readRequestWithName() -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 
@@ -93,12 +108,12 @@ extension Policy: Readable {
 extension Policy: Updatable {
 
     public func updateRequest() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 
     /// Returns a PUT **URLRequest** based on the name.
     public func updateRequestWithName() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 

@@ -55,10 +55,41 @@ class ComputerConfigurationManagementTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 5)
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.UsernameKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.PasswordKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.CreateAccountKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.HideAccountKey])
-        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.AllowSSHForManagementOnlyKey])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.CodingKeys.username.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.CodingKeys.password.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.CodingKeys.createAccount.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.CodingKeys.hideAccount.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerConfigurationManagement.CodingKeys.allowSshForManagementOnly.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_configuration_management", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerConfigurationManagement.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.username, defaultUsername)
+            XCTAssertEqual(actualValue.password, defaultPassword)
+            XCTAssertEqual(actualValue.shouldCreateAccount, defaultShouldCreateAccount)
+            XCTAssertEqual(actualValue.shouldHideAccount, defaultShouldHideAccount)
+            XCTAssertEqual(actualValue.isSSHAllowedForManagementOnly, defaultIsSSHAllowedOnlyForManagement)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_configuration_management", subfolder: subfolder)!
+
+        let actualValue = ComputerConfigurationManagement(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

@@ -13,7 +13,10 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
     // MARK: - Constants
 
     public static let Endpoint = "mobiledevicegroups"
-    static let MobileDevicesKey = "mobile_devices"
+
+    enum CodingKeys: String, CodingKey {
+        case mobileDevices = "mobile_devices"
+    }
 
     // MARK: - Properties
 
@@ -22,14 +25,22 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
         mobileDevices = MobileDeviceGroup.parseMobileDevices(json: json)
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        mobileDevices = try container.decode([MobileDeviceGeneral].self, forKey: .mobileDevices)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -38,7 +49,7 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
         var json = super.toJSON()
 
         if !mobileDevices.isEmpty {
-            json[MobileDeviceGroup.MobileDevicesKey] = mobileDevices.map { mobileDevice -> [String: [String: Any]] in
+            json[CodingKeys.mobileDevices.rawValue] = mobileDevices.map { mobileDevice -> [String: [String: Any]] in
                 return ["mobile_device": mobileDevice.toJSON()]
             }
         }
@@ -46,8 +57,16 @@ public final class MobileDeviceGroup: HardwareGroup, Endpoint {
         return json
     }
 
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(mobileDevices, forKey: .mobileDevices)
+
+        try super.encode(to: encoder)
+    }
+
     private static func parseMobileDevices(json: [String: Any]) -> [MobileDeviceGeneral] {
-        return BaseObject.parseElements(from: json, nodeKey: MobileDeviceGroup.MobileDevicesKey, singleNodeKey: "mobile_device")
+        return BaseObject.parseElements(from: json, nodeKey: CodingKeys.mobileDevices.rawValue, singleNodeKey: "mobile_device")
     }
 }
 

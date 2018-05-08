@@ -11,31 +11,33 @@ public final class ComputerGeneral: BaseObject {
 
     // MARK: - Constants
 
-    static let MacAddressKey = "mac_address"
-    static let AlternativeMacAddressKey = "alt_mac_address"
-    static let IpAddressKey = "ip_address"
-    static let LastReportedIPAddressKey = "last_reported_ip"
-    static let SerialNumberKey = "serial_number"
-    static let UDIDKey = "udid"
-    static let JamfVersionKey = "jamf_version"
-    static let PlatformKey = "platform"
-    static let Barcode1Key = "barcode_1"
-    static let Barcode2Key = "barcode_2"
-    static let AssetTagKey = "asset_tag"
-    static let RemoteManagementKey = "remote_management"
-    static let MdmCapableKey = "mdm_capable"
-    static let MdmCapableUsersKey = "mdm_capable_users"
-    static let MdmCapableUserKey = "mdm_capable_user"
-    static let ReportDateKey = "report_date"
-    static let LastContactTimeKey = "last_contact_time"
-    static let InitialEntryDateKey = "initial_entry_date"
-    static let LastCloudBackupDateKey = "last_cloud_backup_date"
-    static let LastEnrolledDateKey = "last_enrolled_date"
-    static let DistributionPointKey = "distribution_point"
-    static let SusKey = "sus"
-    static let NetbootServerKey = "netboot_server"
-    static let SiteKey = "site"
-    static let ItunesStoreAccountIsActiveKey = "itunes_store_account_is_active"
+    enum CodingKeys: String, CodingKey {
+        case macAddress = "mac_address"
+        case alternativeMacAddress = "alt_mac_address"
+        case ipAddress = "ip_address"
+        case lastReportedIpAddress = "last_reported_ip"
+        case serialNumber = "serial_number"
+        case udid = "udid"
+        case jamfVersion = "jamf_version"
+        case platform = "platform"
+        case barcode1 = "barcode_1"
+        case barcode2 = "barcode_2"
+        case assetTag = "asset_tag"
+        case remoteManagement = "remote_management"
+        case mdmCapable = "mdm_capable"
+        case mdmCapableUsers = "mdm_capable_users"
+        case mdmCapableUser = "mdm_capable_user"
+        case reportDate = "report_date"
+        case lastContactTime = "last_contact_time"
+        case initialEntryDate = "initial_entry_date"
+        case lastCloudBackupDate = "last_cloud_backup_date"
+        case lastEnrolledDate = "last_enrolled_date"
+        case distributionPoint = "distribution_point"
+        case sus = "sus"
+        case netbootServer = "netboot_server"
+        case site = "site"
+        case iTunesStoreAccountIsActive = "itunes_store_account_is_active"
+    }
 
     // MARK: - Properties
 
@@ -113,47 +115,86 @@ public final class ComputerGeneral: BaseObject {
 
     // MARK: - Initialization
 
-    public required init?(json: [String: Any], node: String = "") {
-        macAddress = json[ComputerGeneral.MacAddressKey] as? String ?? ""
-        alternativeMacAddress = json[ComputerGeneral.AlternativeMacAddressKey] as? String ?? ""
-        ipAddress = json[ComputerGeneral.IpAddressKey] as? String ?? ""
-        lastReportedIpAddress = json[ComputerGeneral.LastReportedIPAddressKey] as? String ?? ""
-        serialNumber = json[ComputerGeneral.SerialNumberKey] as? String ?? ""
-        udid = json[ComputerGeneral.UDIDKey] as? String ?? ""
-        jamfVersion = json[ComputerGeneral.JamfVersionKey] as? String ?? ""
-        platform = json[ComputerGeneral.PlatformKey] as? String ?? ""
-        barcode1 = json[ComputerGeneral.Barcode1Key] as? String ?? ""
-        barcode2 = json[ComputerGeneral.Barcode2Key] as? String ?? ""
-        assetTag = json[ComputerGeneral.AssetTagKey] as? String ?? ""
-
-        if let remoteManagementNode = json[ComputerGeneral.RemoteManagementKey] as? [String: Any] {
-            remoteManagement = ComputerRemoteManagement(json: remoteManagementNode)
-        }
-
-        isMdmCapable = json[ComputerGeneral.MdmCapableKey] as? Bool ?? false
-        mdmCapableUsers = ComputerGeneral.parseMdmCapableUsers(from: json)
-        reportDate = PreciseDate(json: json, node: ComputerGeneral.ReportDateKey)
-        lastContactTime = PreciseDate(json: json, node: ComputerGeneral.LastContactTimeKey)
-        initialEntryDate = PreciseDate(json: json, node: ComputerGeneral.InitialEntryDateKey)
-        lastCloudBackupDate = PreciseDate(json: json, node: ComputerGeneral.LastCloudBackupDateKey)
-        lastEnrolledDate = PreciseDate(json: json, node: ComputerGeneral.LastEnrolledDateKey)
-        distributionPoint = json[ComputerGeneral.DistributionPointKey] as? String ?? ""
-        sus = json[ComputerGeneral.SusKey] as? String ?? ""
-        netbootServer = json[ComputerGeneral.NetbootServerKey] as? String ?? ""
-
-        if let siteNode = json[ComputerGeneral.SiteKey] as? [String: Any] {
-            site = Site(json: siteNode)
-        }
-
-        isITunesStoreAcccountActivated = json[ComputerGeneral.ItunesStoreAccountIsActiveKey] as? Bool ?? false
-
-        super.init(json: json)
-    }
-
     public override init?(identifier: UInt, name: String) {
         remoteManagement = ComputerRemoteManagement()
 
         super.init(identifier: identifier, name: name)
+    }
+
+    public required init?(json: [String: Any], node: String = "") {
+        macAddress = json[CodingKeys.macAddress.rawValue] as? String ?? ""
+        alternativeMacAddress = json[CodingKeys.alternativeMacAddress.rawValue] as? String ?? ""
+        ipAddress = json[CodingKeys.ipAddress.rawValue] as? String ?? ""
+        lastReportedIpAddress = json[CodingKeys.lastReportedIpAddress.rawValue] as? String ?? ""
+        serialNumber = json[CodingKeys.serialNumber.rawValue] as? String ?? ""
+        udid = json[CodingKeys.udid.rawValue] as? String ?? ""
+        jamfVersion = json[CodingKeys.jamfVersion.rawValue] as? String ?? ""
+        platform = json[CodingKeys.platform.rawValue] as? String ?? ""
+        barcode1 = json[CodingKeys.barcode1.rawValue] as? String ?? ""
+        barcode2 = json[CodingKeys.barcode2.rawValue] as? String ?? ""
+        assetTag = json[CodingKeys.assetTag.rawValue] as? String ?? ""
+
+        if let remoteManagementNode = json[CodingKeys.remoteManagement.rawValue] as? [String: Any] {
+            remoteManagement = ComputerRemoteManagement(json: remoteManagementNode)
+        }
+
+        isMdmCapable = json[CodingKeys.mdmCapable.rawValue] as? Bool ?? false
+        mdmCapableUsers = ComputerGeneral.parseMdmCapableUsers(from: json)
+        reportDate = PreciseDate(json: json, node: CodingKeys.reportDate.rawValue)
+        lastContactTime = PreciseDate(json: json, node: CodingKeys.lastContactTime.rawValue)
+        initialEntryDate = PreciseDate(json: json, node: CodingKeys.initialEntryDate.rawValue)
+        lastCloudBackupDate = PreciseDate(json: json, node: CodingKeys.lastCloudBackupDate.rawValue)
+        lastEnrolledDate = PreciseDate(json: json, node: CodingKeys.lastEnrolledDate.rawValue)
+        distributionPoint = json[CodingKeys.distributionPoint.rawValue] as? String ?? ""
+        sus = json[CodingKeys.sus.rawValue] as? String ?? ""
+        netbootServer = json[CodingKeys.netbootServer.rawValue] as? String ?? ""
+
+        if let siteNode = json[CodingKeys.site.rawValue] as? [String: Any] {
+            site = Site(json: siteNode)
+        }
+
+        isITunesStoreAcccountActivated = json[CodingKeys.iTunesStoreAccountIsActive.rawValue] as? Bool ?? false
+
+        super.init(json: json)
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        macAddress = try container.decode(String.self, forKey: .macAddress)
+        alternativeMacAddress = try container.decode(String.self, forKey: .alternativeMacAddress)
+        ipAddress = try container.decode(String.self, forKey: .ipAddress)
+        lastReportedIpAddress = try container.decode(String.self, forKey: .lastReportedIpAddress)
+        serialNumber = try container.decode(String.self, forKey: .serialNumber)
+        udid = try container.decode(String.self, forKey: .udid)
+        jamfVersion = try container.decode(String.self, forKey: .jamfVersion)
+        platform = try container.decode(String.self, forKey: .platform)
+        barcode1 = try container.decode(String.self, forKey: .barcode1)
+        barcode2 = try container.decode(String.self, forKey: .barcode2)
+        assetTag = try container.decode(String.self, forKey: .assetTag)
+
+        if let remoteManagement = try? container.decode(ComputerRemoteManagement.self, forKey: .remoteManagement) {
+            self.remoteManagement = remoteManagement
+        }
+
+        isMdmCapable = try container.decode(Bool.self, forKey: .mdmCapable)
+        mdmCapableUsers = try container.decode([String].self, forKey: .mdmCapable)
+        reportDate = try container.decode(PreciseDate.self, forKey: .reportDate)
+        lastContactTime = try container.decode(PreciseDate.self, forKey: .lastContactTime)
+        initialEntryDate = try container.decode(PreciseDate.self, forKey: .initialEntryDate)
+        lastCloudBackupDate = try container.decode(PreciseDate.self, forKey: .lastCloudBackupDate)
+        lastEnrolledDate = try container.decode(PreciseDate.self, forKey: .lastEnrolledDate)
+        distributionPoint = try container.decode(String.self, forKey: .distributionPoint)
+        sus = try container.decode(String.self, forKey: .sus)
+        netbootServer = try container.decode(String.self, forKey: .netbootServer)
+
+        if let site = try? container.decode(Site.self, forKey: .site) {
+            self.site = site
+        }
+
+        isITunesStoreAcccountActivated = try container.decode(Bool.self, forKey: CodingKeys.iTunesStoreAccountIsActive)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -161,24 +202,24 @@ public final class ComputerGeneral: BaseObject {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[ComputerGeneral.MacAddressKey] = macAddress
-        json[ComputerGeneral.AlternativeMacAddressKey] = alternativeMacAddress
-        json[ComputerGeneral.IpAddressKey] = ipAddress
-        json[ComputerGeneral.LastReportedIPAddressKey] = lastReportedIpAddress
-        json[ComputerGeneral.SerialNumberKey] = serialNumber
-        json[ComputerGeneral.UDIDKey] = udid
-        json[ComputerGeneral.JamfVersionKey] = jamfVersion
-        json[ComputerGeneral.PlatformKey] = platform
-        json[ComputerGeneral.Barcode1Key] = barcode1
-        json[ComputerGeneral.Barcode2Key] = barcode2
-        json[ComputerGeneral.AssetTagKey] = assetTag
+        json[CodingKeys.macAddress.rawValue] = macAddress
+        json[CodingKeys.alternativeMacAddress.rawValue] = alternativeMacAddress
+        json[CodingKeys.ipAddress.rawValue] = ipAddress
+        json[CodingKeys.lastReportedIpAddress.rawValue] = lastReportedIpAddress
+        json[CodingKeys.serialNumber.rawValue] = serialNumber
+        json[CodingKeys.udid.rawValue] = udid
+        json[CodingKeys.jamfVersion.rawValue] = jamfVersion
+        json[CodingKeys.platform.rawValue] = platform
+        json[CodingKeys.barcode1.rawValue] = barcode1
+        json[CodingKeys.barcode2.rawValue] = barcode2
+        json[CodingKeys.assetTag.rawValue] = assetTag
 
         if let remoteManagement = remoteManagement {
-            json[ComputerGeneral.RemoteManagementKey] = remoteManagement.toJSON()
+            json[CodingKeys.remoteManagement.rawValue] = remoteManagement.toJSON()
         }
 
-        json[ComputerGeneral.MdmCapableKey] = isMdmCapable
-        json[ComputerGeneral.MdmCapableUsersKey] = mdmCapableUsers
+        json[CodingKeys.mdmCapable.rawValue] = isMdmCapable
+        json[CodingKeys.mdmCapableUsers.rawValue] = mdmCapableUsers
 
         if let reportDate = reportDate {
             json.merge(reportDate.toJSON()) { (_, new) in new }
@@ -200,19 +241,48 @@ public final class ComputerGeneral: BaseObject {
             json.merge(lastEnrolledDate.toJSON()) { (_, new) in new }
         }
 
-        json[ComputerGeneral.DistributionPointKey] = distributionPoint
-        json[ComputerGeneral.SusKey] = sus
-        json[ComputerGeneral.NetbootServerKey] = netbootServer
-        json[ComputerGeneral.SiteKey] = site?.toJSON()
-        json[ComputerGeneral.ItunesStoreAccountIsActiveKey] = isITunesStoreAcccountActivated
+        json[CodingKeys.distributionPoint.rawValue] = distributionPoint
+        json[CodingKeys.sus.rawValue] = sus
+        json[CodingKeys.netbootServer.rawValue] = netbootServer
+        json[CodingKeys.site.rawValue] = site?.toJSON()
+        json[CodingKeys.iTunesStoreAccountIsActive.rawValue] = isITunesStoreAcccountActivated
 
         return json
     }
 
-    // MARK: - Helpers
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(macAddress, forKey: .macAddress)
+        try container.encode(alternativeMacAddress, forKey: .alternativeMacAddress)
+        try container.encode(ipAddress, forKey: .ipAddress)
+        try container.encode(lastReportedIpAddress, forKey: .lastReportedIpAddress)
+        try container.encode(serialNumber, forKey: .serialNumber)
+        try container.encode(udid, forKey: .udid)
+        try container.encode(jamfVersion, forKey: .jamfVersion)
+        try container.encode(platform, forKey: .platform)
+        try container.encode(barcode1, forKey: .barcode1)
+        try container.encode(barcode2, forKey: .barcode2)
+        try container.encode(assetTag, forKey: .assetTag)
+        try container.encode(remoteManagement, forKey: .remoteManagement)
+        try container.encode(isMdmCapable, forKey: .mdmCapable)
+        try container.encode(mdmCapableUsers, forKey: .mdmCapableUsers)
+        try container.encode(reportDate, forKey: .reportDate)
+        try container.encode(lastContactTime, forKey: .lastContactTime)
+        try container.encode(initialEntryDate, forKey: .initialEntryDate)
+        try container.encode(lastCloudBackupDate, forKey: .lastCloudBackupDate)
+        try container.encode(lastEnrolledDate, forKey: .lastEnrolledDate)
+        try container.encode(distributionPoint, forKey: .distributionPoint)
+        try container.encode(sus, forKey: .sus)
+        try container.encode(netbootServer, forKey: .netbootServer)
+        try container.encode(site, forKey: .site)
+        try container.encode(isITunesStoreAcccountActivated, forKey: .iTunesStoreAccountIsActive)
+
+        try super.encode(to: encoder)
+    }
 
     private static func parseMdmCapableUsers(from json: [String: Any]) -> [String] {
-        guard let rawMdmCapableUsers = json[ComputerGeneral.MdmCapableUsersKey] as? [String: String] else {
+        guard let rawMdmCapableUsers = json[CodingKeys.mdmCapableUsers.rawValue] as? [String: String] else {
             return [String]()
         }
 

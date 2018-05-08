@@ -8,12 +8,15 @@
 
 /// Represents a logical configuration profile that can be applied to any mobile device managed by Jamf.
 @objc(JMFKMobileDeviceConfigurationProfile)
-public final class MobileDeviceConfigurationProfile: NSObject, Requestable, Endpoint, Subset {
+public final class MobileDeviceConfigurationProfile: NSObject, Codable, Requestable, Endpoint, Subset {
 
     // MARK: - Constants
 
     public static let Endpoint = "mobiledeviceconfigurationprofiles"
-    static let GeneralKey = "general"
+
+    enum CodingKeys: String, CodingKey {
+        case general
+    }
 
     // MARK: - Properties
 
@@ -25,17 +28,6 @@ public final class MobileDeviceConfigurationProfile: NSObject, Requestable, Endp
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        guard
-            let generalNode = json[MobileDeviceConfigurationProfile.GeneralKey] as? [String: Any],
-            let general = MobileDeviceConfigurationProfileGeneral(json: generalNode)
-            else {
-                return nil
-        }
-
-        self.general = general
-    }
-
     public init?(identifier: UInt, name: String) {
         guard let general = MobileDeviceConfigurationProfileGeneral(identifier: identifier, name: name) else {
             return nil
@@ -44,14 +36,37 @@ public final class MobileDeviceConfigurationProfile: NSObject, Requestable, Endp
         self.general = general
     }
 
+    public init?(json: [String: Any], node: String = "") {
+        guard
+            let generalNode = json[CodingKeys.general.rawValue] as? [String: Any],
+            let general = MobileDeviceConfigurationProfileGeneral(json: generalNode)
+            else {
+                return nil
+        }
+
+        self.general = general
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        general = try container.decode(MobileDeviceConfigurationProfileGeneral.self, forKey: .general)
+    }
+
     // MARK: - Functions
 
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[MobileDeviceConfigurationProfile.GeneralKey] = general.toJSON()
+        json[CodingKeys.general.rawValue] = general.toJSON()
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(general, forKey: .general)
     }
 }
 
@@ -60,7 +75,7 @@ public final class MobileDeviceConfigurationProfile: NSObject, Requestable, Endp
 extension MobileDeviceConfigurationProfile: Creatable {
 
     public func createRequest() -> URLRequest? {
-        return SessionManager.instance.createRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.createRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 }
 
@@ -81,7 +96,7 @@ extension MobileDeviceConfigurationProfile: Readable {
     }
 
     public func readRequestWithName() -> URLRequest? {
-        return SessionManager.instance.readRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.readRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 
@@ -90,12 +105,12 @@ extension MobileDeviceConfigurationProfile: Readable {
 extension MobileDeviceConfigurationProfile: Updatable {
 
     public func updateRequest() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(general.identifier))
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.IdentifierKey, value: String(general.identifier))
     }
 
     /// Returns a PUT **URLRequest** based on the name.
     public func updateRequestWithName() -> URLRequest? {
-        return SessionManager.instance.updateRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: general.name)
+        return SessionManager.instance.updateRequest(for: self, key: BaseObject.NameKey, value: general.name)
     }
 }
 

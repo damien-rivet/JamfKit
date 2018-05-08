@@ -58,6 +58,34 @@ class MobileDeviceTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 1)
-        XCTAssertNotNil(encodedObject?[MobileDevice.GeneralKey])
+        XCTAssertNotNil(encodedObject?[MobileDevice.CodingKeys.general.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "mobile_device", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(MobileDevice.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[MobileDevice][12345 - Mobile Device]")
+            XCTAssertNotNil(actualValue.general)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "mobile_device", subfolder: subfolder)!
+
+        let actualValue = MobileDevice(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

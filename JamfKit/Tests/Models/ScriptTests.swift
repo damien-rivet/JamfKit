@@ -69,7 +69,7 @@ class ScriptTests: XCTestCase {
         XCTAssertEqual(actualValue?.parameters.count, defaultParameters.count)
         XCTAssertEqual(actualValue?.osRequirements, defaultOsRequirements)
         XCTAssertEqual(actualValue?.scriptContents, defaultScriptContents)
-        XCTAssertEqual(actualValue?.scriptEncodedContents, defaultScriptEncodedContents)
+        XCTAssertEqual(actualValue?.scriptContentsEncoded, defaultScriptEncodedContents)
     }
 
     func testShouldInitializeFromIncompleteJSON() {
@@ -89,7 +89,7 @@ class ScriptTests: XCTestCase {
         XCTAssertEqual(actualValue?.parameters.count, 0)
         XCTAssertEqual(actualValue?.osRequirements, "")
         XCTAssertEqual(actualValue?.scriptContents, "")
-        XCTAssertEqual(actualValue?.scriptEncodedContents, "")
+        XCTAssertEqual(actualValue?.scriptContentsEncoded, "")
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
@@ -109,16 +109,54 @@ class ScriptTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 11)
 
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[Script.CategoryKey])
-        XCTAssertNotNil(encodedObject?[Script.FilenameKey])
-        XCTAssertNotNil(encodedObject?[Script.InfoKey])
-        XCTAssertNotNil(encodedObject?[Script.NotesKey])
-        XCTAssertNotNil(encodedObject?[Script.PriorityKey])
-        XCTAssertNotNil(encodedObject?[Script.ParametersKey])
-        XCTAssertNotNil(encodedObject?[Script.OSRequirementsKey])
-        XCTAssertNotNil(encodedObject?[Script.ScriptContentsKey])
-        XCTAssertNotNil(encodedObject?[Script.ScriptContentsEncodedKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.category.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.filename.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.info.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.notes.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.priority.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.parameters.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.osRequirements.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.scriptContents.rawValue])
+        XCTAssertNotNil(encodedObject?[Script.CodingKeys.scriptContentsEncoded.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "script_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Script.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[Script][\(defaultIdentifier) - \(defaultName)]")
+            XCTAssertEqual(actualValue.category, defaultCategory)
+            XCTAssertEqual(actualValue.filename, defaultFilename)
+            XCTAssertEqual(actualValue.information, defaultInformation)
+            XCTAssertEqual(actualValue.notes, defaultNotes)
+            XCTAssertEqual(actualValue.priority, defaultPriority)
+            XCTAssertEqual(actualValue.parameters.count, defaultParameters.count)
+            XCTAssertEqual(actualValue.osRequirements, defaultOsRequirements)
+            XCTAssertEqual(actualValue.scriptContents, defaultScriptContents)
+            XCTAssertEqual(actualValue.scriptContentsEncoded, defaultScriptEncodedContents)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "script_valid", subfolder: subfolder)!
+
+        let actualValue = Script(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

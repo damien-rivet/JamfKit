@@ -49,4 +49,32 @@ class BaseObjectTests: XCTestCase {
         XCTAssertEqual(encodedObject?.count, 2)
     }
 
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "base_object_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(BaseObject.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.description, "[BaseObject][\(defaultIdentifier) - \(defaultName)]")
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "base_object_valid", subfolder: subfolder)!
+
+        let actualValue = BaseObject(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
+    }
 }

@@ -72,8 +72,38 @@ class ComputerTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 3)
-        XCTAssertNotNil(encodedObject?[Computer.GeneralKey])
-        XCTAssertNotNil(encodedObject?[Computer.LocationKey])
-        XCTAssertNotNil(encodedObject?[Computer.PurchasingKey])
+        XCTAssertNotNil(encodedObject?[Computer.CodingKeys.general.rawValue])
+        XCTAssertNotNil(encodedObject?[Computer.CodingKeys.location.rawValue])
+        XCTAssertNotNil(encodedObject?[Computer.CodingKeys.purchasing.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(Computer.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[Computer][12345 - computer]")
+            XCTAssertNotNil(actualValue.general)
+            XCTAssertNotNil(actualValue.location)
+            XCTAssertNotNil(actualValue.purchasing)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer", subfolder: subfolder)!
+
+        let actualValue = Computer(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

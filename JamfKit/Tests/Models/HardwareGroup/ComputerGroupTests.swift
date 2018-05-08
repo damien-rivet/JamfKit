@@ -108,11 +108,46 @@ class ComputerGroupTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 6)
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.identifier.rawValue])
-        XCTAssertNotNil(encodedObject?[BaseObject.CodingKeys.name.rawValue])
-        XCTAssertNotNil(encodedObject?[ComputerGroup.IsSmartKey])
-        XCTAssertNotNil(encodedObject?[ComputerGroup.CriteriaKey])
-        XCTAssertNotNil(encodedObject?[ComputerGroup.SiteKey])
-        XCTAssertNotNil(encodedObject?[ComputerGroup.ComputersKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.IdentifierKey])
+        XCTAssertNotNil(encodedObject?[BaseObject.NameKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroup.IsSmartKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroup.CriteriaKey])
+        XCTAssertNotNil(encodedObject?[HardwareGroup.SiteKey])
+        XCTAssertNotNil(encodedObject?[ComputerGroup.CodingKeys.computers.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_group_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerGroup.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.description, "[ComputerGroup][12345 - computers]")
+            XCTAssertEqual(actualValue.identifier, defaultIdentifier)
+            XCTAssertEqual(actualValue.name, defaultName)
+            XCTAssertEqual(actualValue.isSmart, defaultIsSmart)
+            XCTAssertNotNil(actualValue.criteria)
+            XCTAssertEqual(actualValue.criteria.count, 1)
+            XCTAssertNotNil(actualValue.site)
+            XCTAssertNotNil(actualValue.computers)
+            XCTAssertEqual(actualValue.computers.count, 1)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_group_valid", subfolder: subfolder)!
+
+        let actualValue = ComputerGroup(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

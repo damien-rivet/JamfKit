@@ -24,29 +24,29 @@ public protocol Deletable {
 extension Deletable where Self: Endpoint & Identifiable {
 
     static func getDeleteRequest(identifier: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.IdentifierKey, value: identifier)
     }
 
     func getDeleteRequest() -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: String(identifier))
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.IdentifierKey, value: String(identifier))
     }
 
     static func getDeleteRequest(name: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 
     func getDeleteRequestWithName() -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 }
 
 extension Deletable where Self: Endpoint & Requestable & Subset {
 
     static func getDeleteRequest(identifier: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.identifier.rawValue, value: identifier)
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.IdentifierKey, value: identifier)
     }
 
     static func getDeleteRequest(name: String) -> URLRequest? {
-        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.CodingKeys.name.rawValue, value: name)
+        return SessionManager.instance.deleteRequest(for: self, key: BaseObject.NameKey, value: name)
     }
 }

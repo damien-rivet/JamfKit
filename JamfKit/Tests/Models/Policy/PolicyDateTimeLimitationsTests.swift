@@ -26,8 +26,8 @@ class PolicyDateTimeLimitationsTests: XCTestCase {
     func testShouldInitializeFromJSON() {
         let payload = self.payload(for: "policy_date_time_limitations", subfolder: subfolder)!
 
-        let defaultActivationDate = PreciseDate(json: payload, node: PolicyDateTimeLimitations.ActivationDateKey)
-        let defaultExpirationDate = PreciseDate(json: payload, node: PolicyDateTimeLimitations.ExpirationDateKey)
+        let defaultActivationDate = PreciseDate(json: payload, node: PolicyDateTimeLimitations.CodingKeys.activationDate.rawValue)
+        let defaultExpirationDate = PreciseDate(json: payload, node: PolicyDateTimeLimitations.CodingKeys.expirationDate.rawValue)
 
         let actualValue = PolicyDateTimeLimitations(json: payload)
 
@@ -64,18 +64,59 @@ class PolicyDateTimeLimitationsTests: XCTestCase {
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 9)
 
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.ActivationDateKey])
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.ActivationDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.ActivationDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.activationDate.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.activationDate.rawValue + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.activationDate.rawValue + PreciseDate.UTCKey])
 
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.ExpirationDateKey])
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.ExpirationDateKey + PreciseDate.EpochKey])
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.ExpirationDateKey + PreciseDate.UTCKey])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.expirationDate.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.expirationDate.rawValue + PreciseDate.EpochKey])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.expirationDate.rawValue + PreciseDate.UTCKey])
 
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.NoExecuteOnKey])
-        let noExecuteOn = encodedObject?[PolicyDateTimeLimitations.NoExecuteOnKey] as! [String: String]
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.noExecuteOn.rawValue])
+        let noExecuteOn = encodedObject?[PolicyDateTimeLimitations.CodingKeys.noExecuteOn.rawValue] as! [String: String]
         XCTAssertEqual(noExecuteOn.count, 1)
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.NoExecuteStartKey])
-        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.NoExecuteEndKey])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.noExecuteStart.rawValue])
+        XCTAssertNotNil(encodedObject?[PolicyDateTimeLimitations.CodingKeys.noExecuteEnd.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payload(for: "policy_date_time_limitations", subfolder: subfolder)!
+
+        let defaultActivationDate = PreciseDate(json: payload, node: PolicyDateTimeLimitations.CodingKeys.activationDate.rawValue)
+        let defaultExpirationDate = PreciseDate(json: payload, node: PolicyDateTimeLimitations.CodingKeys.expirationDate.rawValue)
+
+        let payloadData = self.payloadData(for: "policy_date_time_limitations", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(PolicyDateTimeLimitations.self, from: payloadData)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.activationDate?.date, defaultActivationDate?.date)
+            XCTAssertEqual(actualValue.activationDate?.epoch, defaultActivationDate?.epoch)
+            XCTAssertEqual(actualValue.activationDate?.dateUTC, defaultActivationDate?.dateUTC)
+            XCTAssertEqual(actualValue.expirationDate?.date, defaultExpirationDate?.date)
+            XCTAssertEqual(actualValue.expirationDate?.epoch, defaultExpirationDate?.epoch)
+            XCTAssertEqual(actualValue.expirationDate?.dateUTC, defaultExpirationDate?.dateUTC)
+            XCTAssertEqual(actualValue.noExecutionOn.count, defaultNoExecuteOn.count)
+            XCTAssertEqual(actualValue.noExecutionOn["day"], "Sun")
+            XCTAssertEqual(actualValue.noExecutionStart, defaultNoExecuteStart)
+            XCTAssertEqual(actualValue.noExecutionEnd, defaultNoExecuteEnd)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "policy_date_time_limitations", subfolder: subfolder)!
+
+        let actualValue = PolicyDateTimeLimitations(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

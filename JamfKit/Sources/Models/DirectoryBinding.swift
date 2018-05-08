@@ -13,12 +13,15 @@ public final class DirectoryBinding: BaseObject, Endpoint {
     // MARK: - Constants
 
     public static let Endpoint = "directorybindings"
-    static let PriorityKey = "priority"
-    static let DomainKey = "domain"
-    static let UsernameKey = "username"
-    static let PasswordKey = "password"
-    static let ComputerOrganisationalUnitKey = "computer_ou"
-    static let TypeKey = "type"
+
+    enum CodingKeys: String, CodingKey {
+        case priority = "priority"
+        case domain = "domain"
+        case username = "username"
+        case password = "password"
+        case computerOrganisationalUnit = "computer_ou"
+        case type = "type"
+    }
 
     // MARK: - Properties
 
@@ -42,19 +45,32 @@ public final class DirectoryBinding: BaseObject, Endpoint {
 
     // MARK: - Initialization
 
+    public override init?(identifier: UInt, name: String) {
+        super.init(identifier: identifier, name: name)
+    }
+
     public required init?(json: [String: Any], node: String = "") {
-        priority = json[DirectoryBinding.PriorityKey] as? UInt ?? 0
-        domain = json[DirectoryBinding.DomainKey] as? String ?? ""
-        username = json[DirectoryBinding.UsernameKey] as? String ?? ""
-        password = json[DirectoryBinding.PasswordKey] as? String ?? ""
-        computerOrganisationalUnit = json[DirectoryBinding.ComputerOrganisationalUnitKey] as? String ?? ""
-        type = json[DirectoryBinding.TypeKey] as? String ?? ""
+        priority = json[CodingKeys.priority.rawValue] as? UInt ?? 0
+        domain = json[CodingKeys.domain.rawValue] as? String ?? ""
+        username = json[CodingKeys.username.rawValue] as? String ?? ""
+        password = json[CodingKeys.password.rawValue] as? String ?? ""
+        computerOrganisationalUnit = json[CodingKeys.computerOrganisationalUnit.rawValue] as? String ?? ""
+        type = json[CodingKeys.type.rawValue] as? String ?? ""
 
         super.init(json: json)
     }
 
-    public override init?(identifier: UInt, name: String) {
-        super.init(identifier: identifier, name: name)
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        priority = try container.decode(UInt.self, forKey: .priority)
+        domain = try container.decode(String.self, forKey: .domain)
+        username = try container.decode(String.self, forKey: .username)
+        password = try container.decode(String.self, forKey: .password)
+        computerOrganisationalUnit = try container.decode(String.self, forKey: .computerOrganisationalUnit)
+        type = try container.decode(String.self, forKey: .type)
+
+        try super.init(from: decoder)
     }
 
     // MARK: - Functions
@@ -62,14 +78,27 @@ public final class DirectoryBinding: BaseObject, Endpoint {
     public override func toJSON() -> [String: Any] {
         var json = super.toJSON()
 
-        json[DirectoryBinding.PriorityKey] = priority
-        json[DirectoryBinding.DomainKey] = domain
-        json[DirectoryBinding.UsernameKey] = username
-        json[DirectoryBinding.PasswordKey] = password
-        json[DirectoryBinding.ComputerOrganisationalUnitKey] = computerOrganisationalUnit
-        json[DirectoryBinding.TypeKey] = type
+        json[CodingKeys.priority.rawValue] = priority
+        json[CodingKeys.domain.rawValue] = domain
+        json[CodingKeys.username.rawValue] = username
+        json[CodingKeys.password.rawValue] = password
+        json[CodingKeys.computerOrganisationalUnit.rawValue] = computerOrganisationalUnit
+        json[CodingKeys.type.rawValue] = type
 
         return json
+    }
+
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(priority, forKey: .priority)
+        try container.encode(domain, forKey: .domain)
+        try container.encode(username, forKey: .username)
+        try container.encode(password, forKey: .password)
+        try container.encode(computerOrganisationalUnit, forKey: .computerOrganisationalUnit)
+        try container.encode(type, forKey: .type)
+
+        try super.encode(to: encoder)
     }
 }
 

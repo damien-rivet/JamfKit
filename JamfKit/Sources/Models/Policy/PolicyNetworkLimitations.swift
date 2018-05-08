@@ -7,12 +7,14 @@
 //
 
 @objc(JMFKPolicyNetworkLimitations)
-public final class PolicyNetworkLimitations: NSObject, Requestable {
+public final class PolicyNetworkLimitations: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let MinimumNetworkConnectionKey = "minimum_network_connection"
-    static let AnyIpAddressKey = "any_ip_address"
+    enum CodingKeys: String, CodingKey {
+        case minimumNetworkConnection = "minimum_network_connection"
+        case anyIpAddress = "any_ip_address"
+    }
 
     // MARK: - Properties
 
@@ -24,13 +26,20 @@ public final class PolicyNetworkLimitations: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        minimumNetworkConnection = json[PolicyNetworkLimitations.MinimumNetworkConnectionKey] as? String ?? ""
-        anyIpAddress = json[PolicyNetworkLimitations.AnyIpAddressKey] as? Bool ?? false
-    }
-
     public override init() {
         super.init()
+    }
+
+    public init?(json: [String: Any], node: String = "") {
+        minimumNetworkConnection = json[CodingKeys.minimumNetworkConnection.rawValue] as? String ?? ""
+        anyIpAddress = json[CodingKeys.anyIpAddress.rawValue] as? Bool ?? false
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        minimumNetworkConnection = try container.decode(String.self, forKey: .minimumNetworkConnection)
+        anyIpAddress = try container.decode(Bool.self, forKey: .anyIpAddress)
     }
 
     // MARK: - Functions
@@ -38,9 +47,16 @@ public final class PolicyNetworkLimitations: NSObject, Requestable {
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[PolicyNetworkLimitations.MinimumNetworkConnectionKey] = minimumNetworkConnection
-        json[PolicyNetworkLimitations.AnyIpAddressKey] = anyIpAddress
+        json[CodingKeys.minimumNetworkConnection.rawValue] = minimumNetworkConnection
+        json[CodingKeys.anyIpAddress.rawValue] = anyIpAddress
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(minimumNetworkConnection, forKey: .minimumNetworkConnection)
+        try container.encode(anyIpAddress, forKey: .anyIpAddress)
     }
 }

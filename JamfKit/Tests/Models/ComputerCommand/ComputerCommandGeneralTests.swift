@@ -60,7 +60,35 @@ class ComputerCommandGeneralTests: XCTestCase {
 
         XCTAssertNotNil(encodedObject)
         XCTAssertEqual(encodedObject?.count, 2)
-        XCTAssertNotNil(encodedObject?[ComputerCommandGeneral.CommandKey])
-        XCTAssertNotNil(encodedObject?[ComputerCommandGeneral.PasscodeKey])
+        XCTAssertNotNil(encodedObject?[ComputerCommandGeneral.CodingKeys.command.rawValue])
+        XCTAssertNotNil(encodedObject?[ComputerCommandGeneral.CodingKeys.passcode.rawValue])
+    }
+
+    func testShouldInitializeFromData() {
+        let payload = self.payloadData(for: "computer_command_general_valid", subfolder: subfolder)!
+
+        do {
+            let actualValue = try JSONDecoder().decode(ComputerCommandGeneral.self, from: payload)
+
+            XCTAssertNotNil(actualValue)
+            XCTAssertEqual(actualValue.command, defaultCommand)
+            XCTAssertEqual(actualValue.passcode, defaultPasscode)
+        } catch {
+            XCTFail("Failed to initialize from data")
+        }
+    }
+
+    func testShouldEncodeToData() {
+        let payload = self.payload(for: "computer_command_general_valid", subfolder: subfolder)!
+
+        let actualValue = ComputerCommandGeneral(json: payload)
+
+        do {
+            let encodedObject = try JSONEncoder().encode(actualValue)
+
+            XCTAssertNotNil(encodedObject)
+        } catch {
+            XCTFail("Failed to encode to data")
+        }
     }
 }

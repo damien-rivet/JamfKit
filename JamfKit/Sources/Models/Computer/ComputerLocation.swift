@@ -7,18 +7,20 @@
 //
 
 @objc(JMFKComputerLocation)
-public final class ComputerLocation: NSObject, Requestable {
+public final class ComputerLocation: NSObject, Codable, Requestable {
 
     // MARK: - Constants
 
-    static let UsernameKey = "username"
-    static let RealNameKey = "real_name"
-    static let EmailAddressKey = "email_address"
-    static let PositionKey = "position"
-    static let PhoneNumberKey = "phone_number"
-    static let DepartementKey = "department"
-    static let BuildingKey = "building"
-    static let RoomKey = "room"
+    enum CodingKeys: String, CodingKey {
+        case username = "username"
+        case realName = "real_name"
+        case emailAddress = "email_address"
+        case position = "position"
+        case phoneNumber = "phone_number"
+        case department = "department"
+        case building = "building"
+        case room = "room"
+    }
 
     // MARK: - Properties
 
@@ -48,19 +50,32 @@ public final class ComputerLocation: NSObject, Requestable {
 
     // MARK: - Initialization
 
-    public init?(json: [String: Any], node: String = "") {
-        username = json[ComputerLocation.UsernameKey] as? String ?? ""
-        realName = json[ComputerLocation.RealNameKey] as? String ?? ""
-        emailAddress = json[ComputerLocation.EmailAddressKey] as? String ?? ""
-        position = json[ComputerLocation.PositionKey] as? String ?? ""
-        phoneNumber = json[ComputerLocation.PhoneNumberKey] as? String ?? ""
-        department = json[ComputerLocation.DepartementKey] as? String ?? ""
-        building = json[ComputerLocation.BuildingKey] as? String ?? ""
-        room = json[ComputerLocation.RoomKey] as? UInt ?? 0
-    }
-
     public override init() {
         super.init()
+    }
+
+    public init?(json: [String: Any], node: String = "") {
+        username = json[CodingKeys.username.rawValue] as? String ?? ""
+        realName = json[CodingKeys.realName.rawValue] as? String ?? ""
+        emailAddress = json[CodingKeys.emailAddress.rawValue] as? String ?? ""
+        position = json[CodingKeys.position.rawValue] as? String ?? ""
+        phoneNumber = json[CodingKeys.phoneNumber.rawValue] as? String ?? ""
+        department = json[CodingKeys.department.rawValue] as? String ?? ""
+        building = json[CodingKeys.building.rawValue] as? String ?? ""
+        room = json[CodingKeys.room.rawValue] as? UInt ?? 0
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        username = try container.decode(String.self, forKey: .username)
+        realName = try container.decode(String.self, forKey: .realName)
+        emailAddress = try container.decode(String.self, forKey: .emailAddress)
+        position = try container.decode(String.self, forKey: .position)
+        phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        department = try container.decode(String.self, forKey: .department)
+        building = try container.decode(String.self, forKey: .building)
+        room = try container.decode(UInt.self, forKey: .room)
     }
 
     // MARK: - Functions
@@ -68,15 +83,28 @@ public final class ComputerLocation: NSObject, Requestable {
     public func toJSON() -> [String: Any] {
         var json = [String: Any]()
 
-        json[ComputerLocation.UsernameKey] = username
-        json[ComputerLocation.RealNameKey] = realName
-        json[ComputerLocation.EmailAddressKey] = emailAddress
-        json[ComputerLocation.PositionKey] = position
-        json[ComputerLocation.PhoneNumberKey] = phoneNumber
-        json[ComputerLocation.DepartementKey] = department
-        json[ComputerLocation.BuildingKey] = building
-        json[ComputerLocation.RoomKey] = room
+        json[CodingKeys.username.rawValue] = username
+        json[CodingKeys.realName.rawValue] = realName
+        json[CodingKeys.emailAddress.rawValue] = emailAddress
+        json[CodingKeys.position.rawValue] = position
+        json[CodingKeys.phoneNumber.rawValue] = phoneNumber
+        json[CodingKeys.department.rawValue] = department
+        json[CodingKeys.building.rawValue] = building
+        json[CodingKeys.room.rawValue] = room
 
         return json
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(username, forKey: .username)
+        try container.encode(realName, forKey: .realName)
+        try container.encode(emailAddress, forKey: .emailAddress)
+        try container.encode(position, forKey: .position)
+        try container.encode(phoneNumber, forKey: .phoneNumber)
+        try container.encode(department, forKey: .department)
+        try container.encode(building, forKey: .building)
+        try container.encode(room, forKey: .room)
     }
 }
