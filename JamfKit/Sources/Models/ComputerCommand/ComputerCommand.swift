@@ -1,7 +1,4 @@
 //
-//  ComputerCommand.swift
-//  JamfKit
-//
 //  Copyright © 2017-present JamfKit. All rights reserved.
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
@@ -41,7 +38,7 @@ public final class ComputerCommand: NSObject, Requestable, Endpoint, Subset {
         self.general = general
 
         if let computersNode = json[ComputerCommand.ComputersKey] as? [String: [String: UInt]] {
-            computers = computersNode.flatMap { $0.value }.flatMap { $1 }
+            computers = computersNode.flatMap { $0.value }.compactMap { $1 }
         } else {
             computers = [UInt]()
         }
