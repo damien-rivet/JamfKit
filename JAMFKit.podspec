@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JAMFKit"
-  s.version      = "0.3.1"
+  s.version      = "0.3.2"
   s.summary      = "A JSS communication framework written in Swift"
   s.description  = <<-DESC
     JamfKit is an iOS / macOS / tvOS framework to communicate with the JSS API offered by any Jamf host. 
