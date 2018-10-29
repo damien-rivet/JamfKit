@@ -1,7 +1,4 @@
 //
-//  User.swift
-//  JamfKit
-//
 //  Copyright © 2017-present JamfKit. All rights reserved.
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
@@ -71,7 +68,7 @@ public final class User: BaseObject, Endpoint {
 
         var sites = [Site]()
         if let rawSites = json[User.SitesKey] as? [[String: Any]] {
-            sites = rawSites.flatMap { Site(json: $0) }
+            sites = rawSites.compactMap { Site(json: $0) }
         } else if
             let rawSite = json[User.SitesKey] as? [String: Any],
             let site = Site(json: rawSite) {

@@ -1,7 +1,4 @@
 //
-//  BaseObject.swift
-//  JamfKit
-//
 //  Copyright © 2017-present JamfKit. All rights reserved.
 //  Licensed under the MIT License. See LICENSE file in the project root for full license information.
 //
@@ -83,7 +80,7 @@ public class BaseObject: NSObject, Requestable, Identifiable {
             return elements
         }
 
-        let newElements = elementsNode.map { $0[singleNodeKey] }.flatMap { rawElementNode -> Element? in
+        let newElements = elementsNode.map { $0[singleNodeKey] }.compactMap { rawElementNode -> Element? in
             guard let rawElement = rawElementNode else {
                 return nil
             }
