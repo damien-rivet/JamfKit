@@ -14,6 +14,12 @@ class BuildingTests: XCTestCase {
     let subfolder = "Building/"
     let defaultIdentifier: UInt = 12345
     let defaultName = "Building"
+    let defaultStreetAddress1 = "Doe Street"
+    let defaultStreetAddress2 = ""
+    let defaultCity = "Doeville"
+    let defaultStateProvince = "Doe county"
+    let defaultZipPostalCode = "012345"
+    let defaultCountry = "Doeland"
 
     // MARK: - Tests
 
@@ -40,6 +46,12 @@ class BuildingTests: XCTestCase {
         XCTAssertEqual(actualValue?.identifier, defaultIdentifier)
         XCTAssertEqual(actualValue?.name, defaultName)
         XCTAssertEqual(actualValue?.description, "[Building][\(defaultIdentifier) - \(defaultName)]")
+        XCTAssertEqual(actualValue?.streetAddress1, defaultStreetAddress1)
+        XCTAssertEqual(actualValue?.streetAddress2, defaultStreetAddress2)
+        XCTAssertEqual(actualValue?.city, defaultCity)
+        XCTAssertEqual(actualValue?.stateProvince, defaultStateProvince)
+        XCTAssertEqual(actualValue?.zipPostalCode, defaultZipPostalCode)
+        XCTAssertEqual(actualValue?.country, defaultCountry)
     }
 
     func testShouldNotInitializeFromInvalidJSON() {
@@ -57,6 +69,6 @@ class BuildingTests: XCTestCase {
         let encodedObject = actualValue?.toJSON()
 
         XCTAssertNotNil(encodedObject)
-        XCTAssertEqual(encodedObject?.count, 2)
+        XCTAssertEqual(encodedObject?.count, 8)
     }
 }
