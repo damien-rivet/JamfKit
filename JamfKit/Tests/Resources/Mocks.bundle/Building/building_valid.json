@@ -1,4 +1,10 @@
 {
     "id": 12345,
-    "name": "Building"
+    "name": "Building",
+    "streetAddress1": "Doe Street",
+    "streetAddress2": "",
+    "city": "Doeville",
+    "stateProvince": "Doe county",
+    "zipPostalCode": "012345",
+    "country": "Doeland"
 }
