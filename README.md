@@ -1,8 +1,8 @@
-# JamfKit #
+# JamfKit
 
 <p align="center"><img src="Assets/JamfKit_256.png" alt="JamfKit"></p>
 
-![Swift](https://img.shields.io/badge/Swift-4.1+-lightgrey.svg?style=flat-square)
+![Swift](https://img.shields.io/badge/Swift-5.0+-f05138.svg?style=flat-square)
 ![iOS](https://img.shields.io/badge/iOS-9+-lightgrey.svg?style=flat-square)
 ![macOS](https://img.shields.io/badge/macOS-10.10+-lightgrey.svg?style=flat-square)
 ![tvOS](https://img.shields.io/badge/tvOS-9.0+-lightgrey.svg?style=flat-square)
@@ -15,7 +15,7 @@
 
 `JamfKit` is an iOS / macOS / tvOS framework to communicate with the JSS API offered by any Jamf host.
 
-## Summary ##
+## Summary
 
 - [Features](#features)
 - [Installation](#installation)
@@ -32,17 +32,17 @@
 - [Credits](#credits)
 - [License](#license)
 
-## Features ##
+## Features
 
 - [x] Includes JSON encoding / decoding support for most of the JSS objects
 - [x] Includes Objective-C support
-- [x] Includes Swift 4+ support
+- [x] Includes Swift 5+ support
 - [x] Includes ready-for-consumption CRUD `URLRequest` for JSS endpoints
 - [x] Includes demonstration playgrounds for class handling or request generation
 
-## Installation ##
+## Installation
 
-### Carthage ###
+### Carthage
 
 To integrate `JamfKit` into your project, add the following line in your `Cartfile`:
 
@@ -54,7 +54,7 @@ Then run the following command:
 
 `$ carthage update`
 
-### Cocoapods ###
+### Cocoapods
 
 To integrate `JamfKit` into your project, add the following line in your `Podfile`:
 
@@ -72,9 +72,9 @@ Then run the following command:
 
 `$ pod install`
 
-## Architecture ##
+## Architecture
 
-### Protocols ###
+### Protocols
 
 |Protocol|Description|
 |-----|-----|
@@ -83,14 +83,14 @@ Then run the following command:
 |`Requestable`|Represents an object that can be used to perform requests with any JSS endpoint.|
 |`Subset`|Represents any JSS object that contains a general object that can identify it.|
 
-#### Requestable conformance ####
+#### Requestable conformance
 
  The class that conform to `Requestable` exposes the following elements:
 
 - An failable initializer that takes a JSON payload and return the instantiated object
 - A function to return the JSON payload that represents the instance of the object
 
-### Classes ###
+### Classes
 
 |Class|Desscription|
 |-----|-----|
@@ -117,21 +117,21 @@ Then run the following command:
 |`SMTPServer`|Represents the physical SMTP server configuration.|
 |`User`|Represents a Jamf user and contains the identification properties that are required to contact the actual user and identify the hardware devices assigned to him / her.|
 
-## Usage ##
+## Usage
 
-### Getting started ###
+### Getting started
 
-#### Playgrounds ####
+#### Playgrounds
 
 To get a quick look on how you can use `JamfKit` in your `Jamf` related features, you can check the `Playgrounds` included within the workspace.
 
 Also check the unit tests, they should cover most of your needs.
 
-#### Models ####
+#### Models
 
 Most of the classes can be initialized with the bare minimul values, all the properties are then available for modification.
 
-#### Requests ####
+#### Requests
 
 By adhering to the different CRUD protocols (`Creatable`, `Readable`, `Updatable` & `Deletable`), most of the JSS objects listed above are capable of supplying varying `URLRequest` that should fit any needs.
 
@@ -149,13 +149,13 @@ You'll find below the basic functions to get `URLRequest`:
 
 Some objects will offer variants of those requests, like `MobileDevice` with `readRequestWithName()` or `deleteRequestWithSerialNumber()` (with both `static` and `instance` variants).
 
-## Contributing ##
+## Contributing
 
 So, you want to help improve `JamfKit`? That's great! Any useful contribution is welcome!
 
 Check [CONTRIBUTING](https://github.com/Ethenyl/JamfKit/blob/master/CONTRIBUTING.md) for more details on how you can contribute to `JamfKit`.
 
-## Code of conduct ##
+## Code of conduct
 
 Any contributions (issues, pull requests, comments, etc.) to `JamfKit` are more than welcome.
 
@@ -163,16 +163,16 @@ But before making any contribution, please make sure that you follow the [CODE O
 
 Otherwise, there's a great chance that your contribution will be removed / blocked / hidden.
 
-## FAQ ##
+## FAQ
 
 None for the moment.
 
-## Credits ##
+## Credits
 
 `JamfKit` is owned and maintained by [Ethenyl](https://github.com/Ethenyl).
 
 You can join the list by contributing to the repository.
 
-## License ##
+## License
 
 `JamfKit` is released under the MIT license. See [LICENSE](https://github.com/Ethenyl/JamfKit/blob/master/LICENSE) for more details.
